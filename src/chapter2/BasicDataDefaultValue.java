@@ -1,4 +1,4 @@
-package com.jverson.thinking.capter2;
+package chapter2;
 /**
  * 
  * 如果类的成员变量是基本数据类型，即使没有初始化，java也会确保其获得一个默认值

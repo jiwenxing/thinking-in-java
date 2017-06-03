@@ -1,4 +1,4 @@
-package com.jverson.thinking.capter2;
+package chapter2;
 
 /**
  * 

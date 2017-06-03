@@ -1,5 +1,5 @@
 
-package com.jverson.thinking.capter3;
+package chapter3;
 
 /**
  * 

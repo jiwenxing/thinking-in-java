@@ -4,6 +4,7 @@
  */
 package chapter10;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * @author jverson
@@ -65,4 +66,25 @@ interface Selector{
 	boolean end();
 	Object current();
 	void next();
+	
+	//示例接口中定义内部类，甚至可以在内部类中实现外围接口
+	class Test implements Selector{
+		@Override
+		public boolean end() {
+			System.out.println("end");
+			return false;
+		}
+		@Override
+		public Object current() {
+			System.out.println("current");
+			return null;
+		}
+		@Override
+		public void next() {
+			System.out.println("next");
+		}
+		public static void main(String[] args) {
+			System.out.println(new Test().current());
+		}
+	}
 }

@@ -17,6 +17,10 @@ public class IceCream {
 //		Sundae sundae2 = new Sundae();  //这里不可访问，会报错
 		
 		Sundae2.access().f();
+		
+		Integer a = 111;
+		Integer b =  111;
+		System.out.println(a==b);
 	}
 	
 }

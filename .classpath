@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry excluding="test/|test/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/jverson/Downloads/cglib-3.2.5.jar"/>
+	<classpathentry kind="lib" path="/Users/jverson/Downloads/asm-5.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

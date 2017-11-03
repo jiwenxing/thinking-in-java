@@ -6,7 +6,7 @@ package chapter14.RTTI;
 
 /**
  * @author Jverson
- *
+ * 
  */
 public class FancyToy extends Toy implements Interface1, Interface2, Interface3{
 

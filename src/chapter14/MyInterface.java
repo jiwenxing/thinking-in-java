@@ -8,7 +8,7 @@ package chapter14;
  * @author Jverson
  *
  */
-public interface Interface {
+public interface MyInterface {
 
 	void doSth();
 	

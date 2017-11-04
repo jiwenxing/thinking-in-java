@@ -36,7 +36,7 @@ public class Box<T> {
 		Box<Integer> age = new Box<Integer>(712);
 		
 		getData(name);
-		getData(age);   //error
+		getData(age);   
 	}
 
 	public static void getData(Box<? extends Number> data) {

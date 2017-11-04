@@ -8,13 +8,13 @@ package chapter14;
  * @author Jverson
  *
  */
-public class SimpleProxy implements Interface {
+public class SimpleProxy implements MyInterface {
 
-	private Interface proxied;
+	private MyInterface proxied;
 	/**
 	 * 
 	 */
-	public SimpleProxy(Interface proxied) {
+	public SimpleProxy(MyInterface proxied) {
 		this.proxied = proxied;
 	}
 	/* (non-Javadoc)

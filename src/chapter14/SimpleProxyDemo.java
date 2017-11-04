@@ -10,7 +10,7 @@ package chapter14;
  */
 public class SimpleProxyDemo {
 
-	public static void consumer(Interface iFace){
+	public static void consumer(MyInterface iFace){
 		iFace.doSth();
 		iFace.doSthElse("babababa");
 	}

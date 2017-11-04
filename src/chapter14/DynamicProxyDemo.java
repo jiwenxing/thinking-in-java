@@ -11,7 +11,7 @@ import java.lang.reflect.Proxy;
  */
 public class DynamicProxyDemo {
 
-	public static void consumer(Interface iface) {
+	public static void consumer(MyInterface iface) {
 		iface.doSth();
 		iface.doSthElse("dynamic proxy");
 	}
@@ -19,9 +19,10 @@ public class DynamicProxyDemo {
 	public static void main(String[] args) {
 		RealObject realObject = new RealObject();
 		// consumer(realObject);
-		Interface proxy = (Interface) Proxy.newProxyInstance(Interface.class.getClassLoader(),
-				new Class[] { Interface.class }, new DynamicProxyHandler(realObject));
-		consumer(proxy);
+		MyInterface proxy = (MyInterface) Proxy.newProxyInstance(MyInterface.class.getClassLoader(),
+				new Class[] { MyInterface.class }, new DynamicProxyHandler(realObject));
+//		consumer(proxy);
+		proxy.doSth();
 	}
 
 }

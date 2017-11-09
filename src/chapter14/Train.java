@@ -8,7 +8,7 @@ package chapter14;
  * @author Jverson
  *
  */
-public class Train {
+public final class Train {
 
 	public void move(){  
         System.out.println("train running…");  

@@ -31,7 +31,9 @@ public class MyInvocatioHandler implements InvocationHandler {
 	}
 	
 	public Object getProxy() {
+		// 获取对应的ClassLoader  
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
+		// 获取实现的所有接口  
 		Class<?>[] interfaces = target.getClass().getInterfaces(); //类可以实现多个接口，因此这里的接口是个数组
 		return Proxy.newProxyInstance(loader, interfaces, this);
 	}

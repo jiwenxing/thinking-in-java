@@ -14,8 +14,8 @@ public class CGLibProxyTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		CGLibProxy proxy = new CGLibProxy();
-		Train t = (Train)proxy.getProxy(new Train());
+		CGLibProxy proxy = new CGLibProxy(new Train());
+		Train t = (Train)proxy.getProxy();
 		t.move();
 	}
 

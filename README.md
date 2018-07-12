@@ -14,6 +14,7 @@
 - [内部类](https://github.com/jiwenxing/thinking-in-java/wiki/java%E5%86%85%E9%83%A8%E7%B1%BB)
 - [容器(持有对象)的基本概念及操作](https://github.com/jiwenxing/thinking-in-java/wiki/%E5%AE%B9%E5%99%A8(%E6%8C%81%E6%9C%89%E5%AF%B9%E8%B1%A1)%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%93%8D%E4%BD%9C)
   - [*HashMap、HashTable & ConcurrentHashMap*]()
+  - [*HashMap 的实现原理*]()
 - [java异常处理](https://github.com/jiwenxing/thinking-in-java/wiki/Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86)
 - [*字符串基础*]()
 - [JDK 代理及 CGLib 代理](https://github.com/jiwenxing/thinking-in-java/wiki/JDK%E4%BB%A3%E7%90%86%E5%8F%8ACGLib%E4%BB%A3%E7%90%86)

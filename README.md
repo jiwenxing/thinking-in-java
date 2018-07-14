@@ -1,6 +1,6 @@
 ## Welcome to the thinking-in-java wiki!
 
-重读《thinking in java》时对一些基础知识的整理和提炼，用做笔记，也加深理解思考。
+重读《thinking in java》时对一些基础知识的整理和提炼，用做笔记，加深理解思考。
 
 ## Category
 
@@ -22,7 +22,7 @@
 
 - [容器(持有对象)的基本概念及操作](https://github.com/jiwenxing/thinking-in-java/wiki/%E5%AE%B9%E5%99%A8(%E6%8C%81%E6%9C%89%E5%AF%B9%E8%B1%A1)%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%93%8D%E4%BD%9C)
 
-  - [*HashMap 的实现原理*]()
+  - [HashMap 的实现原理](https://github.com/jiwenxing/thinking-in-java/wiki/HashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86)
 
   - [*HashMap、HashTable & ConcurrentHashMap*]()
 

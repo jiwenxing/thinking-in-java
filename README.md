@@ -28,7 +28,7 @@
 
 - [java异常处理](https://github.com/jiwenxing/thinking-in-java/wiki/Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86)
 
-- [*字符串基础*]()
+- [字符串基础](https://github.com/jiwenxing/thinking-in-java/wiki/about-string)
 
 - [JDK 代理及 CGLib 代理](https://github.com/jiwenxing/thinking-in-java/wiki/JDK%E4%BB%A3%E7%90%86%E5%8F%8ACGLib%E4%BB%A3%E7%90%86)
 

@@ -1,0 +1,804 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Comparator 与排序 · Thinking in Java</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Jverson <i@jverson.com>">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="Java 泛型.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://jverson.com" target="_blank" class="custom-link">Jverson's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Collection</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="容器的基本概念及操作.html">
+            
+                <a href="容器的基本概念及操作.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    容器(持有对象)的基本概念及操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                        <b>2.2.</b>
+                    
+                    ArrayList & LinkedList
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                        <b>2.3.</b>
+                    
+                    HashSet & TreeSet
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Map</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="HashMap.html">
+            
+                <a href="HashMap.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    HashMap 的实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="ConcurrentHashMap.html">
+            
+                <a href="ConcurrentHashMap.html">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    ConcurrentHashMap 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="HashMap Hashtable CocurrentHashMap.html">
+            
+                <a href="HashMap Hashtable CocurrentHashMap.html">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    HashMap、HashTable & ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="TreeMap-LinkedHashMap.html">
+            
+                <a href="TreeMap-LinkedHashMap.html">
+            
+                    
+                        <b>3.4.</b>
+                    
+                    TreeMap 和 LinkedHashMap 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">JDK8</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="Lambda 表达式.html">
+            
+                <a href="Lambda 表达式.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Lambda 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="Java8 中的 Streams API.html">
+            
+                <a href="Java8 中的 Streams API.html">
+            
+                    
+                        <b>4.2.</b>
+                    
+                    Java8 中的 Streams API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" >
+            
+                <span>
+            
+                    
+                        <b>4.3.</b>
+                    
+                    Java8 Optional 类的使用
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Others</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="Java 垃圾回收器.html">
+            
+                <a href="Java 垃圾回收器.html">
+            
+                    
+                        <b>5.1.</b>
+                    
+                    垃圾回收器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="访问权限控制.html">
+            
+                <a href="访问权限控制.html">
+            
+                    
+                        <b>5.2.</b>
+                    
+                    访问权限控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="final 关键字.html">
+            
+                <a href="final 关键字.html">
+            
+                    
+                        <b>5.3.</b>
+                    
+                    final 关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="初始化和类的加载.html">
+            
+                <a href="初始化和类的加载.html">
+            
+                    
+                        <b>5.4.</b>
+                    
+                    继承与初始化过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="多态.html">
+            
+                <a href="多态.html">
+            
+                    
+                        <b>5.5.</b>
+                    
+                    多态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="抽象类.html">
+            
+                <a href="抽象类.html">
+            
+                    
+                        <b>5.6.</b>
+                    
+                    抽象类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="接口.html">
+            
+                <a href="接口.html">
+            
+                    
+                        <b>5.7.</b>
+                    
+                    接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="Java 内部类.html">
+            
+                <a href="Java 内部类.html">
+            
+                    
+                        <b>5.8.</b>
+                    
+                    内部类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="about string.html">
+            
+                <a href="about string.html">
+            
+                    
+                        <b>5.9.</b>
+                    
+                    字符串基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.10" data-path="Java 异常处理.html">
+            
+                <a href="Java 异常处理.html">
+            
+                    
+                        <b>5.10.</b>
+                    
+                    Java 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.11" data-path="JDK 代理及 CGLib 代理.html">
+            
+                <a href="JDK 代理及 CGLib 代理.html">
+            
+                    
+                        <b>5.11.</b>
+                    
+                    JDK 代理及 CGLib 代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.12" data-path="Java 泛型.html">
+            
+                <a href="Java 泛型.html">
+            
+                    
+                        <b>5.12.</b>
+                    
+                    Java 泛型的理解和使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.13" data-path="Comparator 与排序.html">
+            
+                <a href="Comparator 与排序.html">
+            
+                    
+                        <b>5.13.</b>
+                    
+                    Comparator 与排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Comparator 与排序</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>Java &#x4E2D;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5BF9;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x5217;&#x8868;&#x4E2D;&#x53EF;&#x80FD;&#x662F;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x4E8E;&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x7684;&#x6392;&#x5E8F;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x53EA;&#x60F3;&#x6309;&#x7167;&#x5176;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x6392;&#x5E8F;&#xFF0C;&#x751A;&#x81F3;&#x591A;&#x79CD;&#x6761;&#x4EF6;&#x7EC4;&#x5408;&#x5BF9;&#x5176;&#x6392;&#x5E8F;&#xFF0C;&#x8FD9;&#x4E9B;&#x90FD;&#x53EF;&#x4EE5;&#x501F;&#x52A9;&#x4E8E; Comparator &#x63A5;&#x53E3;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<h2 id="&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x96C6;&#x5408;&#x6392;&#x5E8F;">&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x96C6;&#x5408;&#x6392;&#x5E8F;</h2>
+<p>&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x6392;&#x5E8F;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x4E00;&#x822C;&#x4F7F;&#x7528; JDK &#x672C;&#x8EAB;&#x63D0;&#x4F9B;&#x4E86;&#x9ED8;&#x8BA4;&#x7684;&#x6BD4;&#x8F83;&#x5668; naturalOrder&#x3001;reverseOrder &#x7B49;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x7684;&#x4E00;&#x4E9B;&#x6392;&#x5E8F;&#x9700;&#x6C42;&#x3002;</p>
+<pre><code class="lang-java">List&lt;Integer&gt; numbers = Lists.newArrayList();
+numbers.add(<span class="hljs-keyword">new</span> Integer(<span class="hljs-number">5</span>));
+numbers.add(<span class="hljs-keyword">new</span> Integer(<span class="hljs-number">15</span>));
+numbers.add(<span class="hljs-keyword">new</span> Integer(<span class="hljs-number">53</span>));
+numbers.add(<span class="hljs-keyword">new</span> Integer(<span class="hljs-number">35</span>));
+numbers.add(<span class="hljs-keyword">new</span> Integer(<span class="hljs-number">16</span>));
+
+System.out.println(<span class="hljs-string">&quot;input list is &quot;</span> + numbers);
+
+numbers.sort(Comparator.naturalOrder());
+System.out.println(<span class="hljs-string">&quot;after sort is &quot;</span> + numbers);
+
+numbers.sort(Comparator.reverseOrder());
+System.out.println(<span class="hljs-string">&quot;after reverse sort is &quot;</span> + numbers);
+</code></pre>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x96C6;&#x5408;&#x6392;&#x5E8F;">&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x96C6;&#x5408;&#x6392;&#x5E8F;</h2>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x7684;&#x6392;&#x5E8F;&#x9700;&#x8981;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#x63D0;&#x4F9B;&#x6BD4;&#x8F83;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x5B9E;&#x73B0;<code>Comparable</code>&#x63A5;&#x53E3;&#xFF0C;&#x53E6;&#x5916;&#x8FD8;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;<code>Comparator</code>&#x63A5;&#x53E3;&#x8FBE;&#x5230;&#x591A;&#x79CD;&#x89C4;&#x5219;&#x6392;&#x5E8F;&#x7684;&#x76EE;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x91CD;&#x70B9;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B; JDK8 &#x4E2D;&#x5BF9;&#x6392;&#x5E8F;&#x7684;&#x4E00;&#x4E9B;&#x6539;&#x8FDB;&#x5B9E;&#x73B0;&#x3002;</p>
+<h3 id="&#x4F20;&#x7EDF;&#x65B9;&#x6CD5;1-&#x5B9E;&#x73B0;comparable&#x63A5;&#x53E3;">&#x4F20;&#x7EDF;&#x65B9;&#x6CD5;1-&#x5B9E;&#x73B0;<code>Comparable</code>&#x63A5;&#x53E3;</h3>
+<p>&#x8FD9;&#x662F;&#x6700;&#x4F20;&#x7EDF;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#xFF0C;&#x9700;&#x8981;&#x5B9E;&#x4F53;&#x7C7B;&#x5B9E;&#x73B0;&#x989D;&#x5916;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x4EE3;&#x7801;&#x4FB5;&#x5165;&#x6BD4;&#x8F83;&#x4E25;&#x91CD;&#xFF0C;&#x5E76;&#x4E14;&#x5199;&#x6CD5;&#x4E0D;&#x591F;&#x7075;&#x6D3B;&#xFF0C;&#x4E0D;&#x80FD;&#x5B9E;&#x73B0;&#x591A;&#x79CD;&#x6392;&#x5E8F;&#x65B9;&#x5F0F;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparable</span>&lt;<span class="hljs-title">Student</span>&gt;</span>{
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> score;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;
+
+    <span class="hljs-comment">//&#x6784;&#x9020;&#x65B9;&#x6CD5; ...</span>
+
+    <span class="hljs-comment">//get set &#x65B9;&#x6CD5; ...</span>
+
+    <span class="hljs-comment">//&#x5B9E;&#x73B0;Comparable&#x7684;compareTo&#x65B9;&#x6CD5;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareTo</span><span class="hljs-params">(Student stu)</span> </span>{
+        <span class="hljs-comment">// TODO Auto-generated method stub</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getScore()-stu.getScore();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String [] args)</span></span>{
+        List&lt;Student&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;Student&gt;();
+        list.add(<span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;&#x5F20;&#x4E09;&quot;</span>,<span class="hljs-number">89</span>,<span class="hljs-number">20</span>));
+        list.add(<span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;&#x674E;&#x56DB;&quot;</span>,<span class="hljs-number">60</span>,<span class="hljs-number">21</span>));
+        list.add(<span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;&#x8DEF;&#x4EBA;&quot;</span>,<span class="hljs-number">99</span>,<span class="hljs-number">15</span>));
+        Collections.sort(list);
+        <span class="hljs-keyword">for</span>(Student stu : list){
+            System.out.println(stu.toString());
+        }
+    }
+
+}
+</code></pre>
+<h3 id="&#x4F20;&#x7EDF;&#x65B9;&#x6CD5;2-&#x5B9E;&#x73B0;comparator&#x63A5;&#x53E3;">&#x4F20;&#x7EDF;&#x65B9;&#x6CD5;2-&#x5B9E;&#x73B0;<code>Comparator</code>&#x63A5;&#x53E3;</h3>
+<p>&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x4EE3;&#x7801;&#x4FB5;&#x5165;&#x8F83;&#x5C0F;&#xFF0C;&#x4F46;&#x9700;&#x8981;&#x4E3A;&#x6392;&#x5E8F;&#x5355;&#x72EC;&#x521B;&#x5EFA;&#x5B9E;&#x73B0;&#x4E86; Comparator &#x63A5;&#x53E3;&#x7684;&#x7C7B;&#xFF0C;&#x76F8;&#x8F83;&#x4E8E;&#x4E0A;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x7A0D;&#x5FAE;&#x6709;&#x6240;&#x6539;&#x8FDB;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x6309;&#x7167;&#x5E74;&#x9F84;&#x6392;&#x5E8F;&#x7684;&#x6BD4;&#x8F83;&#x5668;</span>
+<span class="hljs-comment">//sortAge&#x5B9E;&#x73B0;Comparator&#x63A5;&#x53E3;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">sortAge</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparator</span>&lt;<span class="hljs-title">Student</span>&gt;</span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-comment">//&#x5B9E;&#x73B0;Comparator&#x7684;compare&#x65B9;&#x6CD5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Student stu1, Student stu2)</span> </span>{
+        <span class="hljs-comment">// TODO Auto-generated method stub</span>
+        <span class="hljs-keyword">return</span> stu1.getAge()-stu2.getAge();
+    }
+
+}
+
+<span class="hljs-comment">//&#x6309;&#x7167;&#x540D;&#x5B57;&#x6392;&#x5E8F;&#x7684;&#x6BD4;&#x8F83;&#x5668;</span>
+<span class="hljs-comment">//sortAge&#x5B9E;&#x73B0;Comparator&#x63A5;&#x53E3;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">sortName</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparator</span>&lt;<span class="hljs-title">Student</span>&gt;</span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-comment">//&#x5B9E;&#x73B0;Comparator&#x7684;compare&#x65B9;&#x6CD5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Student stu1, Student stu2)</span> </span>{
+        <span class="hljs-comment">// TODO Auto-generated method stub</span>
+        <span class="hljs-keyword">return</span> stu1.getName().compareTo(stu2.getName());
+    }
+
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String [] args)</span></span>{
+    List&lt;Student&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;Student&gt;();
+    list.add(<span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;A&quot;</span>,<span class="hljs-number">89</span>,<span class="hljs-number">20</span>));
+    list.add(<span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;C&quot;</span>,<span class="hljs-number">60</span>,<span class="hljs-number">21</span>));
+    list.add(<span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;B&quot;</span>,<span class="hljs-number">99</span>,<span class="hljs-number">15</span>));
+
+    <span class="hljs-comment">//&#x6309;&#x7167;&#x5E74;&#x9F84;&#x6392;&#x5E8F;</span>
+    Collections.sort(list, <span class="hljs-keyword">new</span> sortAge());
+
+    <span class="hljs-comment">//&#x6309;&#x7167;&#x540D;&#x5B57;&#x6392;&#x5E8F;</span>
+    Collections.sort(list, <span class="hljs-keyword">new</span> sortName());
+
+    <span class="hljs-comment">//&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x6392;&#x5E8F;</span>
+    Collections.sort(list, <span class="hljs-keyword">new</span> Comparator&lt;Student&gt;() {
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Student p1, Student p2)</span></span>{
+            <span class="hljs-keyword">return</span> Integer.valueOf(p1.getAge()).compareTo(p2.getAge());
+        }
+    });
+}
+</code></pre>
+<h3 id="jdk8-&#x7684;&#x5404;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;">JDK8 &#x7684;&#x5404;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</h3>
+<p>&#x5229;&#x7528; JDK8 &#x63D0;&#x4F9B;&#x7684;&#x65B0;&#x7279;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x6392;&#x5E8F;&#x5199;&#x6CD5;&#x66F4;&#x52A0;&#x7B80;&#x6D01;&#x4F18;&#x96C5;&#xFF0C;&#x5F3A;&#x70C8;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x5217;&#x8868;</span>
+List&lt;Person&gt; persons = Lists.newArrayList();
+Person p1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;zhang&quot;</span>,<span class="hljs-number">25</span>,<span class="hljs-number">52000</span>);
+Person p2 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;wang&quot;</span>,<span class="hljs-number">35</span>,<span class="hljs-number">32000</span>);
+Person p3 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;chen&quot;</span>,<span class="hljs-number">29</span>,<span class="hljs-number">27000</span>);
+persons.add(p1);
+persons.add(p2);
+persons.add(p3);
+
+System.out.println(<span class="hljs-string">&quot;---&#x4F7F;&#x7528;JDK8&#x65B9;&#x5F0F;&#x5BF9;&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x6392;&#x5E8F;---&quot;</span>);
+System.out.println(<span class="hljs-string">&quot;origin list: &quot;</span> + persons);
+<span class="hljs-comment">//&#x5E74;&#x9F84;&#x987A;&#x5E8F;</span>
+Collections.sort(persons, Comparator.comparing(Person::getAge)); <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86;JDK8&#x7684;&#x65B9;&#x6CD5;&#x4F20;&#x9012;&#x7279;&#x6027;</span>
+System.out.println(<span class="hljs-string">&quot;age sort: &quot;</span> + persons);
+<span class="hljs-comment">//&#x85AA;&#x6C34;&#x987A;&#x5E8F;</span>
+Collections.sort(persons, Comparator.comparing(Person::getSalary));
+System.out.println(<span class="hljs-string">&quot;salary sort: &quot;</span> + persons);
+<span class="hljs-comment">//&#x85AA;&#x6C34;&#x9006;&#x5E8F;</span>
+Collections.sort(persons, Comparator.comparing(Person::getSalary).reversed());
+System.out.println(<span class="hljs-string">&quot;salary reversed sort: &quot;</span> + persons);
+
+<span class="hljs-comment">/*&#x4F7F;&#x7528;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x5F15;&#x7528;&#x65B9;&#x5F0F;*/</span>
+<span class="hljs-comment">//1. &#x9700;&#x8981;&#x5728;Person&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x7684;&#x6BD4;&#x8F83;&#x65B9;&#x6CD5;compareBySalaryThenAge</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareBySalaryThenAge</span><span class="hljs-params">(Person h1, Person h2)</span> </span>{
+    <span class="hljs-keyword">if</span> (h1.getSalary().equals(h2.getSalary())) {
+        <span class="hljs-keyword">return</span> Integer.compare(h1.getAge(), h2.getAge());
+    }
+    <span class="hljs-keyword">return</span> h1.getSalary().compareTo(h2.getSalary());
+}
+<span class="hljs-comment">//2. &#x662F;&#x7528;&#x9759;&#x6001;&#x5F15;&#x7528;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;</span>
+persons.sort(Person::compareBySalaryThenAge); <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x5178;&#x578B;&#x7684;&#x884C;&#x4E3A;&#x53C2;&#x6570;&#x5316;&#xFF0C;&#x5C06;&#x51FD;&#x6570;&#x5F53;&#x505A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;lambda&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x672C;&#x8D28;</span>
+System.out.println(<span class="hljs-string">&quot;static reference sort: &quot;</span> + persons);
+
+
+<span class="hljs-comment">/*&#x4F7F;&#x7528;lambda&#x8868;&#x8FBE;&#x5F0F;*/</span>
+Comparator&lt;Person&gt; comparator = (h1, h2) -&gt; h1.getAge().compareTo(h2.getAge());
+persons.sort(comparator);
+persons.sort(comparator.reversed());
+
+<span class="hljs-comment">/*&#x4E0A;&#x9762;&#x53EF;&#x4EE5;&#x7B80;&#x5199;&#x4E3A;&#x5982;&#x4E0B;&#x5F62;&#x5F0F;*/</span>
+persons.sort((Person h1, Person h2) -&gt; h1.getAge().compareTo(h2.getAge()));
+
+<span class="hljs-comment">/*&#x7EDF;&#x8BA1;&#x5E74;&#x9F84;&#x5927;&#x4E8E;25&#x7684;&#x4EBA;&#x6570;&#xFF0C;&#x4F7F;&#x7528; stream &#x4E00;&#x53E5;&#x641E;&#x5B9A;*/</span>
+<span class="hljs-keyword">long</span> cnt = persons.stream().filter(person -&gt; person.getAge()&gt;<span class="hljs-number">25</span>).count();
+System.out.println(cnt);
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
+2018-08-26 11:54:11
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Java 泛型.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Java 泛型的理解和使用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Comparator 与排序","level":"5.13","depth":1,"previous":{"title":"Java 泛型的理解和使用","level":"5.12","depth":1,"path":"Java 泛型.md","ref":"Java 泛型.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018","modify_label":"","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"Comparator 与排序.md","mtime":"2018-08-26T03:54:11.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T10:38:18.429Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

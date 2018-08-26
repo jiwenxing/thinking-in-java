@@ -1,0 +1,804 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>TreeMap 和 LinkedHashMap 介绍 · Thinking in Java</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Jverson <i@jverson.com>">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Lambda 表达式.html" />
+    
+    
+    <link rel="prev" href="HashMap Hashtable CocurrentHashMap.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://jverson.com" target="_blank" class="custom-link">Jverson's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Collection</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="容器的基本概念及操作.html">
+            
+                <a href="容器的基本概念及操作.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    容器(持有对象)的基本概念及操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                        <b>2.2.</b>
+                    
+                    ArrayList & LinkedList
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                        <b>2.3.</b>
+                    
+                    HashSet & TreeSet
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Map</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="HashMap.html">
+            
+                <a href="HashMap.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    HashMap 的实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="ConcurrentHashMap.html">
+            
+                <a href="ConcurrentHashMap.html">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    ConcurrentHashMap 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="HashMap Hashtable CocurrentHashMap.html">
+            
+                <a href="HashMap Hashtable CocurrentHashMap.html">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    HashMap、HashTable & ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.4" data-path="TreeMap-LinkedHashMap.html">
+            
+                <a href="TreeMap-LinkedHashMap.html">
+            
+                    
+                        <b>3.4.</b>
+                    
+                    TreeMap 和 LinkedHashMap 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">JDK8</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="Lambda 表达式.html">
+            
+                <a href="Lambda 表达式.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Lambda 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="Java8 中的 Streams API.html">
+            
+                <a href="Java8 中的 Streams API.html">
+            
+                    
+                        <b>4.2.</b>
+                    
+                    Java8 中的 Streams API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" >
+            
+                <span>
+            
+                    
+                        <b>4.3.</b>
+                    
+                    Java8 Optional 类的使用
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Others</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="Java 垃圾回收器.html">
+            
+                <a href="Java 垃圾回收器.html">
+            
+                    
+                        <b>5.1.</b>
+                    
+                    垃圾回收器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="访问权限控制.html">
+            
+                <a href="访问权限控制.html">
+            
+                    
+                        <b>5.2.</b>
+                    
+                    访问权限控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="final 关键字.html">
+            
+                <a href="final 关键字.html">
+            
+                    
+                        <b>5.3.</b>
+                    
+                    final 关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="初始化和类的加载.html">
+            
+                <a href="初始化和类的加载.html">
+            
+                    
+                        <b>5.4.</b>
+                    
+                    继承与初始化过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="多态.html">
+            
+                <a href="多态.html">
+            
+                    
+                        <b>5.5.</b>
+                    
+                    多态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="抽象类.html">
+            
+                <a href="抽象类.html">
+            
+                    
+                        <b>5.6.</b>
+                    
+                    抽象类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="接口.html">
+            
+                <a href="接口.html">
+            
+                    
+                        <b>5.7.</b>
+                    
+                    接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="Java 内部类.html">
+            
+                <a href="Java 内部类.html">
+            
+                    
+                        <b>5.8.</b>
+                    
+                    内部类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="about string.html">
+            
+                <a href="about string.html">
+            
+                    
+                        <b>5.9.</b>
+                    
+                    字符串基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.10" data-path="Java 异常处理.html">
+            
+                <a href="Java 异常处理.html">
+            
+                    
+                        <b>5.10.</b>
+                    
+                    Java 异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.11" data-path="JDK 代理及 CGLib 代理.html">
+            
+                <a href="JDK 代理及 CGLib 代理.html">
+            
+                    
+                        <b>5.11.</b>
+                    
+                    JDK 代理及 CGLib 代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.12" data-path="Java 泛型.html">
+            
+                <a href="Java 泛型.html">
+            
+                    
+                        <b>5.12.</b>
+                    
+                    Java 泛型的理解和使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.13" data-path="Comparator 与排序.html">
+            
+                <a href="Comparator 与排序.html">
+            
+                    
+                        <b>5.13.</b>
+                    
+                    Comparator 与排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >TreeMap 和 LinkedHashMap 介绍</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x5E73;&#x65F6;&#x4E0D;&#x5E38;&#x7528;&#x7684;&#x4E24;&#x4E2A; Map &#x5B9E;&#x73B0;&#xFF1A;TreeMap &#x548C; LinkedHashMap&#x3002;</p>
+<h3 id="treemap">TreeMap</h3>
+<p>TreeMap &#x662F;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x7684; key-value &#x96C6;&#x5408;&#xFF0C;&#x57FA;&#x4E8E;<strong>&#x7EA2;&#x9ED1;&#x6811;</strong>&#xFF08;Red-Black tree&#xFF09;&#x7684; NavigableMap &#x63A5;&#x53E3;&#xFF08;&#x8BE5;&#x63A5;&#x53E3;&#x53C8;&#x7EE7;&#x627F; SortedMap &#x63A5;&#x53E3;&#xFF09;&#x5B9E;&#x73B0;&#x3002;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1; log(n) &#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x8FDB;&#x884C; put&#x3001;remove&#x3001;get&#x3001;containsKey &#x7B49;&#x64CD;&#x4F5C;&#x3002;&#x8BE5;&#x6620;&#x5C04;&#x6839;&#x636E;&#x5176;&#x952E;&#x7684;&#x81EA;&#x7136;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x6216;&#x8005;&#x6839;&#x636E;&#x521B;&#x5EFA;&#x6620;&#x5C04;&#x65F6;&#x63D0;&#x4F9B;&#x7684; Comparator &#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x5177;&#x4F53;&#x53D6;&#x51B3;&#x4E8E;&#x4F7F;&#x7528;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;: </p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x7EE7;&#x627F;&#x7ED3;&#x6784;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TreeMap</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt;
+    <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractMap</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt;
+    <span class="hljs-keyword">implements</span> <span class="hljs-title">NavigableMap</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt;, <span class="hljs-title">Cloneable</span>, <span class="hljs-title">java</span>.<span class="hljs-title">io</span>.<span class="hljs-title">Serializable</span>
+
+// &#x4F7F;&#x7528;&#x952E;&#x7684;&#x81EA;&#x7136;&#x987A;&#x5E8F;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x3001;&#x7A7A;&#x7684;&#x6811;&#x6620;&#x5C04;&#x3002;
+<span class="hljs-title">public</span> <span class="hljs-title">TreeMap</span>() </span>{
+    comparator = <span class="hljs-keyword">null</span>;
+}
+
+<span class="hljs-comment">// &#x6784;&#x9020;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x3001;&#x7A7A;&#x7684;&#x6811;&#x6620;&#x5C04;&#xFF0C;&#x8BE5;&#x6620;&#x5C04;&#x6839;&#x636E;&#x7ED9;&#x5B9A;&#x6BD4;&#x8F83;&#x5668;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x3002;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeMap</span><span class="hljs-params">(Comparator&lt;? <span class="hljs-keyword">super</span> K&gt; comparator)</span> </span>{
+    <span class="hljs-keyword">this</span>.comparator = comparator;
+}
+
+<span class="hljs-comment">// &#x6784;&#x9020;&#x4E00;&#x4E2A;&#x4E0E;&#x7ED9;&#x5B9A;&#x6620;&#x5C04;&#x5177;&#x6709;&#x76F8;&#x540C;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x7684;&#x65B0;&#x7684;&#x6811;&#x6620;&#x5C04;&#xFF0C;&#x8BE5;&#x6620;&#x5C04;&#x6839;&#x636E;&#x5176;&#x952E;&#x7684;&#x81EA;&#x7136;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x3002;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeMap</span><span class="hljs-params">(Map&lt;? extends K, ? extends V&gt; m)</span> </span>{
+    comparator = <span class="hljs-keyword">null</span>;
+    putAll(m);
+}
+
+<span class="hljs-comment">// &#x6784;&#x9020;&#x4E00;&#x4E2A;&#x4E0E;&#x6307;&#x5B9A;&#x6709;&#x5E8F;&#x6620;&#x5C04;&#x5177;&#x6709;&#x76F8;&#x540C;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x548C;&#x76F8;&#x540C;&#x6392;&#x5E8F;&#x987A;&#x5E8F;&#x7684;&#x65B0;&#x7684;&#x6811;&#x6620;&#x5C04;&#x3002;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeMap</span><span class="hljs-params">(SortedMap&lt;K, ? extends V&gt; m)</span> </span>{
+    comparator = m.comparator();
+    <span class="hljs-keyword">try</span> {
+        buildFromSorted(m.size(), m.entrySet().iterator(), <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);
+    } <span class="hljs-keyword">catch</span> (java.io.IOException cannotHappen) {
+    } <span class="hljs-keyword">catch</span> (ClassNotFoundException cannotHappen) {
+    }
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230; TreeMap &#x7EE7;&#x627F;&#x4E8E; AbstractMap&#xFF0C;&#x800C; AbstractMap &#x5B9E;&#x73B0;&#x4E86; Map &#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x51CF;&#x5C11;&#x4E86;&#x5176;&#x5B50;&#x7C7B;&#x7EE7;&#x627F;&#x7684;&#x590D;&#x6742;&#x5EA6;&#xFF1B;TreeMap &#x5B9E;&#x73B0;&#x4E86; NavigableMap &#x63A5;&#x53E3;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x62E5;&#x6709;&#x4E86;&#x66F4;&#x5F3A;&#x7684;&#x5143;&#x7D20;&#x641C;&#x7D22;&#x80FD;&#x529B;&#xFF1B;&#x5982;&#x4E0B;&#x56FE;&#x5BF9;&#x4E8E; SortedMap &#x6765;&#x8BF4;&#xFF0C;&#x8BE5;&#x7C7B;&#x662F; TreeMap &#x4F53;&#x7CFB;&#x4E2D;&#x7684;&#x7236;&#x63A5;&#x53E3;&#xFF0C;&#x4E5F;&#x662F;&#x533A;&#x522B;&#x4E8E; HashMap &#x4F53;&#x7CFB;&#x6700;&#x5173;&#x952E;&#x7684;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x6700;&#x5927;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F; SortedMap &#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5; <code>Comparator&lt;? super K&gt; comparator()</code>&#x3002; </p>
+<p><img src="http://ochyazsr6.bkt.clouddn.com/07f47a3b60d9d4bdf3676185e520927f.jpg" alt=""></p>
+<p>&#x53E6;&#x5916; TreeMap &#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A; synchronized &#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x662F;&#x975E;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x518D;&#x591A;&#x7EBF;&#x7A0B;&#x573A;&#x666F;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x5BF9;&#x66F4;&#x6539; Map &#x7ED3;&#x6784;&#x7684;&#x64CD;&#x4F5C;&#xFF08;&#x65B0;&#x589E;&#x3001;&#x5220;&#x9664;&#x7B49;&#xFF0C;&#x4F46;&#x662F;&#x66F4;&#x65B0;&#x503C;&#x4E0D;&#x7B97;&#xFF09;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x540C;&#x6B65;&#xFF0C;&#x6216;&#x8005;&#x7B80;&#x5355;&#x7684;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5C06;&#x5176; &#x201C;wrapped&#x201D; &#x6210;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<pre><code class="lang-java">SortedMap m = Collections.synchronizedSortedMap(<span class="hljs-keyword">new</span> TreeMap(...));
+</code></pre>
+<p><strong>&#x7EA2;&#x9ED1;&#x6811;</strong>&#xFF0C;&#x5176;&#x672C;&#x8D28;&#x4E0A;&#x4F9D;&#x65E7;&#x4E00;&#x9897;<em>&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;</em>&#xFF0C;&#x5B83;&#x6EE1;&#x8DB3;&#x4E86;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x7279;&#x70B9;&#xFF0C;&#x5373;&#x5DE6;&#x5B50;&#x6811;&#x4EFB;&#x610F;&#x8282;&#x70B9;&#x7684;&#x503C;&#x6C38;&#x8FDC;&#x5C0F;&#x4E8E;&#x53F3;&#x5B50;&#x6811;&#x4EFB;&#x610F;&#x8282;&#x70B9;&#x7684;&#x503C;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x81F4;&#x547D;&#x7684;&#x5F31;&#x70B9;&#xFF0C;&#x5373;&#x5DE6;&#x5B50;&#x6811;(&#x53F3;&#x5B50;&#x6811;)&#x53EF;&#x4EE5;&#x4E3A;&#x7A7A;&#xFF0C;&#x800C;&#x63D2;&#x5165;&#x7684;&#x8282;&#x70B9;&#x5168;&#x90E8;&#x96C6;&#x4E2D;&#x5230;&#x4E86;&#x6811;&#x7684;&#x53E6;&#x4E00;&#x7AEF;&#xFF0C;&#x81F4;&#x4F7F;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x5931;&#x53BB;&#x4E86;&#x5E73;&#x8861;&#xFF0C;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x641C;&#x7D22;&#x6027;&#x80FD;&#x4E0B;&#x964D;&#xFF0C;&#x4ECE;&#x800C;&#x5931;&#x53BB;&#x4E86;&#x4F7F;&#x7528;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x7684;&#x610F;&#x4E49;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x7EF4;&#x62A4;&#x6811;&#x7684;&#x5E73;&#x8861;&#x6027;&#xFF0C;&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;&#xFF08;AVL&#x6811;&#xFF09;&#x51FA;&#x73B0;&#x4E86;&#xFF0C;&#x5B83;&#x7528;&#x5DE6;&#x53F3;&#x5B50;&#x6811;&#x7684;&#x9AD8;&#x5EA6;&#x5DEE;&#x6765;&#x4FDD;&#x6301;&#x7740;&#x6811;&#x7684;&#x5E73;&#x8861;&#x3002;&#x800C;&#x7EA2;&#x9ED1;&#x6811;&#xFF0C;&#x5219;&#x7528;&#x7684;&#x662F;&#x8282;&#x70B9;&#x7684;&#x989C;&#x8272;&#x6765;&#x7EF4;&#x6301;&#x6811;&#x7684;&#x5E73;&#x8861;&#x3002;&#x5177;&#x4F53;&#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#x4F1A;&#x5728;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x90E8;&#x5206;&#x8BE6;&#x7EC6;&#x5B66;&#x4E60;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x518D;&#x5C55;&#x5F00;&#x8BA8;&#x8BBA;&#x3002;  </p>
+<h3 id="linkedhashmap">LinkedHashMap</h3>
+<p>LinkedHashMap &#x7EE7;&#x627F;&#x4E86; HashMap&#xFF0C;&#x6240;&#x4EE5; LinkedHashMap &#x5176;&#x5B9E;&#x4E5F;&#x662F;&#x6563;&#x5217;&#x8868;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x4F46;&#x662F; &#x201C;linked&#x201D; &#x662F;&#x5B83;&#x5BF9; HashMap &#x529F;&#x80FD;&#x7684;&#x8FDB;&#x4E00;&#x6B65;&#x589E;&#x5F3A;&#xFF0C;LinkedHashMap &#x7528;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x628A;&#x6240;&#x6709;&#x5B58;&#x50A8;&#x5728; HashMap &#x4E2D;&#x7684;&#x6570;&#x636E;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x53EF;&#x4EE5;&#x989D;&#x5916;&#x7684;&#x7EF4;&#x62A4;&#x5143;&#x7D20;&#x7684;&#x5B58;&#x50A8;&#x987A;&#x5E8F;&#x4EE5;&#x53CA;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0; <strong>LRU &#x7B97;&#x6CD5;</strong>&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x7EE7;&#x627F;&#x7ED3;&#x6784; </span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LinkedHashMap</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt;
+    <span class="hljs-keyword">extends</span> <span class="hljs-title">HashMap</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt;
+    <span class="hljs-keyword">implements</span> <span class="hljs-title">Map</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt;
+
+/**  &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x6307;&#x5B9A;&#x5BB9;&#x91CF;&#x548C;&#x8D1F;&#x8F7D;&#x56E0;&#x5B50;&#x5E76;&#x4EE5;&#x63D2;&#x5165;&#x987A;&#x5E8F;&#x6392;&#x5E8F;&#x7684; <span class="hljs-title">Map</span> &#x5BF9;&#x8C61;
+     * <span class="hljs-title">Constructs</span> <span class="hljs-title">an</span> <span class="hljs-title">empty</span> <span class="hljs-title">insertion</span>-<span class="hljs-title">ordered</span> &lt;<span class="hljs-title">tt</span>&gt;<span class="hljs-title">LinkedHashMap</span>&lt;/<span class="hljs-title">tt</span>&gt; <span class="hljs-title">instance</span>
+     * <span class="hljs-title">with</span> <span class="hljs-title">the</span> <span class="hljs-title">specified</span> <span class="hljs-title">initial</span> <span class="hljs-title">capacity</span> <span class="hljs-title">and</span> <span class="hljs-title">load</span> <span class="hljs-title">factor</span>.
+     *
+     * @<span class="hljs-title">param</span>  <span class="hljs-title">initialCapacity</span> <span class="hljs-title">the</span> <span class="hljs-title">initial</span> <span class="hljs-title">capacity</span>
+     * @<span class="hljs-title">param</span>  <span class="hljs-title">loadFactor</span>      <span class="hljs-title">the</span> <span class="hljs-title">load</span> <span class="hljs-title">factor</span>
+     * @<span class="hljs-title">throws</span> <span class="hljs-title">IllegalArgumentException</span> <span class="hljs-title">if</span> <span class="hljs-title">the</span> <span class="hljs-title">initial</span> <span class="hljs-title">capacity</span> <span class="hljs-title">is</span> <span class="hljs-title">negative</span>
+     *         <span class="hljs-title">or</span> <span class="hljs-title">the</span> <span class="hljs-title">load</span> <span class="hljs-title">factor</span> <span class="hljs-title">is</span> <span class="hljs-title">nonpositive</span>
+     */
+<span class="hljs-title">public</span> <span class="hljs-title">LinkedHashMap</span>(<span class="hljs-title">int</span> <span class="hljs-title">initialCapacity</span>, <span class="hljs-title">float</span> <span class="hljs-title">loadFactor</span>) </span>{
+    <span class="hljs-keyword">super</span>(initialCapacity, loadFactor);
+    accessOrder = <span class="hljs-keyword">false</span>;  <span class="hljs-comment">// &#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x662F;&#x5426;&#x4EE5;&#x8BBF;&#x95EE;&#x987A;&#x5E8F;&#x6392;&#x5E8F;&#xFF0C;&#x53CA;&#x662F;&#x5426;&#x5B9E;&#x73B0; LRU&#xFF0C;&#x9ED8;&#x8BA4;&#x5173;&#x95ED;</span>
+}
+
+<span class="hljs-comment">// &#x9ED8;&#x8BA4;&#x6784;&#x9020;&#x65B9;&#x6CD5;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LinkedHashMap</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">super</span>();
+    accessOrder = <span class="hljs-keyword">false</span>;
+}
+
+<span class="hljs-comment">// &#x5C06;&#x5176;&#x4ED6;&#x7C7B;&#x578B; Map &#x8F6C;&#x6362;&#x4E3A; LinkedHashMap</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LinkedHashMap</span><span class="hljs-params">(Map&lt;? extends K, ? extends V&gt; m)</span> </span>{
+    <span class="hljs-keyword">super</span>();
+    accessOrder = <span class="hljs-keyword">false</span>;
+    putMapEntries(m, <span class="hljs-keyword">false</span>);
+}
+
+<span class="hljs-comment">// &#x8FD9;&#x4E2A;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6307;&#x5B9A; ordering mode &#x662F;&#x5426;&#x4E3A; accessOrder&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5219;&#x53D8;&#x6210; LRU &#x6392;&#x5E8F;</span>
+<span class="hljs-comment">/**
+     * Constructs an empty &lt;tt&gt;LinkedHashMap&lt;/tt&gt; instance with the
+     * specified initial capacity, load factor and ordering mode.
+     *
+     * <span class="hljs-doctag">@param</span>  initialCapacity the initial capacity
+     * <span class="hljs-doctag">@param</span>  loadFactor      the load factor
+     * <span class="hljs-doctag">@param</span>  accessOrder     the ordering mode - &lt;tt&gt;true&lt;/tt&gt; for
+     *         access-order, &lt;tt&gt;false&lt;/tt&gt; for insertion-order
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if the initial capacity is negative
+     *         or the load factor is nonpositive
+     */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LinkedHashMap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> initialCapacity,
+                     <span class="hljs-keyword">float</span> loadFactor,
+                     <span class="hljs-keyword">boolean</span> accessOrder)</span> </span>{
+    <span class="hljs-keyword">super</span>(initialCapacity, loadFactor);
+    <span class="hljs-keyword">this</span>.accessOrder = accessOrder;
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#x666E;&#x901A;&#x7684; LinkedHashMap &#x64CD;&#x4F5C;&#x53CA; &#x5F00;&#x542F; LRU &#x89C4;&#x5219;&#x7684; LinkedHashMap</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    LinkedHashMap&lt;Integer, Integer&gt; lhMap = <span class="hljs-keyword">new</span> LinkedHashMap&lt;Integer, Integer&gt;();
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;<span class="hljs-number">6</span>; i++){
+        lhMap.put(i*<span class="hljs-number">2</span>, i);
+    }
+    System.out.println(lhMap); <span class="hljs-comment">//{2=1, 4=2, 6=3, 8=4, 10=5}</span>
+    lhMap.put(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>);
+    lhMap.get(<span class="hljs-number">4</span>);
+    lhMap.put(<span class="hljs-number">12</span>, <span class="hljs-number">6</span>);
+    <span class="hljs-comment">// &#x4E0A;&#x9762;&#x5BF9;Map&#x6267;&#x884C;&#x4E86;&#x4E00;&#x4E9B;put&#x3001;get&#x64CD;&#x4F5C;&#x4E4B;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x5143;&#x7D20;&#x53EA;&#x662F;&#x6309;&#x7167;put&#x7684;&#x987A;&#x5E8F;&#x6392;&#x5217;</span>
+    System.out.println(lhMap); <span class="hljs-comment">//{2=1, 4=2, 6=3, 8=4, 10=5, 3=1, 12=6} &#x5B8C;&#x5168;&#x6309;&#x7167;&#x63D2;&#x5165;&#x987A;&#x5E8F;</span>
+
+    LinkedHashMap&lt;Integer, Integer&gt; lruMap = <span class="hljs-keyword">new</span> LinkedHashMap&lt;Integer, Integer&gt;(<span class="hljs-number">20</span>, <span class="hljs-number">0.75f</span>, <span class="hljs-keyword">true</span>);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;<span class="hljs-number">6</span>; i++){
+        lruMap.put(i*<span class="hljs-number">2</span>, i);
+    }
+    System.out.println(lruMap); <span class="hljs-comment">//{2=1, 4=2, 6=3, 8=4, 10=5}</span>
+    lruMap.put(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>);
+    lruMap.get(<span class="hljs-number">4</span>);
+    lruMap.put(<span class="hljs-number">12</span>, <span class="hljs-number">6</span>);
+    <span class="hljs-comment">// &#x5BF9;&#x5F00;&#x542F;LRU&#x89C4;&#x5219;&#x7684;LinkedHashMap&#xFF0C;&#x6BCF;&#x5F53;&#x6211;get&#x6216;&#x8005;put&#x4E00;&#x4E2A;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5C31;&#x4F1A;&#x628A;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x653E;&#x5230;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x7684;&#x5C3E;&#x90E8;&#xFF0C;put&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6570;&#x636E;&#x4E5F;&#x4F1A;&#x653E;&#x5230;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x7684;&#x5C3E;&#x90E8;&#x3002;</span>
+    System.out.println(lruMap); <span class="hljs-comment">//{2=1, 6=3, 8=4, 10=5, 3=1, 4=2, 12=6} &#x7B26;&#x5408;LRU&#x89C4;&#x5219;</span>
+}
+</code></pre>
+<p>&#x6700;&#x540E;&#x518D;&#x8FDB;&#x5165;&#x5230;&#x6E90;&#x7801;&#x770B;&#x770B;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5176; Entry &#x5B9A;&#x4E49;&#x7EE7;&#x627F;&#x4E86; HashMap &#x7684; Node&#xFF0C;&#x5E76;&#x4E14;&#x65B0;&#x589E;&#x4E86;&#x6307;&#x5411;&#x524D;&#x540E;&#x64CD;&#x4F5C;&#x5143;&#x7D20;&#x7684;&#x6307;&#x9488; before &#x548C; after&#xFF0C;&#x8FD9;&#x6837;&#x4FBF;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x94FE;&#x8868;&#xFF0C;&#x540C;&#x65F6; LinkedHashMap &#x4E2D;&#x4E5F;&#x65B0;&#x589E;&#x4E86;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x7684;&#x5934;&#x5C3E;&#x8282;&#x70B9; head &#x548C; tail&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+     * HashMap.Node subclass for normal LinkedHashMap entries.
+     */</span>
+<span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Entry</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">HashMap</span>.<span class="hljs-title">Node</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt; </span>{
+    <span class="hljs-comment">//&#x524D;&#x540E;&#x6307;&#x9488;</span>
+    Entry&lt;K,V&gt; before, after;
+    Entry(<span class="hljs-keyword">int</span> hash, K key, V value, Node&lt;K,V&gt; next) {
+        <span class="hljs-keyword">super</span>(hash, key, value, next);
+    }
+}
+
+<span class="hljs-comment">/**
+     * The head (eldest) of the doubly linked list.
+     */</span>
+<span class="hljs-keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; head;<span class="hljs-comment">//&#x53CC;&#x5411;&#x94FE;&#x8868;&#x5934;&#x8282;&#x70B9;&#xFF08;&#x6700;&#x8001;&#xFF09;</span>
+
+<span class="hljs-comment">/**
+     * The tail (youngest) of the doubly linked list.
+     */</span>
+<span class="hljs-keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; tail;<span class="hljs-comment">//&#x53CC;&#x5411;&#x5217;&#x8868;&#x5C3E;&#x8282;&#x70B9;&#xFF08;&#x6700;&#x65B0;&#xFF09;</span>
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
+2018-08-26 14:32:02
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="HashMap Hashtable CocurrentHashMap.html" class="navigation navigation-prev " aria-label="Previous page: HashMap、HashTable & ConcurrentHashMap">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Lambda 表达式.html" class="navigation navigation-next " aria-label="Next page: Lambda 表达式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"TreeMap 和 LinkedHashMap 介绍","level":"3.4","depth":1,"next":{"title":"Lambda 表达式","level":"4.1","depth":1,"path":"Lambda 表达式.md","ref":"Lambda 表达式.md","articles":[]},"previous":{"title":"HashMap、HashTable & ConcurrentHashMap","level":"3.3","depth":1,"path":"HashMap Hashtable CocurrentHashMap.md","ref":"HashMap Hashtable CocurrentHashMap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018","modify_label":"","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"TreeMap-LinkedHashMap.md","mtime":"2018-08-26T06:32:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T10:38:18.429Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

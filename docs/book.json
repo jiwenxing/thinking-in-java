@@ -1,0 +1,67 @@
+{
+    "author": "Jverson <i@jverson.com>",
+    "description": "Thinking in Java",
+    "extension": null,
+    "generator": "site",
+    "isbn": "",
+    "links": {
+        "sidebar": {
+            "Jverson's Blog": "https://jverson.com"
+        }
+    },
+    "output": null,
+    "pdf": {
+        "fontSize": 12,
+        "footerTemplate": null,
+        "headerTemplate": null,
+        "margin": {
+            "bottom": 36,
+            "left": 62,
+            "right": 62,
+            "top": 36
+        },
+        "pageNumbers": false,
+        "paperSize": "a4"
+    },
+    "plugins": [
+       "github",
+       "github-buttons",
+       "disqus",
+       "todo",
+       "splitter",
+       "tbfed-pagefooter",
+       "page-toc-button",
+       "-sharing"
+    ],
+    "title": "Thinking in Java",
+    "variables": {},
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
+        "github": {
+            "url": "https://github.com/jiwenxing/thinking-in-java"
+        },
+        "github-buttons": {
+            "buttons": [{
+                "user": "jiwenxing",
+                "repo": "thinking-in-java",
+                "type": "star",
+                "size": "small",
+                "count": true
+              }]
+        },
+        "disqus": {
+            "shortName": "jverson"
+        },
+        "tbfed-pagefooter": {
+            "copyright": "Copyright © jverson.com 2018",
+            "modify_label": "",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "page-toc-button": {
+            "maxTocDepth": 2,
+            "minTocSize": 2
+        }
+    }
+}

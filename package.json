@@ -1,0 +1,31 @@
+{
+  "name": "thinking-in-java",
+  "version": "1.0.0",
+  "description": "重读《thinking in java》时对一些基础知识的整理和提炼，用做笔记，加深理解思考。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "favicon": "rm -rf ./gh-pages/gitbook/images/favicon.ico && cp ./docs/favicon.ico ./gh-pages/gitbook/images/favicon.ico",
+    "dev": "gitbook serve ./docs ./gh-pages && npm run favicon",
+    "build": "gitbook build ./docs ./gh-pages && npm run favicon",
+    "deploy": "node ./scripts/deploy-gh-pages.js",
+    "publish": "npm run build && npm run deploy",
+    "port": "lsof -i :35729"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiwenxing/thinking-in-java.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiwenxing/thinking-in-java/issues"
+  },
+  "homepage": "https://github.com/jiwenxing/thinking-in-java#readme",
+  "dependencies": {
+    "gh-pages": "^1.2.0",
+    "gitbook-plugin-todo": "^0.1.3"
+  }
+}

@@ -7,7 +7,7 @@
 
 代理模式包含如下角色：
 
-![](http://ochyazsr6.bkt.clouddn.com/87728b697edf17a7988228877bb8fd28.jpg)
+![](http://pgdgu8c3d.bkt.clouddn.com/87728b697edf17a7988228877bb8fd28.jpg)
 
 
 * ISubject: 抽象主题角色，是一个接口。该接口是对象和它的代理共用的接口。

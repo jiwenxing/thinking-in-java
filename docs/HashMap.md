@@ -11,7 +11,7 @@ HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所�
 
 HashMap 实际上是一个“链表散列”的数据结构，即数组和链表的结合体。从下图能看出，HashMap 底层就是一个数组结构，数组中的每一项又是一个链表（JDK8中链表长度超过8将变为红黑树结构）。当新建一个 HashMap 的时候，就会初始化数组的参数（JDK8 中在第一次使用时才会初始化 table）。
 
-![](http://pgdgu8c3d.bkt.clouddn.com/fe8eae73037e2c8806b6769afe014f09.jpg)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/fe8eae73037e2c8806b6769afe014f09.jpg)
 
 下面来看看 HashMap 的构造方法，可以关注以下几点：
 

@@ -42,7 +42,7 @@ public TreeMap(SortedMap<K, ? extends V> m) {
 
 可以看到 TreeMap 继承于 AbstractMap，而 AbstractMap 实现了 Map 接口中定义的方法，减少了其子类继承的复杂度；TreeMap 实现了 NavigableMap 接口，意味着拥有了更强的元素搜索能力；如下图对于 SortedMap 来说，该类是 TreeMap 体系中的父接口，也是区别于 HashMap 体系最关键的一个接口，最大的区别就是 SortedMap 接口中定义的第一个方法 `Comparator<? super K> comparator()`。 
 
-![](http://pgdgu8c3d.bkt.clouddn.com/07f47a3b60d9d4bdf3676185e520927f.jpg)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/07f47a3b60d9d4bdf3676185e520927f.jpg)
 
 另外 TreeMap 并不是一个 synchronized 的实现，是非线程安全的，如果需要再多线程场景中使用，需要对更改 Map 结构的操作（新增、删除等，但是更新值不算）代码进行同步，或者简单的使用下面的代码将其 “wrapped” 成一个线程同步的实现。
 

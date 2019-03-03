@@ -3,7 +3,7 @@
 
 线程状态转换图示
 
-![](http://pgdgu8c3d.bkt.clouddn.com/a49401d07c418f3a88e70c5c31f17e2c.jpg)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/a49401d07c418f3a88e70c5c31f17e2c.jpg)
 
 1. 新建状态（New）    
 新创建了一个线程对象。例如执行`Thread1 th1=new Thread1("A")`

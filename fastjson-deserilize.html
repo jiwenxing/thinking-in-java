@@ -289,9 +289,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="Lambda 表达式.html">
+        <li class="chapter " data-level="5.1" data-path="jdk8_lambda_expression.html">
             
-                <a href="Lambda 表达式.html">
+                <a href="jdk8_lambda_expression.html">
             
                     
                         <b>5.1.</b>
@@ -304,12 +304,27 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="interface_function_practise.html">
+        <li class="chapter " data-level="5.2" data-path="jdk8_interface_function_commons.html">
             
-                <a href="interface_function_practise.html">
+                <a href="jdk8_interface_function_commons.html">
             
                     
                         <b>5.2.</b>
+                    
+                    几种常用的函数式接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="jdk8_interface_function_practise.html">
+            
+                <a href="jdk8_interface_function_practise.html">
+            
+                    
+                        <b>5.3.</b>
                     
                     函数式接口 Function 实战
             
@@ -319,12 +334,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="Java8 中的 Streams API.html">
+        <li class="chapter " data-level="5.4" data-path="jdk8_streams_api.html">
             
-                <a href="Java8 中的 Streams API.html">
+                <a href="jdk8_streams_api.html">
             
                     
-                        <b>5.3.</b>
+                        <b>5.4.</b>
                     
                     Java8 中的 Streams API
             
@@ -334,12 +349,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" >
+        <li class="chapter " data-level="5.5" >
             
                 <span>
             
                     
-                        <b>5.4.</b>
+                        <b>5.5.</b>
                     
                     Java8 Optional 类的使用__
             
@@ -728,7 +743,7 @@ ResultVo&lt;PageVo&lt;DataVo&gt;&gt; resultVo = JSONObject.parseObject(resultJso
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"fastjson 泛型的反序列化","level":"8.1","depth":1,"next":{"title":"访问权限控制","level":"8.2","depth":1,"path":"访问权限控制.md","ref":"访问权限控制.md","articles":[]},"previous":{"title":"垃圾回收器","level":"7.1","depth":1,"path":"Java 垃圾回收器.md","ref":"Java 垃圾回收器.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"fastjson-deserilize.md","mtime":"2019-03-03T13:27:32.115Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-20T15:03:24.464Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"fastjson 泛型的反序列化","level":"8.1","depth":1,"next":{"title":"访问权限控制","level":"8.2","depth":1,"path":"访问权限控制.md","ref":"访问权限控制.md","articles":[]},"previous":{"title":"垃圾回收器","level":"7.1","depth":1,"path":"Java 垃圾回收器.md","ref":"Java 垃圾回收器.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"fastjson-deserilize.md","mtime":"2019-03-03T13:27:32.115Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-20T15:21:59.367Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

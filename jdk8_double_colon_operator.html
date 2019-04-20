@@ -718,27 +718,26 @@ Integer computerAge = getAge.apply(c1);
 Predicate&lt;String&gt; isKnown = knownNames::contains;
 </code></pre>
 </li>
-<li><p>&#x8D85;&#x7C7B;&#x4E0A;&#x7684;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x5F15;&#x7528;&#xFF1A;super::methodName<br>```java
-public Double calculateValue(Double initialValue) {
-  return initialValue/1.50;
-}</p>
+<li><p>&#x8D85;&#x7C7B;&#x4E0A;&#x7684;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x5F15;&#x7528;&#xFF1A;super::methodName    </p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> Double <span class="hljs-title">calculateValue</span><span class="hljs-params">(Double initialValue)</span> </span>{
+  <span class="hljs-keyword">return</span> initialValue/<span class="hljs-number">1.50</span>;
+}
+<span class="hljs-comment">//method in MacbookPro subclass</span>
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> Double <span class="hljs-title">calculateValue</span><span class="hljs-params">(Double initialValue)</span></span>{
+  Function&lt;Double, Double&gt; function = <span class="hljs-keyword">super</span>::calculateValue;
+  Double pcValue = function.apply(initialValue);
+  <span class="hljs-keyword">return</span> pcValue + (initialValue/<span class="hljs-number">10</span>) ;
+}
+</code></pre>
 </li>
-</ul>
-<p>//method in MacbookPro subclass
-@Override
-public Double calculateValue(Double initialValue){
-    Function<double, double=""> function = super::calculateValue;
-    Double pcValue = function.apply(initialValue);
-    return pcValue + (initialValue/10) ;
-}</double,></p>
-<pre><code>
-- &#x7C7B;&#x578B;&#x4E0A;&#x7684;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x5F15;&#x7528;&#xFF1A;ClassName::methodName    
-```java
-Computer c1 = new Computer(2015, &quot;white&quot;, 100);
-Computer c2 = new MacbookPro(2009, &quot;black&quot;, 100);
+<li><p>&#x7C7B;&#x578B;&#x4E0A;&#x7684;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x5F15;&#x7528;&#xFF1A;ClassName::methodName    </p>
+<pre><code class="lang-java">Computer c1 = <span class="hljs-keyword">new</span> Computer(<span class="hljs-number">2015</span>, <span class="hljs-string">&quot;white&quot;</span>, <span class="hljs-number">100</span>);
+Computer c2 = <span class="hljs-keyword">new</span> MacbookPro(<span class="hljs-number">2009</span>, <span class="hljs-string">&quot;black&quot;</span>, <span class="hljs-number">100</span>);
 List inventory = Arrays.asList(c1, c2);
 inventory.forEach(Computer::turnOnPc);
-</code></pre><ul>
+</code></pre>
+</li>
 <li><p>&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5F15;&#x7528;&#xFF1A;Class::new    </p>
 <pre><code class="lang-java">SocketImplFactory factory = MySocketImpl::<span class="hljs-keyword">new</span>;
 </code></pre>
@@ -755,7 +754,7 @@ Computer[] computerArray = computerCreator.apply(<span class="hljs-number">5</sp
 <h2 id="references">References</h2>
 <p><a href="https://www.baeldung.com/java-8-double-colon-operator" target="_blank">The Double Colon Operator in Java 8</a> </p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2019-04-21 00:51:02
+2019-04-21 00:55:43
 </span></footer>
                                 
                                 </section>
@@ -799,7 +798,7 @@ Computer[] computerArray = computerCreator.apply(<span class="hljs-number">5</sp
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java8 中的双引号操作符","level":"5.4","depth":1,"next":{"title":"Java8 中的 Streams API","level":"5.5","depth":1,"path":"jdk8_streams_api.md","ref":"jdk8_streams_api.md","articles":[]},"previous":{"title":"函数式接口 Function 实战","level":"5.3","depth":1,"path":"jdk8_interface_function_practise.md","ref":"jdk8_interface_function_practise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"jdk8_double_colon_operator.md","mtime":"2019-04-20T16:51:02.031Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-20T16:51:16.060Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java8 中的双引号操作符","level":"5.4","depth":1,"next":{"title":"Java8 中的 Streams API","level":"5.5","depth":1,"path":"jdk8_streams_api.md","ref":"jdk8_streams_api.md","articles":[]},"previous":{"title":"函数式接口 Function 实战","level":"5.3","depth":1,"path":"jdk8_interface_function_practise.md","ref":"jdk8_interface_function_practise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"jdk8_double_colon_operator.md","mtime":"2019-04-20T16:55:43.334Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-20T16:55:52.438Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -23,7 +23,8 @@
 
 ## JDK8
 
-- [Lambda 表达式](Lambda 表达式.md)
+- [Lambda 表达式 & 函数式接口](Lambda 表达式.md)
+- [函数式接口 Function 实战](interface_function_practise.md)
 - [Java8 中的 Streams API](Java8 中的 Streams API.md)
 - [Java8 Optional 类的使用__]()
 

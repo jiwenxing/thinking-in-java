@@ -1,4 +1,4 @@
-# JDK8 Lambda expression
+# JDK8 Lambda 表达式 & Function Interface 函数式接口
 ---
 
 Lambda 表达式作为 JDK8 引入的一个重要的特性，它主要是替换了原有匿名内部类的写法，也就是简化了匿名内部类的写法，通过引入新的语法形式提高了程序的可读性和可维护性。
@@ -279,9 +279,6 @@ public interface Predicate<T> {
 ```
 
 这里其实和示例中的写法一样，只是不用自己定义 `AppleFilter` 函数式接口，而直接使用了 JDK 提供的 Predicate 函数式接口，不难发现两个接口的抽象方法定义一致，因此没必要重复造轮子，而且 Predicate 接口提供了更多的默认方法。
-
-JDK 提供了各种类型的函数式接口如下表，使用的时候基本不要自己定义，按照使用场景选取一个合适的使用即可。
-![](https://jverson.oss-cn-beijing.aliyuncs.com/9328bb15521b95a16dc91d207131c9b8.jpg)
 
 
 

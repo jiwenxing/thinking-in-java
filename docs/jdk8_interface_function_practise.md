@@ -208,14 +208,19 @@ JDK 中还有 Function 接口其它一些变体形式以适用更多的场景，
 2. `IntFunction<R>`：R apply(int value); 入参固定为 int，同理还有 `DoubleFunction<R>`
 3. `ToIntFunction<T>`: int applyAsInt(T value); 返回结果固定为 int
 
+## 延伸思考
 
-## 其它函数式接口
+Function 支持一个入参，BiFunction 支持两个入参，如果方法入参有3个或者更多怎么办呢，其实很简单我们照着定义一个新的函数式接口即可。
 
-JDK8 自带了几种常见的函数式接口，基本涵盖了 99% 的使用场景，因此大部分情况都不需要自己定义函数式接口，根据场景从下表选择一个即可，当然如果一定要自定义，可以参考上一篇。
+```java
+@FunctionalInterface
+interface TriFunction<A, B, C, R> { 
+    R apply(A a, B b, C c); 
+    default <V> TriFunction<A, B, C, V> andThen( Function<? super R, ? extends V> after) { 
+        Objects.requireNonNull(after); 
+        return (A a, B b, C c) -> after.apply(apply(a, b, c)); 
+    } 
+}
+```
 
-![](https://jverson.oss-cn-beijing.aliyuncs.com/9328bb15521b95a16dc91d207131c9b8.jpg)
 
-具体各个接口使用示例请参考以下资料：
-
-[Functional Interfaces in Java 8
-](https://www.baeldung.com/java-8-functional-interfaces)

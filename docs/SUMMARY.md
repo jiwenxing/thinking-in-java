@@ -23,9 +23,11 @@
 
 ## JDK8
 
-- [Lambda 表达式 & 函数式接口](Lambda 表达式.md)
-- [函数式接口 Function 实战](interface_function_practise.md)
-- [Java8 中的 Streams API](Java8 中的 Streams API.md)
+- [Lambda 表达式 & 函数式接口](jdk8_lambda_expression.md)
+- [几种常用的函数式接口](jdk8_interface_function_commons.md)
+- [函数式接口 Function 实战](jdk8_interface_function_practise.md)
+- [Java8 中的双引号操作符](jdk8_double_colon_operator.md)
+- [Java8 中的 Streams API](jdk8_streams_api.md)
 - [Java8 Optional 类的使用__]()
 
 ## JMM & MutiThread

@@ -26,7 +26,7 @@
 - [Lambda 表达式 & 函数式接口](jdk8_lambda_expression.md)
 - [几种常用的函数式接口](jdk8_interface_function_commons.md)
 - [函数式接口 Function 实战](jdk8_interface_function_practise.md)
-- [Java8 中的双引号操作符](jdk8_double_colon_operator.md)
+- [Java8 中的双冒号操作符](jdk8_double_colon_operator.md)
 - [Java8 中的 Streams API](jdk8_streams_api.md)
 - [Java8 Optional 类的使用__]()
 
@@ -36,9 +36,12 @@
 - [JMM 内存模型基本概念__]()
 - [volatile 内存语义及实现__]()
 
-## GC
+## JVM
 
-- [垃圾回收器](Java 垃圾回收器.md)
+- [JVM 宏观认识](jvm/jvm-introduction.md)
+- [JVM 组成](jvm/jvm-components.md)
+- [JVM 内存管理](jvm/jvm-memory-management.md)
+- [GC 垃圾回收机制](jvm/jvm-gc.md)
 
 
 ## Others

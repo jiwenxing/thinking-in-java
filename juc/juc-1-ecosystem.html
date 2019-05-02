@@ -74,7 +74,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../juc-introduction.md" />
+    <link rel="next" href="juc-2-basic.html" />
     
     
 
@@ -399,14 +399,14 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="../juc-introduction.md">
+        <li class="chapter " data-level="6.2" data-path="juc-2-basic.html">
             
-                <span>
+                <a href="juc-2-basic.html">
             
                     
                         <b>6.2.</b>
                     
-                    Java 多线程__
+                    并发基础
             
                 </a>
             
@@ -421,7 +421,7 @@
                     
                         <b>6.3.</b>
                     
-                    JMM 内存模型基本概念__
+                    JMM & 指令重排序 & happens-before
             
                 </span>
             
@@ -783,71 +783,53 @@
                                 <h1 id="java-&#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x77E5;&#x8BC6;&#x4F53;&#x7CFB;">Java &#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x77E5;&#x8BC6;&#x4F53;&#x7CFB;</h1>
 <hr>
 <h2 id="to-study-list">to study list</h2>
+<p>&#x57FA;&#x7840;&#x77E5;&#x8BC6;</p>
 <ul>
-<li>&#x57FA;&#x7840;&#x77E5;&#x8BC6;<ul>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5E76;&#x53D1;&#x4F18;&#x7F3A;&#x70B9;&#x53CA;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x6982;&#x5FF5;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x7EBF;&#x7A0B;&#x72B6;&#x6001;&#x53CA;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#xFF0C;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x3001;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x3001;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x3001;&#x5B88;&#x62A4;&#x7EBF;&#x7A0B;</li>
-</ul>
-</li>
-<li>&#x5E76;&#x53D1;&#x7406;&#x8BBA;<ul>
+<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x7EBF;&#x7A0B;&#x72B6;&#x6001;&#x53CA;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#xFF0C;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x3001;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x3001;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x3001;&#x5B88;&#x62A4;&#x7EBF;&#x7A0B;
+&#x5E76;&#x53D1;&#x7406;&#x8BBA;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> JMM &#x5185;&#x5B58;&#x6A21;&#x578B;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x6307;&#x4EE4;&#x91CD;&#x6392;&#x5E8F;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> happens-before &#x89C4;&#x5219;</li>
-</ul>
-</li>
-<li>&#x5E76;&#x53D1;&#x5173;&#x952E;&#x5B57;<ul>
+<li style="list-style: none"><input type="checkbox" disabled="disabled"> happens-before &#x89C4;&#x5219;
+&#x5E76;&#x53D1;&#x5173;&#x952E;&#x5B57;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> synchronize &#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x3001;&#x5185;&#x5B58;&#x8BED;&#x4E49;&#x3001;&#x91CD;&#x5165;&#x6027;&#x3001;&#x9501;&#x4F18;&#x5316;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> volatile &#x5B9E;&#x73B0;&#x539F;&#x7406;&#x3001;&#x5185;&#x5B58;&#x8BED;&#x4E49;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> final &#x5B9E;&#x73B0;&#x539F;&#x7406;&#x3001;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5E76;&#x53D1;&#x4E09;&#x5927;&#x7279;&#x6027;&#xFF1A;&#x539F;&#x5B50;&#x6027;&#x3001;&#x53EF;&#x89C1;&#x6027;&#x3001;&#x6709;&#x5E8F;&#x6027;</li>
-</ul>
-</li>
-<li>Lock &#x4F53;&#x7CFB;<ul>
+<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5E76;&#x53D1;&#x4E09;&#x5927;&#x7279;&#x6027;&#xFF1A;&#x539F;&#x5B50;&#x6027;&#x3001;&#x53EF;&#x89C1;&#x6027;&#x3001;&#x6709;&#x5E8F;&#x6027;
+Lock &#x4F53;&#x7CFB;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> lock &#x4E0E; synchronize &#x6BD4;&#x8F83;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> AQS &#x6E90;&#x7801;&#x89E3;&#x6790;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> ReentrantLock</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> ReentrantReadWriteLock</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> Condition &#x673A;&#x5236;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> LockSupport</li>
-</ul>
-</li>
-<li>&#x5E76;&#x53D1;&#x5BB9;&#x5668;<ul>
+<li style="list-style: none"><input type="checkbox" disabled="disabled"> LockSupport
+&#x5E76;&#x53D1;&#x5BB9;&#x5668;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> ConcurrentHashMap</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> CopyOnWriteArArrayList</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> ThreadLocal</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> BlockingQueue</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> ConcurrentLinkedQueue</li>
-</ul>
-</li>
-<li>&#x7EBF;&#x7A0B;&#x6C60;<ul>
+<li style="list-style: none"><input type="checkbox" disabled="disabled"> ConcurrentLinkedQueue
+&#x7EBF;&#x7A0B;&#x6C60;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> ThreadPoolExecutor</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> ScheduledThreadPoolExeuctor</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> FutureTask</li>
-</ul>
-</li>
-<li>&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#x7C7B;<ul>
+<li style="list-style: none"><input type="checkbox" disabled="disabled"> FutureTask
+&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#x7C7B;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5B9E;&#x73B0;&#x539F;&#x7406;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5E38;&#x7528;&#x7C7B;&#x4ECB;&#x7ECD;</li>
-</ul>
-</li>
-<li>&#x5E76;&#x53D1;&#x5DE5;&#x5177;<ul>
+<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5E38;&#x7528;&#x7C7B;&#x4ECB;&#x7ECD;
+&#x5E76;&#x53D1;&#x5DE5;&#x5177;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5012;&#x8BA1;&#x6570;&#x5668; CountDownLatch</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5FAA;&#x73AF;&#x6805;&#x680F; CyclicBarrier</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x4EE5;&#x4E0A;&#x4E24;&#x8005;&#x6BD4;&#x8F83;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x8D44;&#x6E90;&#x8BBF;&#x95EE;&#x63A7;&#x5236; Semaphore</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x6570;&#x636E;&#x4EA4;&#x6362; Exchanger</li>
-</ul>
-</li>
-<li>&#x5E76;&#x53D1;&#x5B9E;&#x8DF5;<ul>
+<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x6570;&#x636E;&#x4EA4;&#x6362; Exchanger
+&#x5E76;&#x53D1;&#x5B9E;&#x8DF5;</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;</li>
-</ul>
-</li>
 </ul>
 <h2 id="ecosystem">ecosystem</h2>
 <p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/d08340c896c473db0ef95ed8d47cacac.jpg" alt=""></p>
 <p>&#x6CE8;&#xFF1A; <a href="https://www.processon.com/view/5ab5a979e4b0a248b0e026b3?fromnew=1#outline" target="_blank">&#x56FE;&#x7247;&#x51FA;&#x5904;</a></p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2019-05-02 18:32:17
+2019-05-02 22:52:58
 </span></footer>
                                 
                                 </section>
@@ -876,7 +858,7 @@
             
                 
                 
-                <a href="../juc-introduction.md" class="navigation navigation-next navigation-unique" aria-label="Next page: Java 多线程__">
+                <a href="juc-2-basic.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 并发基础">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -887,7 +869,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java 并发知识体系","level":"6.1","depth":1,"next":{"title":"Java 多线程__","level":"6.2","depth":1,"path":"juc-introduction.md","ref":"juc-introduction.md","articles":[]},"previous":{"title":"Java8 Optional 类的使用__","level":"5.6","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"juc/juc-1-ecosystem.md","mtime":"2019-05-02T10:32:17.859Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-02T10:34:45.965Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java 并发知识体系","level":"6.1","depth":1,"next":{"title":"并发基础","level":"6.2","depth":1,"path":"juc/juc-2-basic.md","ref":"juc/juc-2-basic.md","articles":[]},"previous":{"title":"Java8 Optional 类的使用__","level":"5.6","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"juc/juc-1-ecosystem.md","mtime":"2019-05-02T14:52:58.067Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-02T15:21:28.090Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -382,18 +382,18 @@
 
     
         
-        <li class="header">JMM & MutiThread</li>
+        <li class="header">Java Muti-Threading</li>
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../Java 多线程与并发.html">
+        <li class="chapter " data-level="6.1" data-path="../juc-1-ecosystem.md">
             
-                <a href="../Java 多线程与并发.html">
+                <span>
             
                     
                         <b>6.1.</b>
                     
-                    Java 多线程__
+                    Java 并发知识体系
             
                 </a>
             
@@ -401,16 +401,16 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" >
+        <li class="chapter " data-level="6.2" data-path="../juc-introduction.md">
             
                 <span>
             
                     
                         <b>6.2.</b>
                     
-                    JMM 内存模型基本概念__
+                    Java 多线程__
             
-                </span>
+                </a>
             
 
             
@@ -422,6 +422,21 @@
             
                     
                         <b>6.3.</b>
+                    
+                    JMM 内存模型基本概念__
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" >
+            
+                <span>
+            
+                    
+                        <b>6.4.</b>
                     
                     volatile 内存语义及实现__
             
@@ -810,7 +825,7 @@ Object obj = constructor.newInstance(<span class="hljs-string">&quot;23333&quot;
 <pre><code class="lang-java">Object result = MethodClass.class.getMethod(<span class="hljs-string">&quot;add&quot;</span>,<span class="hljs-keyword">int</span>.class,<span class="hljs-keyword">int</span>.class).invoke(MethodClass.class.newInstance(),<span class="hljs-number">1</span>,<span class="hljs-number">4</span>);
 <span class="hljs-comment">//&#x5176;&#x4E2D; MethodClass &#x5B9A;&#x4E49;&#x5982;&#x4E0B;</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MethodClass</span> </span>{
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> fuck = <span class="hljs-number">3</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> lala = <span class="hljs-number">3</span>;
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span> </span>{
       <span class="hljs-keyword">return</span> a+b;
   }
@@ -869,7 +884,7 @@ Object obj = constructor.newInstance(<span class="hljs-string">&quot;23333&quot;
 <li><a href="https://www.sczyh30.com/posts/Java/java-reflection-1/" target="_blank">&#x6DF1;&#x5165;&#x89E3;&#x6790; Java &#x53CD;&#x5C04;</a></li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2019-04-28 23:21:17
+2019-05-02 10:31:52
 </span></footer>
                                 
                                 </section>
@@ -913,7 +928,7 @@ Object obj = constructor.newInstance(<span class="hljs-string">&quot;23333&quot;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java 反射特性","level":"8.2","depth":1,"next":{"title":"fastjson 泛型的反序列化","level":"9.1","depth":1,"path":"fastjson-deserilize.md","ref":"fastjson-deserilize.md","articles":[]},"previous":{"title":"Class 对象 - Java 类型信息","level":"8.1","depth":1,"path":"jvm/java-reflection-class.md","ref":"jvm/java-reflection-class.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"jvm/java-reflection.md","mtime":"2019-04-28T15:21:17.603Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-28T15:21:24.071Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java 反射特性","level":"8.2","depth":1,"next":{"title":"fastjson 泛型的反序列化","level":"9.1","depth":1,"path":"fastjson-deserilize.md","ref":"fastjson-deserilize.md","articles":[]},"previous":{"title":"Class 对象 - Java 类型信息","level":"8.1","depth":1,"path":"jvm/java-reflection-class.md","ref":"jvm/java-reflection-class.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"jvm/java-reflection.md","mtime":"2019-05-02T02:31:52.020Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-02T10:32:38.830Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

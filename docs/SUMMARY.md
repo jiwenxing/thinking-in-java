@@ -2,7 +2,7 @@
 
 - [Introduction](README.md)
 
-## String
+## Basic
 
 - [字符串基础](about string.md)
 
@@ -30,10 +30,11 @@
 - [Java8 中的 Streams API](jdk8_streams_api.md)
 - [Java8 Optional 类的使用__]()
 
-## JMM & MutiThread
+## Java Muti-Threading
 
-- [Java 多线程__](Java 多线程与并发.md)
-- [JMM 内存模型基本概念__]()
+- [Java 并发知识体系](juc/juc-1-ecosystem.md)
+- [并发基础](juc/juc-2-basic.md)
+- [JMM & 指令重排序 & happens-before]()
 - [volatile 内存语义及实现__]()
 
 ## JVM
@@ -42,6 +43,12 @@
 - [JVM 组成](jvm/jvm-components.md)
 - [JVM 内存管理](jvm/jvm-memory-management.md)
 - [GC 垃圾回收机制](jvm/jvm-gc.md)
+
+## Java Reflection
+
+- [Class 对象 - Java 类型信息](jvm/java-reflection-class.md)
+- [Java 反射特性](jvm/java-reflection.md)
+
 
 
 ## Others

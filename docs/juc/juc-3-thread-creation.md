@@ -43,7 +43,6 @@ public class RunnableTest implements Runnable{
 }
 ```
 
-- 
 
 细心的你会发现 Thread 其实实现了 Runnable 接口，也就是说实现了其中的 run 方法，而这个 **run 方法即线程要执行的方法体**。从下面 Thread 源码的 run 方法实现来看，如果 Thread 类是通过 Runnable 对象来构造的，则会执行 Runnable 对象中实现的 run 方法；如果是 Thread 子类则会直接重写这个 run 方法（Subclasses of Thread should override this method.）。
 

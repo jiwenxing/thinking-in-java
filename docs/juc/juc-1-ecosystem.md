@@ -4,8 +4,8 @@
 ## to study list
 
 基础知识
-- [ ] 并发优缺点及一些基本概念
-- [ ] 线程状态及基本操作，线程创建、状态转换、基本操作、守护线程
+- [x] 并发优缺点及一些基本概念
+- [x] 线程状态及基本操作，线程创建、状态转换、基本操作、守护线程
 
 并发理论
 - [ ] JMM 内存模型
@@ -34,9 +34,9 @@ Lock 体系
 - [ ] ConcurrentLinkedQueue
 
 线程池
-- [ ] ThreadPoolExecutor
-- [ ] ScheduledThreadPoolExeuctor
-- [ ] FutureTask
+- [x] ThreadPoolExecutor
+- [x] ScheduledThreadPoolExeuctor
+- [x] FutureTask
 
 原子操作类
 - [ ] 实现原理

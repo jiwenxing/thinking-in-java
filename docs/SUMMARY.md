@@ -36,9 +36,10 @@
 - [多线程基础](juc/juc-2-basic.md)
 - [创建线程的几种方式](juc/juc-3-thread-creation.md)
 - [线程池的使用](juc/juc-4-threadpool.md)
-- [线程通信](juc/juc-5-thread-communication.md)
-- [JMM & 指令重排序 & happens-before]()
-- [volatile 内存语义及实现__]()
+- [线程通信__](juc/juc-5-thread-collaboration.md)
+- [JMM Java 内存模型__](juc/juc-6-jmm.md)
+- [volatile 内存语义及原理](juc/juc-7-volatile.md)
+- [synchronized 内存语义及原理_](juc/juc-8-synchronized.md)
 
 ## JVM
 

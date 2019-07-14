@@ -28,7 +28,7 @@
 - [函数式接口 Function 实战](jdk8_interface_function_practise.md)
 - [Java8 中的双冒号操作符](jdk8_double_colon_operator.md)
 - [Java8 中的 Streams API](jdk8_streams_api.md)
-- [Java8 Optional 类的使用__]()
+- [Java8 Optional 类的使用_]()
 
 ## Java Muti-Threading
 
@@ -36,10 +36,10 @@
 - [多线程基础](juc/juc-2-basic.md)
 - [创建线程的几种方式](juc/juc-3-thread-creation.md)
 - [线程池的使用](juc/juc-4-threadpool.md)
-- [线程通信__](juc/juc-5-thread-collaboration.md)
-- [JMM Java 内存模型__](juc/juc-6-jmm.md)
-- [volatile 内存语义及原理](juc/juc-7-volatile.md)
-- [synchronized 内存语义及原理_](juc/juc-8-synchronized.md)
+- [线程通信_](juc/juc-5-thread-collaboration.md)
+- [JMM Java 内存模型_](juc/juc-6-jmm.md)
+- [volatile 关键字](juc/juc-7-volatile.md)
+- [synchronized & 锁优化](juc/juc-8-synchronized.md)
 
 ## JVM
 

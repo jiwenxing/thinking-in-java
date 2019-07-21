@@ -72,4 +72,5 @@
 - [JDK 代理及 CGLib 代理](JDK 代理及 CGLib 代理.md)
 - [Java 泛型的理解和使用](Java 泛型.md)
 - [Comparator 与排序](Comparator 与排序.md)
+- [重试工具：Guava Retryer](tools/guava-retryer.md)
 

@@ -56,7 +56,11 @@
 - [Class 对象 - Java 类型信息](jvm/java-reflection-class.md)
 - [Java 反射特性](jvm/java-reflection.md)
 
+## Algorithm
 
+- [几种常见的排序方法](algorithm/1-rank.md)
+- [编辑距离与文本相似度](algorithm/2-edit-distance.md)
+- [AC 算法与字符串搜索](algorithm/3-aho-corasick.md)
 
 ## Others
 

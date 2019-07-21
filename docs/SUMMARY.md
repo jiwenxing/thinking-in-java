@@ -40,6 +40,9 @@
 - [JMM Java 内存模型_](juc/juc-6-jmm.md)
 - [volatile 关键字](juc/juc-7-volatile.md)
 - [synchronized & 锁优化](juc/juc-8-synchronized.md)
+- [Lock & ReentrantLock](juc/juc-9-lock.md)
+- [AQS 原理_](juc/juc-10-AQS.md)& 并发工具类
+- [并发工具类](juc/juc-11-tools.md)
 
 ## JVM
 

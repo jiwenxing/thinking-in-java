@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Java 并发知识体系 · Thinking in Java</title>
+        <title>Lock & ReentrantLock · Thinking in Java</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,8 +74,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="juc-2-basic.html" />
+    <link rel="next" href="juc-10-AQS.html" />
     
+    
+    <link rel="prev" href="juc-8-synchronized.html" />
     
 
     <style>
@@ -384,7 +386,7 @@
         
         
     
-        <li class="chapter active" data-level="6.1" data-path="juc-1-ecosystem.html">
+        <li class="chapter " data-level="6.1" data-path="juc-1-ecosystem.html">
             
                 <a href="juc-1-ecosystem.html">
             
@@ -504,7 +506,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.9" data-path="juc-9-lock.html">
+        <li class="chapter active" data-level="6.9" data-path="juc-9-lock.html">
             
                 <a href="juc-9-lock.html">
             
@@ -870,7 +872,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Java 并发知识体系</a>
+        <a href=".." >Lock & ReentrantLock</a>
     </h1>
 </div>
 
@@ -885,72 +887,111 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="java-&#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x77E5;&#x8BC6;&#x4F53;&#x7CFB;">Java &#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x77E5;&#x8BC6;&#x4F53;&#x7CFB;</h1>
+                                <h1 id="reentrantlock-&#x53CA;-aqs">ReentrantLock &#x53CA; AQS</h1>
 <hr>
-<h2 id="to-study-list">to study list</h2>
-<p>&#x57FA;&#x7840;&#x77E5;&#x8BC6;</p>
+<p>Lock &#x63A5;&#x53E3;&#x662F; juc &#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x5957;&#x7C7B;&#x4F3C;&#x4E8E; synchronized &#x7684;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x5E76;&#x53D1;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x5DE5;&#x5177;&#x3002;ReentrantLock &#x662F; Lock &#x63A5;&#x53E3;&#x7684;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x72EC;&#x5360;&#x9501;&#x3002;&#x76F8;&#x5BF9; synchronized &#x800C;&#x8A00;&#xFF0C;ReentrantLock &#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x591A;&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#x4EE5;&#x53CA;&#x66F4;&#x7EC6;&#x7C92;&#x5EA6;&#x7684;&#x52A0;&#x9501;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>synchronized &#x662F;&#x57FA;&#x4E8E; JVM &#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5185;&#x7F6E;&#x9501;&#xFF0C;Java &#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x9501;&#x3002;Lock &#x662F;&#x57FA;&#x4E8E;&#x5728;&#x8BED;&#x8A00;&#x5C42;&#x9762;&#x5B9E;&#x73B0;&#x7684;&#x9501;&#xFF0C;Lock &#x9501;&#x53EF;&#x4EE5;&#x88AB;&#x4E2D;&#x65AD;&#xFF0C;&#x652F;&#x6301;&#x5B9A;&#x65F6;&#x9501;&#x3002;Lock &#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x8BFB;&#x64CD;&#x4F5C;&#x7684;&#x6548;&#x7387;&#x3002;&#x4E00;&#x822C;&#x5BF9;&#x4E8E;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x6216;&#x8005;&#x6846;&#x67B6;&#x7684;&#x8BBE;&#x8BA1;&#x90FD;&#x503E;&#x5411;&#x4E8E;&#x4F7F;&#x7528; Lock&#xFF0C;&#x4F46;&#x662F;&#x968F;&#x7740; JDK &#x5BF9; synchronized &#x7684;&#x4E0D;&#x65AD;&#x4F18;&#x5316;&#xFF0C;&#x4E24;&#x8005;&#x7684;&#x6027;&#x80FD;&#x5C06;&#x4F1A;&#x9010;&#x6E10;&#x63A5;&#x8FD1;&#x3002;</p>
+<h2 id="lock-&#x4F53;&#x7CFB;">Lock &#x4F53;&#x7CFB;</h2>
+<p>&#x4E0B;&#x56FE;&#x662F; juc &#x5305;&#x4E0B; Lock &#x76EE;&#x5F55;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;</p>
+<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/aa93a2e41f616a3232b9e1aa27b48686.jpg" alt=""></p>
+<p>&#x6574;&#x4E2A; Lock &#x6846;&#x67B6;&#x53CA;&#x5176;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x5176;&#x4E2D; AbstractQueuedSynchronizer&#xFF08;AQS&#xFF09;&#x53CA; LockSupport &#x7B49;&#x7C7B;&#x662F;&#x5176;&#x6838;&#x5FC3;&#xFF0C;&#x9700;&#x8981;&#x91CD;&#x70B9;&#x5B66;&#x4E60;&#x548C;&#x7406;&#x89E3;&#x3002;</p>
+<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/383019f54ccf087c317b480b315314ea.jpg" alt=""></p>
+<h2 id="reentrantlock">ReentrantLock</h2>
+<p>&#x5148;&#x6765;&#x770B;&#x6BD4;&#x8F83;&#x6838;&#x5FC3;&#x7684; ReentrantLock &#x7C7B;&#xFF0C;ReentrantLock &#x662F; Lock &#x63A5;&#x53E3;&#x7684;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x72EC;&#x5360;&#x9501;&#x3002;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x4E3B;&#x8981;&#x7279;&#x6027;&#xFF1A;</p>
 <ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> &#x5E76;&#x53D1;&#x4F18;&#x7F3A;&#x70B9;&#x53CA;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x6982;&#x5FF5;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> &#x7EBF;&#x7A0B;&#x72B6;&#x6001;&#x53CA;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#xFF0C;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x3001;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x3001;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x3001;&#x5B88;&#x62A4;&#x7EBF;&#x7A0B;</li>
+<li><p>&#x53EF;&#x91CD;&#x5165;&#x3002;ReentrantLock &#x662F;&#x53EF;&#x91CD;&#x5165;&#x9501;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x8BB0;&#x5F55;&#x4E4B;&#x524D;&#x83B7;&#x5F97;&#x9501;&#x7EBF;&#x7A0B;&#x5BF9;&#x8C61;&#xFF0C;&#x4FDD;&#x5B58;&#x5728; exclusiveOwenerThread &#x53D8;&#x91CF;&#x4E2D;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8981;&#x83B7;&#x53D6;&#x9501;&#x65F6;&#xFF0C;&#x4F1A;&#x5148;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x662F;&#x4E0D;&#x662F;&#x5DF2;&#x7ECF;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#x3002;synchronized &#x4E5F;&#x662F;&#x53EF;&#x91CD;&#x5165;&#x9501;&#x3002;</p>
+</li>
+<li><p>&#x53EF;&#x4E2D;&#x65AD;&#x3002;ReentrantLock &#x662F;&#x53EF;&#x4E2D;&#x65AD;&#x9501;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x4E86; lockInterruptibly &#x8FD9;&#x79CD;&#x53EF;&#x4E2D;&#x65AD;&#x7684;&#x52A0;&#x9501;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x7684;&#x907F;&#x514D;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x56E0;&#x4E3A;&#x4E92;&#x76F8;&#x6301;&#x7EED;&#x5360;&#x6709;&#x8D44;&#x6E90;&#x800C;&#x5BFC;&#x81F4;&#x963B;&#x585E;&#x3002;synchronized &#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x53EF;&#x4E2D;&#x65AD;&#x3002;</p>
+</li>
+<li><p>&#x516C;&#x5E73;&#x9501;&#x4E0E;&#x975E;&#x516C;&#x5E73;&#x9501;&#x53EF;&#x9009;&#x3002;ReentrantLock <strong>&#x9ED8;&#x8BA4;&#x662F;&#x975E;&#x516C;&#x5E73;&#x9501;</strong>&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x9009;&#x62E9;&#x975E;&#x516C;&#x5E73;&#x9501;&#x3002;&#x516C;&#x5E73;&#x9501;&#x662F;&#x6307;&#x5F53;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x540C;&#x4E00;&#x4E2A;&#x9501;&#x65F6;&#xFF0C;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x987A;&#x5E8F;&#x6309;&#x7167;&#x5230;&#x8FBE;&#x7684;&#x65F6;&#x95F4;&#x987A;&#x5E8F;&#x6392;&#x5E8F;&#x3002;</p>
+</li>
 </ul>
-<p>&#x5E76;&#x53D1;&#x7406;&#x8BBA;</p>
+<p>&#x5176;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5982;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5176;&#x4E3B;&#x8981;&#x4F9D;&#x9760; sync &#x7C7B;&#x5B9E;&#x73B0;&#xFF0C;&#x5E76;&#x4E14;&#x9ED8;&#x8BA4;&#x4E3A;&#x975E;&#x516C;&#x5E73;&#x9501;&#xFF1A;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * Creates an instance of {<span class="hljs-doctag">@code</span> ReentrantLock}.
+ * This is equivalent to using {<span class="hljs-doctag">@code</span> ReentrantLock(false)}.
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ReentrantLock</span><span class="hljs-params">()</span> </span>{sync = <span class="hljs-keyword">new</span> NonfairSync();
+}
+
+<span class="hljs-comment">/**
+ * Creates an instance of {<span class="hljs-doctag">@code</span> ReentrantLock} with the
+ * given fairness policy.
+ *
+ * <span class="hljs-doctag">@param</span> fair {<span class="hljs-doctag">@code</span> true} if this lock should use a fair ordering policy
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ReentrantLock</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> fair)</span> </span>{sync = fair ? <span class="hljs-keyword">new</span> FairSync() : <span class="hljs-keyword">new</span> NonfairSync();}
+
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sync</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractQueuedSynchronizer</span> </span>{<span class="hljs-comment">//...}</span>
+</code></pre>
+<p>Sync &#x662F; ReentrantLock &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;FairSync &#x53CA; NonfairSync &#x90FD;&#x7EE7;&#x627F;&#x81EA; Sync&#x3002;Sync &#x5219;&#x7EE7;&#x627F;&#x4E86; AQS &#x62BD;&#x8C61;&#x7C7B;&#x3002;AQS&#xFF0C;AbstractQueuedSynchronizer&#xFF0C;&#x5373;&#x961F;&#x5217;&#x540C;&#x6B65;&#x5668;&#x3002;&#x5B83;&#x662F;&#x6784;&#x5EFA;&#x9501;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x540C;&#x6B65;&#x7EC4;&#x4EF6;&#x7684;&#x57FA;&#x7840;&#x6846;&#x67B6;&#xFF08;&#x5982; ReentrantLock&#x3001;ReentrantReadWriteLock&#x3001;Semaphore&#xFF09;&#x7B49;&#x3002;</p>
+<p>AQS &#x6700;&#x6838;&#x5FC3;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x662F;&#x4E00;&#x4E2A; volatile int state &#x548C; &#x4E00;&#x4E2A; FIFO &#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x5BF9;&#x5217;&#x3002;state &#x4EE3;&#x8868;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E92;&#x65A5;&#x8BBF;&#x95EE;&#xFF0C;&#x4E00;&#x822C;&#x8BBE;&#x7F6E;&#x4E3A; 1&#xFF0C;&#x800C;&#x5982;&#x679C;&#x662F;&#x5171;&#x4EAB;&#x8BBF;&#x95EE;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A; N&#xFF08;N &#x4E3A;&#x53EF;&#x5171;&#x4EAB;&#x7EBF;&#x7A0B;&#x7684;&#x4E2A;&#x6570;&#xFF09;&#xFF1B;&#x800C;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x662F;&#x4E00;&#x4E2A;&#x53CC;&#x5411;&#x94FE;&#x8868;&#xFF0C;&#x65E0;&#x6CD5;&#x7ACB;&#x5373;&#x83B7;&#x5F97;&#x9501;&#x800C;&#x8FDB;&#x5165;&#x963B;&#x585E;&#x72B6;&#x6001;&#x7684;&#x7EBF;&#x7A0B;&#x4F1A;&#x52A0;&#x5165;&#x961F;&#x5217;&#x7684;&#x5C3E;&#x90E8;&#x3002;&#x5F53;&#x7136;&#x5BF9; state &#x4EE5;&#x53CA;&#x961F;&#x5217;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x91C7;&#x7528;&#x4E86; volatile + CAS + &#x81EA;&#x65CB;&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#xFF0C;&#x91C7;&#x7528;&#x7684;&#x662F;&#x4E50;&#x89C2;&#x9501;&#x7684;&#x6982;&#x5FF5;&#x3002;</p>
+<p><strong>AQS &#x662F;&#x5E76;&#x53D1;&#x7EC4;&#x4EF6;&#x5305; JUC(Java Util Concurrency) &#x7684;&#x6838;&#x5FC3;&#xFF0C;&#x5305;&#x62EC; ReentrantLock &#x5728;&#x5185;&#x7684;&#x5F88;&#x591A;&#x5E76;&#x53D1;&#x7EC4;&#x4EF6;&#x5982; Condition&#x3001;BlockingQueue &#x4EE5;&#x53CA;&#x7EBF;&#x7A0B;&#x6C60;&#x91CC;&#x4F7F;&#x7528;&#x7684;worker&#x7B49;&#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x5176;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4E0B;&#x4E00;&#x7BC7;&#x5C06;&#x4F1A;&#x91CD;&#x70B9;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B; AQS &#x7684;&#x539F;&#x7406;&#x53CA;&#x5176;&#x5E94;&#x7528;&#x3002;</strong></p>
+<h2 id="&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;&#x793A;&#x4F8B;">&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;&#x793A;&#x4F8B;</h2>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderService</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ReentrantLock reentrantLock = <span class="hljs-keyword">new</span> ReentrantLock(<span class="hljs-keyword">true</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createOrder</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// &#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#xFF0C;&#x53EA;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x8BA2;&#x5355;</span>
+        reentrantLock.lock();
+        <span class="hljs-comment">// &#x901A;&#x5E38;&#xFF0C;lock &#x4E4B;&#x540E;&#x7D27;&#x8DDF;&#x7740; try &#x8BED;&#x53E5;&#xFF0C;&#x7136;&#x540E;&#x5728; finally &#x4E2D;&#x786E;&#x4FDD;&#x91CA;&#x653E;&#x9501;</span>
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// &#x8FD9;&#x5757;&#x4EE3;&#x7801;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x6765;(&#x83B7;&#x53D6;&#x5230;&#x9501;&#x7684;&#x7EBF;&#x7A0B;)&#xFF0C;</span>
+            <span class="hljs-comment">// &#x5176;&#x4ED6;&#x7684;&#x7EBF;&#x7A0B;&#x5728;lock()&#x65B9;&#x6CD5;&#x4E0A;&#x963B;&#x585E;&#xFF0C;&#x7B49;&#x5F85;&#x83B7;&#x53D6;&#x5230;&#x9501;&#xFF0C;&#x518D;&#x8FDB;&#x6765;</span>
+            <span class="hljs-comment">// &#x6267;&#x884C;&#x4EE3;&#x7801;...</span>
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-comment">// &#x9700;&#x8981;&#x663E;&#x5F0F;&#x7684;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x9020;&#x6210;&#x6B7B;&#x9501;</span>
+            reentrantLock.unlock();
+        }
+    }
+}
+</code></pre>
+<h2 id="reetrantreadwritelock">ReetrantReadWriteLock</h2>
+<p>ReetrantReadWriteLock &#x662F;&#x4E00;&#x79CD;&#x8BFB;&#x5199;&#x9501;&#xFF0C;&#x5176;&#x5B9E;&#x73B0;&#x4E86; ReadWriteLock &#x63A5;&#x53E3;&#xFF0C;&#x8BE5;&#x63A5;&#x53E3;&#x4E2D;&#x6709;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF1A;&#x83B7;&#x53D6;&#x8BFB;&#x9501;&#x3001;&#x83B7;&#x53D6;&#x5199;&#x9501;&#x3002;&#x5B83;&#x5C06;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#x5206;&#x5F00;&#xFF0C;&#x5206;&#x6210; 2 &#x4E2A;&#x9501;&#x6765;&#x5206;&#x914D;&#x7ED9;&#x7EBF;&#x7A0B;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x5F97;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#x8BFB;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x8BFB;&#x5199;&#x9501;&#x7684;&#x89C4;&#x5219;&#xFF1A;</p>
+<ol>
+<li>&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5DF2;&#x7ECF;&#x5360;&#x7528;&#x4E86;&#x8BFB;&#x9501;&#xFF0C;&#x5219;&#x6B64;&#x65F6;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x5982;&#x679C;&#x8981;&#x7533;&#x8BF7;&#x5199;&#x9501;&#xFF0C;&#x5219;&#x7533;&#x8BF7;&#x5199;&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#x4F1A;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x91CA;&#x653E;&#x8BFB;&#x9501;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5DF2;&#x7ECF;&#x5360;&#x7528;&#x4E86;&#x5199;&#x9501;&#xFF0C;&#x5219;&#x6B64;&#x65F6;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x5982;&#x679C;&#x7533;&#x8BF7;&#x5199;&#x9501;&#x6216;&#x8005;&#x8BFB;&#x9501;&#xFF0C;&#x5219;&#x7533;&#x8BF7;&#x7684;&#x7EBF;&#x7A0B;&#x4F1A;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x91CA;&#x653E;&#x5199;&#x9501;&#x3002;</li>
+</ol>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ReadWriteLock</span> </span>{<span class="hljs-function">Lock <span class="hljs-title">readLock</span><span class="hljs-params">()</span></span>;       <span class="hljs-comment">// &#x83B7;&#x53D6;&#x8BFB;&#x9501;  </span>
+    <span class="hljs-function">Lock <span class="hljs-title">writeLock</span><span class="hljs-params">()</span></span>;      <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5199;&#x9501;}</span>
+</code></pre>
+<p>&#x5C06;&#x8BFB;&#x5199;&#x9501;&#x5206;&#x5F00;&#x5728;&#x7279;&#x5B9A;&#x7684;&#x4E00;&#x4E9B;&#x573A;&#x666F;&#x4E2D;&#x76F8;&#x8F83;&#x4E8E; synchronized &#x8FD9;&#x79CD;&#x6392;&#x5B83;&#x9501;&#x80FD;&#x591F;&#x663E;&#x8457;&#x7684;&#x63D0;&#x5347;&#x7A0B;&#x5E8F;&#x7684;&#x5E76;&#x53D1;&#x6027;&#x80FD;&#xFF0C;&#x4E0B;&#x9762;&#x63A5;&#x53E3;&#x6E90;&#x7801;&#x4E0A;&#x7684;&#x6CE8;&#x91CA;&#x5F88;&#x6E05;&#x6670;&#x7684;&#x89E3;&#x91CA;&#x4E86;&#x8FD9;&#x4E9B;&#x573A;&#x666F;&#xFF0C;&#x4E3B;&#x8981;&#x4F9D;&#x8D56;&#x4E8E;&#x8BFB;&#x5199;&#x7684;&#x9891;&#x7387;&#x4EE5;&#x53CA;&#x6BCF;&#x6B21;&#x8BFB;&#x5199;&#x6240;&#x5360;&#x7528;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x6BD4;&#x5982;&#x8BFB;&#x591A;&#x5199;&#x5C11;&#x7684;&#x60C5;&#x51B5;&#x5C31;&#x662F;&#x9002;&#x7528;&#x8BFB;&#x5199;&#x9501;&#x7684;&#x5178;&#x578B;&#x573A;&#x666F;&#xFF0C;&#x5F53;&#x7136;&#x5B9E;&#x9645;&#x7684;&#x6027;&#x80FD;&#x63D0;&#x5347;&#x60C5;&#x51B5;&#x8FD8;&#x9700;&#x8981;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#x5F97;&#x51FA;&#x3002;</p>
+<blockquote>
+<p>Whether or not a read-write lock will improve performance over the use of a mutual exclusion lock depends on the frequency that the data is
+read compared to being modified, the duration of the read and write
+operations, and the contention for the data - that is, the number of
+threads that will try to read or write the data at the same time.
+For example, a collection that is initially populated with data and
+thereafter infrequently modified, while being frequently searched
+(such as a directory of some kind) is an ideal candidate for the use of
+a read-write lock. However, if updates become frequent then the data
+spends most of its time being exclusively locked and there is little, if any
+increase in concurrency. Further, if the read operations are too short
+the overhead of the read-write lock implementation (which is inherently
+more complex than a mutual exclusion lock) can dominate the execution
+cost, particularly as many read-write lock implementations still serialize
+all threads through a small section of code. Ultimately, only profiling
+and measurement will establish whether the use of a read-write lock is
+suitable for your application.</p>
+</blockquote>
+<h2 id="reentrantlock-vs-synchronized">ReentrantLock vs synchronized</h2>
+<p>&#x4E24;&#x79CD;&#x9501;&#x7684;&#x533A;&#x522B;&#x5982;&#x4E0B;&#xFF1A;</p>
 <ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> JMM &#x5185;&#x5B58;&#x6A21;&#x578B;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> &#x6307;&#x4EE4;&#x91CD;&#x6392;&#x5E8F;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> happens-before &#x89C4;&#x5219;</li>
+<li>Lock &#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x662F;&#x57FA;&#x4E8E;&#x5728;&#x8BED;&#x8A00;&#x5C42;&#x9762;&#x5B9E;&#x73B0;&#x7684;&#x9501;&#xFF1B;&#x800C; synchronized &#x662F; Java &#x4E2D;&#x7684;&#x5173;&#x952E;&#x5B57;&#xFF0C;synchronized &#x662F;&#x57FA;&#x4E8E; JVM &#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5185;&#x7F6E;&#x9501;&#xFF0C;Java &#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x9501;&#x3002;&#xFF1B;</li>
+<li>synchronized &#x5728;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x91CA;&#x653E;&#x7EBF;&#x7A0B;&#x5360;&#x6709;&#x7684;&#x9501;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x5BFC;&#x81F4;&#x6B7B;&#x9501;&#x73B0;&#x8C61;&#x53D1;&#x751F;&#xFF1B;&#x800C; Lock &#x5728;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4E3B;&#x52A8;&#x901A;&#x8FC7; unLock() &#x53BB;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x5219;&#x5F88;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x6B7B;&#x9501;&#x73B0;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x4F7F;&#x7528; Lock &#x65F6;&#x9700;&#x8981;&#x5728; finally &#x5757;&#x4E2D;&#x91CA;&#x653E;&#x9501;&#xFF1B;</li>
+<li>Lock &#x53EF;&#x4EE5;&#x8BA9;&#x7B49;&#x5F85;&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;&#xFF0C;&#x800C; synchronized &#x5374;&#x4E0D;&#x884C;&#xFF0C;&#x4F7F;&#x7528; synchronized &#x65F6;&#xFF0C;&#x7B49;&#x5F85;&#x7684;&#x7EBF;&#x7A0B;&#x4F1A;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x4E0B;&#x53BB;&#xFF0C;&#x4E0D;&#x80FD;&#x591F;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;&#xFF1B;</li>
+<li>&#x901A;&#x8FC7; Lock &#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x6709;&#x6CA1;&#x6709;&#x6210;&#x529F;&#x83B7;&#x53D6;&#x9501;&#xFF0C;&#x800C; synchronized &#x5374;&#x65E0;&#x6CD5;&#x529E;&#x5230;&#x3002;</li>
+<li>Lock &#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x8BFB;&#x64CD;&#x4F5C;&#x7684;&#x6548;&#x7387;&#x3002;&#xFF08;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; readwritelock &#x5B9E;&#x73B0;&#x8BFB;&#x5199;&#x5206;&#x79BB;&#xFF09;</li>
+<li>&#x6027;&#x80FD;&#x4E0A;&#x6765;&#x8BF4;&#xFF0C;&#x5728;&#x8D44;&#x6E90;&#x7ADE;&#x4E89;&#x4E0D;&#x6FC0;&#x70C8;&#x7684;&#x60C5;&#x5F62;&#x4E0B;&#xFF0C;Lock &#x6027;&#x80FD;&#x7A0D;&#x5FAE;&#x6BD4; synchronized &#x5DEE;&#x70B9;&#xFF08;&#x7F16;&#x8BD1;&#x7A0B;&#x5E8F;&#x901A;&#x5E38;&#x4F1A;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x8FDB;&#x884C;&#x4F18;&#x5316; synchronized&#xFF09;&#x3002;&#x4F46;&#x662F;&#x5F53;&#x540C;&#x6B65;&#x975E;&#x5E38;&#x6FC0;&#x70C8;&#x7684;&#x65F6;&#x5019;&#xFF0C;synchronized &#x7684;&#x6027;&#x80FD;&#x4E00;&#x4E0B;&#x5B50;&#x80FD;&#x4E0B;&#x964D;&#x597D;&#x51E0;&#x5341;&#x500D;&#x3002;&#x800C; ReentrantLock &#x786E;&#x8FD8;&#x80FD;&#x7EF4;&#x6301;&#x5E38;&#x6001;&#x3002;</li>
 </ul>
-<p>&#x5E76;&#x53D1;&#x5173;&#x952E;&#x5B57;</p>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x4F34;&#x968F;&#x7740; JDK &#x5BF9;&#x5185;&#x7F6E;&#x9501; synchronized &#x7684;&#x4E0D;&#x65AD;&#x4F18;&#x5316;&#xFF0C;&#x9009;&#x62E9; ReentrantLock &#x548C; synchronized &#x65F6;&#x6548;&#x7387;&#x4E0D;&#x5E94;&#x8BE5;&#x662F;&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x4E86;&#xFF0C;&#x800C;&#x662F;&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x9501;&#x662F;&#x5426;&#x9700;&#x8981;&#x516C;&#x5E73;&#x6027;&#xFF0C;&#x662F;&#x5426;&#x9700;&#x8981;&#x53EF;&#x4E2D;&#x65AD;&#xFF0C;&#x53EF;&#x5171;&#x4EAB;&#x7B49;&#x6765;&#x4F5C;&#x4E3A;&#x9009;&#x62E9;&#x4F9D;&#x636E;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> synchronize &#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x3001;&#x5185;&#x5B58;&#x8BED;&#x4E49;&#x3001;&#x91CD;&#x5165;&#x6027;&#x3001;&#x9501;&#x4F18;&#x5316;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> volatile &#x5B9E;&#x73B0;&#x539F;&#x7406;&#x3001;&#x5185;&#x5B58;&#x8BED;&#x4E49;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> final &#x5B9E;&#x73B0;&#x539F;&#x7406;&#x3001;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> &#x5E76;&#x53D1;&#x4E09;&#x5927;&#x7279;&#x6027;&#xFF1A;&#x539F;&#x5B50;&#x6027;&#x3001;&#x53EF;&#x89C1;&#x6027;&#x3001;&#x6709;&#x5E8F;&#x6027;</li>
+<li><a href="https://juejin.im/post/5a43ad786fb9a0450909cb5f#heading-17" target="_blank">&#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x7684;&#x9501;&#x673A;&#x5236;&#xFF1A;synchronized&#x548C;lock</a> </li>
 </ul>
-<p>Lock &#x4F53;&#x7CFB;</p>
-<ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> lock &#x4E0E; synchronize &#x6BD4;&#x8F83;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> AQS &#x6E90;&#x7801;&#x89E3;&#x6790;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> ReentrantLock</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> ReentrantReadWriteLock</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> Condition &#x673A;&#x5236;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> LockSupport</li>
-</ul>
-<p>&#x5E76;&#x53D1;&#x5BB9;&#x5668;</p>
-<ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> ConcurrentHashMap</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> CopyOnWriteArArrayList</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> ThreadLocal</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> BlockingQueue</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> ConcurrentLinkedQueue</li>
-</ul>
-<p>&#x7EBF;&#x7A0B;&#x6C60;</p>
-<ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> ThreadPoolExecutor</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> ScheduledThreadPoolExeuctor</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> FutureTask</li>
-</ul>
-<p>&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#x7C7B;</p>
-<ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5B9E;&#x73B0;&#x539F;&#x7406;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5E38;&#x7528;&#x7C7B;&#x4ECB;&#x7ECD;</li>
-</ul>
-<p>&#x5E76;&#x53D1;&#x5DE5;&#x5177;</p>
-<ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5012;&#x8BA1;&#x6570;&#x5668; CountDownLatch</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x5FAA;&#x73AF;&#x6805;&#x680F; CyclicBarrier</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x4EE5;&#x4E0A;&#x4E24;&#x8005;&#x6BD4;&#x8F83;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x8D44;&#x6E90;&#x8BBF;&#x95EE;&#x63A7;&#x5236; Semaphore</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x6570;&#x636E;&#x4EA4;&#x6362; Exchanger</li>
-</ul>
-<p>&#x5E76;&#x53D1;&#x5B9E;&#x8DF5;</p>
-<ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;</li>
-</ul>
-<h2 id="ecosystem">ecosystem</h2>
-<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/d08340c896c473db0ef95ed8d47cacac.jpg" alt=""></p>
-<p>&#x6CE8;&#xFF1A; <a href="https://www.processon.com/view/5ab5a979e4b0a248b0e026b3?fromnew=1#outline" target="_blank">&#x56FE;&#x7247;&#x51FA;&#x5904;</a></p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2019-07-14 17:22:37
+2019-07-21 13:21:00
 </span></footer>
                                 
                                 </section>
@@ -978,8 +1019,12 @@
 
             
                 
+                <a href="juc-8-synchronized.html" class="navigation navigation-prev " aria-label="Previous page: synchronized & 锁优化">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="juc-2-basic.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 多线程基础">
+                
+                <a href="juc-10-AQS.html" class="navigation navigation-next " aria-label="Next page: AQS 原理_">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -990,7 +1035,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java 并发知识体系","level":"6.1","depth":1,"next":{"title":"多线程基础","level":"6.2","depth":1,"path":"juc/juc-2-basic.md","ref":"juc/juc-2-basic.md","articles":[]},"previous":{"title":"Java8 Optional 类的使用_","level":"5.6","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"juc/juc-1-ecosystem.md","mtime":"2019-07-14T09:22:37.761Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T05:58:15.878Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lock & ReentrantLock","level":"6.9","depth":1,"next":{"title":"AQS 原理_","level":"6.10","depth":1,"path":"juc/juc-10-AQS.md","ref":"juc/juc-10-AQS.md","articles":[]},"previous":{"title":"synchronized & 锁优化","level":"6.8","depth":1,"path":"juc/juc-8-synchronized.md","ref":"juc/juc-8-synchronized.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"juc/juc-9-lock.md","mtime":"2019-07-21T05:21:00.243Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T05:58:15.878Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

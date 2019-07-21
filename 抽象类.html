@@ -371,7 +371,7 @@
                     
                         <b>5.6.</b>
                     
-                    Java8 Optional 类的使用__
+                    Java8 Optional 类的使用_
             
                 </span>
             
@@ -453,7 +453,7 @@
                     
                         <b>6.5.</b>
                     
-                    线程通信__
+                    线程通信_
             
                 </a>
             
@@ -468,7 +468,7 @@
                     
                         <b>6.6.</b>
                     
-                    JMM Java 内存模型__
+                    JMM Java 内存模型_
             
                 </a>
             
@@ -499,6 +499,51 @@
                         <b>6.8.</b>
                     
                     synchronized & 锁优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.9" data-path="juc/juc-9-lock.html">
+            
+                <a href="juc/juc-9-lock.html">
+            
+                    
+                        <b>6.9.</b>
+                    
+                    Lock & ReentrantLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.10" data-path="juc/juc-10-AQS.html">
+            
+                <a href="juc/juc-10-AQS.html">
+            
+                    
+                        <b>6.10.</b>
+                    
+                    AQS 原理_
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.11" data-path="juc/juc-11-tools.html">
+            
+                <a href="juc/juc-11-tools.html">
+            
+                    
+                        <b>6.11.</b>
+                    
+                    并发工具类
             
                 </a>
             
@@ -1005,7 +1050,7 @@ Instrument2.play() //&#x201C;&#x7EE7;&#x627F;&#x4E86;&#x201D;&#x63A5;&#x53E3;&#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"抽象类","level":"9.6","depth":1,"next":{"title":"接口","level":"9.7","depth":1,"path":"接口.md","ref":"接口.md","articles":[]},"previous":{"title":"多态","level":"9.5","depth":1,"path":"多态.md","ref":"多态.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"抽象类.md","mtime":"2018-08-26T12:28:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-14T09:13:27.279Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"抽象类","level":"9.6","depth":1,"next":{"title":"接口","level":"9.7","depth":1,"path":"接口.md","ref":"接口.md","articles":[]},"previous":{"title":"多态","level":"9.5","depth":1,"path":"多态.md","ref":"多态.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"抽象类.md","mtime":"2018-08-26T12:28:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T05:58:15.878Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

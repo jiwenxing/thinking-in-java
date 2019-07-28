@@ -10,12 +10,14 @@
  1. 程序鲁棒性，是不是能完整的考虑到各种边界条件
  2. 转换方法以及对 Interger 类型的掌握
 
+
  注意点：
 
  边界条件包括空字符、非法字符、正负数、大小越界等等
  使用 `char - '0'` 进行字符和数字的转化
 
  程序实现：
+
 
  ```Java
 public class Str2Int {
@@ -36,8 +38,8 @@ public class Str2Int {
         }
 
         //不能只是"+"或"-"
-        if (str == "")
-            throw new RuntimeException("only '+'/'-' included!");
+        if (str.isEmpty())
+            throw new RuntimeException("only '+' or '-' included!");
 
         if (negative)
             limit = -(long)Integer.MIN_VALUE; //使用 long 型存储边界值
@@ -81,6 +83,7 @@ public class Str2Int {
   System.out.println(-Integer.MIN_VALUE); // -2147483648
 
 这时候就有一个有趣的现象是 `Integer.MAX_VALUE + 1 = Integer.MIN_VALUE`，我们在平时使用当中如果不小心就可能造成下面这样的死循环:
+
 
 ```Java
 int a = Integer.MAX_VALUE - 10;

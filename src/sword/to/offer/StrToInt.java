@@ -23,7 +23,7 @@ public class StrToInt {
         }
 
         //不能只是"+"或"-"
-        if (str == "")
+        if (str.isEmpty())
             throw new RuntimeException("only '+'/'-' included!");
 
         if (negative)
@@ -47,7 +47,7 @@ public class StrToInt {
         System.out.println(Integer.MIN_VALUE); // -2147483648
         System.out.println(-Integer.MIN_VALUE); // -2147483648
         //正负
-        String str = "-2147483648";
+        String str = "+2147483647";
         System.out.println(str2int(str));
         System.out.println(Integer.valueOf(str));
 

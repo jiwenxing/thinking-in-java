@@ -63,6 +63,10 @@
 - [AC 算法与字符串搜索](algorithm/3-aho-corasick.md)
 - [sword-1：String 转 int](algorithm/sword-1-str2int.md)
 
+## Design Patterns
+
+- [单例模式](design/1-singleton.md)
+
 ## Others
 
 - [fastjson 泛型的反序列化](fastjson-deserilize.md)

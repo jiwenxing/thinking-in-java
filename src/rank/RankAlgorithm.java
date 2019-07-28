@@ -1,5 +1,7 @@
 package rank;
 
+import java.util.stream.Stream;
+
 public class RankAlgorithm {
 
     /**
@@ -25,6 +27,13 @@ public class RankAlgorithm {
                 }
             }
         }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 4, 6, 5, 1};
+        Stream.of(arr).forEach(System.out::println);
+        maopaoSort(arr);
+        Stream.of(arr).forEach(System.out::println);
     }
 
 }

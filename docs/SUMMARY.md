@@ -61,6 +61,7 @@
 - [几种常见的排序方法](algorithm/1-rank.md)
 - [编辑距离与文本相似度](algorithm/2-edit-distance.md)
 - [AC 算法与字符串搜索](algorithm/3-aho-corasick.md)
+- [sword-1：String 转 int](algorithm/sword-1-str2int.md)
 
 ## Others
 

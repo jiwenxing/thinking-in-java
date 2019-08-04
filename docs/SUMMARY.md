@@ -66,8 +66,9 @@
 
 ## Algorithm
 
-- [几种常见的排序方法](algorithm/1-rank.md)
-- [编辑距离与文本相似度](algorithm/2-edit-distance.md)
+- [排序算法](algorithm/sort.md)
+- [二分查找](algorithm/binary-search.md)
+- [编辑距离与文本相似度](algorithm/edit-distance.md)
 - [AC 算法与字符串搜索](algorithm/3-aho-corasick.md)
 - [sword-1：String 转 int](algorithm/sword-1-str2int.md)
 - [sword-8： 旋转数组的最数字](algorithm/sword-8-binary-search.md)

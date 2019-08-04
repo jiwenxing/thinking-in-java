@@ -141,22 +141,22 @@ public enum Singleton5 {
 
 其实 Enum 就是一个普通的类，它继承自 java.lang.Enum 类，这个可以通过反编译枚举类的字节码来理解。
 
+使用 `javac Singleton5.java ` 得到字节码文件 Singleton5.class
+使用 `javap Singleton5.class` 反解析字节码文件可以得到下面的内容：
+
 ```Java
-public enum DataSourceEnum {
-    DATASOURCE;
-} 
-
-// 对上面的代码编译后的字节码进行反编译可以得到下面的代码
-
-public final class DataSourceEnum extends Enum<DataSourceEnum> {
-    public static final DataSourceEnum DATASOURCE;
-    public static DataSourceEnum[] values();
-    public static DataSourceEnum valueOf(String s);
-    static {};
-} 
+public final class Singleton5 extends java.lang.Enum<Singleton5> {
+  public static final Singleton5 INSTANCE;
+  public static Singleton5[] values();
+  public static Singleton5 valueOf(java.lang.String);
+  public void whateverMethod();
+  static {};
+}
 ```
 
-由反编译后的代码可知，DATASOURCE 被声明为 static 的，虚拟机会保证一个类的 `<clinit>()`方法在多线程环境中被正确的加锁、同步。所以，枚举实现在实例化时是线程安全。
+> javap 是 jdk 自带的反解析工具。它的作用就是根据 class 字节码文件，反解析出当前类对应的 code 区（汇编指令）、本地变量表、异常表和代码行偏移量映射表、常量池等等信息。
+
+由反编译后的代码可知，INSTANCE 被声明为 static 的，虚拟机会保证一个类的 `<clinit>()`方法在多线程环境中被正确的加锁、同步。所以，枚举实现在实例化时是线程安全。
 
 另外 Java 规范中规定，每一个枚举类型及其定义的枚举变量在 JVM 中都是唯一的，因此在枚举类型的序列化和反序列化上，Java 做了特殊的规定。在序列化的时候 Java 仅仅是将枚举对象的 name 属性输出到结果中，反序列化的时候则是通过 java.lang.Enum 的 valueOf() 方法来根据名字查找枚举对象，因此反序列化后的实例也会和之前被序列化的对象实例相同。
 

@@ -4,30 +4,38 @@
 
 ## Basic
 
-- [字符串基础](about string.md)
+- [继承与初始化过程](basic/初始化和类的加载.md)
+- [多态](basic/多态.md)
+- [抽象类](basic/抽象类.md)
+- [接口](basic/接口.md)
+- [内部类](basic/inner-class.md)
+- [枚举](basic/enum.md)
+- [访问权限控制](basic/访问权限控制.md)
+- [Java 泛型的理解和使用](basic/泛型.md)
+- [Java 异常处理](basic/异常处理.md)
+- [JDK 代理及 CGLib 代理](basic/JDK代理及CGLib代理.md)
+- [final 关键字](basic/final.md)
 
 
-## Collection
+## String & Collection & Map
 
-- [容器(持有对象)的基本概念及操作](容器的基本概念及操作.md)
+- [字符串基础](data-types/string.md)
+- [容器(持有对象)的基本概念及操作](data-types/collection.md)
 - [ArrayList & LinkedList__]()
 - [HashSet & TreeSet__]()
-
-## Map
-
-- [HashMap 的实现原理](HashMap.md)
-- [ConcurrentHashMap 实现原理__](ConcurrentHashMap.md)
-- [HashMap、HashTable & ConcurrentHashMap](HashMap Hashtable CocurrentHashMap.md)
-- [TreeMap 和 LinkedHashMap 介绍](TreeMap-LinkedHashMap.md)
+- [HashMap 的实现原理](data-types/HashMap.md)
+- [ConcurrentHashMap 实现原理__](data-types/ConcurrentHashMap.md)
+- [HashMap、HashTable & ConcurrentHashMap](data-types/HashMap-Hashtable-CocurrentHashMap.md)
+- [TreeMap 和 LinkedHashMap 介绍](data-types/TreeMap-LinkedHashMap.md)
 
 
 ## JDK8
 
-- [Lambda 表达式 & 函数式接口](jdk8_lambda_expression.md)
-- [几种常用的函数式接口](jdk8_interface_function_commons.md)
-- [函数式接口 Function 实战](jdk8_interface_function_practise.md)
-- [Java8 中的双冒号操作符](jdk8_double_colon_operator.md)
-- [Java8 中的 Streams API](jdk8_streams_api.md)
+- [Lambda 表达式 & 函数式接口](jdk8/lambda_expression.md)
+- [几种常用的函数式接口](jdk8/interface_function_commons.md)
+- [函数式接口 Function 实战](jdk8/interface_function_practise.md)
+- [Java8 中的双冒号操作符](jdk8/double_colon_operator.md)
+- [Java8 中的 Streams API](jdk8/streams_api.md)
 - [Java8 Optional 类的使用_]()
 
 ## Java Muti-Threading
@@ -62,6 +70,7 @@
 - [编辑距离与文本相似度](algorithm/2-edit-distance.md)
 - [AC 算法与字符串搜索](algorithm/3-aho-corasick.md)
 - [sword-1：String 转 int](algorithm/sword-1-str2int.md)
+- [sword-8： 旋转数组的最数字](algorithm/sword-8-binary-search.md)
 
 ## Design Patterns
 
@@ -69,17 +78,7 @@
 
 ## Others
 
-- [fastjson 泛型的反序列化](fastjson-deserilize.md)
-- [访问权限控制](访问权限控制.md)
-- [final 关键字](final 关键字.md)
-- [继承与初始化过程](初始化和类的加载.md)
-- [多态](多态.md)
-- [抽象类](抽象类.md)
-- [接口](接口.md)
-- [内部类](Java 内部类.md)
-- [Java 异常处理](Java 异常处理.md)
-- [JDK 代理及 CGLib 代理](JDK 代理及 CGLib 代理.md)
-- [Java 泛型的理解和使用](Java 泛型.md)
-- [Comparator 与排序](Comparator 与排序.md)
+- [fastjson 泛型的反序列化](tools/fastjson-deserilize.md)
+- [Comparator 与排序](tools/comparator-sort.md)
 - [重试工具：Guava Retryer](tools/guava-retryer.md)
 

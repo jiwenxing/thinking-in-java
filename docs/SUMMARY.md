@@ -74,7 +74,9 @@
 
 ## Design Patterns
 
-- [单例模式](design/1-singleton.md)
+- [UML 类图_](design/0-uml.md)
+- [Singleton 单例模式](design/1-singleton.md)
+- [Builder 建造者模式](design/2-builder.md)
 
 ## Others
 

@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3bdf17a-e36c-4aee-9af9-cea0587bb819" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Comparator 与排序.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ConcurrentHashMap.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/HashMap Hashtable CocurrentHashMap.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/HashMap.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/JDK 代理及 CGLib 代理.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Java 内部类.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Java 异常处理.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Java 泛型.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/SUMMARY.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SUMMARY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/TreeMap-LinkedHashMap.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/about string.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/design/1-singleton.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/design/1-singleton.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/fastjson-deserilize.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/final 关键字.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/jdk8_double_colon_operator.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/jdk8_interface_function_commons.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/jdk8_interface_function_practise.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/jdk8_lambda_expression.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/jdk8_streams_api.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/初始化和类的加载.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/多态.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/容器的基本概念及操作.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/抽象类.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/接口.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/访问权限控制.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/basic/接口.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/basic/接口.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/src/others/ColorEnum.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="27" selection-end-column="1" />
+              <caret line="2" selection-start-line="2" selection-end-line="27" selection-end-column="1" />
               <folding>
                 <element signature="e#96#97#0" expanded="true" />
                 <element signature="e#133#134#0" expanded="true" />
@@ -94,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Enum.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="567">
@@ -103,21 +78,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/design/patterns/Singleton5.class">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/design/patterns/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12264">
-              <caret line="633" column="30" selection-start-line="633" selection-start-column="30" selection-end-line="633" selection-end-column="30" />
+            <state relative-caret-position="287">
+              <caret line="51" column="97" selection-start-line="51" selection-start-column="97" selection-end-line="51" selection-end-column="97" />
               <folding>
-                <element signature="e#23112#23113#0" expanded="true" />
+                <element signature="e#170#171#0" expanded="true" />
+                <element signature="e#197#198#0" expanded="true" />
+                <element signature="e#224#225#0" expanded="true" />
+                <element signature="e#250#251#0" expanded="true" />
+                <element signature="e#284#285#0" expanded="true" />
+                <element signature="e#314#315#0" expanded="true" />
+                <element signature="e#490#491#0" expanded="true" />
+                <element signature="e#530#531#0" expanded="true" />
+                <element signature="e#984#985#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/design/patterns/Singleton5.class">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -143,8 +126,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -194,6 +177,8 @@
         <option value="$PROJECT_DIR$/src/design/patterns/Singleton4.java" />
         <option value="$PROJECT_DIR$/src/others/GenderEnum.java" />
         <option value="$PROJECT_DIR$/src/others/ColorEnum.java" />
+        <option value="$PROJECT_DIR$/src/design/patterns/Builder.java" />
+        <option value="$PROJECT_DIR$/src/design/patterns/Person.java" />
       </list>
     </option>
   </component>
@@ -229,6 +214,12 @@
               <item name="thinking-in-java" type="b2602c69:ProjectViewProjectNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thinking-in-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="patterns" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="thinking-in-java" type="b2602c69:ProjectViewProjectNode" />
@@ -313,7 +304,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ColorEnum">
+  <component name="RunManager" selected="Application.Person">
     <configuration name="CallableLambdaTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="concurrency.CallableLambdaTest" />
       <module name="thinking-in-java" />
@@ -323,6 +314,13 @@
     </configuration>
     <configuration name="ColorEnum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="others.ColorEnum" />
+      <module name="thinking-in-java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Person" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="design.patterns.Person" />
       <module name="thinking-in-java" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -342,20 +340,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="concurrency.ThreadTest" />
-      <module name="thinking-in-java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Person" />
         <item itemvalue="Application.ColorEnum" />
         <item itemvalue="Application.StrToInt" />
         <item itemvalue="Application.RankAlgorithm" />
         <item itemvalue="Application.CallableLambdaTest" />
-        <item itemvalue="Application.ThreadTest" />
       </list>
     </recent_temporary>
   </component>
@@ -380,13 +371,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Learn" order="1" weight="0.3297568" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.17739628" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.17739628" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.26129943" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.26129943" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32909605" />
       <window_info anchor="bottom" id="Messages" order="2" weight="0.32863188" />
       <window_info anchor="bottom" id="Message" order="3" />
@@ -405,13 +397,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/chapter14/CGLibProxyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="15" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/concurrency/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
@@ -808,7 +793,7 @@
     <entry file="file://$PROJECT_DIR$/src/others/ColorEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="27" selection-end-column="1" />
+          <caret line="2" selection-start-line="2" selection-end-line="27" selection-end-column="1" />
           <folding>
             <element signature="e#96#97#0" expanded="true" />
             <element signature="e#133#134#0" expanded="true" />
@@ -823,6 +808,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="54" column="28" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/design/patterns/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="51" column="97" selection-start-line="51" selection-start-column="97" selection-end-line="51" selection-end-column="97" />
+          <folding>
+            <element signature="e#170#171#0" expanded="true" />
+            <element signature="e#197#198#0" expanded="true" />
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#530#531#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

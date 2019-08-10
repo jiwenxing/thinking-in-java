@@ -1,6 +1,8 @@
 package sword.to.offer;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * 二分查找
@@ -87,6 +89,7 @@ public static int searchMinIndex(int[] arr){
         System.out.println(binarySearch(arr, 7));
         System.out.println(binarySearchRecursively(arr, 7, 0, arr.length - 1));
         System.out.println(Arrays.binarySearch(arr, 7)); //默认使用了迭代模式
+        Collections.synchronizedList(new ArrayList());
     }
 
 }

@@ -77,6 +77,8 @@
     <link rel="next" href="ConcurrentHashMap.html" />
     
     
+    <link rel="prev" href="set-interface.html" />
+    
 
     <style>
     @media only screen and (max-width: 640px) {
@@ -348,42 +350,57 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" >
+        <li class="chapter " data-level="3.3" data-path="list-interface.html">
             
-                <span>
+                <a href="list-interface.html">
             
                     
                         <b>3.3.</b>
                     
-                    ArrayList & LinkedList__
+                    List 接口及实现类
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="3.4" >
+        <li class="chapter " data-level="3.4" data-path="queue-interface.md">
             
                 <span>
             
                     
                         <b>3.4.</b>
                     
-                    HashSet & TreeSet__
+                    Queue 接口及实现类_
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter active" data-level="3.5" data-path="HashMap.html">
+        <li class="chapter " data-level="3.5" data-path="set-interface.html">
+            
+                <a href="set-interface.html">
+            
+                    
+                        <b>3.5.</b>
+                    
+                    Set 接口及实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.6" data-path="HashMap.html">
             
                 <a href="HashMap.html">
             
                     
-                        <b>3.5.</b>
+                        <b>3.6.</b>
                     
                     HashMap 的实现原理
             
@@ -393,12 +410,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.6" data-path="ConcurrentHashMap.html">
+        <li class="chapter " data-level="3.7" data-path="ConcurrentHashMap.html">
             
                 <a href="ConcurrentHashMap.html">
             
                     
-                        <b>3.6.</b>
+                        <b>3.7.</b>
                     
                     ConcurrentHashMap 实现原理__
             
@@ -408,12 +425,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.7" data-path="HashMap-Hashtable-CocurrentHashMap.html">
+        <li class="chapter " data-level="3.8" data-path="HashMap-Hashtable-CocurrentHashMap.html">
             
                 <a href="HashMap-Hashtable-CocurrentHashMap.html">
             
                     
-                        <b>3.7.</b>
+                        <b>3.8.</b>
                     
                     HashMap、HashTable & ConcurrentHashMap
             
@@ -423,12 +440,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.8" data-path="TreeMap-LinkedHashMap.html">
+        <li class="chapter " data-level="3.9" data-path="TreeMap-LinkedHashMap.html">
             
                 <a href="TreeMap-LinkedHashMap.html">
             
                     
-                        <b>3.8.</b>
+                        <b>3.9.</b>
                     
                     TreeMap 和 LinkedHashMap 介绍
             
@@ -1291,7 +1308,7 @@ table = <span class="hljs-keyword">new</span> Entry[capacity];
 <li><a href="https://my.oschina.net/hosee/blog/675423" target="_blank">ConcurrentHashMap&#x80FD;&#x5B8C;&#x5168;&#x66FF;&#x4EE3;HashTable&#x5417;&#xFF1F;</a> </li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2018-11-18 01:50:52
+2019-08-10 23:42:21
 </span></footer>
                                 
                                 </section>
@@ -1319,8 +1336,12 @@ table = <span class="hljs-keyword">new</span> Entry[capacity];
 
             
                 
+                <a href="set-interface.html" class="navigation navigation-prev " aria-label="Previous page: Set 接口及实现">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="ConcurrentHashMap.html" class="navigation navigation-next navigation-unique" aria-label="Next page: ConcurrentHashMap 实现原理__">
+                
+                <a href="ConcurrentHashMap.html" class="navigation navigation-next " aria-label="Next page: ConcurrentHashMap 实现原理__">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1331,7 +1352,7 @@ table = <span class="hljs-keyword">new</span> Entry[capacity];
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HashMap 的实现原理","level":"3.5","depth":1,"next":{"title":"ConcurrentHashMap 实现原理__","level":"3.6","depth":1,"path":"data-types/ConcurrentHashMap.md","ref":"data-types/ConcurrentHashMap.md","articles":[]},"previous":{"title":"HashSet & TreeSet__","level":"3.4","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"data-types/HashMap.md","mtime":"2018-11-17T17:50:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-04T16:29:44.019Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HashMap 的实现原理","level":"3.6","depth":1,"next":{"title":"ConcurrentHashMap 实现原理__","level":"3.7","depth":1,"path":"data-types/ConcurrentHashMap.md","ref":"data-types/ConcurrentHashMap.md","articles":[]},"previous":{"title":"Set 接口及实现","level":"3.5","depth":1,"path":"data-types/set-interface.md","ref":"data-types/set-interface.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"data-types/HashMap.md","mtime":"2019-08-10T15:42:21.870Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-10T15:43:46.919Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

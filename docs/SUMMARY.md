@@ -24,8 +24,8 @@
 - [List 接口及实现类](data-types/list-interface.md)
 - [Queue 接口及实现类_](data-types/queue-interface.md)
 - [Set 接口及实现](data-types/set-interface.md)
-- [HashMap 的实现原理](data-types/HashMap.md)
-- [ConcurrentHashMap 实现原理__](data-types/ConcurrentHashMap.md)
+- [HashMap](data-types/HashMap.md)
+- [ConcurrentHashMap](data-types/ConcurrentHashMap.md)
 - [HashMap、HashTable & ConcurrentHashMap](data-types/HashMap-Hashtable-CocurrentHashMap.md)
 - [TreeMap 和 LinkedHashMap 介绍](data-types/TreeMap-LinkedHashMap.md)
 

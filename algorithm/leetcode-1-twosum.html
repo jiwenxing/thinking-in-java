@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>sword-8： 旋转数组的最小数字 · Thinking in Java</title>
+        <title>LeetCode-1： 数组中和为指定值得两个元素 · Thinking in Java</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="sword-15-kth-element.html" />
+    <link rel="next" href="leetcode-2-add-two-numbers.html" />
     
     
-    <link rel="prev" href="sword-1-str2int.html" />
+    <link rel="prev" href="sword-15-kth-element.html" />
     
 
     <style>
@@ -925,7 +925,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.7" data-path="sword-8-binary-search.html">
+        <li class="chapter " data-level="8.7" data-path="sword-8-binary-search.html">
             
                 <a href="sword-8-binary-search.html">
             
@@ -955,7 +955,7 @@
             
         </li>
     
-        <li class="chapter " data-level="8.9" data-path="leetcode-1-twosum.html">
+        <li class="chapter active" data-level="8.9" data-path="leetcode-1-twosum.html">
             
                 <a href="leetcode-1-twosum.html">
             
@@ -1149,7 +1149,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >sword-8： 旋转数组的最小数字</a>
+        <a href=".." >LeetCode-1： 数组中和为指定值得两个元素</a>
     </h1>
 </div>
 
@@ -1164,42 +1164,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x5251;&#x6307;8&#xFF1A;&#x5BFB;&#x627E;&#x65CB;&#x8F6C;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x5C0F;&#x6570;&#x5B57;">&#x5251;&#x6307;8&#xFF1A;&#x5BFB;&#x627E;&#x65CB;&#x8F6C;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x5C0F;&#x6570;&#x5B57;</h1>
+                                <h1 id="leetcode-1&#xFF1A;&#x4ECE;&#x6570;&#x7EC4;&#x4E2D;&#x627E;&#x5230;&#x548C;&#x4E3A;&#x6307;&#x5B9A;&#x503C;&#x5F97;&#x4E24;&#x4E2A;&#x5143;&#x7D20;">LeetCode-1&#xFF1A;&#x4ECE;&#x6570;&#x7EC4;&#x4E2D;&#x627E;&#x5230;&#x548C;&#x4E3A;&#x6307;&#x5B9A;&#x503C;&#x5F97;&#x4E24;&#x4E2A;&#x5143;&#x7D20;</h1>
 <hr>
-<p>&#x9898;&#x76EE;&#xFF1A;</p>
-<blockquote>
-<p>&#x628A;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x5F00;&#x59CB;&#x7684;&#x82E5;&#x5E72;&#x5143;&#x7D20;&#x642C;&#x5230;&#x6570;&#x7EC4;&#x672B;&#x5C3E;&#x5BF9;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x65CB;&#x8F6C;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#xFF0C;&#x8F93;&#x51FA;&#x8BE5;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x5C0F;&#x5143;&#x7D20;&#xFF08;&#x6216;&#x4E0B;&#x6807;&#xFF09;&#x3002;&#x4F8B;&#x5982; {3,4,5,1,2} &#x662F; {1,2,3,4,5} &#x7684;&#x65CB;&#x8F6C;&#xFF0C;&#x8BE5;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x5C0F;&#x503C;&#x4E3A; 1&#xFF0C;&#x6700;&#x5C0F;&#x503C;&#x4E0B;&#x6807;&#x4E3A; 3.</p>
-</blockquote>
-<p>&#x601D;&#x8DEF;&#xFF1A;</p>
-<p>&#x601D;&#x8DEF;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;&#x5728;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x4E2D;&#x67E5;&#x627E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF0C;&#x8FD9;&#x9053;&#x9898;&#x7684;&#x6570;&#x7EC4;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x53D8;&#x4F53;&#xFF0C;&#x540C;&#x6837;&#x4E5F;&#x662F;&#x5BFB;&#x627E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x56E0;&#x6B64;&#x81EA;&#x7136;&#x800C;&#x7136;&#x5E94;&#x8BE5;&#x80FD;&#x8054;&#x60F3;&#x5230;&#x4F7F;&#x7528;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x7684;&#x601D;&#x60F3;&#x8FDB;&#x884C;&#x89E3;&#x7B54;&#x3002;</p>
-<p>&#x6709;&#x4E86;&#x8FD9;&#x4E2A;&#x601D;&#x8DEF;&#x4EE5;&#x540E;&#x5C31;&#x662F;&#x5177;&#x4F53;&#x5199;&#x4EE3;&#x7801;&#x5206;&#x6790;&#x5404;&#x79CD;&#x60C5;&#x51B5;&#x4E86;&#xFF0C;&#x663E;&#x7136;&#x4E0D;&#x53EF;&#x80FD;&#x548C;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#xFF0C;&#x56E0;&#x4E3A;&#x65CB;&#x8F6C;&#x6570;&#x7EC4;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x4E25;&#x683C;&#x7684;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#xFF0C;&#x4E0D;&#x8FC7;&#x6CA1;&#x5173;&#x7CFB;&#xFF0C;&#x5728;&#x7EB8;&#x4E0A;&#x5199;&#x4E2A;&#x4F8B;&#x5B50;&#x4E00;&#x70B9;&#x70B9;&#x5206;&#x6790;&#x3002;</p>
-<ul>
-<li>&#x9996;&#x5148;&#x4EFB;&#x4F55;&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x90FD;&#x9700;&#x8981;&#x8003;&#x8651;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x8FB9;&#x754C;&#x5C31;&#x662F;&#x7A7A;&#x6570;&#x7EC4;&#xFF08;&#x8FD4;&#x56DE;-1&#xFF09;&#x3001; &#x672A;&#x65CB;&#x8F6C;&#x6570;&#x7EC4;&#xFF08;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4E0B;&#x6807;&#xFF09;&#x3001;&#x6709;&#x91CD;&#x590D;&#x503C;&#x6570;&#x7EC4;&#xFF08;&#x5168;&#x90E8;&#x5143;&#x7D20;&#x76F8;&#x7B49;&#xFF09;</li>
-<li>&#x6309;&#x7167;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x601D;&#x60F3;&#xFF0C;&#x4F7F;&#x7528; mid &#x5143;&#x7D20;&#x4E0E;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF08;&#x4E0D;&#x8981;&#x548C;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x6BD4;&#xFF09;&#xFF0C;&#x5982;&#x679C; <code>arr[mid] &lt; arr[high]</code>&#xFF0C;&#x8BF4;&#x660E;&#x53F3;&#x534A;&#x8FB9;&#x662F;&#x9012;&#x589E;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x6700;&#x5C0F;&#x5143;&#x7D20;&#x80AF;&#x5B9A;&#x5728; arr[mid] &#x7684;&#x5DE6;&#x534A;&#x90E8;&#x5206;&#xFF0C;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x6B64;&#x65F6; mid &#x8FD9;&#x4E2A;&#x5143;&#x7D20;&#x6709;&#x53EF;&#x80FD;&#x5C31;&#x662F;&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x540E;&#x9762;&#x7684;&#x6BD4;&#x8F83;&#x4E2D;&#x9700;&#x8981;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x5143;&#x7D20;</li>
-<li>&#x5982;&#x679C; <code>arr[mid] &gt; arr[high]</code>&#xFF0C;&#x5219;&#x8BF4;&#x660E; arr[high] &#x5C5E;&#x4E8E;&#x88AB;&#x65CB;&#x8F6C;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x56E0;&#x6B64;&#x6700;&#x5C0F;&#x503C;&#x80AF;&#x5B9A;&#x5728; mid &#x7684;&#x53F3;&#x534A;&#x90E8;&#x5206;&#x6570;&#x7EC4;&#x4E86;&#xFF0C;&#x6CE8;&#x610F;&#x6B64;&#x65F6; arr[mid] &#x53EF;&#x4EE5;&#x80AF;&#x5B9A;&#x4E0D;&#x4F1A;&#x662F;&#x6700;&#x5C0F;&#x503C;&#xFF08;&#x56E0;&#x4E3A;&#x5728;&#x53F3;&#x534A;&#x90E8;&#x5206;&#x6BD4; arr[high] &#x5927;&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5C06; mid &#x76F4;&#x63A5;&#x6392;&#x9664;</li>
-<li>&#x5982;&#x679C;&#x5141;&#x8BB8;&#x6709;&#x91CD;&#x590D;&#x6570;&#x636E;&#xFF0C;&#x5219;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0; <code>arr[mid] == arr[high]</code> &#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6B64;&#x65F6;&#x5176;&#x5B9E;&#x65E0;&#x6CD5;&#x5224;&#x65AD;&#x6700;&#x5C0F;&#x503C;&#x5230;&#x5E95;&#x5728;&#x90A3;&#x4E00;&#x8FB9;&#xFF0C;&#x53C2;&#x8003;&#x5F62;&#x5982; <code>001111111</code> &#x8FD9;&#x6837;&#x7684;&#x6570;&#x7EC4;&#x4E0D;&#x540C;&#x7684;&#x65CB;&#x8F6C;&#x60C5;&#x51B5;&#xFF0C;&#x6B64;&#x65F6;&#x53EA;&#x80FD;&#x9010;&#x4E2A;&#x904D;&#x5386;</li>
-<li>&#x6700;&#x540E;&#x6700;&#x5C0F;&#x7684;&#x5143;&#x7D20;&#x4E0B;&#x6807;&#x5373; low </li>
-</ul>
-<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">searchMinIndex</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span></span>{
-    <span class="hljs-keyword">if</span> (arr==<span class="hljs-keyword">null</span> || arr.length == <span class="hljs-number">0</span>) <span class="hljs-comment">//&#x8FB9;&#x754C;&#x5224;&#x7A7A;</span>
-        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
-    <span class="hljs-keyword">int</span> low = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">int</span> high = arr.length - <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">while</span> (low &lt; high){  <span class="hljs-comment">// &#x5229;&#x7528;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x601D;&#x8DEF;&#xFF0C;&#x4F46;&#x9700;&#x8981;&#x7ED3;&#x5408;&#x5B9E;&#x9645;&#x60C5;&#x51B5;</span>
-        <span class="hljs-keyword">int</span> mid = (low + high) / <span class="hljs-number">2</span>;
-        <span class="hljs-keyword">if</span> (arr[mid] &gt; arr[high]){ <span class="hljs-comment">// &#x6B64;&#x65F6;&#x8BF4;&#x660E;&#x6700;&#x5C0F;&#x503C;&#x5728; mid &#x7684;&#x53F3;&#x534A;&#x8FB9;&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14; arr[mid] &#x80AF;&#x5B9A;&#x4E0D;&#x662F;&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x6392;&#x9664;</span>
-            low = mid + <span class="hljs-number">1</span>;
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arr[mid] &lt; arr[high]){ <span class="hljs-comment">// &#x6B64;&#x65F6;&#x8BF4;&#x660E;&#x6709;&#x534A;&#x90E8;&#x5206;&#x662F;&#x9012;&#x589E;&#x7684;&#xFF0C;&#x6700;&#x5C0F;&#x503C;&#x5728; mid &#x5DE6;&#x8FB9;&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14; arr[mid] &#x6B64;&#x65F6;&#x6709;&#x53EF;&#x80FD;&#x5C31;&#x662F;&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x4FDD;&#x7559;</span>
-            high = mid;
-        } <span class="hljs-keyword">else</span> { <span class="hljs-comment">// &#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x6839;&#x672C;&#x65E0;&#x6CD5;&#x5224;&#x65AD;&#x5230;&#x5E95;&#x5728;&#x5DE6;&#x8FB9;&#x8FD8;&#x662F;&#x5728;&#x53F3;&#x8FB9;&#xFF0C;&#x53EA;&#x80FD;&#x904D;&#x5386;</span>
-            high = high - <span class="hljs-number">1</span>;
+<p>&#x9898;&#x76EE;&#xFF1A;&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x6570;&#x7EC4; nums &#x548C;&#x4E00;&#x4E2A;&#x76EE;&#x6807;&#x503C; target&#xFF0C;&#x8BF7;&#x4F60;&#x5728;&#x8BE5;&#x6570;&#x7EC4;&#x4E2D;&#x627E;&#x51FA;&#x548C;&#x4E3A;&#x76EE;&#x6807;&#x503C;&#x7684;&#x90A3;&#x4E24;&#x4E2A;&#x6574;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4ED6;&#x4EEC;&#x7684;&#x6570;&#x7EC4;&#x4E0B;&#x6807;&#x3002;</p>
+<p>&#x601D;&#x8DEF;&#xFF1A;&#x66B4;&#x529B;&#x6CD5;&#x4E24;&#x5C42;&#x904D;&#x5386;&#x53EF;&#x4EE5;&#x5728; O(n2) &#x7684;&#x590D;&#x6742;&#x5EA6;&#x4E0B;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x8FD9;&#x663E;&#x7136;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x7B54;&#x6848;&#xFF0C;&#x80AF;&#x5B9A;&#x6709;&#x590D;&#x6742;&#x5EA6;&#x66F4;&#x4F18;&#x7684;&#x89E3;&#x6CD5;&#x3002;&#x4F8B;&#x5982; O(nlogn) &#x7684;&#x89E3;&#x6CD5;&#xFF0C;&#x751A;&#x81F3; O(n) &#x7684;&#x89E3;&#x6CD5;&#x3002;</p>
+<p>O(nlogn) &#x6211;&#x4EEC;&#x9996;&#x5148;&#x60F3;&#x5230;&#x5FEB;&#x6392;&#x8FD8;&#x6709;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF0C;&#x786E;&#x5B9E;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#xFF0C;&#x9996;&#x5148;&#x4F7F;&#x7528;&#x5FEB;&#x6392;&#x5BF9;&#x6570;&#x7EC4;&#x6392;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x4E24;&#x5C42;&#x5FAA;&#x73AF;&#x5D4C;&#x5957;&#x4F46;&#x5185;&#x4FA7;&#x5FAA;&#x73AF;&#x4F7F;&#x7528;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF0C;&#x6B64;&#x65F6;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5C31;&#x662F; O(nlogn)&#xFF0C;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x7565;&#x5FAE;&#x6709;&#x4E9B;&#x7E41;&#x7410;</p>
+<p>O(n) &#x6709;&#x6CA1;&#x6709;&#x53EF;&#x80FD;&#x5462;&#xFF1F;&#x5728;&#x8FD9;&#x4E2A;&#x9898;&#x76EE;&#x91CC;&#x904D;&#x5386;&#x4E00;&#x6B21;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x7701;&#x6389;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5FC5;&#x987B;&#x5728;&#x904D;&#x5386;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6709;&#x4E00;&#x4E2A; O(1) &#x590D;&#x6742;&#x5EA6;&#x7684;&#x65B9;&#x6CD5;&#x53BB;&#x67E5;&#x627E;&#x53E6;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;O(1) &#x590D;&#x6742;&#x5EA6;&#x7ACB;&#x9A6C;&#x8054;&#x60F3;&#x5230; hash&#xFF0C;hash &#x5E38;&#x7528;&#x7684;&#x7ED3;&#x6784;&#x5C31;&#x662F; HashSet &#x548C; HashMap&#xFF0C;&#x8FD9;&#x91CC;&#x56E0;&#x4E3A;&#x8981;&#x8FD4;&#x56DE;&#x4E0B;&#x6807;&#xFF0C;&#x56E0;&#x6B64;&#x4F7F;&#x7528; HashMap&#xFF0C;&#x5176; key &#x4E3A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x503C;&#xFF0C;value &#x4E3A;&#x5176;&#x4E0B;&#x6807;&#xFF0C;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#xFF0C;&#x53E6;&#x5916;&#x6570;&#x7EC4;&#x4E2D;&#x5141;&#x8BB8;&#x6709;&#x91CD;&#x590D;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x4E0B;&#x9762;&#x7B97;&#x6CD5;&#x90FD;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-Java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] twoSum(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target) {
+        <span class="hljs-keyword">if</span>(nums==<span class="hljs-keyword">null</span> || nums.length&lt;<span class="hljs-number">2</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;nums.length; i++){
+            <span class="hljs-keyword">int</span> other = target - nums[i];
+            <span class="hljs-keyword">if</span>(map.containsKey(other)){
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]{map.get(other), i};
+            }
+            map.put(nums[i], i);
         }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
     }
-    <span class="hljs-keyword">return</span> low;
 }
 </code></pre>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2019-08-11 19:49:13
+2019-08-13 22:14:05
 </span></footer>
                                 
                                 </section>
@@ -1227,12 +1216,12 @@
 
             
                 
-                <a href="sword-1-str2int.html" class="navigation navigation-prev " aria-label="Previous page: sword-1：String 转 int">
+                <a href="sword-15-kth-element.html" class="navigation navigation-prev " aria-label="Previous page: sword-15： 链表中倒数第 k 个节点">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="sword-15-kth-element.html" class="navigation navigation-next " aria-label="Next page: sword-15： 链表中倒数第 k 个节点">
+                <a href="leetcode-2-add-two-numbers.html" class="navigation navigation-next " aria-label="Next page: leetcode-2: ">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1243,7 +1232,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"sword-8： 旋转数组的最小数字","level":"8.7","depth":1,"next":{"title":"sword-15： 链表中倒数第 k 个节点","level":"8.8","depth":1,"path":"algorithm/sword-15-kth-element.md","ref":"algorithm/sword-15-kth-element.md","articles":[]},"previous":{"title":"sword-1：String 转 int","level":"8.6","depth":1,"path":"algorithm/sword-1-str2int.md","ref":"algorithm/sword-1-str2int.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"algorithm/sword-8-binary-search.md","mtime":"2019-08-11T11:49:13.408Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-18T05:17:47.897Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode-1： 数组中和为指定值得两个元素","level":"8.9","depth":1,"next":{"title":"leetcode-2: ","level":"8.10","depth":1,"path":"algorithm/leetcode-2-add-two-numbers.md","ref":"algorithm/leetcode-2-add-two-numbers.md","articles":[]},"previous":{"title":"sword-15： 链表中倒数第 k 个节点","level":"8.8","depth":1,"path":"algorithm/sword-15-kth-element.md","ref":"algorithm/sword-15-kth-element.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"algorithm/leetcode-1-twosum.md","mtime":"2019-08-13T14:14:05.583Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-18T05:17:47.897Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

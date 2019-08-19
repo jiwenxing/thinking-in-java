@@ -67,12 +67,24 @@
 
 ## Algorithm
 
+- [常见算法套路](algorithm/algorithm-summary.md)
+
 - [排序算法](algorithm/sort.md)
 - [二分查找](algorithm/binary-search.md)
 - [编辑距离与文本相似度](algorithm/edit-distance.md)
 - [AC 算法与字符串搜索](algorithm/3-aho-corasick.md)
 - [sword-1：String 转 int](algorithm/sword-1-str2int.md)
-- [sword-8： 旋转数组的最数字](algorithm/sword-8-binary-search.md)
+- [sword-8： 旋转数组的最小数字](algorithm/sword-8-binary-search.md)
+- [sword-15： 链表中倒数第 k 个节点](algorithm/sword-15-kth-element.md)
+
+- [LeetCode-1： 数组中和为指定值得两个元素](algorithm/leetcode-1-twosum.md)
+- [leetcode-2: 两个链表的数相加](algorithm/leetcode-2-add-two-numbers.md)
+- [leetcode-20: 合法的括号](algorithm/leetcode-20-valid-parentheses.md)
+- [leetcode-26: 删除有序数据中的重复值](algorithm/leetcode-26-rm-duplicates-from-sorted-array.md)
+- [leetcode-70: 爬楼梯问题](algorithm/leetcode-70-climb-stairs.md)
+- [leetcode-21: 合并两个有序链表](algorithm/leetcode-21-merge-two-sorted-lists.md)
+- [leetcode-206: 单链表逆转](algorithm/leetcode-206-list-reverse.md)
+
 
 ## Design Patterns
 

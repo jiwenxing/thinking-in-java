@@ -39,6 +39,8 @@
 - [Java8 中的 Streams API](jdk8/streams_api.md)
 - [Java8 Optional 类的使用_]()
 
+- [行为参数化（Behavior parameterization）](jdk8/behavior_parameterization.md)
+
 ## Java Muti-Threading
 
 - [Java 并发知识体系](juc/juc-1-ecosystem.md)
@@ -83,6 +85,7 @@
 - [leetcode-26: 删除有序数据中的重复值](algorithm/leetcode-26-rm-duplicates-from-sorted-array.md)
 - [leetcode-70: 爬楼梯问题](algorithm/leetcode-70-climb-stairs.md)
 - [leetcode-21: 合并两个有序链表](algorithm/leetcode-21-merge-two-sorted-lists.md)
+- [leetcode-141: 环形链表判断](algorithm/leetcode-141-list-cycle.md)
 - [leetcode-206: 单链表逆转](algorithm/leetcode-206-list-reverse.md)
 
 

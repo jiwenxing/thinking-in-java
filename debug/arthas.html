@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Set 接口及实现 · Thinking in Java</title>
+        <title>Arthas · Thinking in Java</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="HashMap.html" />
+    <link rel="next" href="../jdk8/lambda_expression.html" />
     
     
-    <link rel="prev" href="queue-interface.md" />
+    <link rel="prev" href="show-busy-java-threads.html" />
     
 
     <style>
@@ -148,9 +148,9 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="../debug/jstack.html">
+        <li class="chapter " data-level="2.1" data-path="jstack.html">
             
-                <a href="../debug/jstack.html">
+                <a href="jstack.html">
             
                     
                         <b>2.1.</b>
@@ -163,9 +163,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="../debug/show-busy-java-threads.html">
+        <li class="chapter " data-level="2.2" data-path="show-busy-java-threads.html">
             
-                <a href="../debug/show-busy-java-threads.html">
+                <a href="show-busy-java-threads.html">
             
                     
                         <b>2.2.</b>
@@ -178,9 +178,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="../debug/arthas.html">
+        <li class="chapter active" data-level="2.3" data-path="arthas.html">
             
-                <a href="../debug/arthas.html">
+                <a href="arthas.html">
             
                     
                         <b>2.3.</b>
@@ -312,9 +312,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="string.html">
+        <li class="chapter " data-level="4.1" data-path="../data-types/string.html">
             
-                <a href="string.html">
+                <a href="../data-types/string.html">
             
                     
                         <b>4.1.</b>
@@ -327,9 +327,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="collection.html">
+        <li class="chapter " data-level="4.2" data-path="../data-types/collection.html">
             
-                <a href="collection.html">
+                <a href="../data-types/collection.html">
             
                     
                         <b>4.2.</b>
@@ -342,9 +342,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="list-interface.html">
+        <li class="chapter " data-level="4.3" data-path="../data-types/list-interface.html">
             
-                <a href="list-interface.html">
+                <a href="../data-types/list-interface.html">
             
                     
                         <b>4.3.</b>
@@ -357,7 +357,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4" data-path="queue-interface.md">
+        <li class="chapter " data-level="4.4" data-path="../data-types/queue-interface.md">
             
                 <span>
             
@@ -372,9 +372,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.5" data-path="set-interface.html">
+        <li class="chapter " data-level="4.5" data-path="../data-types/set-interface.html">
             
-                <a href="set-interface.html">
+                <a href="../data-types/set-interface.html">
             
                     
                         <b>4.5.</b>
@@ -387,9 +387,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.6" data-path="HashMap.html">
+        <li class="chapter " data-level="4.6" data-path="../data-types/HashMap.html">
             
-                <a href="HashMap.html">
+                <a href="../data-types/HashMap.html">
             
                     
                         <b>4.6.</b>
@@ -402,9 +402,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.7" data-path="ConcurrentHashMap.html">
+        <li class="chapter " data-level="4.7" data-path="../data-types/ConcurrentHashMap.html">
             
-                <a href="ConcurrentHashMap.html">
+                <a href="../data-types/ConcurrentHashMap.html">
             
                     
                         <b>4.7.</b>
@@ -417,9 +417,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.8" data-path="HashMap-Hashtable-CocurrentHashMap.html">
+        <li class="chapter " data-level="4.8" data-path="../data-types/HashMap-Hashtable-CocurrentHashMap.html">
             
-                <a href="HashMap-Hashtable-CocurrentHashMap.html">
+                <a href="../data-types/HashMap-Hashtable-CocurrentHashMap.html">
             
                     
                         <b>4.8.</b>
@@ -432,9 +432,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.9" data-path="TreeMap-LinkedHashMap.html">
+        <li class="chapter " data-level="4.9" data-path="../data-types/TreeMap-LinkedHashMap.html">
             
-                <a href="TreeMap-LinkedHashMap.html">
+                <a href="../data-types/TreeMap-LinkedHashMap.html">
             
                     
                         <b>4.9.</b>
@@ -1284,7 +1284,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Set 接口及实现</a>
+        <a href=".." >Arthas</a>
     </h1>
 </div>
 
@@ -1299,131 +1299,142 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="set-&#x63A5;&#x53E3;&#xFF1A;hashset--treeset--enumset--linkedhashset">Set &#x63A5;&#x53E3;&#xFF1A;HashSet &amp; TreeSet &amp; EnumSet &amp; LinkedHashSet</h1>
+                                <h1 id="arthas">Arthas</h1>
 <hr>
-<p>&#x9996;&#x5148;&#x9700;&#x8981;&#x77E5;&#x9053; Set &#x7684;&#x5B9E;&#x73B0;&#x90FD;&#x662F;&#x57FA;&#x4E8E; Map &#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x5B66;&#x4E60;&#x5B8C; Map &#x63A5;&#x53E3;&#x540E;&#x518D;&#x6765;&#x770B; Set &#x5C31;&#x5F88;&#x660E;&#x4E86;&#x3002;</p>
-<h2 id="hashset">HashSet</h2>
-<p>&#x4E00;&#x4E9B;&#x6838;&#x5FC3;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HashSet</span>&lt;<span class="hljs-title">E</span>&gt;
-    <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractSet</span>&lt;<span class="hljs-title">E</span>&gt;
-    <span class="hljs-keyword">implements</span> <span class="hljs-title">Set</span>&lt;<span class="hljs-title">E</span>&gt;, <span class="hljs-title">Cloneable</span>, <span class="hljs-title">java</span>.<span class="hljs-title">io</span>.<span class="hljs-title">Serializable</span>
-</span>{
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> HashMap&lt;E,Object&gt; map;
-
-    <span class="hljs-comment">// Dummy value to associate with an Object in the backing Map</span>
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Object PRESENT = <span class="hljs-keyword">new</span> Object();
-
-    <span class="hljs-comment">/**
-     * Constructs a new, empty set; the backing &lt;tt&gt;HashMap&lt;/tt&gt; instance has
-     * default initial capacity (16) and load factor (0.75).
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HashSet</span><span class="hljs-params">()</span> </span>{
-        map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+<p>Arthas &#x662F;Alibaba&#x5F00;&#x6E90;&#x7684;Java&#x8BCA;&#x65AD;&#x5DE5;&#x5177;&#xFF0C;&#x6DF1;&#x53D7;&#x5F00;&#x53D1;&#x8005;&#x559C;&#x7231;&#x3002;&#x5728;&#x7EBF;&#x6392;&#x67E5;&#x95EE;&#x9898;&#xFF0C;&#x65E0;&#x9700;&#x91CD;&#x542F;&#xFF1B;&#x52A8;&#x6001;&#x8DDF;&#x8E2A;Java&#x4EE3;&#x7801;&#xFF1B;&#x5B9E;&#x65F6;&#x76D1;&#x63A7;JVM&#x72B6;&#x6001;&#x3002;</p>
+<p>Arthas &#x652F;&#x6301;JDK 6+&#xFF0C;&#x652F;&#x6301;Linux/Mac/Windows&#xFF0C;&#x91C7;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#xFF0C;&#x540C;&#x65F6;&#x63D0;&#x4F9B;&#x4E30;&#x5BCC;&#x7684; Tab &#x81EA;&#x52A8;&#x8865;&#x5168;&#x529F;&#x80FD;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x65B9;&#x4FBF;&#x8FDB;&#x884C;&#x95EE;&#x9898;&#x7684;&#x5B9A;&#x4F4D;&#x548C;&#x8BCA;&#x65AD;&#x3002;</p>
+<p>Github: <a href="https://github.com/alibaba/arthas" target="_blank">https://github.com/alibaba/arthas</a></p>
+<p>&#x6587;&#x6863;: <a href="https://arthas.aliyun.com/doc/" target="_blank">https://arthas.aliyun.com/doc/</a></p>
+<p>&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x81EA;&#x5DF1;&#x52A8;&#x624B;&#x628A;&#x8FD9;&#x4E9B;&#x90FD;&#x5B9E;&#x8DF5;&#x4E00;&#x904D;&#xFF08;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728; web &#x7AEF;&#x641E;&#xFF09;&#xFF1A;<a href="https://start.aliyun.com/course?spm=a2ck6.17690074.0.0.46193150C9E1PL&amp;id=PaiFAkJM" target="_blank">https://start.aliyun.com/course?spm=a2ck6.17690074.0.0.46193150C9E1PL&amp;id=PaiFAkJM</a></p>
+<p><img src="https://images.zenhubusercontent.com/5b83aeb622e474383b984d11/284a00f5-7329-4cff-bc83-aa10e226c7c5" alt="image.png"></p>
+<h2 id="&#x5B89;&#x88C5;&#x65B9;&#x5F0F;">&#x5B89;&#x88C5;&#x65B9;&#x5F0F;</h2>
+<p>&#x53EF;&#x4EE5;&#x73B0;&#x573A;&#x65F6;&#x4F7F;&#x7528;&#x5B98;&#x65B9;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#xFF0C;&#x4EFB;&#x610F;&#x76EE;&#x5F55;&#x6267;&#x884C;<code>curl -O https://arthas.aliyun.com/arthas-boot.jar</code>&#xFF0C;&#x5982;&#x679C;&#x6267;&#x884C;&#x6210;&#x529F;&#x5219;&#x76F4;&#x63A5;&#x8FD0;&#x884C;<code>java -jar arthas-boot.jar</code></p>
+<p>&#x6709;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x4F1A;&#x56E0;&#x4E3A;&#x5185;&#x7F51;&#x73AF;&#x5883;&#x5BFC;&#x81F4;hulk&#x5BB9;&#x5668;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;github&#x6216;aliyun&#x4E0B;&#x8F7D;arthas&#x7684;&#x4E00;&#x4E9B;&#x5FC5;&#x8981;&#x6587;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x4E8B;&#x5148;&#x5C06;&#x9700;&#x8981;&#x7684;&#x6587;&#x4EF6;&#x4E0B;&#x8F7D;&#x6253;&#x5305;&#x653E;&#x5728;&#x4E86;sftp&#x4E0A;</p>
+<ol>
+<li><p>mkdir /home/sankuai/.arthas/ &#x521B;&#x5EFA;&#x76EE;&#x5F55;, cd /home/sankuai/.arthas/ &#x8FDB;&#x5165;&#x5230;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;</p>
+</li>
+<li><p>sftp jiwenxing@jumper.sankuai.com &#x901A;&#x8FC7; sftp &#x4E0B;&#x8F7D; arthas.tar &#x5230;&#x5F53;&#x524D;&#x76EE;&#x5F55; /home/sankuai/.arthas/</p>
+</li>
+<li><p>tar xzvf arthas.tar &#x89E3;&#x538B;</p>
+</li>
+<li><p>java -jar lib/3.5.0/arthas/arthas-boot.jar &#x8FD0;&#x884C;&#x76EE;&#x5F55;&#x4E0B;&#x7684;arthas-boot.jar&#x6587;&#x4EF6;&#x5373;&#x53EF;</p>
+</li>
+</ol>
+<p>&#x8BE6;&#x7EC6;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x89C1; arthas &#x5B98;&#x65B9;&#x4F7F;&#x7528;&#x624B;&#x518C;&#xFF1A;<a href="https://arthas.aliyun.com/doc/install-detail.html#id1" target="_blank">https://arthas.aliyun.com/doc/install-detail.html#id1</a></p>
+<p>&#x9000;&#x51FA;arthas&#xFF0C;&#x7528;quit&#x6216;&#x8005;exit&#x547D;&#x4EE4;&#xFF0C;Attach&#x5230;&#x76EE;&#x6807;&#x8FDB;&#x7A0B;&#x4E0A;&#x7684;arthas&#x8FD8;&#x4F1A;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#xFF0C;&#x7AEF;&#x53E3;&#x4F1A;&#x4FDD;&#x6301;&#x5F00;&#x653E;&#xFF0C;&#x4E0B;&#x6B21;&#x8FDE;&#x63A5;&#x65F6;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FDE;&#x63A5;&#x4E0A;&#x3002;&#x5982;&#x679C;&#x60F3;&#x5B8C;&#x5168;&#x9000;&#x51FA;arthas&#xFF0C;&#x53EF;&#x4EE5;&#x6267;&#x884C;stop&#x547D;&#x4EE4;</p>
+<h2 id="&#x5E38;&#x7528;&#x529F;&#x80FD;">&#x5E38;&#x7528;&#x529F;&#x80FD;</h2>
+<h3 id="&#x67E5;&#x770B;&#x7EBF;&#x7A0B;&#x5806;&#x6808;">&#x67E5;&#x770B;&#x7EBF;&#x7A0B;&#x5806;&#x6808;</h3>
+<p>dashboard &#x53EF;&#x4EE5;&#x663E;&#x793A;&#x5F53;&#x524D; attach &#x7684; java &#x8FDB;&#x7A0B;&#x4E0B;&#x7684;&#x7EBF;&#x7A0B;&#x4FE1;&#x606F;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F1A;&#x6309;&#x7167; cpu &#x4F7F;&#x7528;&#x5012;&#x5E8F;&#x6392;&#x5217;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x770B;&#x5230;&#x90A3;&#x4E2A;&#x7EBF;&#x7A0B;&#x5360;&#x7528; cpu &#x8F83;&#x591A;&#xFF08;&#x529F;&#x80FD;&#x7C7B;&#x4F3C;&#x4E8E; top -Hp pid&#xFF09;</p>
+<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/90e74213c8a1b3b3bef64d5f1af13653.jpg" alt=""></p>
+<p>&#x5F97;&#x5230;&#x7EBF;&#x7A0B;id&#x540E;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x7EBF;&#x7A0B;&#x5806;&#x6808;</p>
+<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/97e379a0762677288ce78fc2ac7c5ad9.jpg" alt=""></p>
+<p>&#x67E5;&#x770B;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x4FE1;&#x606F; <code>thread</code></p>
+<p>&#x67E5;&#x770B;&#x5177;&#x4F53;&#x7EBF;&#x7A0B;&#x7684;&#x6808;&#xFF0C;&#x4F8B;&#x5982;&#x67E5;&#x770B;&#x7EBF;&#x7A0B;ID 16&#x7684;&#x6808;: <code>thread 16</code></p>
+<p>&#x67E5;&#x770B;CPU&#x4F7F;&#x7528;&#x7387;top n&#x7EBF;&#x7A0B;&#x7684;&#x6808;: <code>thread -n 3</code></p>
+<p>&#x67E5;&#x770B;5&#x79D2;&#x5185;&#x7684;CPU&#x4F7F;&#x7528;&#x7387;top n&#x7EBF;&#x7A0B;&#x6808;: <code>thread -n 3 -i 5000</code></p>
+<p>&#x67E5;&#x627E;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x6709;&#x963B;&#x585E;: <code>thread -b</code></p>
+<h3 id="&#x67E5;&#x770B;&#x65B9;&#x6CD5;&#x5165;&#x53C2;&#x548C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;">&#x67E5;&#x770B;&#x65B9;&#x6CD5;&#x5165;&#x53C2;&#x548C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</h3>
+<p>&#x4F8B;&#x5982;&#x6709;&#x8FD9;&#x4E48;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#xFF0C;&#x4E0D;&#x901A;&#x8FC7; debug &#x67E5;&#x770B;&#x65B9;&#x6CD5;&#x7684;&#x51FA;&#x5165;&#x53C2;&#x4FE1;&#x606F;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getNameById</span><span class="hljs-params">(<span class="hljs-keyword">int</span> cityId, <span class="hljs-keyword">boolean</span> isOversea)</span> </span>{
+    String cityName = StringUtils.EMPTY;
+    CityInfo cityInfo = <span class="hljs-keyword">null</span>;
+    <span class="hljs-keyword">if</span> (isOversea) {
+        cityInfo = <span class="hljs-keyword">this</span>.overseaCityId2Info.get(cityId);
+    } <span class="hljs-keyword">else</span> {
+        cityInfo = <span class="hljs-keyword">this</span>.domesticCityId2Info.get(cityId);
     }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(E e)</span> </span>{
-        <span class="hljs-keyword">return</span> map.put(e, PRESENT)==<span class="hljs-keyword">null</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">null</span> != cityInfo) {
+        cityName = cityInfo.getName();
     }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">remove</span><span class="hljs-params">(Object o)</span> </span>{
-        <span class="hljs-keyword">return</span> map.remove(o)==PRESENT;
-    }
-
-    <span class="hljs-comment">// ... ...</span>
-
+    <span class="hljs-keyword">return</span> cityName;
 }
 </code></pre>
-<p>&#x53EF;&#x4EE5;&#x660E;&#x663E;&#x7684;&#x770B;&#x5230; HashSet &#x5185;&#x90E8;&#x5C31;&#x662F;&#x4E00;&#x4E2A; HashMap&#xFF0C;&#x503C;&#x4E3A; HashMap &#x7684; Key&#xFF0C;&#x800C; Value &#x5219;&#x662F;&#x4E00;&#x4E2A; final static &#x7684; Object &#x5E38;&#x91CF;&#x3002;HashSet &#x6709;&#x4EE5;&#x4E0B;&#x4E00;&#x4E9B;&#x7279;&#x70B9;&#xFF1A;</p>
+<p>&#x901A;&#x8FC7; watch &#x547D;&#x4EE4;&#x5982;&#x4E0B;&#xFF0C;&#x5176;&#x4E2D; -x &#x8868;&#x793A;&#x904D;&#x5386;&#x6DF1;&#x5EA6;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x6574;&#x6765;&#x6253;&#x5370;&#x5177;&#x4F53;&#x7684;&#x53C2;&#x6570;&#x548C;&#x7ED3;&#x679C;&#x5185;&#x5BB9;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x662F;1&#x3002;-n 2 &#x8868;&#x793A;&#x53EA;&#x6267;&#x884C;&#x4E24;&#x6B21;&#xFF0C;&#x4E0D;&#x8BBE;&#x7F6E;&#x5219;&#x4F1A;&#x4E00;&#x76F4;&#x6267;&#x884C;</p>
+<blockquote>
+<p>watch com.meituan.dataapp.search.poi.rerank.hotel.service.HotelCityManager getNameById &quot;{params,returnObj}&quot; -x 2 -n 2</p>
+</blockquote>
+<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/2e3615382552e53c74a6327dbcfdc3a9.jpg" alt=""></p>
+<p>&#x6CE8;&#x610F;&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x5982;&#x679C;&#x4E0D;&#x52A0; -x 2 &#x7684;&#x8BDD;&#x6253;&#x5370;&#x51FA;&#x6765;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF0C;&#x5165;&#x53C2;&#x7684;&#x4E24;&#x4E2A;&#x503C;&#x53EA;&#x6253;&#x5370;&#x4E86;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x5C55;&#x5F00;&#x6253;&#x5370;&#x5BFC;&#x81F4;&#x6211;&#x4EEC;&#x770B;&#x4E0D;&#x5230;&#x5165;&#x53C2;&#x503C;</p>
+<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/361bbdbe0445f0f187325b2113849b65.jpg" alt=""></p>
+<p>watch &#x529F;&#x80FD;&#x5F88;&#x5F3A;&#x5927;&#xFF0C;&#x547D;&#x4EE4;&#x5B9A;&#x4E49;&#x4E86;4&#x4E2A;&#x89C2;&#x5BDF;&#x4E8B;&#x4EF6;&#x70B9;&#xFF0C;&#x5373; -b &#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x524D;&#xFF0C;-e &#x65B9;&#x6CD5;&#x5F02;&#x5E38;&#x540E;&#xFF0C;-s &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x540E;&#xFF0C;-f &#x65B9;&#x6CD5;&#x7ED3;&#x675F;&#x540E;&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;&#xFF0C;&#x53E6;&#x5916;&#x8FD8;&#x53EF;&#x4EE5;&#x52A0;&#x4E00;&#x4E9B;&#x6761;&#x4EF6;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &quot;params[0]&lt;120&quot; &#x7B2C;&#x4E00;&#x4E2A;&#x5165;&#x53C2;&#x503C;&#x5C0F;&#x4E8E;120&#xFF1B;&quot;params[0]==402&quot; &#x7B49;&#x4E8E;</span>
+[arthas@323341]$ watch com.meituan.dataapp.search.poi.rerank.hotel.service.HotelCityManager getNameById <span class="hljs-string">&quot;{params[0],returnObj}&quot;</span> <span class="hljs-string">&quot;params[0]&lt;120&quot;</span> -x 2 -n 2
+Press Q or Ctrl+C to abort.
+Affect(class count: 1 , method count: 1) cost <span class="hljs-keyword">in</span> 221 ms, listenerId: 11
+method=com.meituan.dataapp.search.poi.rerank.hotel.service.HotelCityManager.getNameById location=AtExit
+ts=2021-03-20 21:30:15; [cost=0.020612ms] result=@ArrayList[
+    @Integer[118],
+    @String[&#x9999;&#x6E2F;],
+]
+
+<span class="hljs-comment"># &#x65B9;&#x6CD5;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x65F6;&#x6253;&#x5370;&#xFF0C;&#x6CE8;&#x610F;&#x8868;&#x793A;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#x7684;&#x53D8;&#x91CF;&#x662F;throwExp</span>
+$ watch demo.MathGame primeFactors <span class="hljs-string">&quot;{params[0],throwExp}&quot;</span> <span class="hljs-_">-e</span> -x 2
+Press Ctrl+C to abort.
+Affect(class-cnt:1 , method-cnt:1) cost <span class="hljs-keyword">in</span> 62 ms.
+ts=2018-12-03 19:38:00; [cost=1.414993ms] result=@ArrayList[
+    @Integer[-1120397038],
+    java.lang.IllegalArgumentException: number is: -1120397038, need &gt;= 2
+    at demo.MathGame.primeFactors(MathGame.java:46)
+    at demo.MathGame.run(MathGame.java:24)
+    at demo.MathGame.main(MathGame.java:16)
+,
+]
+
+<span class="hljs-comment"># &#x5982;&#x679C;&#x8017;&#x65F6;&#x5927;&#x4E8E;200ms</span>
+$ watch demo.MathGame primeFactors <span class="hljs-string">&apos;{params, returnObj}&apos;</span> <span class="hljs-string">&apos;#cost&gt;200&apos;</span> -x 2
+Press Ctrl+C to abort.
+Affect(class-cnt:1 , method-cnt:1) cost <span class="hljs-keyword">in</span> 66 ms.
+ts=2018-12-03 19:40:28; [cost=2112.168897ms] result=@ArrayList[
+    @Object[][
+        @Integer[1],
+    ],
+    @ArrayList[
+        @Integer[5],
+        @Integer[428379493],
+    ],
+]
+</code></pre>
+<h3 id="&#x53CD;&#x7F16;&#x8BD1;&#x7EBF;&#x4E0A;&#x4EE3;&#x7801;">&#x53CD;&#x7F16;&#x8BD1;&#x7EBF;&#x4E0A;&#x4EE3;&#x7801;</h3>
+<p>jad package.classname(&#x7C7B;&#x7684;&#x5168;&#x9650;&#x5B9A;&#x540D;)&#xFF0C; &#x4F8B;&#x5982; jad com.meituan.dataapp.search.poi.rerank.hotel.postrank.BlackListPostRanker &#x5373;&#x53EF;&#x5C06;&#x5176;&#x53CD;&#x7F16;&#x8BD1;&#x6253;&#x5370;&#x51FA;&#x6765;&#xFF0C;&#x5F53;&#x4F60;&#x6000;&#x7591;&#x7EBF;&#x4E0A;&#x4EE3;&#x7801;&#x548C;&#x672C;&#x5730;&#x4E0D;&#x4E00;&#x81F4;&#x65F6;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x53CD;&#x7F16;&#x8BD1;&#x51FA;&#x6765;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;</p>
+<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/5b50afe0713b63c728e2dfcbe3fd4b9a.jpg" alt=""></p>
+<p>sc &#x67E5;&#x770B;JVM&#x5DF2;&#x52A0;&#x8F7D;&#x7684;&#x7C7B;&#x4FE1;&#x606F;</p>
+<pre><code class="lang-bash">[arthas@1799]$ sc <span class="hljs-_">-d</span> *MathGame <span class="hljs-comment"># -d &#x8868;&#x793A;&#x6253;&#x5370;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</span>
+ class-info        demo.MathGame                                                                                   
+ code-source       /home/shell/arthas-demo.jar                                                                     
+ name              demo.MathGame                                                                                   
+ isInterface       <span class="hljs-literal">false</span>                                                                                           
+ isAnnotation      <span class="hljs-literal">false</span>                                                                                           
+ isEnum            <span class="hljs-literal">false</span>                                                                                           
+ isAnonymousClass  <span class="hljs-literal">false</span>                                                                                           
+ isArray           <span class="hljs-literal">false</span>                                                                                           
+ isLocalClass      <span class="hljs-literal">false</span>                                                                                           
+ isMemberClass     <span class="hljs-literal">false</span>                                                                                           
+ isPrimitive       <span class="hljs-literal">false</span>                                                                                           
+ isSynthetic       <span class="hljs-literal">false</span>                                                                                           
+ simple-name       MathGame                                                                                        
+ modifier          public                                                                                          
+ annotation                                                                                                        
+ interfaces                                                                                                        
+ super-class       +-java.lang.Object                                                                              
+ class-loader      +-sun.misc.Launcher<span class="hljs-variable">$AppClassLoader</span>@1b6d3586                                                     
+                     +-sun.misc.Launcher<span class="hljs-variable">$ExtClassLoader</span>@7237d833                                                   
+ classLoaderHash   1b6d3586
+</code></pre>
+<h3 id="&#x70ED;&#x66F4;&#x65B0;&#x7EBF;&#x4E0A;&#x4EE3;&#x7801;">&#x70ED;&#x66F4;&#x65B0;&#x7EBF;&#x4E0A;&#x4EE3;&#x7801;</h3>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B; <a href="https://start.aliyun.com/handson/PaiFAkJM/case-jad-mc-redefine-cn" target="_blank">https://start.aliyun.com/handson/PaiFAkJM/case-jad-mc-redefine-cn</a> &#x8FDB;&#x884C;&#x719F;&#x6089;&#xFF0C;&#x5F88;&#x7B80;&#x5355;</p>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7; jad/mc/redefine &#x547D;&#x4EE4;&#x7EC4;&#x5408;&#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x66F4;&#x65B0;&#x4EE3;&#x7801;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
 <ul>
-<li>HashSet &#x4E2D;&#x4E0D;&#x80FD;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x4E00;&#x4E2A; Null &#x5143;&#x7D20;&#xFF0C;&#x5B58;&#x5165;&#x7684;&#x5143;&#x7D20;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#x3002;</li>
-<li>HashSet &#x4FDD;&#x8BC1;&#x552F;&#x4E00;&#x6027;&#x7684;&#x539F;&#x7406;&#x662F; hashCode() &#x548C; equals() &#x65B9;&#x6CD5;</li>
-<li>&#x6DFB;&#x52A0;&#x3001;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x90FD;&#x662F;O(1)</li>
-<li>&#x975E;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;</li>
+<li>jad &#x53CD;&#x7F16;&#x8BD1; class &#x4E3A; java &#x6587;&#x4EF6;&#x540E;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x4FEE;&#x6539; <code>jad --source-only com.example.demo.arthas.user.UserController &gt; /tmp/UserController.java</code></li>
+<li>sc &#x67E5;&#x627E;&#x52A0;&#x8F7D; UserController&#xFF08;&#x70ED;&#x66F4;&#x65B0;&#x7C7B;&#xFF09; &#x7684; ClassLoader <code>sc -d *UserController | grep classLoaderHash</code>  &#x8F93;&#x51FA; classLoaderHash 1be6f5c3</li>
+<li><p>&#x4F7F;&#x7528;mc(Memory Compiler)&#x547D;&#x4EE4;&#x6765;&#x7F16;&#x8BD1;&#xFF0C;&#x5E76;&#x4E14;&#x901A;&#x8FC7;-c&#x6216;&#x8005;--classLoaderClass&#x53C2;&#x6570;&#x6307;&#x5B9A;ClassLoader, <code>mc --classLoaderClass org.springframework.boot.loader.LaunchedURLClassLoader /tmp/UserController.java -d /tmp &#x6216; mc -c 1be6f5c3 /tmp/UserController.java -d /tmp</code> &#x6216; <code>mc -c 1be6f5c3 /tmp/UserController.java -d /tmp</code></p>
+</li>
+<li><p>&#x6700;&#x540E;&#x518D;&#x4F7F;&#x7528;redefine&#x547D;&#x4EE4;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x65B0;&#x7F16;&#x8BD1;&#x597D;&#x7684;UserController.class&#x5373;&#x53EF; <code>redefine /tmp/com/example/demo/arthas/user/UserController.class</code></p>
+</li>
 </ul>
-<h2 id="linkedhashset">LinkedHashSet</h2>
-<p>&#x90E8;&#x5206;&#x6838;&#x5FC3;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF0C;&#x4ECE;&#x5176;&#x8C03;&#x7528;&#x7684; HashSet &#x4E2D;&#x7684; super() &#x6784;&#x9020;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x4E86; LinkedHashMap &#x7ED3;&#x6784;&#x3002;&#x7531;&#x6B64;&#x53EF;&#x77E5; LinkedHashSet &#x901A;&#x8FC7;&#x7EE7;&#x627F; HashSet&#xFF0C;&#x5E95;&#x5C42;&#x4F7F;&#x7528; LinkedHashMap&#xFF0C;&#x4EE5;&#x5F88;&#x7B80;&#x5355;&#x660E;&#x4E86;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x4E86;&#x5176;&#x81EA;&#x8EAB;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x3002;</p>
-<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LinkedHashSet</span>&lt;<span class="hljs-title">E</span>&gt;
-    <span class="hljs-keyword">extends</span> <span class="hljs-title">HashSet</span>&lt;<span class="hljs-title">E</span>&gt;
-    <span class="hljs-keyword">implements</span> <span class="hljs-title">Set</span>&lt;<span class="hljs-title">E</span>&gt;, <span class="hljs-title">Cloneable</span>, <span class="hljs-title">java</span>.<span class="hljs-title">io</span>.<span class="hljs-title">Serializable</span> </span>{
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LinkedHashSet</span><span class="hljs-params">(<span class="hljs-keyword">int</span> initialCapacity, <span class="hljs-keyword">float</span> loadFactor)</span> </span>{
-        <span class="hljs-keyword">super</span>(initialCapacity, loadFactor, <span class="hljs-keyword">true</span>);
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LinkedHashSet</span><span class="hljs-params">(<span class="hljs-keyword">int</span> initialCapacity)</span> </span>{
-        <span class="hljs-keyword">super</span>(initialCapacity, .<span class="hljs-number">75f</span>, <span class="hljs-keyword">true</span>);
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LinkedHashSet</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">super</span>(<span class="hljs-number">16</span>, .<span class="hljs-number">75f</span>, <span class="hljs-keyword">true</span>);
-    }
-
-}
-
-<span class="hljs-comment">// &#x4E0A;&#x9762;&#x8C03;&#x7528;&#x7684; HashSet &#x4E2D;&#x7684; super() &#x6784;&#x9020;&#x65B9;&#x6CD5;</span>
-HashSet(<span class="hljs-keyword">int</span> initialCapacity, <span class="hljs-keyword">float</span> loadFactor, <span class="hljs-keyword">boolean</span> dummy) {
-    map = <span class="hljs-keyword">new</span> LinkedHashMap&lt;&gt;(initialCapacity, loadFactor);
-}
-</code></pre>
-<p>LinkedHashSet &#x6709;&#x4EE5;&#x4E0B;&#x4E00;&#x4E9B;&#x7279;&#x70B9;&#xFF1A;</p>
-<ul>
-<li>&#x6CA1;&#x6709;&#x91CD;&#x590D;&#x5143;&#x7D20;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x4E00;&#x4E2A; null &#x5143;&#x7D20;</li>
-<li>&#x5E95;&#x5C42;&#x4F1A;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x53CC;&#x5411;&#x94FE;&#x8868;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7EF4;&#x6301; insertion-order&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x56E0;&#x4E3A;&#x67D0;&#x4E2A;&#x5143;&#x7D20;&#x88AB;&#x91CD;&#x590D;&#x63D2;&#x5165;&#x800C;&#x6539;&#x53D8;</li>
-<li>&#x94FE;&#x8868;&#x4FDD;&#x8BC1;&#x4E86;&#x5143;&#x7D20;&#x7684;&#x6709;&#x5E8F;&#x5373;&#x5B58;&#x50A8;&#x548C;&#x53D6;&#x51FA;&#x4E00;&#x81F4;&#xFF0C;&#x54C8;&#x5E0C;&#x8868;&#x4FDD;&#x8BC1;&#x4E86;&#x5143;&#x7D20;&#x7684;&#x552F;&#x4E00;&#x6027;</li>
-<li>&#x975E;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;</li>
-<li>&#x6DFB;&#x52A0;&#x3001;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x90FD;&#x662F;O(1)</li>
-</ul>
-<h2 id="treeset">TreeSet</h2>
-<p>&#x4ECE;&#x4E0B;&#x9762;&#x7684;&#x90E8;&#x5206;&#x6E90;&#x7801;&#x53EF;&#x4EE5;&#x770B;&#x5230; TreeSet &#x662F;&#x57FA;&#x4E8E; TreeMap&#xFF08;&#x5B9E;&#x73B0;&#x4E86; NavigableMap &#x63A5;&#x53E3;&#xFF09; &#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x81EA;&#x7136;&#x6392;&#x5E8F;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x6392;&#x5E8F;&#x89C4;&#x5219;&#x3002;&#x5B83;&#x7684;&#x7279;&#x70B9;&#x5982;&#x4E0B;&#xFF1A;</p>
-<ul>
-<li>TreeSet &#x4E2D;&#x4E0D;&#x80FD;&#x6709;&#x76F8;&#x540C;&#x5143;&#x7D20;&#xFF0C;&#x4E0D;&#x53EF;&#x4EE5;&#x6709; Null &#x5143;&#x7D20;&#xFF0C;&#x6839;&#x636E;&#x5143;&#x7D20;&#x7684;&#x81EA;&#x7136;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x3002;</li>
-<li>TreeSet &#x5E95;&#x5C42;&#x901A;&#x8FC7;&#x7EA2;&#x9ED1;&#x6811;(&#x4E00;&#x79CD;&#x81EA;&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;)&#x7ED3;&#x6784;&#x5B9E;&#x73B0;&#x6392;&#x5E8F;</li>
-<li>&#x6DFB;&#x52A0;&#x3001;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x90FD;&#x662F;O(log(n))</li>
-<li>&#x975E;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;</li>
-</ul>
-<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TreeSet</span>&lt;<span class="hljs-title">E</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractSet</span>&lt;<span class="hljs-title">E</span>&gt;
-    <span class="hljs-keyword">implements</span> <span class="hljs-title">NavigableSet</span>&lt;<span class="hljs-title">E</span>&gt;, <span class="hljs-title">Cloneable</span>, <span class="hljs-title">java</span>.<span class="hljs-title">io</span>.<span class="hljs-title">Serializable</span>
-</span>{
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> NavigableMap&lt;E,Object&gt; m;
-    <span class="hljs-comment">// Dummy value to associate with an Object in the backing Map</span>
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Object PRESENT = <span class="hljs-keyword">new</span> Object();
-
-    TreeSet(NavigableMap&lt;E,Object&gt; m) {
-        <span class="hljs-keyword">this</span>.m = m;
-    }
-
-    <span class="hljs-comment">/**
-     * Constructs a new, empty tree set, sorted according to the
-     * natural ordering of its elements.  All elements inserted into
-     * the set must implement the {<span class="hljs-doctag">@link</span> Comparable} interface.
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeSet</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">this</span>(<span class="hljs-keyword">new</span> TreeMap&lt;E,Object&gt;());
-    }
-
-    <span class="hljs-comment">/**
-     * Constructs a new, empty tree set, sorted according to the specified
-     * comparator. 
-     *
-     * <span class="hljs-doctag">@param</span> comparator the comparator that will be used to order this set.
-     *        If {<span class="hljs-doctag">@code</span> null}, the {<span class="hljs-doctag">@linkplain</span> Comparable natural
-     *        ordering} of the elements will be used.
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeSet</span><span class="hljs-params">(Comparator&lt;? <span class="hljs-keyword">super</span> E&gt; comparator)</span> </span>{
-        <span class="hljs-keyword">this</span>(<span class="hljs-keyword">new</span> TreeMap&lt;&gt;(comparator));
-    }
-}
-</code></pre>
-<h2 id="&#x7EBF;&#x7A0B;&#x5B89;&#x5168;">&#x7EBF;&#x7A0B;&#x5B89;&#x5168;</h2>
-<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F; Set &#x63A5;&#x53E3;&#x7684;&#x8FD9;&#x51E0;&#x4E2A;&#x5B9E;&#x73B0;&#x7C7B;&#x90FD;&#x662F;&#x975E;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x5E76;&#x4E14; JDK &#x5E76;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7248;&#x672C;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x9700;&#x8981;&#x540C;&#x6B65;&#x7684;&#x573A;&#x666F;&#x4E2D;&#x9700;&#x8981;&#x8C03;&#x7528; Collections.synchronized &#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#xFF0C;&#x6E90;&#x7801;&#x7684;&#x6CE8;&#x91CA;&#x4E0A;&#x90FD;&#x6709;&#x8BF4;&#x660E;&#x3002;</p>
-<pre><code class="lang-Java">Set s = Collections.synchronizedSet(<span class="hljs-keyword">new</span> HashSet(...));
-Set s = Collections.synchronizedSet(<span class="hljs-keyword">new</span> LinkedHashSet(...));
-SortedSet s = Collections.synchronizedSortedSet(<span class="hljs-keyword">new</span> TreeSet(...));
-</code></pre>
-<h2 id="&#x7EA2;&#x9ED1;&#x6811;">&#x7EA2;&#x9ED1;&#x6811;</h2>
-<p>&#x7EA2;&#x9ED1;&#x6811;&#x662F;&#x4E00;&#x79CD;&#x81EA;&#x5E73;&#x8861;&#x6392;&#x5E8F;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x6811;&#x4E2D;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x503C;&#xFF0C;&#x90FD;&#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#x5728;&#x5B83;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x5C0F;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#x5728;&#x5B83;&#x7684;&#x53F3;&#x5B50;&#x6811;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x503C;&#xFF0C;&#x8FD9;&#x786E;&#x4FDD;&#x7EA2;&#x9ED1;&#x6811;&#x8FD0;&#x884C;&#x65F6;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x5730;&#x5728;&#x6811;&#x4E2D;&#x67E5;&#x627E;&#x548C;&#x5B9A;&#x4F4D;&#x7684;&#x6240;&#x9700;&#x8282;&#x70B9;&#x3002;JDK &#x63D0;&#x4F9B;&#x7684;&#x96C6;&#x5408;&#x7C7B; TreeMap &#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7EA2;&#x9ED1;&#x6811;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x5728; TreeMap &#x7AE0;&#x8282;&#x6DF1;&#x5165;&#x8BA8;&#x8BBA;&#x4E00;&#x4E0B;&#x7EA2;&#x9ED1;&#x6811;&#x3002;</p>
+<h3 id="arthas&#x540E;&#x53F0;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;">Arthas&#x540E;&#x53F0;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;</h3>
+<p>&#x5F53;&#x7EBF;&#x4E0A;&#x51FA;&#x73B0;&#x5076;&#x53D1;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6BD4;&#x5982;&#x9700;&#x8981;watch&#x67D0;&#x4E2A;&#x6761;&#x4EF6;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x6761;&#x4EF6;&#x4E00;&#x5929;&#x53EF;&#x80FD;&#x624D;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x65F6;&#xFF0C;&#x5F02;&#x6B65;&#x540E;&#x53F0;&#x4EFB;&#x52A1;&#x5C31;&#x6D3E;&#x4E0A;&#x7528;&#x573A;&#x4E86;&#xFF0C;&#x8BE6;&#x60C5;&#x8BF7;&#x53C2;&#x8003;&#x8FD9;&#x91CC; </p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2021-03-19 22:33:15
+2021-03-21 00:28:25
 </span></footer>
                                 
                                 </section>
@@ -1451,12 +1462,12 @@ SortedSet s = Collections.synchronizedSortedSet(<span class="hljs-keyword">new</
 
             
                 
-                <a href="queue-interface.md" class="navigation navigation-prev " aria-label="Previous page: Queue 接口及实现类_">
+                <a href="show-busy-java-threads.html" class="navigation navigation-prev " aria-label="Previous page: show-busy-java-threads">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="HashMap.html" class="navigation navigation-next " aria-label="Next page: HashMap">
+                <a href="../jdk8/lambda_expression.html" class="navigation navigation-next " aria-label="Next page: Lambda 表达式 & 函数式接口">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1467,7 +1478,7 @@ SortedSet s = Collections.synchronizedSortedSet(<span class="hljs-keyword">new</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Set 接口及实现","level":"4.5","depth":1,"next":{"title":"HashMap","level":"4.6","depth":1,"path":"data-types/HashMap.md","ref":"data-types/HashMap.md","articles":[]},"previous":{"title":"Queue 接口及实现类_","level":"4.4","depth":1,"path":"data-types/queue-interface.md","ref":"data-types/queue-interface.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"data-types/set-interface.md","mtime":"2021-03-19T14:33:15.938Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-20T16:31:06.926Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Arthas","level":"2.3","depth":1,"next":{"title":"Lambda 表达式 & 函数式接口","level":"3.1","depth":1,"path":"jdk8/lambda_expression.md","ref":"jdk8/lambda_expression.md","articles":[]},"previous":{"title":"show-busy-java-threads","level":"2.2","depth":1,"path":"debug/show-busy-java-threads.md","ref":"debug/show-busy-java-threads.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"debug/arthas.md","mtime":"2021-03-20T16:28:25.499Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-20T16:31:06.926Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

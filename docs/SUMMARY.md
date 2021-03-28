@@ -2,16 +2,22 @@
 
 - [Introduction](README.md)
 
+## 故障诊断
+
+- [Jstack 工具使用](debug/jstack.md)
+- [show-busy-java-threads](debug/show-busy-java-threads.md)
+- [Arthas](debug/arthas.md)
+
 ## Java 特性
 
-- [Lambda 表达式 & 函数式接口](jdk8/lambda_expression.md)
-- [几种常用的函数式接口](jdk8/interface_function_commons.md)
-- [函数式接口 Function 实战](jdk8/interface_function_practise.md)
-- [Java8 中的双冒号操作符](jdk8/double_colon_operator.md)
-- [Java8 中的 Streams API](jdk8/streams_api.md)
+- [Lambda 表达式 & 函数式接口](jdk/lambda_expression.md)
+- [几种常用的函数式接口](jdk/interface_function_commons.md)
+- [函数式接口 Function 实战](jdk/interface_function_practise.md)
+- [Java8 中的双冒号操作符](jdk/double_colon_operator.md)
+- [Java8 中的 Streams API](jdk/streams_api.md)
 - [Java8 Optional 类的使用_]()
 
-- [行为参数化（Behavior parameterization）](jdk8/behavior_parameterization.md)
+- [行为参数化（Behavior parameterization）](jdk/behavior_parameterization.md)
 
 ## 数据结构
 
@@ -26,12 +32,13 @@
 - [TreeMap 和 LinkedHashMap 介绍](data-types/TreeMap-LinkedHashMap.md)
 
 
-## 异步及多线程
+## 异步与多线程
 
 - [Java 并发知识体系](juc/juc-1-ecosystem.md)
 - [多线程基础](juc/juc-2-basic.md)
 - [创建线程的几种方式](juc/juc-3-thread-creation.md)
 - [线程池的使用](juc/juc-4-threadpool.md)
+- [CompleteFuture](juc/completefuture.md)
 - [线程通信_](juc/juc-5-thread-collaboration.md)
 - [JMM Java 内存模型_](juc/juc-6-jmm.md)
 - [volatile 关键字](juc/juc-7-volatile.md)

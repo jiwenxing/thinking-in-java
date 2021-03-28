@@ -450,7 +450,7 @@
 
     
         
-        <li class="header">异步及多线程</li>
+        <li class="header">异步与多线程</li>
         
         
     
@@ -514,12 +514,27 @@
             
         </li>
     
-        <li class="chapter " data-level="5.5" data-path="../juc/juc-5-thread-collaboration.html">
+        <li class="chapter " data-level="5.5" data-path="../juc/completefuture.html">
+            
+                <a href="../juc/completefuture.html">
+            
+                    
+                        <b>5.5.</b>
+                    
+                    CompleteFuture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../juc/juc-5-thread-collaboration.html">
             
                 <a href="../juc/juc-5-thread-collaboration.html">
             
                     
-                        <b>5.5.</b>
+                        <b>5.6.</b>
                     
                     线程通信_
             
@@ -529,12 +544,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6" data-path="../juc/juc-6-jmm.html">
+        <li class="chapter " data-level="5.7" data-path="../juc/juc-6-jmm.html">
             
                 <a href="../juc/juc-6-jmm.html">
             
                     
-                        <b>5.6.</b>
+                        <b>5.7.</b>
                     
                     JMM Java 内存模型_
             
@@ -544,12 +559,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.7" data-path="../juc/juc-7-volatile.html">
+        <li class="chapter " data-level="5.8" data-path="../juc/juc-7-volatile.html">
             
                 <a href="../juc/juc-7-volatile.html">
             
                     
-                        <b>5.7.</b>
+                        <b>5.8.</b>
                     
                     volatile 关键字
             
@@ -559,12 +574,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.8" data-path="../juc/juc-8-synchronized.html">
+        <li class="chapter " data-level="5.9" data-path="../juc/juc-8-synchronized.html">
             
                 <a href="../juc/juc-8-synchronized.html">
             
                     
-                        <b>5.8.</b>
+                        <b>5.9.</b>
                     
                     synchronized & 锁优化
             
@@ -574,12 +589,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.9" data-path="../juc/juc-9-lock.html">
+        <li class="chapter " data-level="5.10" data-path="../juc/juc-9-lock.html">
             
                 <a href="../juc/juc-9-lock.html">
             
                     
-                        <b>5.9.</b>
+                        <b>5.10.</b>
                     
                     Lock & ReentrantLock
             
@@ -589,12 +604,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.10" data-path="../juc/juc-10-AQS.html">
+        <li class="chapter " data-level="5.11" data-path="../juc/juc-10-AQS.html">
             
                 <a href="../juc/juc-10-AQS.html">
             
                     
-                        <b>5.10.</b>
+                        <b>5.11.</b>
                     
                     AQS 原理_
             
@@ -604,12 +619,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.11" data-path="../juc/juc-11-tools.html">
+        <li class="chapter " data-level="5.12" data-path="../juc/juc-11-tools.html">
             
                 <a href="../juc/juc-11-tools.html">
             
                     
-                        <b>5.11.</b>
+                        <b>5.12.</b>
                     
                     并发工具类
             
@@ -1427,7 +1442,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"重试工具：Guava Retryer","level":"9.3","depth":1,"next":{"title":"Java IO & NIO 介绍","level":"9.4","depth":1,"path":"basic/java-bio-nio-aio.md","ref":"basic/java-bio-nio-aio.md","articles":[]},"previous":{"title":"Comparator 与排序","level":"9.2","depth":1,"path":"tools/comparator-sort.md","ref":"tools/comparator-sort.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"tools/guava-retryer.md","mtime":"2021-03-19T14:33:15.949Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-20T16:31:06.926Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"重试工具：Guava Retryer","level":"9.3","depth":1,"next":{"title":"Java IO & NIO 介绍","level":"9.4","depth":1,"path":"basic/java-bio-nio-aio.md","ref":"basic/java-bio-nio-aio.md","articles":[]},"previous":{"title":"Comparator 与排序","level":"9.2","depth":1,"path":"tools/comparator-sort.md","ref":"tools/comparator-sort.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"tools/guava-retryer.md","mtime":"2021-03-19T14:33:15.949Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-28T10:41:50.988Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

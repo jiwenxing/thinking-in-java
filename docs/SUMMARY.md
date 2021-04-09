@@ -19,6 +19,13 @@
 
 - [行为参数化（Behavior parameterization）](jdk/behavior_parameterization.md)
 
+## Java 泛型及反射
+
+- [Java 泛型的理解和使用](basic/泛型.md)
+- [Class 对象 - Java 类型信息](jvm/java-reflection-class.md)
+- [Java 反射特性](jvm/java-reflection.md)
+
+
 ## 数据结构
 
 - [字符串基础](data-types/string.md)
@@ -53,8 +60,6 @@
 - [JVM 组成](jvm/jvm-components.md)
 - [JVM 内存管理](jvm/jvm-memory-management.md)
 - [GC 垃圾回收机制](jvm/jvm-gc.md)
-- [Class 对象 - Java 类型信息](jvm/java-reflection-class.md)
-- [Java 反射特性](jvm/java-reflection.md)
 
 
 ## 算法
@@ -101,7 +106,6 @@
 - [内部类](basic/inner-class.md)
 - [枚举](basic/enum.md)
 - [访问权限控制](basic/访问权限控制.md)
-- [Java 泛型的理解和使用](basic/泛型.md)
 - [Java 异常处理](basic/异常处理.md)
 - [final 关键字](basic/final.md)
 

@@ -74,7 +74,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../jvm/java-reflection-class.html" />
+    <link rel="next" href="type.html" />
     
     
     <link rel="prev" href="../jdk/behavior_parameterization.html" />
@@ -312,9 +312,9 @@
         
         
     
-        <li class="chapter active" data-level="4.1" data-path="泛型.html">
+        <li class="chapter active" data-level="4.1" data-path="generics.html">
             
-                <a href="泛型.html">
+                <a href="generics.html">
             
                     
                         <b>4.1.</b>
@@ -327,12 +327,27 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../jvm/java-reflection-class.html">
+        <li class="chapter " data-level="4.2" data-path="type.html">
+            
+                <a href="type.html">
+            
+                    
+                        <b>4.2.</b>
+                    
+                    泛型中的 Type 接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../jvm/java-reflection-class.html">
             
                 <a href="../jvm/java-reflection-class.html">
             
                     
-                        <b>4.2.</b>
+                        <b>4.3.</b>
                     
                     Class 对象 - Java 类型信息
             
@@ -342,12 +357,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="../jvm/java-reflection.html">
+        <li class="chapter " data-level="4.4" data-path="../jvm/java-reflection.html">
             
                 <a href="../jvm/java-reflection.html">
             
                     
-                        <b>4.3.</b>
+                        <b>4.4.</b>
                     
                     Java 反射特性
             
@@ -1306,7 +1321,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x6CDB;&#x578B;&#x60F3;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;">&#x6CDB;&#x578B;&#x60F3;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;</h1>
+                                <h1 id="java-&#x6CDB;&#x578B;&#xFF08;generics&#xFF09;&#x7684;&#x7406;&#x89E3;&#x548C;&#x4F7F;&#x7528;">Java &#x6CDB;&#x578B;&#xFF08;Generics&#xFF09;&#x7684;&#x7406;&#x89E3;&#x548C;&#x4F7F;&#x7528;</h1>
 <hr>
 <p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x3001;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x8FD9;&#x4E9B;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x5177;&#x4F53;&#x7684;&#x7C7B;&#x578B;&#xFF08;&#x8981;&#x4E48;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF0C;&#x8981;&#x4E48;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#xFF09;&#xFF0C;&#x90A3;&#x6709;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x7F16;&#x5199;&#x80FD;&#x5E94;&#x7528;&#x4E8E;&#x591A;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x4EE3;&#x7801;&#x5462;&#xFF1F;</p>
 <p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x4F1A;&#x60F3;&#x5230;&#x591A;&#x6001;&#xFF08;&#x4E5F;&#x7B97;&#x662F;&#x4E00;&#x79CD;&#x6CDB;&#x5316;&#x673A;&#x5236;&#xFF09;&#xFF0C;&#x4F8B;&#x5982;&#x5C06;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x8BBE;&#x4E3A;&#x57FA;&#x7C7B;&#xFF08;&#x6216;&#x63A5;&#x53E3;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x4EFB;&#x4F55;&#x7EE7;&#x627F;&#x8BE5;&#x57FA;&#x7C7B;&#xFF08;&#x5B9E;&#x73B0;&#x8BE5;&#x63A5;&#x53E3;&#xFF09;&#x7684;&#x7C7B;&#x90FD;&#x53EF;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x611F;&#x89C9;&#x8FD8;&#x662F;&#x53D7;&#x9650;&#x592A;&#x591A;&#xFF08;&#x4E3A;&#x4E86;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x53BB;&#x7EE7;&#x627F;&#x6216;&#x5B9E;&#x73B0;&#x67D0;&#x4E2A;&#x7C7B;&#x6216;&#x63A5;&#x53E3;&#xFF09;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x4E00;&#x79CD;&#x66F4;&#x5F7B;&#x5E95;&#x66F4;&#x901A;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x80FD;&#x4F7F;&#x4EE3;&#x7801;&#x5E94;&#x7528;&#x4E8E;&#x201C;&#x67D0;&#x79CD;&#x4E0D;&#x5177;&#x4F53;&#x7684;&#x7C7B;&#x578B;&#x201D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x57FA;&#x7C7B;&#x6216;&#x63A5;&#x53E3;&#x3002;</p>
@@ -1611,7 +1626,7 @@ Integer last = (Integer) p.getLast();
 <li><a href="https://www.baeldung.com/java-super-type-tokens" target="_blank">Super Type Tokens in Java</a> </li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"><span></span>
-20:13
+23:14
 </span></footer>
                                 
                                 </section>
@@ -1644,7 +1659,7 @@ Integer last = (Integer) p.getLast();
                 </a>
                 
                 
-                <a href="../jvm/java-reflection-class.html" class="navigation navigation-next " aria-label="Next page: Class 对象 - Java 类型信息">
+                <a href="type.html" class="navigation navigation-next " aria-label="Next page: 泛型中的 Type 接口">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1655,7 +1670,7 @@ Integer last = (Integer) p.getLast();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java 泛型的理解和使用","level":"4.1","depth":1,"next":{"title":"Class 对象 - Java 类型信息","level":"4.2","depth":1,"path":"jvm/java-reflection-class.md","ref":"jvm/java-reflection-class.md","articles":[]},"previous":{"title":"行为参数化（Behavior parameterization）","level":"3.7","depth":1,"path":"jdk/behavior_parameterization.md","ref":"jdk/behavior_parameterization.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"basic/泛型.md","mtime":"2021-04-10T12:13:44.706Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-10T12:15:30.868Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java 泛型的理解和使用","level":"4.1","depth":1,"next":{"title":"泛型中的 Type 接口","level":"4.2","depth":1,"path":"basic/type.md","ref":"basic/type.md","articles":[]},"previous":{"title":"行为参数化（Behavior parameterization）","level":"3.7","depth":1,"path":"jdk/behavior_parameterization.md","ref":"jdk/behavior_parameterization.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"basic/generics.md","mtime":"2021-04-10T15:14:56.378Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-10T16:22:26.230Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

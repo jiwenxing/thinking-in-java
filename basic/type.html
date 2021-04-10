@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>访问权限控制 · Thinking in Java</title>
+        <title>泛型中的 Type 接口 · Thinking in Java</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="异常处理.html" />
+    <link rel="next" href="../jvm/java-reflection-class.html" />
     
     
-    <link rel="prev" href="enum.html" />
+    <link rel="prev" href="generics.html" />
     
 
     <style>
@@ -327,7 +327,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="type.html">
+        <li class="chapter active" data-level="4.2" data-path="type.html">
             
                 <a href="type.html">
             
@@ -1231,7 +1231,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="11.7" data-path="访问权限控制.html">
+        <li class="chapter " data-level="11.7" data-path="访问权限控制.html">
             
                 <a href="访问权限控制.html">
             
@@ -1306,7 +1306,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >访问权限控制</a>
+        <a href=".." >泛型中的 Type 接口</a>
     </h1>
 </div>
 
@@ -1321,58 +1321,203 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="java-&#x63A7;&#x5236;&#x8BBF;&#x95EE;&#x6743;&#x9650;">Java &#x63A7;&#x5236;&#x8BBF;&#x95EE;&#x6743;&#x9650;</h1>
+                                <h1 id="&#x6CDB;&#x578B;&#x4E2D;&#x7684;-type-&#x63A5;&#x53E3;">&#x6CDB;&#x578B;&#x4E2D;&#x7684; Type &#x63A5;&#x53E3;</h1>
 <hr>
-<p>&#x4E00;&#x4E2A;&#x7C7B;&#x5E93;&#x5F00;&#x53D1;&#x8005;&#xFF08;&#x5F00;&#x53D1;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x7684;&#x63A5;&#x53E3;&#xFF09;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x548C;&#x4E0D;&#x65AD;&#x5B8C;&#x5584;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4EE5;&#x4F7F;&#x5176;&#x66F4;&#x53EF;&#x8BFB;&#x3001;&#x66F4;&#x6613;&#x7406;&#x89E3;&#x5E76;&#x66F4;&#x53EF;&#x7EF4;&#x62A4;&#xFF0C;&#x4F46;&#x4E4B;&#x524D;&#x7684;&#x6D88;&#x8D39;&#x8005;&#x5374;&#x5E0C;&#x671B;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x5728;&#x67D0;&#x4E9B;&#x65B9;&#x9762;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#xFF0C;&#x8981;&#x4E0D;&#x7136;&#x4ED6;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x5C06;&#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x6E05;&#x695A;&#x54EA;&#x4E9B;&#x63A5;&#x53E3;&#x88AB;&#x8C03;&#x7528;&#x8FC7;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x4FBF;&#x4F1A;&#x675F;&#x624B;&#x675F;&#x811A;&#xFF0C;&#x65E0;&#x6CD5;&#x5BF9;&#x4EFB;&#x4F55;&#x4E8B;&#x7269;&#x505A;&#x6539;&#x52A8;&#x3002;</p>
-<p>&#x8FD9;&#x91CC;&#x4FBF;&#x5F15;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;&#x5982;&#x4F55;&#x628A;&#x53D8;&#x52A8;&#x7684;&#x4E8B;&#x7269;&#x548C;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#x7684;&#x7684;&#x4E8B;&#x7269;&#x533A;&#x5206;&#x51FA;&#x6765;&#xFF1F;Java&#x63D0;&#x4F9B;&#x4E86;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x4FEE;&#x9970;&#x8BCD;&#x6765;&#x89E3;&#x51B3;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x4F7F;&#x7528;&#x6743;&#x9650;&#x4FEE;&#x9970;&#x8BCD;&#x53EF;&#x4EE5;&#x544A;&#x77E5;&#x5BA2;&#x6237;&#x7AEF;&#x7A0B;&#x5E8F;&#x5458;&#x54EA;&#x4E9B;&#x63A5;&#x53E3;&#x548C;&#x65B9;&#x6CD5;&#x662F;&#x53EF;&#x7528;&#x7684;&#xFF0C;&#x54EA;&#x4E9B;&#x662F;&#x4E0D;&#x53EF;&#x7528;&#x7684;&#x3002;</p>
-<h2 id="&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x4FEE;&#x9970;&#x8BCD;">&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x4FEE;&#x9970;&#x8BCD;</h2>
-<h3 id="&#x5305;&#x8BBF;&#x95EE;&#x6743;&#x9650;">&#x5305;&#x8BBF;&#x95EE;&#x6743;&#x9650;</h3>
-<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x4EFB;&#x4F55;&#x6743;&#x9650;&#x4FEE;&#x9970;&#x8BCD;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x4E3A;&#x201C;&#x5305;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x201D;&#xFF0C;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x5F53;&#x524D;&#x5305;&#x4E2D;&#xFF08;package&#xFF09;&#x6240;&#x6709;&#x5176;&#x4ED6;&#x7C7B;&#x5BF9;&#x90A3;&#x4E2A;&#x6210;&#x5458;&#x90FD;&#x6709;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF0C;&#x5305;&#x4E4B;&#x5916;&#x7684;&#x6240;&#x6709;&#x7C7B;&#x5219;&#x65E0;&#x6743;&#x8BBF;&#x95EE;&#x3002;</p>
-<p>&#x7C7B;&#x63A7;&#x5236;&#x54EA;&#x4E9B;&#x4EE3;&#x7801;&#x6709;&#x6743;&#x8BBF;&#x95EE;&#x81EA;&#x5DF1;&#x7684;&#x6210;&#x5458;&#xFF0C;&#x53D6;&#x5F97;&#x5BF9;&#x67D0;&#x6210;&#x5458;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x7684;&#x9014;&#x5F84;&#x6709;&#xFF1A;</p>
-<ol>
-<li>&#x4F7F;&#x8BE5;&#x6210;&#x5458;&#x6210;&#x4E3A;public</li>
-<li>&#x4E0D;&#x52A0;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x4FEE;&#x9970;&#x8BCD;&#xFF0C;&#x5E76;&#x5C06;&#x8C03;&#x7528;&#x7C7B;&#x4E0E;&#x5176;&#x7F6E;&#x4E8E;&#x540C;&#x4E00;&#x5305;&#x5185;</li>
-<li>&#x7EE7;&#x627F;&#x8BE5;&#x7C7B;&#x4EE5;&#x83B7;&#x5F97;&#x5BF9;&#x8BE5;&#x7C7B;public&#x6210;&#x5458;&#x548C;protected&#x6210;&#x5458;&#x7684;&#x8BBF;&#x95EE;&#x6743;</li>
-<li>&#x63D0;&#x4F9B;&#x8BBF;&#x95EE;&#x5668;&#xFF08;accessor&#xFF09;&#x548C; get/set&#x65B9;&#x6CD5;&#x4EE5;&#x8BFB;&#x53D6;&#x548C;&#x6539;&#x53D8;&#x5176;&#x503C;&#xFF08;&#x540E;&#x9762;&#x4F1A;&#x4E3E;&#x4F8B;&#xFF09;</li>
-</ol>
-<h3 id="private&#x6743;&#x9650;">private&#x6743;&#x9650;</h3>
-<p>&#x5173;&#x952E;&#x8BCD;private&#x8868;&#x793A;&#x9664;&#x4E86;&#x5305;&#x542B;&#x8BE5;&#x6210;&#x5458;&#x7684;&#x7C7B;&#x5185;&#x90E8;&#x4EE5;&#x5916;&#xFF0C;&#x5176;&#x5B83;&#x4EFB;&#x4F55;&#x7C7B;&#x90FD;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x3002;&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x5C06;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x7A0B;&#x5E8F;&#x5458;&#x4F7F;&#x7528;&#x7684;&#x6210;&#x5458;&#x6807;&#x8BB0;&#x4E3A;public&#x4EE5;&#x5916;&#x5176;&#x4F59;&#x90FD;&#x58F0;&#x660E;&#x4E3A;private&#xFF0C;&#x4F46;&#x5176;&#x5B9E;private&#x7684;&#x4F5C;&#x7528;&#x4E3B;&#x8981;&#x5E76;&#x4E0D;&#x662F;&#x8FD9;&#x4E2A;&#xFF0C;&#x56E0;&#x4E3A;&#x5373;&#x4F7F;&#x4E0D;&#x4F7F;&#x7528;private&#x4FEE;&#x9970;&#xFF0C;&#x6210;&#x5458;&#x7684;&#x9ED8;&#x8BA4;&#x7684;&#x5305;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x5BF9;&#x4E8E;&#x5BA2;&#x6237;&#x7AEF;&#x7A0B;&#x5E8F;&#x5458;&#x6765;&#x8BF4;&#x4E5F;&#x662F;&#x4E0D;&#x53EF;&#x8BBF;&#x95EE;&#x7684;&#xFF08;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x7C7B;&#x5305;&#x4E00;&#x822C;&#x4E0D;&#x4F1A;&#x4F4D;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x5305;&#x4E0B;&#xFF09;&#x3002;</p>
-<p>private&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7528;&#x9014;&#x662F;&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x7528;&#x6237;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x8FC7;&#x963B;&#x6B62;&#x522B;&#x4EBA;&#x8BBF;&#x95EE;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x6784;&#x9020;&#x5668;&#x3002;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IceCream</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        Sundae sundae = Sundae.makeASundae();
-<span class="hljs-comment">//        Sundae sundae = new Sundae();  //&#x8FD9;&#x91CC;&#x4E0D;&#x53EF;&#x8BBF;&#x95EE;&#xFF0C;&#x4F1A;&#x62A5;&#x9519;</span>
+<p>&#x5728;&#x4E0A;&#x4E00;&#x7BC7; <a href="https://jverson.com/thinking-in-java/basic/generics.html" target="_blank">Java &#x6CDB;&#x578B;&#xFF08;Generics&#xFF09;&#x7684;&#x7406;&#x89E3;&#x548C;&#x4F7F;&#x7528;</a> &#x4E2D;&#x6211;&#x63D0;&#x5230;&#x4E86; Type &#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x4E00;&#x7BC7;&#x4E2D;&#x6211;&#x4EEC;&#x6765;&#x6DF1;&#x5165;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;</p>
+<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/967934a6e803828193172554ade5aca9.jpg" alt=""></p>
+<h2 id="&#x63A5;&#x53E3;&#x5B9A;&#x4E49;">&#x63A5;&#x53E3;&#x5B9A;&#x4E49;</h2>
+<p>&#x4ECE;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x91CA;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230; Type &#x662F; Java &#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x4E2D;&#x3010;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x3011;&#x7684;&#x516C;&#x5171;&#x9AD8;&#x7EA7;&#x63A5;&#x53E3;&#x3002;&#x5B83;&#x4EEC;&#x5305;&#x62EC;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x3001;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;(&#x6CDB;&#x578B;)&#x3001;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x3001;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x548C;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x533A;&#x5206; Type &#x4E0E; Class &#x7684;&#x533A;&#x522B;&#xFF0C;&#x8FD9;&#x91CC;&#x7684; Class &#x662F; Type &#x7684;&#x4E00;&#x79CD;&#xFF08;Class &#x5B9E;&#x73B0;&#x4E86; Type &#x63A5;&#x53E3;&#xFF09;&#xFF0C;&#x800C;&#x50CF;&#x6570;&#x7EC4;&#x3001;&#x679A;&#x4E3E;&#x7B49;&quot;&#x7C7B;&#x578B;&quot;&#x662F;&#x76F8;&#x5BF9;&#x4E8E; Class &#x6765;&#x8BF4;&#x7684;&#x3002;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">package</span> java.lang.reflect;
 
-                Sundae2.access().f();
-    }    
-}
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sundae</span></span>{
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Sundae</span><span class="hljs-params">()</span> </span>{}  <span class="hljs-comment">//&#x6784;&#x9020;&#x51FD;&#x6570;&#x9650;&#x5236;&#x4E3A;private</span>
-    <span class="hljs-function"><span class="hljs-keyword">static</span> Sundae <span class="hljs-title">makeASundae</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Sundae();
+<span class="hljs-comment">/**
+ * Type is the common superinterface for all types in the Java
+ * programming language. These include raw types, parameterized types,
+ * array types, type variables and primitive types.
+ *
+ * <span class="hljs-doctag">@since</span> 1.5
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Type</span> </span>{
+    <span class="hljs-comment">/**
+     * Returns a string describing this type, including information
+     * about any type parameters.
+     *
+     * <span class="hljs-doctag">@implSpec</span> The default implementation calls {<span class="hljs-doctag">@code</span> toString}.
+     *
+     * <span class="hljs-doctag">@return</span> a string describing this type
+     * <span class="hljs-doctag">@since</span> 1.8
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">default</span> String <span class="hljs-title">getTypeName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> toString();
     }
-}
-
-<span class="hljs-comment">//Sundae2&#x4F7F;&#x7528;&#x4E86;&#x5355;&#x4F8B;&#xFF08;singleton&#xFF09;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x56E0;&#x4E3A;&#x4F60;&#x59CB;&#x7EC8;&#x53EA;&#x80FD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Sundae2&#x5BF9;&#x8C61;</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sundae2</span></span>{
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Sundae2</span><span class="hljs-params">()</span> </span>{}  <span class="hljs-comment">//&#x6784;&#x9020;&#x51FD;&#x6570;&#x9650;&#x5236;&#x4E3A;private</span>
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Sundae2 sundae2 = <span class="hljs-keyword">new</span> Sundae2();
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Sundae2 <span class="hljs-title">access</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> sundae2;
-    }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span> </span>{}
 }
 </code></pre>
-<h3 id="protected&#x7EE7;&#x627F;&#x8BBF;&#x95EE;&#x6743;&#x9650;">protected&#x7EE7;&#x627F;&#x8BBF;&#x95EE;&#x6743;&#x9650;</h3>
-<p>&#x5728;&#x4E00;&#x4E2A;&#x5305;&#x4E2D;&#x7EE7;&#x627F;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x5305;&#x7684;&#x67D0;&#x7C7B;&#xFF0C;&#x90A3;&#x4E48;&#x552F;&#x4E00;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7684;&#x662F;&#x57FA;&#x7C7B;&#x7684;public&#x6210;&#x5458;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x57FA;&#x7C7B;&#x7684;&#x521B;&#x5EFA;&#x8005;&#x5E0C;&#x671B;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x6210;&#x5458;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x53EF;&#x4EE5;&#x8D4B;&#x4E88;&#x6D3E;&#x751F;&#x7C7B;&#x800C;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7C7B;&#xFF0C;&#x8FD9;&#x65F6;&#x4FBF;&#x9700;&#x8981;protected&#x6765;&#x5B8C;&#x6210;&#x8FD9;&#x4E00;&#x5DE5;&#x4F5C;&#xFF0C;&#x5176;&#x5B9E;protected&#x5C31;&#x662F;&#x7528;&#x6765;&#x5904;&#x7406;&#x7EE7;&#x627F;&#x4E2D;&#x7684;&#x6743;&#x9650;&#x63A7;&#x5236;&#x95EE;&#x9898;&#x3002;</p>
-<h3 id="&#x7C7B;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;">&#x7C7B;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;</h3>
-<p>&#x6CE8;&#x610F;&#x7C7B;&#x4E0D;&#x53EF;&#x4EE5;&#x662F;private&#x7684;&#x4E5F;&#x4E0D;&#x53EF;&#x4EE5;&#x662F;protected&#x7684;&#xFF0C;&#x5BF9;&#x4E8E;&#x7C7B;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x53EA;&#x6709;&#x4E24;&#x4E2A;&#x9009;&#x62E9;&#xFF1A;&#x5305;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF08;&#x6CA1;&#x6709;&#x4FEE;&#x9970;&#x7B26;&#xFF09;&#x6216;public&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x3002;&#x5728;eclipse&#x4E2D;&#x5982;&#x679C;&#x8BD5;&#x56FE;&#x4F7F;&#x7528;private&#x6216;protected&#x53BB;&#x4FEE;&#x9970;&#x4E00;&#x4E2A;&#x7C7B;&#x65F6;&#x4F1A;&#x63D0;&#x793A;&#xFF1A;</p>
-<blockquote>
-<p>Illegal modifier for the class IceCream; only public, abstract &amp; final are permitted </p>
-</blockquote>
+<h2 id="java&#x4E2D;&#x7684;&#x6240;&#x6709;&#x7C7B;&#x578B;">Java&#x4E2D;&#x7684;&#x6240;&#x6709;&#x7C7B;&#x578B;</h2>
+<p>&#x5982;&#x679C;&#x6709;&#x4EBA;&#x7A81;&#x7136;&#x95EE;&#x4F60; Java &#x4E2D;&#x90FD;&#x6709;&#x54EA;&#x4E9B;&#x7C7B;&#x578B;&#xFF1F;&#x4F30;&#x8BA1;&#x5F88;&#x591A;&#x4EBA;&#x90FD;&#x4F1A;&#x4E00;&#x8138;&#x61F5;&#x903C;&#xFF0C;&#x7136;&#x540E;&#x7B2C;&#x4E00;&#x53CD;&#x5E94;&#x5C31;&#x662F; Integer&#x3001;Double &#x7B49;&#x7B49;~ &#x4E5F;&#x6CA1;&#x9519;&#x8FD9;&#x4E9B;&#x662F;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;&#x5230;&#x4E86; JDK1.5 &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;&#x53E6;&#x4E00;&#x4E2A;&#x89D2;&#x5EA6;&#x53BB;&#x56DE;&#x7B54;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;Type&#x662F;JDK5&#x5F00;&#x59CB;&#x5F15;&#x5165;&#x7684;&#xFF0C;&#x5176;&#x5F15;&#x5165;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x6CDB;&#x578B;&#xFF0C;&#x6CA1;&#x6709;&#x6CDB;&#x578B;&#x7684;&#x4E4B;&#x524D;&#xFF0C;&#x53EA;&#x6709;&#x6240;&#x8C13;&#x7684;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x3002;&#x6B64;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x90FD;&#x901A;&#x8FC7;&#x5B57;&#x8282;&#x7801;&#x6587;&#x4EF6;&#x7C7B;Class&#x7C7B;&#x8FDB;&#x884C;&#x62BD;&#x8C61;&#x3002;Class&#x7C7B;&#x7684;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x5BF9;&#x8C61;&#x5C31;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x6CDB;&#x578B;&#x51FA;&#x73B0;&#x4E4B;&#x540E;&#xFF0C;&#x4E5F;&#x5C31;&#x6269;&#x5145;&#x4E86;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;&#x4ECE;&#x53EA;&#x6709;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x6269;&#x5145;&#x4E86;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;&#x3001;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x3001;&#x6CDB;&#x578B;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;Type&#x7684;&#x5B50;&#x63A5;&#x53E3;&#x3002; 
+&#x90A3;&#x4E3A;&#x4EC0;&#x4E48;&#x6CA1;&#x6709;&#x7EDF;&#x4E00;&#x5230;Class&#x4E0B;&#xFF0C;&#x800C;&#x662F;&#x589E;&#x52A0;&#x4E00;&#x4E2A;Type&#x5462;&#xFF1F;&#xFF08;Class&#x4E5F;&#x662F;&#x79CD;&#x7C7B;&#x7684;&#x610F;&#x601D;&#xFF0C;Type&#x662F;&#x7C7B;&#x578B;&#x7684;&#x610F;&#x601D;&#xFF09; 
+&#x662F;&#x4E3A;&#x4E86;&#x7A0B;&#x5E8F;&#x7684;&#x6269;&#x5C55;&#x6027;&#xFF0C;&#x6700;&#x7EC8;&#x5F15;&#x5165;&#x4E86;Type&#x63A5;&#x53E3;&#x4F5C;&#x4E3A;Class&#xFF0C;ParameterizedType&#xFF0C;GenericArrayType&#xFF0C;TypeVariable&#x548C;WildcardType&#x8FD9;&#x51E0;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x603B;&#x7684;&#x7236;&#x63A5;&#x53E3;&#x3002;&#x8FD9;&#x6837;&#x5B9E;&#x73B0;&#x4E86;Type&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x63A5;&#x53D7;&#x4EE5;&#x4E0A;&#x4E94;&#x79CD;&#x5B50;&#x7C7B;&#x7684;&#x5B9E;&#x53C2;&#x6216;&#x8005;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#x5C31;&#x662F;Type&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
+<ul>
+<li>raw type&#xFF1A;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#xFF0C;&#x5BF9;&#x5E94;Class &#x3002;&#x8FD9;&#x91CC;&#x7684;Class&#x4E0D;&#x4EC5;&#x4EC5;&#x6307;&#x5E73;&#x5E38;&#x6240;&#x6307;&#x7684;&#x7C7B;&#xFF0C;&#x8FD8;&#x5305;&#x62EC;&#x6570;&#x7EC4;&#x3001;&#x63A5;&#x53E3;&#x3001;&#x6CE8;&#x89E3;&#x3001;&#x679A;&#x4E3E;&#x7B49;&#x7ED3;&#x6784;&#x3002;</li>
+<li>primitive types&#xFF1A;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF0C;&#x4ECD;&#x7136;&#x5BF9;&#x5E94; Class</li>
+<li>parameterized types&#xFF1A;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;&#xFF0C;&#x5BF9;&#x5E94; ParameterizedType&#xFF0C;&#x5E26;&#x6709;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5373;&#x5E38;&#x8BF4;&#x7684;&#x6CDB;&#x578B;&#xFF0C;&#x5982;&#xFF1A;List<t>&#x3001;Map<integer, string="">&#x3001;List&lt;? extends Number&gt;&#x3002;</integer,></t></li>
+<li>type variables&#xFF1A;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#xFF0C;&#x5BF9;&#x5E94; TypeVariable<d>&#xFF0C;&#x5982;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;&#x4E2D;&#x7684;E&#x3001;K&#x7B49;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#xFF0C;&#x8868;&#x793A;&#x6CDB;&#x6307;&#x4EFB;&#x4F55;&#x7C7B;&#x3002;</d></li>
+<li>array types&#xFF1A;(&#x6CDB;&#x578B;)&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#xFF0C;&#x5BF9;&#x5E94; GenericArrayType&#xFF0C;&#x6BD4;&#x5982;List<t>[]&#xFF0C;T[]&#x8FD9;&#x79CD;&#x3002;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x8BF4;&#x7684;&#x4E00;&#x822C;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x662F;&#x8868;&#x793A;&#x4E00;&#x79CD;&#x3010;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x662F;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;&#x6216;&#x8005;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7684;&#x3011;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x3002;</t></li>
+</ul>
+<p>&#x6CE8;&#x610F;&#xFF1A;WildcardType &#x4EE3;&#x8868;&#x901A;&#x914D;&#x7B26;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x6216;&#x6CDB;&#x578B;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x6BD4;&#x5982;&#x3010;?&#x3011;&#x3010;? super T&#x3011;&#x3010;? extends T&#x3011;&#x3002;&#x867D;&#x7136;WildcardType&#x662F;Type&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x63A5;&#x53E3;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x662F;Java&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x4E00;&#x79CD;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x4E00;&#x6BB5;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x6765;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;</p>
+<pre><code class="lang-Java">@Test
+public void test2() throws NoSuchMethodException, SecurityException {
+    Method method = TempTest.class.getMethod(&quot;testType&quot;, List.class, List.class, List.class, List.class, List.class, Map.class);
+    Type[] types = method.getGenericParameterTypes();//&#x6309;&#x7167;&#x58F0;&#x660E;&#x987A;&#x5E8F;&#x8FD4;&#x56DE; Type &#x5BF9;&#x8C61;&#x7684;&#x6570;&#x7EC4;
+    for (Type type : types) {
+        ParameterizedType pType = (ParameterizedType) type;//&#x6700;&#x5916;&#x5C42;&#x90FD;&#x662F;ParameterizedType
+        Type[] types2 = pType.getActualTypeArguments();//&#x8FD4;&#x56DE;&#x8868;&#x793A;&#x6B64;&#x7C7B;&#x578B;&#x3010;&#x5B9E;&#x9645;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x3011;&#x7684; Type &#x5BF9;&#x8C61;&#x7684;&#x6570;&#x7EC4;
+        for (int i = 0; i &lt; types2.length; i++) {
+            Type type2 = types2[i];
+            System.out.println(i + &quot;  &#x7C7B;&#x578B;&#x3010;&quot; + type2 + &quot;&#x3011;\t&#x7C7B;&#x578B;&#x63A5;&#x53E3;&#x3010;&quot; + type2.getClass().getInterfaces()[0].getSimpleName() + &quot;&#x3011;&quot;);
+        }
+    }
+}
+
+public &lt;T&gt; void testType(List&lt;String&gt; a1, List&lt;ArrayList&lt;String&gt;&gt; a2, List&lt;T&gt; a3, //
+                         List&lt;? extends Number&gt; a4, List&lt;ArrayList&lt;String&gt;[]&gt; a5, Map&lt;String, Integer&gt; a6) {
+}
+
+// &#x8F93;&#x51FA;&#x5982;&#x4E0B;
+
+0  &#x7C7B;&#x578B;&#x3010;class java.lang.String&#x3011;    &#x7C7B;&#x578B;&#x63A5;&#x53E3;&#x3010;Serializable&#x3011;
+0  &#x7C7B;&#x578B;&#x3010;java.util.ArrayList&lt;java.lang.String&gt;&#x3011;    &#x7C7B;&#x578B;&#x63A5;&#x53E3;&#x3010;ParameterizedType&#x3011;
+0  &#x7C7B;&#x578B;&#x3010;T&#x3011;    &#x7C7B;&#x578B;&#x63A5;&#x53E3;&#x3010;TypeVariable&#x3011;
+0  &#x7C7B;&#x578B;&#x3010;? extends java.lang.Number&#x3011;    &#x7C7B;&#x578B;&#x63A5;&#x53E3;&#x3010;WildcardType&#x3011;
+0  &#x7C7B;&#x578B;&#x3010;java.util.ArrayList&lt;java.lang.String&gt;[]&#x3011;    &#x7C7B;&#x578B;&#x63A5;&#x53E3;&#x3010;GenericArrayType&#x3011;
+0  &#x7C7B;&#x578B;&#x3010;class java.lang.String&#x3011;    &#x7C7B;&#x578B;&#x63A5;&#x53E3;&#x3010;Serializable&#x3011;
+1  &#x7C7B;&#x578B;&#x3010;class java.lang.Integer&#x3011;    &#x7C7B;&#x578B;&#x63A5;&#x53E3;&#x3010;Serializable&#x3011;
+</code></pre>
+<h2 id="parameterizedtype-&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;">ParameterizedType &#x6CDB;&#x578B;/&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;</h2>
+<p>&#x8FD9;&#x91CC;&#x91CD;&#x70B9;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B; Type &#x56DB;&#x4E2A;&#x5B50;&#x63A5;&#x53E3;&#x4E2D;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684; ParameterizedType &#x63A5;&#x53E3;&#x3002;ParameterizedType &#x8868;&#x793A;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;&#xFF0C;&#x5E26;&#x6709;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#xFF0C;<strong>&#x5373;&#x5E38;&#x8BF4;&#x7684;&#x6CDB;&#x578B;</strong>&#xFF0C;&#x5982;&#xFF1A;List<t>&#x3001;Map<integer, string="">&#x3001;List&lt;? extends Number&gt;&#x3002;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;</integer,></t></p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ParameterizedType</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Type</span> </span>{
+    <span class="hljs-comment">/**
+     * Returns an array of {<span class="hljs-doctag">@code</span> Type} objects representing the actual type
+     * arguments to this type.
+     */</span>
+    Type[] getActualTypeArguments(); <span class="hljs-comment">// &#x7B80;&#x5355;&#x6765;&#x8BB2;&#x5C31;&#x662F;&#x83B7;&#x5F97;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;&#x4E2D;&lt;&gt;&#x91CC;&#x7684;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x3002;</span>
+
+    <span class="hljs-comment">/**
+     * Returns the {<span class="hljs-doctag">@code</span> Type} object representing the class or interface
+     * that declared this type.
+     */</span>
+    <span class="hljs-function">Type <span class="hljs-title">getRawType</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// &#x7B80;&#x5355;&#x6765;&#x8BF4;&#x5C31;&#x662F;&#xFF1A;&#x8FD4;&#x56DE;&#x6700;&#x5916;&#x5C42;&lt;&gt;&#x524D;&#x9762;&#x90A3;&#x4E2A;&#x7C7B;&#x578B;&#xFF0C;&#x4F8B;&#x5982;Map&lt;K ,V&gt;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;Map&#x7C7B;&#x578B;&#x3002;</span>
+
+    <span class="hljs-comment">/**
+     * Returns a {<span class="hljs-doctag">@code</span> Type} object representing the type that this type
+     * is a member of.  For example, if this type is {<span class="hljs-doctag">@code</span> O&lt;T&gt;.I&lt;S&gt;},
+     * return a representation of {<span class="hljs-doctag">@code</span> O&lt;T&gt;}.
+     *
+     * &lt;p&gt;If this type is a top-level type, {<span class="hljs-doctag">@code</span> null} is returned.
+     */</span>
+    <span class="hljs-function">Type <span class="hljs-title">getOwnerType</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x4EE3;&#x7801;&#x6D4B;&#x4E00;&#x4E0B;&#x52A0;&#x6DF1;&#x7406;&#x89E3;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TempTest</span> </span>{
+
+    List&lt;String&gt; list1;
+    List list2;
+    Map&lt;String,Long&gt; map1;
+    Map map2;
+    Map.Entry&lt;Long,Short&gt; map3;
+
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test3</span><span class="hljs-params">()</span></span>{
+        Field[] fields = TempTest.class.getDeclaredFields();
+        <span class="hljs-keyword">for</span>(Field f:fields){
+            <span class="hljs-comment">//&#x662F;&#x5426;&#x662F;ParameterizedType</span>
+            System.out.print(f.getName()+<span class="hljs-string">&quot;:&quot;</span>+(f.getGenericType() <span class="hljs-keyword">instanceof</span> ParameterizedType));
+            System.out.println();
+        }
+    }
+
+    <span class="hljs-comment">// &#x8F93;&#x51FA;&#xFF1A;list1:true list2:false map1:true map2:false map3:true&#x3002;&#x4ECE;&#x6253;&#x5370;&#x7ED3;&#x679C;&#x770B;&#x6765;,&#x5177;&#x6709;&lt;&gt;&#x7B26;&#x53F7;&#x7684;&#x53D8;&#x91CF;&#x662F;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;</span>
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test4</span><span class="hljs-params">()</span> </span>{
+        Field[] fields = TempTest.class.getDeclaredFields();
+        <span class="hljs-keyword">for</span> (Field f : fields) {
+            <span class="hljs-keyword">if</span> (f.getGenericType() <span class="hljs-keyword">instanceof</span> ParameterizedType) {
+                ParameterizedType pType = (ParameterizedType) f.getGenericType();
+                System.out.print(<span class="hljs-string">&quot;&#x53D8;&#x91CF;&#xFF1A;&quot;</span> + pType.getTypeName() + <span class="hljs-string">&quot;     &quot;</span>);
+                Type[] types = pType.getActualTypeArguments();
+                <span class="hljs-keyword">for</span> (Type t : types) {
+                    System.out.print(<span class="hljs-string">&quot;&#x7C7B;&#x578B;&#xFF1A;&quot;</span> + t.getTypeName() + <span class="hljs-string">&quot; &quot;</span>);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    <span class="hljs-comment">/** &#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF0C;getActualTypeArguments() &#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;Type&#x6570;&#x7EC4;,&#x6570;&#x7EC4;&#x91CC;&#x662F;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;
+    &#x53D8;&#x91CF;&#xFF1A;java.util.List&lt;java.lang.String&gt;     &#x7C7B;&#x578B;&#xFF1A;java.lang.String 
+    &#x53D8;&#x91CF;&#xFF1A;java.util.Map&lt;java.lang.String, java.lang.Long&gt;     &#x7C7B;&#x578B;&#xFF1A;java.lang.String &#x7C7B;&#x578B;&#xFF1A;java.lang.Long 
+    &#x53D8;&#x91CF;&#xFF1A;java.util.Map$Entry&lt;java.lang.Long, java.lang.Short&gt;     &#x7C7B;&#x578B;&#xFF1A;java.lang.Long &#x7C7B;&#x578B;&#xFF1A;java.lang.Short 
+    */</span>
+
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test5</span><span class="hljs-params">()</span> </span>{
+        Field[] fields = TempTest.class.getDeclaredFields();
+        <span class="hljs-keyword">for</span> (Field f : fields) {
+            <span class="hljs-keyword">if</span>(f.getGenericType() <span class="hljs-keyword">instanceof</span> ParameterizedType){
+                ParameterizedType pType = (ParameterizedType) f.getGenericType();
+                System.out.print(<span class="hljs-string">&quot;&#x53D8;&#x91CF;&#xFF1A;&quot;</span>+f.getName());
+                System.out.print(<span class="hljs-string">&quot; RawType&#xFF1A;&quot;</span>+pType.getRawType().getTypeName());
+            }
+            System.out.println();
+        }
+    }
+    <span class="hljs-comment">/**
+     * &#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF0C;getRawType &#x5176;&#x5B9E;&#x4E5F;&#x5C31;&#x662F;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;
+     * &#x53D8;&#x91CF;&#xFF1A;list1 RawType&#xFF1A;java.util.List
+     * &#x53D8;&#x91CF;&#xFF1A;map1 RawType&#xFF1A;java.util.Map
+     * &#x53D8;&#x91CF;&#xFF1A;map3 RawType&#xFF1A;java.util.Map$Entry
+     */</span>
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test6</span><span class="hljs-params">()</span> </span>{
+        Field[] fields = TempTest.class.getDeclaredFields();
+        <span class="hljs-keyword">for</span> (Field f : fields) {
+            <span class="hljs-keyword">if</span> (f.getGenericType() <span class="hljs-keyword">instanceof</span> ParameterizedType) {
+                ParameterizedType pType = (ParameterizedType) f.getGenericType();
+                System.out.print(<span class="hljs-string">&quot;&#x53D8;&#x91CF;&#xFF1A;&quot;</span> + f.getName());
+                Type t = pType.getOwnerType();
+                <span class="hljs-keyword">if</span> (t == <span class="hljs-keyword">null</span>) {
+                    System.out.print(<span class="hljs-string">&quot;OwnerType: Null&quot;</span>);
+                } <span class="hljs-keyword">else</span> {
+                    System.out.print(<span class="hljs-string">&quot;OwnerType&#xFF1A;&quot;</span> + t.getTypeName());
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * &#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF0C;&#x53EF;&#x77E5;&#x7C7B;&#x4F3C; Map.Entry&lt;Long, Short&gt; &#x8FD9;&#x79CD; O&lt;T&gt;.I&lt;S&gt; &#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;,&#x8C03;&#x7528; getOwnerType() &#x4F1A;&#x8FD4;&#x56DE; O&lt;T&gt;&#xFF0C;&#x5927;&#x6982;&#x8868;&#x793A;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x6301;&#x6709;&#x7C7B;
+     * &#x53D8;&#x91CF;&#xFF1A;list1OwnerType: Null
+     * &#x53D8;&#x91CF;&#xFF1A;map1OwnerType: Null
+     * &#x53D8;&#x91CF;&#xFF1A;map3OwnerType&#xFF1A;java.util.Map
+     */</span>    
+
+}
+</code></pre>
+<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/baiqiantao/p/7460580.html" target="_blank">Type &#x63A5;&#x53E3;&#x3010;&#x91CD;&#x8981;&#x3011;</a></li>
+<li><a href="https://juejin.cn/post/6844904177257168910" target="_blank">java.lang.reflect.Type&#x63A5;&#x53E3;&#x8BE6;&#x89E3;</a></li>
+</ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"><span></span>
-20:16
+00:22
 </span></footer>
                                 
                                 </section>
@@ -1400,12 +1545,12 @@
 
             
                 
-                <a href="enum.html" class="navigation navigation-prev " aria-label="Previous page: 枚举">
+                <a href="generics.html" class="navigation navigation-prev " aria-label="Previous page: Java 泛型的理解和使用">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="异常处理.html" class="navigation navigation-next " aria-label="Next page: Java 异常处理">
+                <a href="../jvm/java-reflection-class.html" class="navigation navigation-next " aria-label="Next page: Class 对象 - Java 类型信息">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1416,7 +1561,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"访问权限控制","level":"11.7","depth":1,"next":{"title":"Java 异常处理","level":"11.8","depth":1,"path":"basic/异常处理.md","ref":"basic/异常处理.md","articles":[]},"previous":{"title":"枚举","level":"11.6","depth":1,"path":"basic/enum.md","ref":"basic/enum.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"basic/访问权限控制.md","mtime":"2018-08-26T12:16:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-10T16:22:26.230Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"泛型中的 Type 接口","level":"4.2","depth":1,"next":{"title":"Class 对象 - Java 类型信息","level":"4.3","depth":1,"path":"jvm/java-reflection-class.md","ref":"jvm/java-reflection-class.md","articles":[]},"previous":{"title":"Java 泛型的理解和使用","level":"4.1","depth":1,"path":"basic/generics.md","ref":"basic/generics.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"basic/type.md","mtime":"2021-04-10T16:22:15.641Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-10T16:22:26.230Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

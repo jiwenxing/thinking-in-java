@@ -1,4 +1,4 @@
-# 泛型想解决的问题
+# Java 泛型（Generics）的理解和使用
 ---
 
 一般情况下，类的成员变量、方法的参数这些只能使用具体的类型（要么基本类型，要么自定义的类），那有没有什么方法可以编写能应用于多种类型的代码呢？
@@ -257,7 +257,9 @@ public class Collections {
 
 ## 泛型继承
 
-一个类可以继承自一个泛型类。在继承了泛型类型的情况下，子类可以获取父类的泛型类型。例如：IntList 可以获取到父类的泛型类型 Integer
+一个类可以继承自一个泛型类。在继承了泛型类型的情况下，编译器就必须把类型T（对 IntList 来说，也就是 Integer 类型）保存到子类的 class 文件中，不然编译器就不知道 IntList 只能存取 Integer 这种类型。**因此这种情况下子类是可以在运行期获取父类的泛型类型的。注意这个特性非常重要，后面提到的 fastjson 及 gson 的泛型反序列化都用到了这个特性。**
+
+IntList 可以获取到父类的泛型类型 Integer 举例。
 
 ```Java
 public class IntList extends ArrayList<Integer> {
@@ -288,6 +290,73 @@ public class IntList extends ArrayList<Integer> {
 ![](https://jverson.oss-cn-beijing.aliyuncs.com/967934a6e803828193172554ade5aca9.jpg)
 
 
+## 泛型类的反序列化
+
+前面我们说过泛型的类型信息只作用于编译期，执行期虚拟机都只是当做 Object 处理。那么如果我们想在运行期获取泛型类型信息该怎么实现呢？
+
+先举一个经常遇到的例子，为什么使用 `new TypeToken<Map<String, Integer>>(){}.getType()` 这样就可以在 runtime 获取到泛型类型进行反序列化呢？这里就用到了前面提到的继承自泛型类的子类在运行期可以获取泛型类型！
+
+```Java
+@Test
+public void test() {
+    Gson gson = new Gson();
+    Map<String, Integer> map0 = new HashMap<>();
+    map0.put("aa", 1);
+    map0.put("bb", 2);
+    map0.put("cc", 3);
+    System.out.println("map0: " + map0); // {aa=1, bb=2, cc=3} 原始 map
+    String json = gson.toJson(map0);
+    System.out.println("json: " + json); // {"aa":1,"bb":2,"cc":3} jsonstr
+    Map map1 = gson.fromJson(json, Map.class); // 写成 Map<String, Integer>.class 会报错，因为 runtime 会擦除类型信息
+    System.out.println("map1: " + map1); // {aa=1.0, bb=2.0, cc=3.0} 不指定泛型类型
+    Map map2 = gson.fromJson(json, new TypeToken<Map<String, Integer>>(){}.getType()); // 如果使用 fastjson 则将 TypeToken 换为 TypeReference
+    System.out.println("map2: " + map2); // {aa=1, bb=2, cc=3} 指定泛型类型
+}
+```
+
+fastjson 及 gson 都是利用这个特性来实现的，我们看一下 TypeToken 的注释，
+
+```Java
+/**
+ * Represents a generic type {@code T}. Java doesn't yet provide a way to
+ * represent generic types, so this class does. Forces clients to create a
+ * subclass of this class which enables retrieval the type information even at
+ * runtime.
+ *
+ * <p>For example, to create a type literal for {@code List<String>}, you can
+ * create an empty anonymous inner class:
+ *
+ * <p>
+ * {@code TypeToken<List<String>> list = new TypeToken<List<String>>() {};}
+ *
+ * <p>This syntax cannot be used to create type literals that have wildcard
+ * parameters, such as {@code Class<?>} or {@code List<? extends CharSequence>}.
+ *
+ * @author Bob Lee
+ * @author Sven Mawson
+ * @author Jesse Wilson
+ */
+
+// 代码内容作了简化，只保留核心代码
+public class TypeToken<T> { 
+    private final Type type;
+
+    public TypeToken() {
+        Type superclass = getClass().getGenericSuperclass();
+        type = ((ParameterizedType) superclass).getActualTypeArguments()[0];
+    }
+
+    public Type getType() {
+        return type;
+    }
+}
+```
+
+这里的核心就是 `new TypeToken<Map<String, Integer>>(){}` 创建了一个 `Map<String, Integer>` 的匿名内部子类。如果看不懂这个匿名类是怎么创建的，可以参考 [Anonymous Classes in Java](https://www.baeldung.com/java-anonymous-classes)
+
+![](https://jverson.oss-cn-beijing.aliyuncs.com/54b9bf281a6e24a0cff38ca5573e1ed8.jpg)
+
+
 ## 总结
 
 泛型使用最多的还是各种容器类，一定程度上可以说正是因为创造容器类的需要Java才引入了泛型的概念，但是泛型的思想也可以应用到其它适合的地方，**泛型是一种方法，通过它可以编写出更`泛化`的代码，这些代码对于它所能作用的类型有更少的限制，因此单个代码可以应用到更多的类型上。**
@@ -296,3 +365,4 @@ public class IntList extends ArrayList<Integer> {
 
 - [The Basics of Java Generics - baeldung](https://www.baeldung.com/java-generics)
 - [什么是泛型 - 廖雪峰](https://www.liaoxuefeng.com/wiki/1252599548343744/1265102638843296)
+- [Super Type Tokens in Java](https://www.baeldung.com/java-super-type-tokens)

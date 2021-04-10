@@ -33,6 +33,10 @@ public class PageVo<T> {
 ```java
 Type type = new TypeReference<ResultVo<PageVo<DataVo>>>(){}.getType();
 ResultVo<PageVo<DataVo>> resultVo = JSONObject.parseObject(resultJson, type);
+
+// 如果使用 gson 的话则将 TypeReference 换成 TypeToken 即可
+
+Map map2 = new Gson().fromJson(json, new TypeToken<Map<String, Integer>>(){}.getType());
 ```
 
 > 关于 fastjson 的其它一些用法可以参考其 [官方 wiki](https://github.com/alibaba/fastjson/wiki/JSON_API_cn)

@@ -21,7 +21,8 @@
 
 ## Java 泛型及反射
 
-- [Java 泛型的理解和使用](basic/泛型.md)
+- [Java 泛型的理解和使用](basic/generics.md)
+- [泛型中的 Type 接口](basic/type.md)
 - [Class 对象 - Java 类型信息](jvm/java-reflection-class.md)
 - [Java 反射特性](jvm/java-reflection.md)
 
@@ -92,7 +93,7 @@
 
 ## 待归档
 
-- [fastjson 泛型的反序列化](tools/fastjson-deserilize.md)
+<!-- - [fastjson 泛型的反序列化](tools/fastjson-deserilize.md) -->
 - [Comparator 与排序](tools/comparator-sort.md)
 - [重试工具：Guava Retryer](tools/guava-retryer.md)
 - [Java IO & NIO 介绍](basic/java-bio-nio-aio.md)

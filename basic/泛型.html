@@ -1074,27 +1074,12 @@
         
         
     
-        <li class="chapter " data-level="10.1" data-path="../tools/fastjson-deserilize.html">
-            
-                <a href="../tools/fastjson-deserilize.html">
-            
-                    
-                        <b>10.1.</b>
-                    
-                    fastjson 泛型的反序列化
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="10.2" data-path="../tools/comparator-sort.html">
+        <li class="chapter " data-level="10.1" data-path="../tools/comparator-sort.html">
             
                 <a href="../tools/comparator-sort.html">
             
                     
-                        <b>10.2.</b>
+                        <b>10.1.</b>
                     
                     Comparator 与排序
             
@@ -1104,12 +1089,12 @@
             
         </li>
     
-        <li class="chapter " data-level="10.3" data-path="../tools/guava-retryer.html">
+        <li class="chapter " data-level="10.2" data-path="../tools/guava-retryer.html">
             
                 <a href="../tools/guava-retryer.html">
             
                     
-                        <b>10.3.</b>
+                        <b>10.2.</b>
                     
                     重试工具：Guava Retryer
             
@@ -1119,12 +1104,12 @@
             
         </li>
     
-        <li class="chapter " data-level="10.4" data-path="java-bio-nio-aio.html">
+        <li class="chapter " data-level="10.3" data-path="java-bio-nio-aio.html">
             
                 <a href="java-bio-nio-aio.html">
             
                     
-                        <b>10.4.</b>
+                        <b>10.3.</b>
                     
                     Java IO & NIO 介绍
             
@@ -1535,7 +1520,8 @@ Integer last = (Integer) p.getLast();
 }
 </code></pre>
 <h2 id="&#x6CDB;&#x578B;&#x7EE7;&#x627F;">&#x6CDB;&#x578B;&#x7EE7;&#x627F;</h2>
-<p>&#x4E00;&#x4E2A;&#x7C7B;&#x53EF;&#x4EE5;&#x7EE7;&#x627F;&#x81EA;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x7C7B;&#x3002;&#x5728;&#x7EE7;&#x627F;&#x4E86;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x7236;&#x7C7B;&#x7684;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x3002;&#x4F8B;&#x5982;&#xFF1A;IntList &#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x7236;&#x7C7B;&#x7684;&#x6CDB;&#x578B;&#x7C7B;&#x578B; Integer</p>
+<p>&#x4E00;&#x4E2A;&#x7C7B;&#x53EF;&#x4EE5;&#x7EE7;&#x627F;&#x81EA;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x7C7B;&#x3002;&#x5728;&#x7EE7;&#x627F;&#x4E86;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5C31;&#x5FC5;&#x987B;&#x628A;&#x7C7B;&#x578B;T&#xFF08;&#x5BF9; IntList &#x6765;&#x8BF4;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; Integer &#x7C7B;&#x578B;&#xFF09;&#x4FDD;&#x5B58;&#x5230;&#x5B50;&#x7C7B;&#x7684; class &#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x4E0D;&#x7136;&#x7F16;&#x8BD1;&#x5668;&#x5C31;&#x4E0D;&#x77E5;&#x9053; IntList &#x53EA;&#x80FD;&#x5B58;&#x53D6; Integer &#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x3002;<strong>&#x56E0;&#x6B64;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x5B50;&#x7C7B;&#x662F;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x671F;&#x83B7;&#x53D6;&#x7236;&#x7C7B;&#x7684;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x7684;&#x3002;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x540E;&#x9762;&#x63D0;&#x5230;&#x7684; fastjson &#x53CA; gson &#x7684;&#x6CDB;&#x578B;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x90FD;&#x7528;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x3002;</strong></p>
+<p>IntList &#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x7236;&#x7C7B;&#x7684;&#x6CDB;&#x578B;&#x7C7B;&#x578B; Integer &#x4E3E;&#x4F8B;&#x3002;</p>
 <pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IntList</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ArrayList</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
         <span class="hljs-comment">// &#x6D4B;&#x8BD5;</span>
@@ -1560,15 +1546,72 @@ Integer last = (Integer) p.getLast();
 </code></pre>
 <p>&#x8FD9;&#x91CC;&#x7528;&#x5230;&#x4E86;&#x6CDB;&#x578B;&#x7C7B;&#x4E2D;&#x7684; Type &#x53CA; ParameterizedType &#x7B49;&#xFF0C;&#x8FD9;&#x4E9B;&#x4E0B;&#x9762;&#x4F1A;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;</p>
 <p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/967934a6e803828193172554ade5aca9.jpg" alt=""></p>
+<h2 id="&#x6CDB;&#x578B;&#x7C7B;&#x7684;&#x53CD;&#x5E8F;&#x5217;&#x5316;">&#x6CDB;&#x578B;&#x7C7B;&#x7684;&#x53CD;&#x5E8F;&#x5217;&#x5316;</h2>
+<p>&#x524D;&#x9762;&#x6211;&#x4EEC;&#x8BF4;&#x8FC7;&#x6CDB;&#x578B;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#x53EA;&#x4F5C;&#x7528;&#x4E8E;&#x7F16;&#x8BD1;&#x671F;&#xFF0C;&#x6267;&#x884C;&#x671F;&#x865A;&#x62DF;&#x673A;&#x90FD;&#x53EA;&#x662F;&#x5F53;&#x505A; Object &#x5904;&#x7406;&#x3002;&#x90A3;&#x4E48;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x5728;&#x8FD0;&#x884C;&#x671F;&#x83B7;&#x53D6;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#x8BE5;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x5462;&#xFF1F;</p>
+<p>&#x5148;&#x4E3E;&#x4E00;&#x4E2A;&#x7ECF;&#x5E38;&#x9047;&#x5230;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528; <code>new TypeToken&lt;Map&lt;String, Integer&gt;&gt;(){}.getType()</code> &#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x5728; runtime &#x83B7;&#x53D6;&#x5230;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x5462;&#xFF1F;&#x8FD9;&#x91CC;&#x5C31;&#x7528;&#x5230;&#x4E86;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;&#x7EE7;&#x627F;&#x81EA;&#x6CDB;&#x578B;&#x7C7B;&#x7684;&#x5B50;&#x7C7B;&#x5728;&#x8FD0;&#x884C;&#x671F;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#xFF01;</p>
+<pre><code class="lang-Java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
+    Gson gson = <span class="hljs-keyword">new</span> Gson();
+    Map&lt;String, Integer&gt; map0 = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+    map0.put(<span class="hljs-string">&quot;aa&quot;</span>, <span class="hljs-number">1</span>);
+    map0.put(<span class="hljs-string">&quot;bb&quot;</span>, <span class="hljs-number">2</span>);
+    map0.put(<span class="hljs-string">&quot;cc&quot;</span>, <span class="hljs-number">3</span>);
+    System.out.println(<span class="hljs-string">&quot;map0: &quot;</span> + map0); <span class="hljs-comment">// {aa=1, bb=2, cc=3} &#x539F;&#x59CB; map</span>
+    String json = gson.toJson(map0);
+    System.out.println(<span class="hljs-string">&quot;json: &quot;</span> + json); <span class="hljs-comment">// {&quot;aa&quot;:1,&quot;bb&quot;:2,&quot;cc&quot;:3} jsonstr</span>
+    Map map1 = gson.fromJson(json, Map.class); <span class="hljs-comment">// &#x5199;&#x6210; Map&lt;String, Integer&gt;.class &#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x56E0;&#x4E3A; runtime &#x4F1A;&#x64E6;&#x9664;&#x7C7B;&#x578B;&#x4FE1;&#x606F;</span>
+    System.out.println(<span class="hljs-string">&quot;map1: &quot;</span> + map1); <span class="hljs-comment">// {aa=1.0, bb=2.0, cc=3.0} &#x4E0D;&#x6307;&#x5B9A;&#x6CDB;&#x578B;&#x7C7B;&#x578B;</span>
+    Map map2 = gson.fromJson(json, <span class="hljs-keyword">new</span> TypeToken&lt;Map&lt;String, Integer&gt;&gt;(){}.getType()); <span class="hljs-comment">// &#x5982;&#x679C;&#x4F7F;&#x7528; fastjson &#x5219;&#x5C06; TypeToken &#x6362;&#x4E3A; TypeReference</span>
+    System.out.println(<span class="hljs-string">&quot;map2: &quot;</span> + map2); <span class="hljs-comment">// {aa=1, bb=2, cc=3} &#x6307;&#x5B9A;&#x6CDB;&#x578B;&#x7C7B;&#x578B;</span>
+}
+</code></pre>
+<p>fastjson &#x53CA; gson &#x90FD;&#x662F;&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B; TypeToken &#x7684;&#x6CE8;&#x91CA;&#xFF0C;</p>
+<pre><code class="lang-Java"><span class="hljs-comment">/**
+ * Represents a generic type {<span class="hljs-doctag">@code</span> T}. Java doesn&apos;t yet provide a way to
+ * represent generic types, so this class does. Forces clients to create a
+ * subclass of this class which enables retrieval the type information even at
+ * runtime.
+ *
+ * &lt;p&gt;For example, to create a type literal for {<span class="hljs-doctag">@code</span> List&lt;String&gt;}, you can
+ * create an empty anonymous inner class:
+ *
+ * &lt;p&gt;
+ * {<span class="hljs-doctag">@code</span> TypeToken&lt;List&lt;String&gt;&gt; list = new TypeToken&lt;List&lt;String&gt;&gt;() {};}
+ *
+ * &lt;p&gt;This syntax cannot be used to create type literals that have wildcard
+ * parameters, such as {<span class="hljs-doctag">@code</span> Class&lt;?&gt;} or {<span class="hljs-doctag">@code</span> List&lt;? extends CharSequence&gt;}.
+ *
+ * <span class="hljs-doctag">@author</span> Bob Lee
+ * <span class="hljs-doctag">@author</span> Sven Mawson
+ * <span class="hljs-doctag">@author</span> Jesse Wilson
+ */</span>
+
+<span class="hljs-comment">// &#x4EE3;&#x7801;&#x5185;&#x5BB9;&#x4F5C;&#x4E86;&#x7B80;&#x5316;&#xFF0C;&#x53EA;&#x4FDD;&#x7559;&#x6838;&#x5FC3;&#x4EE3;&#x7801;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TypeToken</span>&lt;<span class="hljs-title">T</span>&gt; </span>{ 
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Type type;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TypeToken</span><span class="hljs-params">()</span> </span>{
+        Type superclass = getClass().getGenericSuperclass();
+        type = ((ParameterizedType) superclass).getActualTypeArguments()[<span class="hljs-number">0</span>];
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Type <span class="hljs-title">getType</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> type;
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x7684;&#x6838;&#x5FC3;&#x5C31;&#x662F; <code>new TypeToken&lt;Map&lt;String, Integer&gt;&gt;(){}</code> &#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A; <code>Map&lt;String, Integer&gt;</code> &#x7684;&#x533F;&#x540D;&#x5185;&#x90E8;&#x5B50;&#x7C7B;&#x3002;&#x5982;&#x679C;&#x770B;&#x4E0D;&#x61C2;&#x8FD9;&#x4E2A;&#x533F;&#x540D;&#x7C7B;&#x662F;&#x600E;&#x4E48;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003; <a href="https://www.baeldung.com/java-anonymous-classes" target="_blank">Anonymous Classes in Java</a></p>
+<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/54b9bf281a6e24a0cff38ca5573e1ed8.jpg" alt=""></p>
 <h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
 <p>&#x6CDB;&#x578B;&#x4F7F;&#x7528;&#x6700;&#x591A;&#x7684;&#x8FD8;&#x662F;&#x5404;&#x79CD;&#x5BB9;&#x5668;&#x7C7B;&#xFF0C;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x53EF;&#x4EE5;&#x8BF4;&#x6B63;&#x662F;&#x56E0;&#x4E3A;&#x521B;&#x9020;&#x5BB9;&#x5668;&#x7C7B;&#x7684;&#x9700;&#x8981;Java&#x624D;&#x5F15;&#x5165;&#x4E86;&#x6CDB;&#x578B;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x4F46;&#x662F;&#x6CDB;&#x578B;&#x7684;&#x601D;&#x60F3;&#x4E5F;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x5230;&#x5176;&#x5B83;&#x9002;&#x5408;&#x7684;&#x5730;&#x65B9;&#xFF0C;<strong>&#x6CDB;&#x578B;&#x662F;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x53EF;&#x4EE5;&#x7F16;&#x5199;&#x51FA;&#x66F4;<code>&#x6CDB;&#x5316;</code>&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x5BF9;&#x4E8E;&#x5B83;&#x6240;&#x80FD;&#x4F5C;&#x7528;&#x7684;&#x7C7B;&#x578B;&#x6709;&#x66F4;&#x5C11;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x56E0;&#x6B64;&#x5355;&#x4E2A;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x5230;&#x66F4;&#x591A;&#x7684;&#x7C7B;&#x578B;&#x4E0A;&#x3002;</strong></p>
 <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ul>
 <li><a href="https://www.baeldung.com/java-generics" target="_blank">The Basics of Java Generics - baeldung</a></li>
-<li><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1265102638843296" target="_blank">&#x4EC0;&#x4E48;&#x662F;&#x6CDB;&#x578B; - &#x5ED6;&#x96EA;&#x5CF0;</a> </li>
+<li><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1265102638843296" target="_blank">&#x4EC0;&#x4E48;&#x662F;&#x6CDB;&#x578B; - &#x5ED6;&#x96EA;&#x5CF0;</a></li>
+<li><a href="https://www.baeldung.com/java-super-type-tokens" target="_blank">Super Type Tokens in Java</a> </li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"><span></span>
-14:18
+20:13
 </span></footer>
                                 
                                 </section>
@@ -1612,7 +1655,7 @@ Integer last = (Integer) p.getLast();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java 泛型的理解和使用","level":"4.1","depth":1,"next":{"title":"Class 对象 - Java 类型信息","level":"4.2","depth":1,"path":"jvm/java-reflection-class.md","ref":"jvm/java-reflection-class.md","articles":[]},"previous":{"title":"行为参数化（Behavior parameterization）","level":"3.7","depth":1,"path":"jdk/behavior_parameterization.md","ref":"jdk/behavior_parameterization.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"basic/泛型.md","mtime":"2021-04-10T06:18:33.132Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-10T06:27:12.070Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java 泛型的理解和使用","level":"4.1","depth":1,"next":{"title":"Class 对象 - Java 类型信息","level":"4.2","depth":1,"path":"jvm/java-reflection-class.md","ref":"jvm/java-reflection-class.md","articles":[]},"previous":{"title":"行为参数化（Behavior parameterization）","level":"3.7","depth":1,"path":"jdk/behavior_parameterization.md","ref":"jdk/behavior_parameterization.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"basic/泛型.md","mtime":"2021-04-10T12:13:44.706Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-10T12:15:30.868Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -3,7 +3,8 @@
 
 在上一篇 [Java 泛型（Generics）的理解和使用](https://jverson.com/thinking-in-java/basic/generics.html) 中我提到了 Type 接口，这一篇中我们来深入了解一下
 
-![](https://jverson.oss-cn-beijing.aliyuncs.com/967934a6e803828193172554ade5aca9.jpg)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/5b27b5bde9c98ce8a56fa3c1aa11b469.jpg)
+
 
 ## 接口定义
 

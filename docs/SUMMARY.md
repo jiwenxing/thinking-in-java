@@ -15,7 +15,7 @@
 - [函数式接口 Function 实战](jdk/interface_function_practise.md)
 - [Java8 中的双冒号操作符](jdk/double_colon_operator.md)
 - [Java8 中的 Streams API](jdk/streams_api.md)
-- [Java8 Optional 类的使用_]()
+- [Java Optional 类的使用](jdk/optional.md)
 
 - [行为参数化（Behavior parameterization）](jdk/behavior_parameterization.md)
 

@@ -16,6 +16,7 @@
 - [Java8 中的双冒号操作符](jdk/double_colon_operator.md)
 - [Java8 中的 Streams API](jdk/streams_api.md)
 - [Java Optional 类的使用](jdk/optional.md)
+- [Java8 中的 Map API](jdk/map_api.md)
 
 - [行为参数化（Behavior parameterization）](jdk/behavior_parameterization.md)
 
@@ -61,6 +62,7 @@
 - [JVM 组成](jvm/jvm-components.md)
 - [JVM 内存管理](jvm/jvm-memory-management.md)
 - [GC 垃圾回收机制](jvm/jvm-gc.md)
+- [ClassLoader 类加载器](jvm/classloader.md)
 
 
 ## 算法

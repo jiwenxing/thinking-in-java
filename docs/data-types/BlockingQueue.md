@@ -3,9 +3,20 @@
 
 ## BlockingQueue 接口介绍
 
-BlockingQueue 接口有很多实现，可以看到除了 JDK 的实现外，还有一些第三方包的实现
+BlockingQueue 接口有很多实现，可以看到除了 JDK juc 包下的实现外，还有一些第三方的实现。这说明 BlockingQueue 接口是用于并发编程的场景。在并发编程里队列 queue 需要处理多生产者和多消费者并发的场景，而我们选择不同的队列实现往往性能差异会很大，因此有必要梳理一下各个 BlockingQueue 的实现原理及其适用场景。
 
 ![image.png](https://images.zenhubusercontent.com/5b83aeb622e474383b984d11/728b2925-da37-43c4-80d5-b17ddfc87d17)
+
+
+## Blocking vs Non-Blocking Queue
+
+BlockingQueue 阻塞队列提供了一种线程同步的机制，即生产者在添加元素的时候需要等待队列有空闲的容量，同理消费者在去处消费元素的时候也需要等待直到有可用的元素。而在非同步队列里遇到这种情况要么抛异常、要么只是返回 null 或 false。
+
+为了实现这个功能，BlockingQueue interface 扩展增加了这两个接口的功能: put and take，其功能和普通队列的 add and remove 相似都是增加或取出元素。但是通过阻塞等待实现了生产和消费线程之间的协作。
+
+下面就简单介绍一下几种常见的 BlockingQueue 的实现
+
+## ArrayBlockingQueue
 
 java.util.concurrent.ArrayBlockingQueue 是一个线程安全的、基于数组、有界的、阻塞的、FIFO 队列。试图向已满队列中放入元素会导致操作受阻塞；试图从空队列中提取元素将导致类似阻塞。此类基于 java.util.concurrent.locks.ReentrantLock 来实现线程安全，所以提供了 ReentrantLock 所能支持的公平性选择。
 
@@ -22,7 +33,6 @@ ArrayBlockingQueue 是一个阻塞式的有界队列，继承自 AbstractBlockin
 
 ArrayBlockingQueue 队列以数组为载体，配合可重入锁实现生产线程和消费线程共享数据，ArrayBlockingQueue 作为共享池，实现了并发条件下的添加及取出等方法。
 
-## 方法加锁处理
 
 作为线程安全的类，ArrayBlockingQueue 的所有公开方法的逻辑都是在加锁的前提下进行的。这里以put方法为例。
 
@@ -53,6 +63,34 @@ public void put(E e) throws InterruptedException {
 }
 ```
 
+另外注意由于其基于数组结构，因此队列需要的内存是预分配好的，这有利于增加吞吐量，当然也会一定程度上造成内存浪费。而 LinkedBlockingQueue needs to allocate and deallocate nodes every time an item is added or removed from the queue. For this reason, an ArrayBlockingQueue can be a better alternative if the queue grows fast and shrinks fast.
+
+## LinkedBlockingQueue
+
+LinkedBlockingQueue 基于 LinkedList 实现，如果没有指定队列大小则默认为 Integer.MAX_VALUE，也可以在初始化的时候通过构造函数指定队列大小。因此 LinkedBlockingQueue 可以是有界的也可以是无界的（optionally-bounded blocking queue）。
+
+需要注意的是 LinkedBlockingQueue 的 put 和 take 操作使用了不同的锁。
+
+## PriorityBlockingQueue
+
+优先级队列，运行按照自定义的优先级对队列进行消费。其数据结构也是数组类型，不过逻辑结构是通过一个小顶堆或者完全二叉树来实现的优先级排序。
+
+## DelayQueue
+
+延时队列，只能消费已经过期的元素。其本质还是一个 PriorityBlockingQueue 优先级队列，只不多优先级是根据过期时间来决定的。
+
+## LinkedTransferQueue
+
+LinkedTransferQueue 使用 put,tryTransfer 和 transfer 可添加多条数据, LinkedTransferQueue 具有 SynchronousQueue 的功能，但是 LinkedTransferQueue 的生产者不会阻塞。
+tryTransfer 和 transfer 与 put 不同的是，tryTransfer 和 transfer 可检测是否有线程在等待获取数据，检测到则直接唤醒等待线程将数据给这个线程而不用放入队列。
+
+## SynchronousQueue
+
+线程A使用put将数据添加到队列，如果没有其他线程使用take去获取数据，那么线程A阻塞，直到数据被其他线程获取，同理 如果线程B从队列中获取数据为空，被阻塞，等待线程添加数据。
+
+## ConcurrentLinkedQueue
+
+基于 CAS 实现的无锁的并发队列。
 
 ## 队列的使用场景
 
@@ -110,4 +148,6 @@ http://ifeve.com/disruptor/
 Linux 环形缓存
 
 https://km.sankuai.com/page/657349677
+
+[A Guide to Concurrent Queues in Java](https://www.baeldung.com/java-concurrent-queues)
 

@@ -162,16 +162,160 @@ current task queue is []
 java.lang.InterruptedException
 ```
 
+## ArrayBlockingQueue 基于 ReentrantLock 的实现
 
-后面我们会结合 ArrayBlockingQueue 讲解使用 ReentrantLock 来实现同样的功能。
+上面代码的示例其实是利用 wait/notify 实现了 BlockingQueue（不同于 wait/notify 依赖 synchronized，基于 ReentrantLock 实现） 的功能，现在我们直接使用 BlockingQueue 来实现和上面相同的功能
+
+```Java
+public class BlockingQueueDemo {
+
+    public static void main(String[] args) throws InterruptedException {
+        BlockingQueue<Integer> taskQueue = new ArrayBlockingQueue<Integer>(5);
+
+        // 创建消费线程阻塞从队列消费任务
+        var consumers = Stream.generate(() -> new Thread(() -> {
+            try {
+                while (true) { // 持续消费
+                    Integer task = taskQueue.take(); // 没有任务时阻塞等待
+                    System.out.println(Thread.currentThread().getName() + " excute task: " + task);
+//                    System.out.println(Thread.currentThread().getName() + " current taskQueue = " + taskQueue);
+                    Thread.sleep(100); // 模拟 task 执行时间
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        })).limit(3).collect(Collectors.toList());
+        consumers.forEach(Thread::start); // 启动所有消费线程
+
+        // 创建一个生产者线程
+        var producer = new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                if (taskQueue.offer(i)) {
+                    System.out.println(Thread.currentThread().getName() + " success offer task: " + i);
+                    System.out.println(Thread.currentThread().getName() + " current taskQueue = " + taskQueue);
+                } else {
+                    System.out.println(Thread.currentThread().getName() + " fail to offer task: " + i);
+                    System.out.println(Thread.currentThread().getName() + " current taskQueue = " + taskQueue);
+                }
+                try { Thread.sleep(10); } catch (InterruptedException e) {}
+            }
+        });
+        producer.start();
+        producer.join(); // 等待生产任务完成
+        Thread.sleep(2000); // 等待所有任务消费完
+        consumers.forEach(Thread::interrupt); // 程序执行完毕，结束消费线程
+    }
+
+}
+```
+
+输出如下
+
+```Java
+Thread-3 success offer task: 0
+Thread-0 excute task: 0
+Thread-3 current taskQueue = []
+Thread-3 success offer task: 1
+Thread-1 excute task: 1
+Thread-3 current taskQueue = []
+Thread-3 success offer task: 2
+Thread-2 excute task: 2
+Thread-3 current taskQueue = [] // 可以看到前三个 task 刚生产就被消费，因为我们提起启动了三个消费线程已经在等待了
+Thread-3 success offer task: 3
+Thread-3 current taskQueue = [3] // 任务开始积压
+Thread-3 success offer task: 4
+Thread-3 current taskQueue = [3, 4]
+Thread-3 success offer task: 5
+Thread-3 current taskQueue = [3, 4, 5]
+Thread-3 success offer task: 6
+Thread-3 current taskQueue = [3, 4, 5, 6]
+Thread-3 success offer task: 7
+Thread-3 current taskQueue = [3, 4, 5, 6, 7]
+Thread-3 fail to offer task: 8  // 队列已满，添加任务 8 失败
+Thread-3 current taskQueue = [3, 4, 5, 6, 7]
+Thread-0 excute task: 3
+Thread-3 success offer task: 9 // 消费掉一个以后，任务 9 又可以插入到队列了
+Thread-3 current taskQueue = [4, 5, 6, 7, 9]
+Thread-1 excute task: 4
+Thread-2 excute task: 5
+Thread-0 excute task: 6
+Thread-1 excute task: 7
+Thread-2 excute task: 9
+java.lang.InterruptedException
+```
+
+这里的核心就是我们使用了 juc 包下的 ArrayBlockingQueue 替代了上面我们自己实现的 TaskQueue，我们看看 ArrayBlockingQueue 内部实现有什么不同，可以看到内部基于 ReentrantLock 代替了 synchronized，Condition 的 await 和 signal 分别实现了 wait 和 notify 相同的功能。详细的讲解我们在 ArrayBlockingQueue 章节详细讲解。
+
+```Java
+
+/** The queued items */
+final Object[] items;
+
+/** items index for next take, poll, peek or remove */
+int takeIndex;
+
+/** items index for next put, offer, or add */
+int putIndex;
+
+/** Number of elements in the queue */
+int count;
+
+/*
+ * Concurrency control uses the classic two-condition algorithm
+ * found in any textbook.
+ */
+
+/** Main lock guarding all access */
+final ReentrantLock lock;
+
+/** Condition for waiting takes */
+private final Condition notEmpty;
+
+/** Condition for waiting puts */
+private final Condition notFull;
+
+public E take() throws InterruptedException {
+    final ReentrantLock lock = this.lock;
+    lock.lockInterruptibly();
+    try {
+        while (count == 0)
+            notEmpty.await();
+        return dequeue();
+    } finally {
+        lock.unlock();
+    }
+}
+
+/**
+ * Extracts element at current take position, advances, and signals.
+ * Call only when holding lock.
+ */
+private E dequeue() {
+    // assert lock.isHeldByCurrentThread();
+    // assert lock.getHoldCount() == 1;
+    // assert items[takeIndex] != null;
+    final Object[] items = this.items;
+    @SuppressWarnings("unchecked")
+    E e = (E) items[takeIndex];
+    items[takeIndex] = null;
+    if (++takeIndex == items.length) takeIndex = 0;
+    count--;
+    if (itrs != null)
+        itrs.elementDequeued();
+    notFull.signal();
+    return e;
+}
+```
+
+
 
 ## 小结
 
-- wait和notify用于多线程协调运行：
+- wait 和 notify 用于多线程协调运行：
 
-- 在synchronized内部可以调用wait()使线程进入等待状态；即必须在已获得的锁对象上调用wait()方法；
+- 在 synchronized 内部可以调用 wait() 使线程进入等待状态；即必须在已获得的锁对象上调用wait()方法；
 
-- 在synchronized内部可以调用notify()或notifyAll()唤醒其他等待线程；即必须在已获得的锁对象上调用notify()或notifyAll()方法；
+- 在 synchronized 内部可以调用 notify() 或 notifyAll() 唤醒其他等待线程；即必须在已获得的锁对象上调用 notify() 或 notifyAll() 方法；
 
 - 已唤醒的线程还需要重新获得锁后才能继续执行。
 

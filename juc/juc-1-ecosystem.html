@@ -484,12 +484,27 @@
             
         </li>
     
-        <li class="chapter " data-level="5.7" data-path="../data-types/set-interface.html">
+        <li class="chapter " data-level="5.7" data-path="../data-types/ArrayBlockingQueue.md">
+            
+                <span>
+            
+                    
+                        <b>5.7.</b>
+                    
+                    ArrayBlockingQueue 源码解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="../data-types/set-interface.html">
             
                 <a href="../data-types/set-interface.html">
             
                     
-                        <b>5.7.</b>
+                        <b>5.8.</b>
                     
                     Set 接口及实现
             
@@ -499,12 +514,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.8" data-path="../data-types/HashMap.html">
+        <li class="chapter " data-level="5.9" data-path="../data-types/HashMap.html">
             
                 <a href="../data-types/HashMap.html">
             
                     
-                        <b>5.8.</b>
+                        <b>5.9.</b>
                     
                     HashMap
             
@@ -514,12 +529,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.9" data-path="../data-types/ConcurrentHashMap.html">
+        <li class="chapter " data-level="5.10" data-path="../data-types/ConcurrentHashMap.html">
             
                 <a href="../data-types/ConcurrentHashMap.html">
             
                     
-                        <b>5.9.</b>
+                        <b>5.10.</b>
                     
                     ConcurrentHashMap
             
@@ -529,12 +544,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.10" data-path="../data-types/HashMap-Hashtable-CocurrentHashMap.html">
+        <li class="chapter " data-level="5.11" data-path="../data-types/HashMap-Hashtable-CocurrentHashMap.html">
             
                 <a href="../data-types/HashMap-Hashtable-CocurrentHashMap.html">
             
                     
-                        <b>5.10.</b>
+                        <b>5.11.</b>
                     
                     HashMap、HashTable & ConcurrentHashMap
             
@@ -544,12 +559,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.11" data-path="../data-types/TreeMap-LinkedHashMap.html">
+        <li class="chapter " data-level="5.12" data-path="../data-types/TreeMap-LinkedHashMap.html">
             
                 <a href="../data-types/TreeMap-LinkedHashMap.html">
             
                     
-                        <b>5.11.</b>
+                        <b>5.12.</b>
                     
                     TreeMap 和 LinkedHashMap 介绍
             
@@ -716,12 +731,27 @@
             
         </li>
     
-        <li class="chapter " data-level="6.11" data-path="juc-10-AQS.html">
+        <li class="chapter " data-level="6.11" data-path="lock-condition.html">
+            
+                <a href="lock-condition.html">
+            
+                    
+                        <b>6.11.</b>
+                    
+                    Lock & Condition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.12" data-path="juc-10-AQS.html">
             
                 <a href="juc-10-AQS.html">
             
                     
-                        <b>6.11.</b>
+                        <b>6.12.</b>
                     
                     AQS 原理_
             
@@ -731,12 +761,12 @@
             
         </li>
     
-        <li class="chapter " data-level="6.12" data-path="juc-11-tools.html">
+        <li class="chapter " data-level="6.13" data-path="juc-11-tools.html">
             
                 <a href="juc-11-tools.html">
             
                     
-                        <b>6.12.</b>
+                        <b>6.13.</b>
                     
                     并发工具类
             
@@ -1416,7 +1446,7 @@
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> ConcurrentHashMap</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> CopyOnWriteArArrayList</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> ThreadLocal</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> BlockingQueue</li>
+<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> BlockingQueue</li>
 <li style="list-style: none"><input type="checkbox" disabled="disabled"> ConcurrentLinkedQueue</li>
 </ul>
 <p>&#x7EBF;&#x7A0B;&#x6C60;</p>
@@ -1440,13 +1470,14 @@
 </ul>
 <p>&#x5E76;&#x53D1;&#x5B9E;&#x8DF5;</p>
 <ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> &#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;</li>
+<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> &#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;</li>
 </ul>
+<p>&#x627E;&#x65F6;&#x95F4;&#x628A;&#x8FD9;&#x4E2A;&#x7CFB;&#x5217;&#x7684;&#x4E00;&#x4E9B;&#x4E3B;&#x9898;&#x90FD;&#x68B3;&#x7406;&#x4E00;&#x4E0B;&#xFF1A;<a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1255943750561472" target="_blank">&#x5ED6;&#x96EA;&#x5CF0;-&#x591A;&#x7EBF;&#x7A0B;</a></p>
 <h2 id="ecosystem">ecosystem</h2>
 <p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/d08340c896c473db0ef95ed8d47cacac.jpg" alt=""></p>
 <p>&#x6CE8;&#xFF1A; <a href="https://www.processon.com/view/5ab5a979e4b0a248b0e026b3?fromnew=1#outline" target="_blank">&#x56FE;&#x7247;&#x51FA;&#x5904;</a></p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"><span></span>
-17:22
+19:52
 </span></footer>
                                 
                                 </section>
@@ -1490,7 +1521,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java 并发知识体系","level":"6.1","depth":1,"next":{"title":"多线程基础","level":"6.2","depth":1,"path":"juc/juc-2-basic.md","ref":"juc/juc-2-basic.md","articles":[]},"previous":{"title":"TreeMap 和 LinkedHashMap 介绍","level":"5.11","depth":1,"path":"data-types/TreeMap-LinkedHashMap.md","ref":"data-types/TreeMap-LinkedHashMap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"juc/juc-1-ecosystem.md","mtime":"2019-07-14T09:22:37.761Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-30T11:29:18.424Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java 并发知识体系","level":"6.1","depth":1,"next":{"title":"多线程基础","level":"6.2","depth":1,"path":"juc/juc-2-basic.md","ref":"juc/juc-2-basic.md","articles":[]},"previous":{"title":"TreeMap 和 LinkedHashMap 介绍","level":"5.12","depth":1,"path":"data-types/TreeMap-LinkedHashMap.md","ref":"data-types/TreeMap-LinkedHashMap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"juc/juc-1-ecosystem.md","mtime":"2021-05-30T11:52:19.581Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-30T15:41:24.054Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

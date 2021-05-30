@@ -53,8 +53,6 @@ public void put(E e) throws InterruptedException {
 }
 ```
 
-这里的代码又和我们之前的一些知识点关联起来了：
-
 
 ## 队列的使用场景
 

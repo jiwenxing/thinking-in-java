@@ -36,6 +36,7 @@
 - [Queue 接口及实现类概述](data-types/queue-interface.md)
 - [PriorityQueue 和 Heap](data-types/PriorityQueue.md)
 - [BlockingQueue 介绍](data-types/BlockingQueue.md)
+- [ArrayBlockingQueue 源码解析](data-types/ArrayBlockingQueue.md)
 - [Set 接口及实现](data-types/set-interface.md)
 - [HashMap](data-types/HashMap.md)
 - [ConcurrentHashMap](data-types/ConcurrentHashMap.md)
@@ -55,6 +56,7 @@
 - [volatile 关键字](juc/juc-7-volatile.md)
 - [synchronized & 锁优化](juc/juc-8-synchronized.md)
 - [Lock & ReentrantLock](juc/juc-9-lock.md)
+- [Lock & Condition](juc/lock-condition.md)
 - [AQS 原理_](juc/juc-10-AQS.md)& 并发工具类
 - [并发工具类](juc/juc-11-tools.md)
 

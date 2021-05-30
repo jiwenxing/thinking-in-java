@@ -30,7 +30,7 @@ Lock 体系
 - [ ] ConcurrentHashMap
 - [ ] CopyOnWriteArArrayList
 - [ ] ThreadLocal
-- [ ] BlockingQueue
+- [x] BlockingQueue
 - [ ] ConcurrentLinkedQueue
 
 线程池
@@ -50,10 +50,13 @@ Lock 体系
 - [ ] 数据交换 Exchanger
 
 并发实践
-- [ ] 生产者消费者问题
+- [x] 生产者消费者问题
+
+找时间把这个系列的一些主题都梳理一下：[廖雪峰-多线程](https://www.liaoxuefeng.com/wiki/1252599548343744/1255943750561472)
 
 ## ecosystem
 
 ![](https://jverson.oss-cn-beijing.aliyuncs.com/d08340c896c473db0ef95ed8d47cacac.jpg)
 
 注： [图片出处](https://www.processon.com/view/5ab5a979e4b0a248b0e026b3?fromnew=1#outline)
+

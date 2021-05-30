@@ -244,20 +244,20 @@ Thread-2 excute task: 9
 java.lang.InterruptedException
 ```
 
-这里的核心就是我们使用了 juc 包下的 ArrayBlockingQueue 替代了上面我们自己实现的 TaskQueue，我们看看 ArrayBlockingQueue 内部实现有什么不同，可以看到内部基于 ReentrantLock 代替了 synchronized，Condition 的 await 和 signal 分别实现了 wait 和 notify 相同的功能。详细的讲解我们在 ArrayBlockingQueue 章节详细讲解。
+这里的核心就是我们使用了 juc 包下的 ArrayBlockingQueue 替代了上面我们自己实现的 TaskQueue，我们看看 ArrayBlockingQueue 内部实现有什么不同，可以看到内部基于 ReentrantLock 代替了 synchronized，Condition 的 await 和 signal 分别实现了 wait 和 notify 相同的功能。详细的原理可以先参考以下这篇文章：[ArrayBlockingQueue 详细源码解析](https://juejin.cn/post/6844903989788540941)。
 
 ```Java
 
-/** The queued items */
+/** 存储数据的数组 The queued items */
 final Object[] items;
 
-/** items index for next take, poll, peek or remove */
+/** 获取数据的索引，用于下次 take, poll, peek or remove 等方法 items index for next take, poll, peek or remove */
 int takeIndex;
 
-/** items index for next put, offer, or add */
+/** 添加元素的索引， 用于下次 put, offer, or add 方法 items index for next put, offer, or add */
 int putIndex;
 
-/** Number of elements in the queue */
+/** 队列元素的个数 Number of elements in the queue */
 int count;
 
 /*
@@ -265,14 +265,54 @@ int count;
  * found in any textbook.
  */
 
-/** Main lock guarding all access */
+/** 控制并发访问的锁 Main lock guarding all access */
 final ReentrantLock lock;
 
-/** Condition for waiting takes */
+/** 非空条件对象，用于通知 take 方法中在等待获取数据的线程，队列中已有数据，可以执行获取操作 Condition for waiting takes */
 private final Condition notEmpty;
 
-/** Condition for waiting puts */
+/** 未满条件对象，用于通知 put 方法中在等待添加数据的线程，队列未满，可以执行添加操作 Condition for waiting puts */
 private final Condition notFull;
+
+/**
+ * Inserts the specified element at the tail of this queue if it is
+ * possible to do so immediately without exceeding the queue's capacity,
+ * returning {@code true} upon success and {@code false} if this queue
+ * is full.  This method is generally preferable to method {@link #add},
+ * which can fail to insert an element only by throwing an exception.
+ *
+ * @throws NullPointerException if the specified element is null
+ */
+public boolean offer(E e) {
+    Objects.requireNonNull(e);
+    final ReentrantLock lock = this.lock;
+    lock.lock();
+    try {
+        if (count == items.length)
+            return false;
+        else {
+            enqueue(e);
+            return true;
+        }
+    } finally {
+        lock.unlock();
+    }
+}
+
+/**
+ * Inserts element at current put position, advances, and signals.
+ * Call only when holding lock.
+ */
+private void enqueue(E e) {
+    // assert lock.isHeldByCurrentThread();
+    // assert lock.getHoldCount() == 1;
+    // assert items[putIndex] == null;
+    final Object[] items = this.items;
+    items[putIndex] = e;
+    if (++putIndex == items.length) putIndex = 0; //putIndex 进行自增，当达到数组长度的时候，putIndex 重头再来，即设置为0
+    count++;
+    notEmpty.signal(); //添加完数据后，说明数组中有数据了，所以可以唤醒 notEmpty 条件对象等待队列(链表)中第一个可用线程去 take 数据
+}
 
 public E take() throws InterruptedException {
     final ReentrantLock lock = this.lock;
@@ -298,14 +338,16 @@ private E dequeue() {
     @SuppressWarnings("unchecked")
     E e = (E) items[takeIndex];
     items[takeIndex] = null;
-    if (++takeIndex == items.length) takeIndex = 0;
+    if (++takeIndex == items.length) takeIndex = 0; // takeIndex 向前前进一位，如果前进后位置超过了数组的长度，则将其设置为0；
     count--;
     if (itrs != null)
         itrs.elementDequeued();
-    notFull.signal();
+    notFull.signal(); // 提取完数据后，说明数组中有空位，所以可以唤醒 notFull 条件对象的等待队列(链表)中的第一个可用线程去 put 数据
     return e;
 }
 ```
+
+详细原理可以参考这篇文章：[ArrayBlockingQueue 详细源码解析](https://juejin.cn/post/6844903989788540941)，回头有空再好好整理一下这部分内容。
 
 
 

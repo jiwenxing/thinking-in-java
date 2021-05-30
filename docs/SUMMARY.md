@@ -50,7 +50,7 @@
 - [创建线程的几种方式](juc/juc-3-thread-creation.md)
 - [线程池的使用](juc/juc-4-threadpool.md)
 - [CompleteFuture](juc/completefuture.md)
-- [线程通信_](juc/juc-5-thread-collaboration.md)
+- [线程通信之wait/notify/notifyAll](juc/juc-5-thread-collaboration.md)
 - [JMM Java 内存模型_](juc/juc-6-jmm.md)
 - [volatile 关键字](juc/juc-7-volatile.md)
 - [synchronized & 锁优化](juc/juc-8-synchronized.md)

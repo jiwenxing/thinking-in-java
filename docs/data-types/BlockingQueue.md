@@ -16,6 +16,8 @@ BlockingQueue 阻塞队列提供了一种线程同步的机制，即生产者在
 
 下面就简单介绍一下几种常见的 BlockingQueue 的实现
 
+![image.png](https://images.zenhubusercontent.com/5b83aeb622e474383b984d11/166c0787-cc08-459c-9b35-e5943582d0b7)
+
 ### ArrayBlockingQueue
 
 java.util.concurrent.ArrayBlockingQueue 是一个线程安全的、基于数组、有界的、阻塞的、FIFO 队列。试图向已满队列中放入元素会导致操作受阻塞；试图从空队列中提取元素将导致类似阻塞。此类基于 java.util.concurrent.locks.ReentrantLock 来实现线程安全，所以提供了 ReentrantLock 所能支持的公平性选择。
@@ -245,7 +247,6 @@ Disruptor 是英国外汇交易公司 LMAX 开发的一个高性能队列，研�
 
 通过不加锁的方式实现的队列都是无界的（无法保证队列的长度在确定的范围内）；而加锁的方式，可以实现有界队列。在稳定性要求特别高的系统中，为了防止生产者速度过快，导致内存溢出，只能选择有界队列；同时，为了减少 Java 的垃圾回收对系统性能的影响，会尽量选择array/heap 格式的数据结构。这样筛选下来，符合条件的队列就只有ArrayBlockingQueue。
 
-![image.png](https://images.zenhubusercontent.com/5b83aeb622e474383b984d11/166c0787-cc08-459c-9b35-e5943582d0b7)
 
 log4j2 的异步日志是通过队列来处理的，关于队列，Log4j2 支持生成以下四种队列：
 

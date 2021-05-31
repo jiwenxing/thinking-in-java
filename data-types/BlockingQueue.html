@@ -671,12 +671,27 @@
             
         </li>
     
-        <li class="chapter " data-level="6.7" data-path="../juc/juc-6-jmm.html">
+        <li class="chapter " data-level="6.7" data-path="../juc/juc-sleep-yield-join.html">
+            
+                <a href="../juc/juc-sleep-yield-join.html">
+            
+                    
+                        <b>6.7.</b>
+                    
+                    线程协作 - sleep/yield/join
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.8" data-path="../juc/juc-6-jmm.html">
             
                 <a href="../juc/juc-6-jmm.html">
             
                     
-                        <b>6.7.</b>
+                        <b>6.8.</b>
                     
                     JMM Java 内存模型_
             
@@ -686,12 +701,12 @@
             
         </li>
     
-        <li class="chapter " data-level="6.8" data-path="../juc/juc-7-volatile.html">
+        <li class="chapter " data-level="6.9" data-path="../juc/juc-7-volatile.html">
             
                 <a href="../juc/juc-7-volatile.html">
             
                     
-                        <b>6.8.</b>
+                        <b>6.9.</b>
                     
                     volatile 关键字
             
@@ -701,12 +716,12 @@
             
         </li>
     
-        <li class="chapter " data-level="6.9" data-path="../juc/juc-8-synchronized.html">
+        <li class="chapter " data-level="6.10" data-path="../juc/juc-8-synchronized.html">
             
                 <a href="../juc/juc-8-synchronized.html">
             
                     
-                        <b>6.9.</b>
+                        <b>6.10.</b>
                     
                     synchronized & 锁优化
             
@@ -716,12 +731,12 @@
             
         </li>
     
-        <li class="chapter " data-level="6.10" data-path="../juc/juc-9-lock.html">
+        <li class="chapter " data-level="6.11" data-path="../juc/juc-9-lock.html">
             
                 <a href="../juc/juc-9-lock.html">
             
                     
-                        <b>6.10.</b>
+                        <b>6.11.</b>
                     
                     Lock & ReentrantLock
             
@@ -731,12 +746,12 @@
             
         </li>
     
-        <li class="chapter " data-level="6.11" data-path="../juc/lock-condition.html">
+        <li class="chapter " data-level="6.12" data-path="../juc/lock-condition.html">
             
                 <a href="../juc/lock-condition.html">
             
                     
-                        <b>6.11.</b>
+                        <b>6.12.</b>
                     
                     Lock & Condition
             
@@ -746,12 +761,12 @@
             
         </li>
     
-        <li class="chapter " data-level="6.12" data-path="../juc/juc-10-AQS.html">
+        <li class="chapter " data-level="6.13" data-path="../juc/juc-10-AQS.html">
             
                 <a href="../juc/juc-10-AQS.html">
             
                     
-                        <b>6.12.</b>
+                        <b>6.13.</b>
                     
                     AQS 原理_
             
@@ -761,14 +776,14 @@
             
         </li>
     
-        <li class="chapter " data-level="6.13" data-path="../juc/juc-11-tools.html">
+        <li class="chapter " data-level="6.14" data-path="../juc/juc-11-tools.html">
             
                 <a href="../juc/juc-11-tools.html">
             
                     
-                        <b>6.13.</b>
+                        <b>6.14.</b>
                     
-                    并发工具类
+                    并发工具类 - CountDownLatch
             
                 </a>
             
@@ -1420,6 +1435,7 @@
 <p>BlockingQueue &#x963B;&#x585E;&#x961F;&#x5217;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x5373;&#x751F;&#x4EA7;&#x8005;&#x5728;&#x6DFB;&#x52A0;&#x5143;&#x7D20;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x6709;&#x7A7A;&#x95F2;&#x7684;&#x5BB9;&#x91CF;&#xFF0C;&#x540C;&#x7406;&#x6D88;&#x8D39;&#x8005;&#x5728;&#x53BB;&#x5904;&#x6D88;&#x8D39;&#x5143;&#x7D20;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x76F4;&#x5230;&#x6709;&#x53EF;&#x7528;&#x7684;&#x5143;&#x7D20;&#x3002;&#x800C;&#x5728;&#x975E;&#x540C;&#x6B65;&#x961F;&#x5217;&#x91CC;&#x9047;&#x5230;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x8981;&#x4E48;&#x629B;&#x5F02;&#x5E38;&#x3001;&#x8981;&#x4E48;&#x53EA;&#x662F;&#x8FD4;&#x56DE; null &#x6216; false&#x3002;</p>
 <p>&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#xFF0C;BlockingQueue interface &#x6269;&#x5C55;&#x589E;&#x52A0;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x529F;&#x80FD;: put and take&#xFF0C;&#x5176;&#x529F;&#x80FD;&#x548C;&#x666E;&#x901A;&#x961F;&#x5217;&#x7684; add and remove &#x76F8;&#x4F3C;&#x90FD;&#x662F;&#x589E;&#x52A0;&#x6216;&#x53D6;&#x51FA;&#x5143;&#x7D20;&#x3002;&#x4F46;&#x662F;&#x901A;&#x8FC7;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x5B9E;&#x73B0;&#x4E86;&#x751F;&#x4EA7;&#x548C;&#x6D88;&#x8D39;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x7684;&#x534F;&#x4F5C;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x5C31;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x51E0;&#x79CD;&#x5E38;&#x89C1;&#x7684; BlockingQueue &#x7684;&#x5B9E;&#x73B0;</p>
+<p><img src="https://images.zenhubusercontent.com/5b83aeb622e474383b984d11/166c0787-cc08-459c-9b35-e5943582d0b7" alt="image.png"></p>
 <h3 id="arrayblockingqueue">ArrayBlockingQueue</h3>
 <p>java.util.concurrent.ArrayBlockingQueue &#x662F;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x3001;&#x57FA;&#x4E8E;&#x6570;&#x7EC4;&#x3001;&#x6709;&#x754C;&#x7684;&#x3001;&#x963B;&#x585E;&#x7684;&#x3001;FIFO &#x961F;&#x5217;&#x3002;&#x8BD5;&#x56FE;&#x5411;&#x5DF2;&#x6EE1;&#x961F;&#x5217;&#x4E2D;&#x653E;&#x5165;&#x5143;&#x7D20;&#x4F1A;&#x5BFC;&#x81F4;&#x64CD;&#x4F5C;&#x53D7;&#x963B;&#x585E;&#xFF1B;&#x8BD5;&#x56FE;&#x4ECE;&#x7A7A;&#x961F;&#x5217;&#x4E2D;&#x63D0;&#x53D6;&#x5143;&#x7D20;&#x5C06;&#x5BFC;&#x81F4;&#x7C7B;&#x4F3C;&#x963B;&#x585E;&#x3002;&#x6B64;&#x7C7B;&#x57FA;&#x4E8E; java.util.concurrent.locks.ReentrantLock &#x6765;&#x5B9E;&#x73B0;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF0C;&#x6240;&#x4EE5;&#x63D0;&#x4F9B;&#x4E86; ReentrantLock &#x6240;&#x80FD;&#x652F;&#x6301;&#x7684;&#x516C;&#x5E73;&#x6027;&#x9009;&#x62E9;&#x3002;</p>
 <p><img src="https://images.zenhubusercontent.com/5b83aeb622e474383b984d11/57ecb776-869b-4621-bb76-c18f1d4195f4" alt="image.png"></p>
@@ -1597,7 +1613,6 @@
 <p>&#x961F;&#x5217;&#x7684;&#x5E95;&#x5C42;&#x4E00;&#x822C;&#x5206;&#x6210;&#x4E09;&#x79CD;&#xFF1A;&#x6570;&#x7EC4;&#x3001;&#x94FE;&#x8868;&#x548C;&#x5806;&#x3002;&#x5176;&#x4E2D;&#xFF0C;&#x5806;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x5E26;&#x6709;&#x4F18;&#x5148;&#x7EA7;&#x7279;&#x6027;&#x7684;&#x961F;&#x5217;&#xFF0C;&#x6682;&#x4E14;&#x4E0D;&#x8003;&#x8651;&#x3002;</p>
 <p>&#x6211;&#x4EEC;&#x5C31;&#x4ECE;&#x6570;&#x7EC4;&#x548C;&#x94FE;&#x8868;&#x4E24;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6765;&#x770B;&#xFF0C;&#x57FA;&#x4E8E;&#x6570;&#x7EC4;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x961F;&#x5217;&#xFF0C;&#x6BD4;&#x8F83;&#x5178;&#x578B;&#x7684;&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x8BF4;&#x7684; ArrayBlockingQueue&#xFF0C;&#x5B83;&#x4E3B;&#x8981;&#x901A;&#x8FC7;&#x52A0;&#x9501;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x4FDD;&#x8BC1;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF1B;&#x57FA;&#x4E8E;&#x94FE;&#x8868;&#x7684;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x961F;&#x5217;&#x5206;&#x6210; LinkedBlockingQueue &#x548C; ConcurrentLinkedQueue &#x4E24;&#x5927;&#x7C7B;&#xFF0C;&#x524D;&#x8005;&#x4E5F;&#x901A;&#x8FC7;&#x9501;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF0C;&#x800C;&#x540E;&#x8005;&#x4EE5;&#x53CA;&#x4E0A;&#x9762;&#x8868;&#x683C;&#x4E2D;&#x7684; LinkedTransferQueue &#x90FD;&#x662F;&#x901A;&#x8FC7;&#x539F;&#x5B50;&#x53D8;&#x91CF; compare and swap&#xFF08;&#x4EE5;&#x4E0B;&#x7B80;&#x79F0;&#x201C;CAS&#x201D;&#xFF09;&#x8FD9;&#x79CD;&#x4E0D;&#x52A0;&#x9501;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
 <p>&#x901A;&#x8FC7;&#x4E0D;&#x52A0;&#x9501;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x7684;&#x961F;&#x5217;&#x90FD;&#x662F;&#x65E0;&#x754C;&#x7684;&#xFF08;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x961F;&#x5217;&#x7684;&#x957F;&#x5EA6;&#x5728;&#x786E;&#x5B9A;&#x7684;&#x8303;&#x56F4;&#x5185;&#xFF09;&#xFF1B;&#x800C;&#x52A0;&#x9501;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6709;&#x754C;&#x961F;&#x5217;&#x3002;&#x5728;&#x7A33;&#x5B9A;&#x6027;&#x8981;&#x6C42;&#x7279;&#x522B;&#x9AD8;&#x7684;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x751F;&#x4EA7;&#x8005;&#x901F;&#x5EA6;&#x8FC7;&#x5FEB;&#xFF0C;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6EA2;&#x51FA;&#xFF0C;&#x53EA;&#x80FD;&#x9009;&#x62E9;&#x6709;&#x754C;&#x961F;&#x5217;&#xFF1B;&#x540C;&#x65F6;&#xFF0C;&#x4E3A;&#x4E86;&#x51CF;&#x5C11; Java &#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5BF9;&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x4F1A;&#x5C3D;&#x91CF;&#x9009;&#x62E9;array/heap &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;&#x8FD9;&#x6837;&#x7B5B;&#x9009;&#x4E0B;&#x6765;&#xFF0C;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x961F;&#x5217;&#x5C31;&#x53EA;&#x6709;ArrayBlockingQueue&#x3002;</p>
-<p><img src="https://images.zenhubusercontent.com/5b83aeb622e474383b984d11/166c0787-cc08-459c-9b35-e5943582d0b7" alt="image.png"></p>
 <p>log4j2 &#x7684;&#x5F02;&#x6B65;&#x65E5;&#x5FD7;&#x662F;&#x901A;&#x8FC7;&#x961F;&#x5217;&#x6765;&#x5904;&#x7406;&#x7684;&#xFF0C;&#x5173;&#x4E8E;&#x961F;&#x5217;&#xFF0C;Log4j2 &#x652F;&#x6301;&#x751F;&#x6210;&#x4EE5;&#x4E0B;&#x56DB;&#x79CD;&#x961F;&#x5217;&#xFF1A;</p>
 <ul>
 <li><p>ArrayBlockingQueue -- &#x9ED8;&#x8BA4;&#x7684;&#x961F;&#x5217;&#xFF0C;&#x901A;&#x8FC7; java &#x539F;&#x751F;&#x7684; ArrayBlockingQueue &#x5B9E;&#x73B0;&#x3002;</p>
@@ -1621,7 +1636,7 @@
 <p><a href="https://km.sankuai.com/page/657349677" target="_blank">https://km.sankuai.com/page/657349677</a></p>
 <p><a href="https://www.baeldung.com/java-concurrent-queues" target="_blank">A Guide to Concurrent Queues in Java</a></p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"><span></span>
-07:42
+07:48
 </span></footer>
                                 
                                 </section>
@@ -1665,7 +1680,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"BlockingQueue 介绍","level":"5.6","depth":1,"next":{"title":"ArrayBlockingQueue 源码解析","level":"5.7","depth":1,"path":"data-types/ArrayBlockingQueue.md","ref":"data-types/ArrayBlockingQueue.md","articles":[]},"previous":{"title":"PriorityQueue 和 Heap","level":"5.5","depth":1,"path":"data-types/PriorityQueue.md","ref":"data-types/PriorityQueue.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"data-types/BlockingQueue.md","mtime":"2021-05-30T23:42:13.728Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-30T23:46:05.939Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"BlockingQueue 介绍","level":"5.6","depth":1,"next":{"title":"ArrayBlockingQueue 源码解析","level":"5.7","depth":1,"path":"data-types/ArrayBlockingQueue.md","ref":"data-types/ArrayBlockingQueue.md","articles":[]},"previous":{"title":"PriorityQueue 和 Heap","level":"5.5","depth":1,"path":"data-types/PriorityQueue.md","ref":"data-types/PriorityQueue.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"data-types/BlockingQueue.md","mtime":"2021-05-30T23:48:46.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-31T15:19:22.886Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

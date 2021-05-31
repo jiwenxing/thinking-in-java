@@ -59,7 +59,7 @@
 - [Lock & ReentrantLock](juc/juc-9-lock.md)
 - [Lock & Condition](juc/lock-condition.md)
 - [AQS 原理_](juc/juc-10-AQS.md)& 并发工具类
-- [并发工具类](juc/juc-11-tools.md)
+- [并发工具类 - CountDownLatch](juc/juc-11-tools.md)
 
 ## JVM 虚拟机
 

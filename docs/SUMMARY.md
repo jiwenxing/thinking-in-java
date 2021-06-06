@@ -69,6 +69,10 @@
 - [GC 垃圾回收机制](jvm/jvm-gc.md)
 - [ClassLoader 类加载器](jvm/classloader.md)
 
+## 方法论
+
+- [工程质量建设](methodology/software-quality.md)
+
 
 ## 算法
 

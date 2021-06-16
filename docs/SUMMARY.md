@@ -72,6 +72,7 @@
 ## 方法论
 
 - [工程质量建设](methodology/software-quality.md)
+- [怎样做 Mentor？](methodology/mentor.md)
 
 
 ## 算法

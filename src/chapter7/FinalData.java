@@ -6,8 +6,6 @@ package chapter7;
 
 import java.util.Random;
 
-import com.sun.javafx.geom.Vec3d;
-
 /**
  * @author jverson
  *

@@ -4,8 +4,6 @@
  */
 package chapter10;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
 /**
  * @author jverson
  */

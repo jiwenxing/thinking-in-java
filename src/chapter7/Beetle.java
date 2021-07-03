@@ -4,8 +4,6 @@
  */
 package chapter7;
 
-import jdk.internal.dynalink.beans.StaticClass;
-
 /**
  * @author jverson
  * 从输出可以看到继承类的初始化顺序

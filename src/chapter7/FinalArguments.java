@@ -4,8 +4,6 @@
  */
 package chapter7;
 
-import com.sun.javafx.runtime.VersionInfo;
-
 /**
  * @author jverson
  *

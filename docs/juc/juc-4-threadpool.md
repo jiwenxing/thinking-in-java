@@ -30,7 +30,7 @@ public static ExecutorService newSingleThreadExecutor() {
 
 ![](https://jverson.oss-cn-beijing.aliyuncs.com/dcbb52314fdbb37bca326fda4bab6b16.jpg)
 
-可以看到核心接口即 Executor、ExecutorService、ScheduledExecutorService 这三个。 
+可以看到核心接口即 Executor、ExecutorService、ScheduledExecutorService 这三个。
 
 ### Executor
 
@@ -65,7 +65,7 @@ import static java.util.concurrent.TimeUnit.*;
 class BeeperControl {
     private final ScheduledExecutorService scheduler =
       Executors.newScheduledThreadPool(1);
- 
+
     public void beepForAnHour() {
       final Runnable beeper = () -> System.out.println("beep");
       final ScheduledFuture<?> beeperHandle = scheduler.scheduleAtFixedRate(beeper, 10, 10, SECONDS);
@@ -261,7 +261,7 @@ public class CommentServiceImpl implements CommentService{
 @EnableAsync
 public class ThreadPoolConfig implements AsyncConfigurer{
 	private static final Logger LOGGER = LoggerFactory.getLogger(ThreadPoolConfig.class);
-	
+
 	@Value("${task-executor.core_pool_size}")
     private int corePoolSize;
     @Value("${task-executor.max_pool_size}")
@@ -270,10 +270,10 @@ public class ThreadPoolConfig implements AsyncConfigurer{
     private int queueCapacity;
     @Value("${task-executor.keep-alive-seconds}")
     private int keepAliveSeconds;
-	
+
 	@Autowired
 	private AsyncExceptionHandlerService exceptionHandler;
-	
+
 	/**
 	 * 聚合任务线程池
 	 * @return
@@ -290,7 +290,7 @@ public class ThreadPoolConfig implements AsyncConfigurer{
         executor.initialize();
         return executor;
     }
-	
+
 	/**
 	 * es同步任务线程池
 	 * @return
@@ -307,12 +307,12 @@ public class ThreadPoolConfig implements AsyncConfigurer{
         executor.initialize();
         return executor;
     }
-	
+
 	@Override
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
          return new MyAsyncExceptionHandler(exceptionHandler);  
     }
-	
+
 	/**
 	 * 异常任务统一处理
 	 */
@@ -325,12 +325,12 @@ public class ThreadPoolConfig implements AsyncConfigurer{
         public void handleUncaughtException(Throwable throwable, Method method, Object... obj) {  
         	// 打印异常日志，添加ump监控
         	String methodName = method.getName();
-        	LOGGER.error("task: {} execute error for record: {}! errMsg: {}", 
+        	LOGGER.error("task: {} execute error for record: {}! errMsg: {}",
         			methodName, JSON.toJSONString(obj), throwable.getMessage());
         	exceptionHandler.handle(methodName, obj[0]);
         }  
-    } 
-	
+    }
+
 }
 ```
 
@@ -339,6 +339,231 @@ public class ThreadPoolConfig implements AsyncConfigurer{
 更通俗的将 JDK 中都是基于 Executor 接口，而 Spring 中则都是基于 TaskExecutor，但其实 TaskExecutor 继承了 Executor 接口。Spring 的 TaskExecutor 的常用实现类基本都是是基于 Executor 实现类的包装，使其更加方便使用，更好的融入 spring bean 生态。
 
 当然了我们也可以通过 Executors 的工厂方法来创建使用 JDK 的线程池，不过在 Spring 中还是使用 Spring 封装过的 executor 更方便一些。
+
+## 共用线程池导致死锁（避坑）
+
+死锁一般是两个或多个线程互相持有对方所需的资源会造成死锁，而有的场景下线程池使用不当也会引发死锁，下面我们来看看很常见的一种情况，多个任务共用一个线程池，而且每个任务内也用到该线程池，线程池的线程数量等于或小于任务数，也会造成死锁。
+
+```Java
+public class DemoTest {
+    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 5,
+            30L, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(20));
+
+    public static void main(String[] args) throws InterruptedException {
+        for (int i = 0; i < 10; i++) {
+            CompletableFuture.supplyAsync(DemoTest::work, executor);
+            System.out.printf("executor i=%s queue=%s", i, executor.getQueue().size());
+            System.out.println();
+        }
+        // 检查状态，会发现queue一段时间后，一直稳定在一个值，即线程池不再执行新任务
+        while (executor.getQueue().size() > 0) {
+            System.out.printf("checkInterval executor queue.size=%s", executor.getQueue().size());
+            System.out.printf(", activeCount=%s", executor.getActiveCount());
+            System.out.printf(", completedTaskCount=%s", executor.getCompletedTaskCount());
+            System.out.printf(", taskCount=%s", executor.getTaskCount());
+            System.out.println();
+            Thread.sleep(1000);
+        }
+    }
+
+    // 模拟一个异步调用，但同步返回的任务
+    public static int work() {
+        try {
+            System.out.println(String.format("work %s thread begin, queue=%s", Thread.currentThread().getName(), executor.getQueue().size()));
+            Integer result = CompletableFuture.supplyAsync(DemoTest::workInnerTask, executor).get();
+            System.out.println(String.format("work %s thread done!", Thread.currentThread().getName()));
+            return result;
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    private static int workInnerTask() {
+        try {
+            System.out.println(String.format("workInnerTask %s thread begin, queue=%s", Thread.currentThread().getName(), executor.getQueue().size()));
+            Thread.sleep(2000);
+            System.out.println(String.format("workInnerTask %s thread done!", Thread.currentThread().getName()));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return ThreadLocalRandom.current().nextInt();
+    }
+
+}
+```
+
+该代码在运行一段时间后就会发生死锁，核心线程都处于 Waiting 状态，队列大小不再变化，也就是说线程池完全处于阻塞状态无法处理队列里以及新加入的任务。
+
+输出如下
+
+```
+executor i=0 queue=0
+work pool-1-thread-1 thread begin, queue=0
+executor i=1 queue=0
+work pool-1-thread-2 thread begin, queue=0
+executor i=2 queue=0
+work pool-1-thread-3 thread begin, queue=0
+executor i=3 queue=2
+workInnerTask pool-1-thread-4 thread begin, queue=2
+work pool-1-thread-5 thread begin, queue=2
+executor i=4 queue=3
+executor i=5 queue=5
+executor i=6 queue=6
+executor i=7 queue=7
+executor i=8 queue=8
+executor i=9 queue=9
+checkInterval executor queue.size=9, activeCount=5, completedTaskCount=0, taskCount=14
+checkInterval executor queue.size=9, activeCount=5, completedTaskCount=0, taskCount=14
+workInnerTask pool-1-thread-4 thread done!
+work pool-1-thread-1 thread done!
+workInnerTask pool-1-thread-4 thread begin, queue=8
+workInnerTask pool-1-thread-1 thread begin, queue=7
+checkInterval executor queue.size=7, activeCount=5, completedTaskCount=2, taskCount=14
+checkInterval executor queue.size=7, activeCount=5, completedTaskCount=2, taskCount=14
+workInnerTask pool-1-thread-1 thread done!
+workInnerTask pool-1-thread-4 thread done!
+work pool-1-thread-1 thread begin, queue=6
+work pool-1-thread-2 thread done!
+work pool-1-thread-3 thread done!
+workInnerTask pool-1-thread-4 thread begin, queue=5
+work pool-1-thread-3 thread begin, queue=4
+work pool-1-thread-2 thread begin, queue=5
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=6, taskCount=17
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=6, taskCount=17
+workInnerTask pool-1-thread-4 thread done!
+work pool-1-thread-4 thread begin, queue=5
+work pool-1-thread-5 thread done!
+work pool-1-thread-5 thread begin, queue=5
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=8, taskCount=19
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=8, taskCount=19
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=8, taskCount=19
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=8, taskCount=19
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=8, taskCount=19
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=8, taskCount=19
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=8, taskCount=19
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=8, taskCount=19
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=8, taskCount=19
+checkInterval executor queue.size=6, activeCount=5, completedTaskCount=8, taskCount=19
+... ...
+```
+
+这时候通过 jstack 看看当前的线程状态如下，可以看到线程池的核心线程都处于 Waiting 状态，阻塞到了 `Integer result = CompletableFuture.supplyAsync(DemoTest::workInnerTask, executor).get();` 这一行。这是因为所有的核心线程都被 work 任务占了，workInnerTask 只能提交到缓冲队列等待有空闲线程去执行，但是 work 任务又依赖其中 workInnerTask 执行完成才能释放占有的线程，这样就陷入了互相等待的死锁状态。
+
+显然解决方法有几种，第一种不要复用线程池，work 和 workInnerTask 使用互相独立的线程池；第二种 workInnerTask 不要阻塞直接返回 CompletableFuture，即全链路异步；
+
+```
+"Attach Listener" #16 daemon prio=9 os_prio=31 tid=0x00007fba50836800 nid=0x5d03 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"pool-1-thread-5" #15 prio=5 os_prio=31 tid=0x00007fba4b2ea800 nid=0xa303 waiting on condition [0x0000700002716000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000076be3fef0> (a java.util.concurrent.CompletableFuture$Signaller)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	at java.util.concurrent.CompletableFuture$Signaller.block(CompletableFuture.java:1693)
+	at java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3323)
+	at java.util.concurrent.CompletableFuture.waitingGet(CompletableFuture.java:1729)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1895)
+	at com.jverson.DemoTest.work(DemoTest.java:34)
+	at com.jverson.DemoTest$$Lambda$1/1837760739.get(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- <0x000000076b8d3ee8> (a java.util.concurrent.ThreadPoolExecutor$Worker)
+
+"pool-1-thread-4" #14 prio=5 os_prio=31 tid=0x00007fba4a341800 nid=0xa403 waiting on condition [0x0000700002613000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000076bcfa0e8> (a java.util.concurrent.CompletableFuture$Signaller)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	at java.util.concurrent.CompletableFuture$Signaller.block(CompletableFuture.java:1693)
+	at java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3323)
+	at java.util.concurrent.CompletableFuture.waitingGet(CompletableFuture.java:1729)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1895)
+	at com.jverson.DemoTest.work(DemoTest.java:34)
+	at com.jverson.DemoTest$$Lambda$1/1837760739.get(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- <0x000000076b9233b8> (a java.util.concurrent.ThreadPoolExecutor$Worker)
+
+"pool-1-thread-3" #13 prio=5 os_prio=31 tid=0x00007fba4819b800 nid=0x5b03 waiting on condition [0x0000700002510000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000076bbb0900> (a java.util.concurrent.CompletableFuture$Signaller)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	at java.util.concurrent.CompletableFuture$Signaller.block(CompletableFuture.java:1693)
+	at java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3323)
+	at java.util.concurrent.CompletableFuture.waitingGet(CompletableFuture.java:1729)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1895)
+	at com.jverson.DemoTest.work(DemoTest.java:34)
+	at com.jverson.DemoTest$$Lambda$1/1837760739.get(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- <0x000000076b8d3728> (a java.util.concurrent.ThreadPoolExecutor$Worker)
+
+"pool-1-thread-2" #12 prio=5 os_prio=31 tid=0x00007fba499d8800 nid=0x5a03 waiting on condition [0x000070000240d000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000076ba6b960> (a java.util.concurrent.CompletableFuture$Signaller)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	at java.util.concurrent.CompletableFuture$Signaller.block(CompletableFuture.java:1693)
+	at java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3323)
+	at java.util.concurrent.CompletableFuture.waitingGet(CompletableFuture.java:1729)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1895)
+	at com.jverson.DemoTest.work(DemoTest.java:34)
+	at com.jverson.hotel.DemoTest$$Lambda$1/1837760739.get(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- <0x000000076b8d2f98> (a java.util.concurrent.ThreadPoolExecutor$Worker)
+
+"pool-1-thread-1" #11 prio=5 os_prio=31 tid=0x00007fba481c0800 nid=0x5903 waiting on condition [0x000070000230a000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000076b92bd10> (a java.util.concurrent.CompletableFuture$Signaller)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	at java.util.concurrent.CompletableFuture$Signaller.block(CompletableFuture.java:1693)
+	at java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3323)
+	at java.util.concurrent.CompletableFuture.waitingGet(CompletableFuture.java:1729)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1895)
+	at com.jverson.DemoTest.work(DemoTest.java:34)
+	at com.jverson.DemoTest$$Lambda$1/1837760739.get(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- <0x000000076b8d24e0> (a java.util.concurrent.ThreadPoolExecutor$Worker)
+
+"Service Thread" #10 daemon prio=9 os_prio=31 tid=0x00007fba49791800 nid=0xa903 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+```
+
+因此，多个异步处理共用同一个线程池的时候要小心避免这种情况！
+
 
 ## 总结
 

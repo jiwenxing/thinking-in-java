@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3bdf17a-e36c-4aee-9af9-cea0587bb819" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rank/RankAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rank/RankAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thinking-in-java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/thinking-in-java.iml" afterDir="false" />
-    </list>
+    <list default="true" id="a3bdf17a-e36c-4aee-9af9-cea0587bb819" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,20 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/rank/RankAlgorithm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/others/BitSetTest.java">
+        <entry file="file://$PROJECT_DIR$/src/others/ThreadLocalTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="362">
+              <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,52 +24,38 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/lib/src.zip!/java.base/java/util/BitSet.java">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/ThreadLocal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25012">
-              <caret line="1001" column="11" selection-start-line="1001" selection-start-column="11" selection-end-line="1001" selection-end-column="11" />
+            <state relative-caret-position="403">
+              <caret line="241" column="18" selection-start-line="241" selection-start-column="18" selection-end-line="241" selection-end-column="18" />
               <folding>
-                <element signature="e#4417#4418#0" expanded="true" />
-                <element signature="e#4473#4474#0" expanded="true" />
-                <element signature="e#6129#6130#0" expanded="true" />
-                <element signature="e#6185#6186#0" expanded="true" />
+                <element signature="e#5368#5369#0" expanded="true" />
+                <element signature="e#5395#5396#0" expanded="true" />
+                <element signature="e#9495#9496#0" expanded="true" />
+                <element signature="e#9532#9533#0" expanded="true" />
+                <element signature="e#11057#11058#0" expanded="true" />
+                <element signature="e#11129#11130#0" expanded="true" />
+                <element signature="e#11185#11186#0" expanded="true" />
+                <element signature="e#11230#11231#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/chapter10/Sequence.java">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/StringCoding.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="150">
+              <caret line="227" selection-start-line="227" selection-end-line="227" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/chapter7/Beetle.java">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Objects.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/chapter7/FinalArguments.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/chapter7/FinalData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="174">
+              <caret line="205" column="24" selection-start-line="205" selection-start-column="24" selection-end-line="205" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -109,6 +82,7 @@
       <find>Comparator</find>
       <find>put</find>
       <find>genericInfo</find>
+      <find>initialValue</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,6 +133,7 @@
         <option value="$PROJECT_DIR$/src/chapter7/FinalData.java" />
         <option value="$PROJECT_DIR$/src/rank/RankAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/others/BitSetTest.java" />
+        <option value="$PROJECT_DIR$/src/others/ThreadLocalTest.java" />
       </list>
     </option>
   </component>
@@ -168,7 +143,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="800" />
@@ -246,7 +221,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BitSetTest.test1">
+  <component name="RunManager" selected="Application.ThreadLocalTest">
     <configuration name="IntList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="reflect.IntList" />
       <module name="thinking-in-java" />
@@ -254,15 +229,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Node" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sword.to.offer.Node" />
+    <configuration name="RankAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rank.RankAlgorithm" />
       <module name="thinking-in-java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RankAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="rank.RankAlgorithm" />
+    <configuration name="ThreadLocalTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="others.ThreadLocalTest" />
       <module name="thinking-in-java" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -287,11 +262,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ThreadLocalTest" />
         <item itemvalue="JUnit.BitSetTest.test1" />
         <item itemvalue="Application.RankAlgorithm" />
         <item itemvalue="Application.IntList" />
         <item itemvalue="Application.ValidParentheses" />
-        <item itemvalue="Application.Node" />
       </list>
     </recent_temporary>
   </component>
@@ -344,7 +319,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="800" extended-state="1" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
@@ -352,13 +327,13 @@
       <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.19027181" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.26024097" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.259887" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32909605" />
       <window_info anchor="bottom" id="Messages" order="2" weight="0.32771084" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32913166" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.31445783" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.31445783" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.3987952" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -384,6 +359,12 @@
           <line>29</line>
           <properties />
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/ThreadLocal.java</url>
+          <line>161</line>
+          <properties />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -425,43 +406,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docs/TreeMap-LinkedHashMap.md" />
-    <entry file="file://$PROJECT_DIR$/src/design/patterns/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="45" column="36" lean-forward="true" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-          <folding>
-            <element signature="e#170#171#0" expanded="true" />
-            <element signature="e#197#198#0" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#314#315#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#530#531#0" expanded="true" />
-            <element signature="e#984#985#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Enum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="54" column="28" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/others/GenderEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#617#618#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/design/patterns/Singleton5.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -835,8 +779,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/others/BitSetTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="78">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="205" column="24" selection-start-line="205" selection-start-column="24" selection-end-line="205" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/StringCoding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="227" selection-start-line="227" selection-end-line="227" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/ThreadLocal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="241" column="18" selection-start-line="241" selection-start-column="18" selection-end-line="241" selection-end-column="18" />
+          <folding>
+            <element signature="e#5368#5369#0" expanded="true" />
+            <element signature="e#5395#5396#0" expanded="true" />
+            <element signature="e#9495#9496#0" expanded="true" />
+            <element signature="e#9532#9533#0" expanded="true" />
+            <element signature="e#11057#11058#0" expanded="true" />
+            <element signature="e#11129#11130#0" expanded="true" />
+            <element signature="e#11185#11186#0" expanded="true" />
+            <element signature="e#11230#11231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/others/ThreadLocalTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

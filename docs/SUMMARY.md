@@ -60,6 +60,7 @@
 - [Lock & Condition](juc/lock-condition.md)
 - [AQS 原理_](juc/juc-10-AQS.md)& 并发工具类
 - [并发工具类 - CountDownLatch](juc/juc-11-tools.md)
+- [ThreadLocal 介绍](juc/juc-threadlocal.md)
 
 ## JVM 虚拟机
 
@@ -121,4 +122,3 @@
 - [访问权限控制](basic/访问权限控制.md)
 - [Java 异常处理](basic/异常处理.md)
 - [final 关键字](basic/final.md)
-

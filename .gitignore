@@ -16,3 +16,4 @@ npm-debug.log
 _book/
 docs/_book/
 docs/npm-debug.log
+.idea/

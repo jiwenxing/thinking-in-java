@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>怎样做 Mentor？ · Thinking in Java</title>
+        <title>Java SPI · Thinking in Java</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../algorithm/algorithm-summary.html" />
+    <link rel="next" href="../tools/comparator-sort.html" />
     
     
-    <link rel="prev" href="software-quality.html" />
+    <link rel="prev" href="../basic/JDK代理及CGLib代理.html" />
     
 
     <style>
@@ -910,9 +910,9 @@
         
         
     
-        <li class="chapter " data-level="8.1" data-path="software-quality.html">
+        <li class="chapter " data-level="8.1" data-path="../methodology/software-quality.html">
             
-                <a href="software-quality.html">
+                <a href="../methodology/software-quality.html">
             
                     
                         <b>8.1.</b>
@@ -925,9 +925,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.2" data-path="mentor.html">
+        <li class="chapter " data-level="8.2" data-path="../methodology/mentor.html">
             
-                <a href="mentor.html">
+                <a href="../methodology/mentor.html">
             
                     
                         <b>8.2.</b>
@@ -1194,9 +1194,9 @@
         
         
     
-        <li class="chapter " data-level="10.1" data-path="../design/0-uml.html">
+        <li class="chapter " data-level="10.1" data-path="0-uml.html">
             
-                <a href="../design/0-uml.html">
+                <a href="0-uml.html">
             
                     
                         <b>10.1.</b>
@@ -1209,9 +1209,9 @@
             
         </li>
     
-        <li class="chapter " data-level="10.2" data-path="../design/1-singleton.html">
+        <li class="chapter " data-level="10.2" data-path="1-singleton.html">
             
-                <a href="../design/1-singleton.html">
+                <a href="1-singleton.html">
             
                     
                         <b>10.2.</b>
@@ -1224,9 +1224,9 @@
             
         </li>
     
-        <li class="chapter " data-level="10.3" data-path="../design/2-builder.html">
+        <li class="chapter " data-level="10.3" data-path="2-builder.html">
             
-                <a href="../design/2-builder.html">
+                <a href="2-builder.html">
             
                     
                         <b>10.3.</b>
@@ -1254,9 +1254,9 @@
             
         </li>
     
-        <li class="chapter " data-level="10.5" data-path="../design/java-spi.html">
+        <li class="chapter active" data-level="10.5" data-path="java-spi.html">
             
-                <a href="../design/java-spi.html">
+                <a href="java-spi.html">
             
                     
                         <b>10.5.</b>
@@ -1493,7 +1493,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >怎样做 Mentor？</a>
+        <a href=".." >Java SPI</a>
     </h1>
 </div>
 
@@ -1508,63 +1508,293 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x505A;&#x4E00;&#x4E2A;&#x5408;&#x683C;&#x7684;-mentor">&#x505A;&#x4E00;&#x4E2A;&#x5408;&#x683C;&#x7684; mentor</h1>
+                                <h1 id="java-spi">Java SPI</h1>
 <hr>
-<h1 id="&#x505A;-mentor-&#x7684;&#x6536;&#x83B7;">&#x505A; Mentor &#x7684;&#x6536;&#x83B7;</h1>
-<p>&#x505A; Mentor &#x4F1A;&#x6D89;&#x53CA;&#x4E00;&#x4E2A;&#x89D2;&#x8272;&#x7684;&#x8F6C;&#x53D8;&#xFF0C;&#x5F88;&#x591A;&#x4EBA;&#x4ECE;&#x5F00;&#x59CB;&#x505A; Mentor &#x53BB;&#x5E26;&#x5B9E;&#x4E60;&#x751F;/&#x6821;&#x62DB;&#x751F;/&#x793E;&#x62DB;&#x65B0;&#x4EBA;&#x624D;&#x6162;&#x6162;&#x7684;&#x63A5;&#x89E6;&#x5230;&#x4E00;&#x4E9B;&#x7BA1;&#x7406;&#x65B9;&#x9762;&#x7684;&#x95EE;&#x9898;&#x548C;&#x6280;&#x80FD;&#xFF0C;&#x4E3A;&#x4ECA;&#x540E;&#x627F;&#x62C5;&#x7BA1;&#x7406;&#x8D23;&#x4EFB;&#x505A;&#x6F14;&#x7EC3;&#x548C;&#x51C6;&#x5907;&#xFF1B;&#x53E6;&#x5916;&#x5728;&#x8F85;&#x5BFC;&#x65B0;&#x4EBA;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F1A;&#x8FDB;&#x4E00;&#x6B65;&#x5DE9;&#x56FA;&#x81EA;&#x5DF1;&#x7684;&#x4E13;&#x4E1A;&#x6280;&#x80FD;&#xFF0C;&#x751A;&#x81F3;&#x6709;&#x65F6;&#x5019;&#x5728;&#x548C;&#x65B0;&#x4EBA;&#x8BB2;&#x89E3;&#x8BA8;&#x8BBA;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x6398;&#x4E00;&#x4E9B;&#x65B0;&#x7684;&#x601D;&#x8DEF;&#x60F3;&#x6CD5;&#xFF1B;&#x6700;&#x540E;&#x53EF;&#x4EE5;&#x4ECE;&#x65B0;&#x4EBA;&#x7684;&#x6210;&#x957F;&#x4E2D;&#x83B7;&#x5F97;&#x6210;&#x5C31;&#x611F;&#xFF0C;&#x5F80;&#x5F80;&#x8FD9;&#x79CD;&#x6210;&#x5C31;&#x611F;&#x6765;&#x81EA;&#x4E8E;&#x521D;&#x6B21;&#x4F53;&#x9A8C;&#x5230;&#x5E26;&#x4EBA;&#x83B7;&#x5F97;&#x7684;&#x65F6;&#x95F4;&#x6548;&#x7387;&#x7684;&#x6760;&#x6746;&#x6548;&#x5E94;&#xFF0C;&#x5373;&#x901A;&#x8FC7;&#x81EA;&#x5DF1;&#x7684;&#x6307;&#x70B9;&#x6709;&#x65B9;&#xFF0C;&#x4FBF;&#x53EF;&#x4EE5;&#x8BA9;&#x65B0;&#x4EBA;&#x9AD8;&#x6548;&#x7684;&#x5B8C;&#x6210;&#x53EF;&#x80FD;&#x8981;&#x5360;&#x636E;&#x81EA;&#x5DF1;&#x5F88;&#x591A;&#x7CBE;&#x529B;&#x7684;&#x5DE5;&#x4F5C;&#xFF01;</p>
-<h1 id="&#x65B0;&#x4EBA;&#x878D;&#x5165;">&#x65B0;&#x4EBA;&#x878D;&#x5165;</h1>
-<p>&#x7B2C;&#x4E00;&#x5929;&#x6765;&#x5230;&#x516C;&#x53F8;&#x7684;&#x65B0;&#x4EBA;&#x4F1A;&#x5BF9;&#x5468;&#x56F4;&#x7684;&#x73AF;&#x5883;&#x548C;&#x4EBA;&#x66F4;&#x654F;&#x611F;&#xFF0C;&#x4E5F;&#x662F;&#x7ED9;&#x65B0;&#x4EBA;&#x7684;&#x7B2C;&#x4E00;&#x5370;&#x8C61;&#xFF0C;&#x5F80;&#x5F80;&#x7B2C;&#x4E00;&#x5370;&#x8C61;&#x5F88;&#x91CD;&#x8981;&#x3002;&#x56E0;&#x6B64;&#x5165;&#x804C;&#x7684;&#x7B2C;&#x4E00;&#x5929;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x4EE5;&#x4E0B;&#x4E00;&#x4E9B;&#x5C0F;&#x7EC6;&#x8282;&#x80FD;&#x5E2E;&#x52A9;&#x65B0;&#x4EBA;&#x66F4;&#x5FEB;&#x901F;&#x8212;&#x9002;&#x7684;&#x878D;&#x5165;&#x5230;&#x65B0;&#x73AF;&#x5883;&#x3002;</p>
-<ul>
-<li>&#x53BB;&#x697C;&#x4E0B;&#x8FCE;&#x63A5;&#xFF08;&#x8FD9;&#x4E2A;&#x7EC6;&#x8282;&#x771F;&#x7684;&#x5F88;&#x91CD;&#x8981;&#x54E6;&#xFF09;</li>
-<li>&#x5E26;&#x5230;&#x65B0;&#x5DE5;&#x4F4D;</li>
-<li>&#x4ECB;&#x7ECD;&#x56E2;&#x961F;&#x5C0F;&#x4F19;&#x4F34;</li>
-<li>&#x5348;&#x996D;&#x4E00;&#x8D77;</li>
-<li>&#x5206;&#x914D;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x7B2C;&#x4E00;&#x5929;&#x57FA;&#x672C;&#x5C31;&#x662F;&#x914D;&#x914D;&#x73AF;&#x5883;</li>
-<li>&#x4E0B;&#x73ED;&#x7684;&#x65F6;&#x5019;&#x7B80;&#x5355;&#x804A;&#x51E0;&#x53E5;&#x611F;&#x53D7;&#xFF08;&#x7EC6;&#x8282;&#xFF09;</li>
-</ul>
-<h1 id="&#x5BFC;&#x5E08;&#x8F85;&#x5BFC;&#x9526;&#x56CA;&#x5999;&#x8BA1;">&#x5BFC;&#x5E08;&#x8F85;&#x5BFC;&#x9526;&#x56CA;&#x5999;&#x8BA1;</h1>
-<h2 id="&#x4EA4;&#x529E;&#x5DE5;&#x4F5C;">&#x4EA4;&#x529E;&#x5DE5;&#x4F5C;</h2>
-<p>&#x4EA4;&#x4EE3;&#x5DE5;&#x4F5C;&#x662F;&#x4E3A;&#x4E86;&#x4E0E;&#x5F92;&#x5F1F;&#x8FBE;&#x6210;&#x5171;&#x8BC6;&#xFF0C;&#x65E2;&#x7136;&#x662F;&#x53CC;&#x65B9;&#x7684;&#x5171;&#x540C;&#x8BA4;&#x8BC6;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x53CC;&#x65B9;&#x4E92;&#x52A8;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E0D;&#x662F;&#x4E00;&#x5473;&#x7684;&#x704C;&#x8F93;&#x3002;</p>
+<h1 id="overview">Overview</h1>
+<p>&#x4E00;&#x4E2A;&#x53EF;&#x6269;&#x5C55;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E00;&#x822C;&#x8981;&#x6C42;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E0D;&#x6539;&#x52A8;&#x7A0B;&#x5E8F;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x800C;&#x53EA;&#x662F;&#x901A;&#x8FC7;&#x5B9E;&#x73B0;&#x7279;&#x5B9A;&#x63A5;&#x53E3;&#x5E76;&#x63D0;&#x4F9B;&#x63D2;&#x4EF6;&#x5C31;&#x80FD;&#x5BF9;&#x6E90;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x5404;&#x79CD;&#x529F;&#x80FD;&#x6269;&#x5C55;&#x3002;&#x800C;&#x4ECE; Java6 &#x5F00;&#x59CB; JDK &#x5F15;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x548C;&#x52A0;&#x8F7D;&#x7279;&#x5B9A;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x7684;&#x4E00;&#x79CD;&#x673A;&#x5236;&#xFF0C;&#x662F;&#x4E00;&#x5957;&#x7528;&#x6765;&#x88AB;&#x7B2C;&#x4E09;&#x65B9;&#x5B9E;&#x73B0;&#x6216;&#x8005;&#x6269;&#x5C55;&#x7684;API&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x5B9E;&#x73B0;&#x6846;&#x67B6;&#x6269;&#x5C55;&#x548C;&#x66FF;&#x6362;&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x5728;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x4E2D;&#x6211;&#x4EEC;&#x63A8;&#x8350;&#x57FA;&#x4E8E;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#xFF0C;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x57FA;&#x4E8E;&#x63A5;&#x53E3;&#x4EA4;&#x4E92;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x597D;&#x5904;&#x663E;&#x800C;&#x6613;&#x89C1;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x8FDB;&#x884C;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x7684;&#x786C;&#x7F16;&#x7801;&#xFF0C;&#x800C;&#x8BA9;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x73B0;&#x8005;&#x6309;&#x7167;&#x63A5;&#x53E3;&#x89C4;&#x8303;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x5185;&#x90E8;&#x64CD;&#x4F5C;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x518D;&#x6839;&#x636E; SPI &#x7684;&#x89C4;&#x8303;&#x53BB;&#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x7684;&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x8005;&#x7684;&#x670D;&#x52A1;&#x5B9E;&#x73B0;&#x3002;&#x901A;&#x8FC7; SPI &#x670D;&#x52A1;&#x52A0;&#x8F7D;&#x673A;&#x5236;&#x8FDB;&#x884C;&#x670D;&#x52A1;&#x7684;&#x6CE8;&#x518C;&#x548C;&#x53D1;&#x73B0;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x7684;&#x907F;&#x514D;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x5C06;&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x8005;&#x5199;&#x6B7B;&#x3002;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#xFF0C;&#x5B9E;&#x73B0;&#x6A21;&#x5757;&#x95F4;&#x7684;&#x89E3;&#x8026;&#x3002;</p>
 <blockquote>
-<p>&#x4EBA;&#x7684;&#x5927;&#x8111;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x88AB;&#x968F;&#x610F;&#x586B;&#x5145;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x4ED6;&#x4F1A;&#x9009;&#x62E9;&#x6027;&#x5730;&#x8FC7;&#x6EE4;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x8981;&#x5BF9;&#x63A5;&#x53D7;&#x7684;&#x4FE1;&#x606F;&#x505A;&#x52A0;&#x5DE5;&#x5904;&#x7406;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x4EA4;&#x4EE3;&#x5DE5;&#x4F5C;&#x65F6;&#x5982;&#x679C;&#x90FD;&#x662F;&#x5BFC;&#x5E08;&#x5728;&#x8BF4;&#xFF0C;&#x5F92;&#x5F1F;&#x5C31;&#x8981;&#x52A0;&#x5DE5;&#x5927;&#x91CF;&#x65B0;&#x4FE1;&#x606F;&#xFF0C;&#x4E00;&#x8FB9;&#x5728;&#x4E0D;&#x81EA;&#x89C9;&#x5730;&#x8FC7;&#x6EE4;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x5C31;&#x50CF;&#x9A91;&#x81EA;&#x884C;&#x8F66;&#xFF0C;&#x4E00;&#x76F4;&#x90FD;&#x5728;&#x722C;&#x5761;&#x7684;&#x72B6;&#x6001;&#x4F1A;&#x8BA9;&#x4EBA;&#x7CBE;&#x75B2;&#x529B;&#x5C3D;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8FC7;&#x7A0B;&#x4E5F;&#x4F1A;&#x8BA9;&#x5F7C;&#x6B64;&#x90FD;&#x611F;&#x53D7;&#x4E0D;&#x597D;&#x3002;&#x597D;&#x7684;&#x4E92;&#x52A8;&#x8FC7;&#x7A0B;&#x5E94;&#x8BE5;&#x50CF;&#x9A91;&#x81EA;&#x8F66;&#x65F6;&#x65E2;&#x6709;&#x722C;&#x5761;&#xFF0C;&#x4E5F;&#x6709;&#x4E0B;&#x5761;&#x7684;&#x6ED1;&#x884C;&#xFF0C;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x662F;&#x4EA4;&#x66FF;&#x5E73;&#x8861;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x4EA4;&#x66FF;&#x5E73;&#x8861;&#x7684;&#x8FC7;&#x7A0B;&#x5C31;&#x662F;&#x5C06;&#x8BF4;&#x3001;&#x95EE;&#x3001;&#x6559;&#x3001;&#x8DDF;&#x3001;&#x8D5E;&#x4EA4;&#x66FF;&#x8FDB;&#x884C;&#x5730;&#x8FC7;&#x7A0B;&#xFF0C;&#x6240;&#x4EE5;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E0D;&#x80FD;&#x662F;&#x5BFC;&#x5E08;&#x5728;&#x8BF4;&#x3002;</p>
+<p>An extensible application is one that you can extend without modifying its original code base. You can enhance its functionality with new plug-ins or modules. Developers, software vendors can add new functionality or application programming interfaces (APIs) by adding a new Java Archive (JAR) file onto the application class path or into an application-specific extension directory.</p>
 </blockquote>
-<p>&#x4EA4;&#x529E;&#x5DE5;&#x4F5C;&#x8981;&#x505A;&#x5230;&#x4E00;&#x4E0B;&#x4E09;&#x65B9;&#x9762;&#x7684;&#x5171;&#x8BC6;&#x624D;&#x7B97;&#x4EA4;&#x529E;&#x660E;&#x767D;&#xFF1A;<strong>&#x4EFB;&#x52A1;&#x5171;&#x8BC6;&#x3001;&#x8BA1;&#x5212;&#x5171;&#x8BC6;&#x3001;&#x65B9;&#x6CD5;&#x5171;&#x8BC6;</strong></p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5C31;&#x57FA;&#x4E8E; Oracle &#x7684;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0; <a href="https://docs.oracle.com/javase/tutorial/ext/basics/spi.html" target="_blank">Creating Extensible Applications</a> &#x6765;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B; Java SPI &#x673A;&#x5236;&#x3002;</p>
+<h1 id="dictionary-service-example">Dictionary Service Example</h1>
+<p>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x8981;&#x7ED9;&#x67D0;&#x4E2A;&#x7F16;&#x8F91;&#x5668;&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8981;&#x6C42;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x9700;&#x8981;&#x5BF9;&#x5B57;&#x5178;&#x8FDB;&#x884C;&#x6269;&#x5C55;</p>
+<h2 id="define-the-service-provider-interface">Define the Service Provider Interface</h2>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Dictionary</span> </span>{
+    <span class="hljs-function">String <span class="hljs-title">getDefinition</span><span class="hljs-params">(String word)</span></span>;
+}
+</code></pre>
+<h2 id="&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5355;&#x4F8B;&#x7684;-dictionaryservice-&#x4EE3;&#x7406;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF08;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#xFF09;">&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5355;&#x4F8B;&#x7684; DictionaryService &#x4EE3;&#x7406;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF08;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#xFF09;</h2>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DictionaryService</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> DictionaryService service;
+    <span class="hljs-keyword">private</span> ServiceLoader&lt;Dictionary&gt; loader;
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">DictionaryService</span><span class="hljs-params">()</span> </span>{ <span class="hljs-comment">// Singleton</span>
+        loader = ServiceLoader.load(Dictionary.class);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> DictionaryService <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (service == <span class="hljs-keyword">null</span>) {
+            service = <span class="hljs-keyword">new</span> DictionaryService();
+        }
+        <span class="hljs-keyword">return</span> service;
+    }
+
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getDefinition</span><span class="hljs-params">(String word)</span> </span>{
+        String definition = <span class="hljs-keyword">null</span>;
+
+        <span class="hljs-keyword">try</span> {
+            Iterator&lt;Dictionary&gt; dictionaries = loader.iterator();
+            <span class="hljs-keyword">while</span> (definition == <span class="hljs-keyword">null</span> &amp;&amp; dictionaries.hasNext()) {
+                Dictionary d = dictionaries.next();
+                definition = d.getDefinition(word);
+            }
+        } <span class="hljs-keyword">catch</span> (ServiceConfigurationError serviceError) {
+            definition = <span class="hljs-keyword">null</span>;
+            serviceError.printStackTrace();
+
+        }
+        <span class="hljs-keyword">return</span> definition;
+    }
+}
+</code></pre>
+<h2 id="implement-the-service-provider">Implement the Service Provider</h2>
+<p>&#x57FA;&#x7840;&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GeneralDictionary</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Dictionary</span> </span>{
+    <span class="hljs-keyword">private</span> SortedMap&lt;String, String&gt; map;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">GeneralDictionary</span><span class="hljs-params">()</span> </span>{
+        map = <span class="hljs-keyword">new</span> TreeMap&lt;String, String&gt;();
+        map.put(
+                <span class="hljs-string">&quot;book&quot;</span>,
+                <span class="hljs-string">&quot;a set of written or printed pages, usually bound with &quot;</span> +
+                        <span class="hljs-string">&quot;a protective cover&quot;</span>);
+        map.put(
+                <span class="hljs-string">&quot;editor&quot;</span>,
+                <span class="hljs-string">&quot;a person who edits&quot;</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getDefinition</span><span class="hljs-params">(String word)</span> </span>{
+        <span class="hljs-keyword">return</span> map.get(word);
+    }
+}
+</code></pre>
+<p>&#x6269;&#x5C55;&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExtendedDictionary</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Dictionary</span> </span>{
+    <span class="hljs-keyword">private</span> SortedMap&lt;String, String&gt; map;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ExtendedDictionary</span><span class="hljs-params">()</span> </span>{
+        map = <span class="hljs-keyword">new</span> TreeMap&lt;&gt;();
+        map.put(
+                <span class="hljs-string">&quot;xml&quot;</span>,
+                <span class="hljs-string">&quot;a document standard often used in web services, among other &quot;</span> +
+                        <span class="hljs-string">&quot;things&quot;</span>);
+        map.put(
+                <span class="hljs-string">&quot;REST&quot;</span>,
+                <span class="hljs-string">&quot;an architecture style for creating, reading, updating, &quot;</span> +
+                        <span class="hljs-string">&quot;and deleting data that attempts to use the common &quot;</span> +
+                        <span class="hljs-string">&quot;vocabulary of the HTTP protocol; Representational State &quot;</span> +
+                        <span class="hljs-string">&quot;Transfer&quot;</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getDefinition</span><span class="hljs-params">(String word)</span> </span>{
+        <span class="hljs-keyword">return</span> map.get(word);
+    }
+}
+</code></pre>
+<h2 id="&#x6CE8;&#x518C;-service-providers">&#x6CE8;&#x518C; Service Providers</h2>
+<p>&#x5728; resources &#x4E0B;&#x521B;&#x5EFA; <code>META-INF/services</code> &#x76EE;&#x5F55;&#xFF0C;&#x4EE5;&#x63A5;&#x53E3;&#x5168;&#x8DEF;&#x5F84;&#x540D;&#x4E3A;&#x6587;&#x4EF6;&#x540D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5185;&#x5BB9;&#x4E3A; fully qualified class names of your service providers, one name per line. The file must be UTF-8 encoded&#x3002;</p>
+<pre><code>library/src/main/resources
+&#x2514;&#x2500;&#x2500; META-INF
+    &#x2514;&#x2500;&#x2500; services
+        &#x2514;&#x2500;&#x2500; com.jverson.springboot.service.Dictionary
+</code></pre><p>&#x5176;&#x4E2D; <code>com.jverson.springboot.service.Dictionary</code> &#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x5982;&#x4E0B;</p>
+<pre><code>com.jverson.springboot.impl.GeneralDictionary
+com.jverson.springboot.impl.ExtendedDictionary
+</code></pre><h2 id="&#x6D4B;&#x8BD5;">&#x6D4B;&#x8BD5;</h2>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestJavaSPI</span> </span>{
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSPI</span><span class="hljs-params">()</span> </span>{
+        DictionaryService dictionary = DictionaryService.getInstance();
+        System.out.println(TestJavaSPI.lookup(dictionary, <span class="hljs-string">&quot;book&quot;</span>));
+        System.out.println(TestJavaSPI.lookup(dictionary, <span class="hljs-string">&quot;editor&quot;</span>));
+        System.out.println(TestJavaSPI.lookup(dictionary, <span class="hljs-string">&quot;xml&quot;</span>));
+        System.out.println(TestJavaSPI.lookup(dictionary, <span class="hljs-string">&quot;REST&quot;</span>));
+        System.out.println(TestJavaSPI.lookup(dictionary, <span class="hljs-string">&quot;html&quot;</span>));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">lookup</span><span class="hljs-params">(DictionaryService dictionary, String word)</span> </span>{
+        String outputString = word + <span class="hljs-string">&quot;: &quot;</span>;
+        String definition = dictionary.getDefinition(word);
+        <span class="hljs-keyword">if</span> (definition == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> outputString + <span class="hljs-string">&quot;Cannot find definition for this word.&quot;</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> outputString + definition;
+        }
+    }
+
+}
+</code></pre>
+<h2 id="terms-and-definitions-of-java-spi">Terms and Definitions of Java SPI</h2>
+<p>&#x7531;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x53EF;&#x4EE5;&#x770B;&#x5230; SPI &#x5305;&#x542B;&#x51E0;&#x4E2A;&#x57FA;&#x672C;&#x7684;&#x7EC4;&#x4EF6;</p>
 <ol>
-<li><p>&#x6240;&#x8C13;&#x4EFB;&#x52A1;&#x5171;&#x8BC6;&#x5373;&#xFF1A;&#x4EFB;&#x52A1;&#x5185;&#x5BB9;&#xFF08;&#x9700;&#x8981;&#x505A;&#x4EC0;&#x4E48;&#x4E8B;&#x60C5;&#x548C;&#x4EFB;&#x52A1;&#xFF09;&#x3001;&#x9A8C;&#x6536;&#x6210;&#x679C;&#x6807;&#x51C6;&#xFF08;&#x5728;&#x4EC0;&#x4E48;&#x65F6;&#x95F4;&#x62FF;&#x51FA;&#x4EC0;&#x4E48;&#x6210;&#x679C;&#xFF0C;&#x6210;&#x679C;&#x8981;&#x8FBE;&#x5230;&#x4EC0;&#x4E48;&#x6807;&#x51C6;&#xFF0C;&#x6700;&#x597D;&#x80FD;&#x6709;&#x4E2A;&#x6807;&#x6746;&#x793A;&#x4F8B;&#xFF09;&#x3001;&#x4EFB;&#x52A1;&#x7684;&#x4EF7;&#x503C;&#x610F;&#x4E49;&#xFF08;&#x4E3A;&#x4EC0;&#x4E48;&#x505A;&#x8FD9;&#x4EF6;&#x4E8B;&#xFF0C;&#x610F;&#x4E49;&#x548C;&#x76EE;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF09;&#x3001;&#x5F92;&#x5F1F;&#x5728;&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x89D2;&#x8272;&#x5B9A;&#x4F4D;&#xFF08;&#x9700;&#x8981;&#x534F;&#x4F5C;&#x7684;&#x5DE5;&#x4F5C;&#x8981;&#x6E05;&#x695A;&#x5176;&#x4E2D;&#x7684;&#x89D2;&#x8272;&#x548C;&#x6743;&#x9650;&#xFF09;</p>
-</li>
-<li><p>&#x8BA1;&#x5212;&#x5171;&#x8BC6;&#xFF1A;&#x5F15;&#x5BFC;&#x5F92;&#x5F1F;&#x5C06;&#x4EFB;&#x52A1;&#x62C6;&#x89E3;&#x6210;&#x5173;&#x952E;&#x884C;&#x52A8;&#x548C;&#x4E3E;&#x63AA;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x5F00;&#x5C55;&#x5DE5;&#x4F5C;&#x6240;&#x9700;&#x7684;&#x8D44;&#x6E90;&#x652F;&#x6491;&#x3002;&#x53CC;&#x65B9;&#x7EA6;&#x5B9A;&#x4E92;&#x52A8;&#x7684;&#x9891;&#x7387;&#x548C;&#x65B9;&#x5F0F;&#xFF08;&#x5DE5;&#x4F5C;&#x8DDF;&#x8FDB;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x5E2E;&#x52A9;&#xFF09;&#xFF0C;&#x5BF9;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x8BA1;&#x5212;&#x8FBE;&#x6210;&#x627F;&#x8BFA;&#xFF08;&#x6700;&#x540E;&#x8981;&#x83B7;&#x53D6;&#x5230;&#x5458;&#x5DE5;&#x7684;&#x884C;&#x52A8;&#x627F;&#x8BFA;&#xFF0C;&#x5C31;&#x50CF;&#x53CC;&#x65B9;&#x7B7E;&#x8BA2;&#x4E86;&#x5408;&#x7EA6;&#xFF0C;&#x4F1A;&#x8BA9;&#x5F7C;&#x6B64;&#x66F4;&#x52A0;&#x91CD;&#x89C6;&#x8FD9;&#x9879;&#x5DE5;&#x4F5C;&#xFF09;&#x3002;</p>
-</li>
-<li><p>&#x65B9;&#x6CD5;&#x5171;&#x8BC6;&#xFF1A;&#x542C;&#x5B8C;&#x5F92;&#x5F1F;&#x5BF9;&#x8FD9;&#x9879;&#x5DE5;&#x4F5C;&#x7684;&#x60F3;&#x6CD5;&#x540E;&#xFF0C;&#x8981;&#x7ED9;&#x4E88;&#x6307;&#x5BFC;&#x53CD;&#x9988;&#x3002;&#x9996;&#x5148;&#x662F;&#x5BF9;&#x5F92;&#x5F1F;&#x9519;&#x8BEF;&#x7684;&#x89C2;&#x70B9;&#x548C;&#x7406;&#x89E3;&#x8FDB;&#x884C;&#x7EA0;&#x6B63;&#xFF0C;&#x6307;&#x51FA;&#x6B63;&#x786E;&#x7684;&#x6D41;&#x7A0B;&#x3001;&#x6B65;&#x9AA4;&#x3001;&#x548C;&#x505A;&#x6CD5;&#xFF1B;&#x5BF9;&#x8FD9;&#x9879;&#x5DE5;&#x4F5C;&#x7684;&#x91CD;&#x96BE;&#x70B9;&#x90E8;&#x5206;&#x7ED9;&#x4E88;&#x793A;&#x8303;&#x548C;&#x6307;&#x5BFC;&#xFF0C;&#x542F;&#x53D1;&#x5F92;&#x5F1F;&#x601D;&#x8DEF;&#xFF0C;&#x627E;&#x5230;&#x53CC;&#x65B9;&#x8BA4;&#x540C;&#x7684;&#x6709;&#x6548;&#x65B9;&#x6CD5;&#xFF1B;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x7ECF;&#x9A8C;&#xFF0C;&#x63D0;&#x524D;&#x9884;&#x4F30;&#x5F92;&#x5F1F;&#x5728;&#x6267;&#x884C;&#x4E2D;&#x53EF;&#x80FD;&#x9047;&#x5230;&#x7684;&#x98CE;&#x9669;&#x70B9;&#xFF01;</p>
-</li>
+<li>Service(e.g. DictionaryService)&#xFF1A;A well-known set of programming interfaces and classes that provide access to some specific application functionality or feature.</li>
+<li>Service Provider Interface&#xFF08;e.g. Dictionary&#xFF09;&#xFF1A;An interface or abstract class that acts as a proxy or an endpoint to the service.</li>
+<li>Service Provider(e.g. GeneralDictionary)&#xFF1A;A specific implementation of the SPI. A Service Provider is configured and identified through a provider configuration file which we put in the resource directory META-INF/services. The file name is the fully-qualified name of the SPI and its content is the fully-qualified name of the SPI implementation. The Service Provider is installed in the form of extensions, a jar file which we place in the application classpath, the Java extension classpath or the user-defined classpath.</li>
+<li>ServiceLoader&#xFF1A;At the heart of the SPI is the ServiceLoader class. This has the role of discovering and loading implementations lazily. It uses the context classpath to locate provider implementations and put them in an internal cache.</li>
 </ol>
-<h2 id="&#x4EFB;&#x52A1;&#x8DDF;&#x8FDB;">&#x4EFB;&#x52A1;&#x8DDF;&#x8FDB;</h2>
-<p>&#x5BFC;&#x5E08;&#x9700;&#x8981;&#x5173;&#x6CE8;&#x5F92;&#x5F1F;&#x7684;&#x5DE5;&#x4F5C;&#x6548;&#x7387;&#xFF0C;&#x5DE5;&#x4F5C;&#x60C5;&#x7EEA;&#x3001;&#x5DE5;&#x4F5C;&#x72B6;&#x6001;&#x7B49;&#xFF0C;&#x8FD9;&#x4E9B;&#x56E0;&#x7D20;&#x5F80;&#x5F80;&#x5F88;&#x96BE;&#x4ECE;&#x5DE5;&#x4F5C;&#x6C47;&#x62A5;&#x548C;&#x5F92;&#x5F1F;&#x81EA;&#x5DF1;&#x7684;&#x53CD;&#x9988;&#x8868;&#x73B0;&#x51FA;&#x6765;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x4ECE;&#x66F4;&#x591A;&#x7684;&#x89D2;&#x5EA6;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x5168;&#x65B9;&#x4F4D;&#x8DDF;&#x8FDB;&#x3002;</p>
-<p>&#x4E09;&#x4E09;&#x8DDF;&#x8FDB;&#xFF1A;&#x4EFB;&#x52A1;&#x8FDB;&#x5EA6;&#x3001;&#x5DE5;&#x4F5C;&#x6548;&#x7387;&#x3001;&#x60C5;&#x7EEA;&#x72B6;&#x6001;</p>
+<h2 id="serviceloader-&#x6E90;&#x7801;&#x89E3;&#x6790;">ServiceLoader &#x6E90;&#x7801;&#x89E3;&#x6790;</h2>
+<p>&#x76F4;&#x63A5;&#x4ECE; ServiceLoader &#x7C7B;&#x7684; load &#x65B9;&#x6CD5;&#x770B;&#x8D77;</p>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;S&gt; <span class="hljs-function">ServiceLoader&lt;S&gt; <span class="hljs-title">load</span><span class="hljs-params">(Class&lt;S&gt; service)</span> </span>{
+    <span class="hljs-comment">//1.&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;</span>
+    ClassLoader cl = Thread.currentThread().getContextClassLoader();
+    <span class="hljs-keyword">return</span> ServiceLoader.load(service, cl);
+}
+
+<span class="hljs-comment">//&#x6784;&#x9020;&#x51FD;&#x6570;</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">ServiceLoader</span><span class="hljs-params">(Class&lt;S&gt; svc, ClassLoader cl)</span> </span>{
+    <span class="hljs-comment">//&#x5224;&#x65AD;&#x5165;&#x53C2;&#x662F;&#x5426;&#x4E3A;null</span>
+    service = Objects.requireNonNull(svc, <span class="hljs-string">&quot;Service interface cannot be null&quot;</span>);
+    <span class="hljs-comment">//2.&#x52A0;&#x8F7D;&#x5668;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#xFF0C;&#x901A;&#x5E38;&#x662F;applicationLoader&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x52A0;&#x8F7D;&#x5668;</span>
+    loader = (cl == <span class="hljs-keyword">null</span>) ? ClassLoader.getSystemClassLoader() : cl;
+    <span class="hljs-comment">//3.&#x83B7;&#x53D6;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x5668;</span>
+    acc = (System.getSecurityManager() != <span class="hljs-keyword">null</span>) ? AccessController.getContext() : <span class="hljs-keyword">null</span>;
+    reload();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reload</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// &#x6E05;&#x7A7A;&#x7F13;&#x5B58;</span>
+    providers.clear();
+    <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x904D;&#x5386;&#x63D0;&#x4F9B;&#x8005;</span>
+    lookupIterator = <span class="hljs-keyword">new</span> LazyIterator(service, loader);
+}
+
+<span class="hljs-comment">// &#x8FD9;&#x91CC;&#x518D;&#x6765;&#x770B; ServiceLoader &#x7684;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;</span>
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String PREFIX = <span class="hljs-string">&quot;META-INF/services/&quot;</span>;
+
+<span class="hljs-comment">// &#x8981;&#x52A0;&#x8F7D;&#x7684;&#x7C7B;</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Class&lt;S&gt; service;
+
+<span class="hljs-comment">// &#x7528;&#x4E8E;&#x52A0;&#x8F7D;&#x5B9E;&#x73B0;&#x7C7B;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ClassLoader loader;
+
+<span class="hljs-comment">// &#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x5668;</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> AccessControlContext acc;
+
+<span class="hljs-comment">// &#x63D0;&#x4F9B;&#x8005;&#x7684;&#x7F13;&#x5B58;</span>
+<span class="hljs-keyword">private</span> LinkedHashMap&lt;String,S&gt; providers = <span class="hljs-keyword">new</span> LinkedHashMap&lt;&gt;();
+
+<span class="hljs-comment">// &#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x904D;&#x5386;&#x5B9E;&#x73B0;&#x7C7B;</span>
+<span class="hljs-keyword">private</span> LazyIterator lookupIterator;
+
+<span class="hljs-comment">// &#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x91CD;&#x70B9;&#x5C31;&#x5728;&#x4E8E; LazyIterator &#x8FD9;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x83B7;&#x53D6;&#x5B9E;&#x73B0;&#x7C7B;&#x90FD;&#x770B;&#x8FD9;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;</span>
+
+<span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LazyIterator</span>
+    <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">S</span>&gt;
+</span>{
+
+    Class&lt;S&gt; service;
+    ClassLoader loader;
+    Enumeration&lt;URL&gt; configs = <span class="hljs-keyword">null</span>;
+    Iterator&lt;String&gt; pending = <span class="hljs-keyword">null</span>;
+    String nextName = <span class="hljs-keyword">null</span>;
+
+  <span class="hljs-comment">//&#x6784;&#x9020;&#x51FD;&#x6570;</span>
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">LazyIterator</span><span class="hljs-params">(Class&lt;S&gt; service, ClassLoader loader)</span> </span>{
+      <span class="hljs-keyword">this</span>.service = service;
+      <span class="hljs-keyword">this</span>.loader = loader;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNextService</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (nextName != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+        <span class="hljs-keyword">if</span> (configs == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-comment">//&#x83B7;&#x53D6;META-INF/services&#x4E0B;&#x6587;&#x4EF6;&#x5168;&#x79F0;</span>
+                String fullName = PREFIX + service.getName();
+                <span class="hljs-keyword">if</span> (loader == <span class="hljs-keyword">null</span>)
+                    configs = ClassLoader.getSystemResources(fullName);
+                <span class="hljs-keyword">else</span>
+                    <span class="hljs-comment">//&#x83B7;&#x53D6;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5185;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x7684;&#x679A;&#x4E3E;&#x7C7B;</span>
+                    configs = loader.getResources(fullName);
+            } <span class="hljs-keyword">catch</span> (IOException x) {
+                fail(service, <span class="hljs-string">&quot;Error locating configuration files&quot;</span>, x);
+            }
+        }
+        <span class="hljs-keyword">while</span> ((pending == <span class="hljs-keyword">null</span>) || !pending.hasNext()) {
+            <span class="hljs-keyword">if</span> (!configs.hasMoreElements()) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+            }
+            pending = parse(service, configs.nextElement());
+        }
+        nextName = pending.next();
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+
+  <span class="hljs-function"><span class="hljs-keyword">private</span> S <span class="hljs-title">nextService</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">if</span> (!hasNextService())
+          <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchElementException();
+      <span class="hljs-comment">//&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x83B7;&#x53D6;&#x5B9E;&#x73B0;&#x7C7B;&#x7684;&#x5168;&#x9650;&#x5B9A;&#x540D;</span>
+      String cn = nextName;
+      nextName = <span class="hljs-keyword">null</span>;
+      Class&lt;?&gt; c = <span class="hljs-keyword">null</span>;
+      <span class="hljs-keyword">try</span> {
+          <span class="hljs-comment">//&#x5B9E;&#x4F8B;&#x5316;&#x5B9E;&#x73B0;&#x7C7B;</span>
+          c = Class.forName(cn, <span class="hljs-keyword">false</span>, loader);
+      } <span class="hljs-keyword">catch</span> (ClassNotFoundException x) {
+          fail(service,
+               <span class="hljs-string">&quot;Provider &quot;</span> + cn + <span class="hljs-string">&quot; not found&quot;</span>);
+      }
+      <span class="hljs-keyword">if</span> (!service.isAssignableFrom(c)) {
+          fail(service,
+               <span class="hljs-string">&quot;Provider &quot;</span> + cn  + <span class="hljs-string">&quot; not a subtype&quot;</span>);
+      }
+      <span class="hljs-keyword">try</span> {
+          <span class="hljs-comment">//&#x8FD9;&#x4E00;&#x884C;&#x5C06;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x7C7B;&#x5F3A;&#x8F6C;&#x6210;&#x6240;&#x8868;&#x793A;&#x7684;&#x7C7B;&#x578B;</span>
+          S p = service.cast(c.newInstance());
+          <span class="hljs-comment">//&#x7F13;&#x5B58;&#x5B9E;&#x73B0;&#x7C7B;</span>
+          providers.put(cn, p);
+          <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;</span>
+          <span class="hljs-keyword">return</span> p;
+      } <span class="hljs-keyword">catch</span> (Throwable x) {
+          fail(service,
+               <span class="hljs-string">&quot;Provider &quot;</span> + cn + <span class="hljs-string">&quot; could not be instantiated&quot;</span>,
+               x);
+      }
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Error();          <span class="hljs-comment">// This cannot happen</span>
+  }
+</code></pre>
+<h1 id="spi-samples-in-the-java-ecosystem">SPI Samples in the Java Ecosystem</h1>
+<p>Java provides many SPIs. Here are some samples of the service provider interface and the service that it provides:</p>
 <ul>
-<li>&#x8DDF;&#x8FDB;&#x4EFB;&#x52A1;&#x8FDB;&#x5EA6;&#xFF1A;&#x5728;&#x5173;&#x952E;&#x8282;&#x70B9;&#x548C;&#x91CC;&#x7A0B;&#x7891;&#x65F6;&#xFF0C;&#x5BF9;&#x5F92;&#x5F1F;&#x7684;&#x9636;&#x6BB5;&#x6210;&#x679C;&#x7684;&#x5185;&#x5BB9;&#x548C;&#x8D28;&#x91CF;&#x8FDB;&#x884C;&#x5BA1;&#x6838;&#xFF0C;&#x53CA;&#x65F6;&#x7ED9;&#x4E88;&#x53CD;&#x9988;&#x3002;</li>
-<li>&#x5DE5;&#x4F5C;&#x6548;&#x7387;&#xFF1A;&#x786E;&#x4FDD;&#x5F92;&#x5F1F;&#x6839;&#x636E;&#x6B63;&#x786E;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x6CD5;&#x5728;&#x505A;&#x4E8B;&#xFF0C;&#x8FC7;&#x5FEB;&#x6216;&#x8FC7;&#x6162;&#x90FD;&#x9700;&#x5F15;&#x8D77;&#x6CE8;&#x610F;</li>
-<li>&#x6839;&#x636E;&#x5F92;&#x5F1F;&#x60C5;&#x7EEA;&#x72B6;&#x6001;&#x7684;&#x53D8;&#x5316;&#x53D1;&#x73B0;&#x95EE;&#x9898;&#x5E76;&#x53CA;&#x65F6;&#x5E72;&#x9884;</li>
+<li>CurrencyNameProvider: provides localized currency symbols for the Currency class.</li>
+<li>LocaleNameProvider: provides localized names for the Locale class.</li>
+<li>TimeZoneNameProvider: provides localized time zone names for the TimeZone class.</li>
+<li>DateFormatProvider: provides date and time formats for a specified locale.</li>
+<li>NumberFormatProvider: provides monetary, integer and percentage values for the NumberFormat class.</li>
+<li>Driver: as of version 4.0, the JDBC API supports the SPI pattern. Older versions uses the Class.forName() method to load drivers.</li>
+<li>PersistenceProvider: provides the implementation of the JPA API.</li>
+<li>JsonProvider: provides JSON processing objects.</li>
+<li>JsonbProvider: provides JSON binding objects.</li>
+<li>Extension: provides extensions for the CDI container.</li>
+<li>ConfigSourceProvider: provides a source for retrieving configuration properties.</li>
 </ul>
-<p>&#x5177;&#x4F53;&#x600E;&#x4E48;&#x8DDF;&#x8FDB;&#x5462;&#xFF1F;&#x770B;&#x603B;&#x7ED3;&#x3001;&#x770B;&#x53CD;&#x9988;&#x3001;&#x770B;&#x884C;&#x4E3A;</p>
+<h1 id="summary">Summary</h1>
+<p>The easiest way to create an extensible application is to use the ServiceLoader, which is available for Java SE 6 and later. Using this class, you can add provider implementations to the application class path to make new functionality available. The ServiceLoader class is final, so you cannot modify its abilities.</p>
+<h1 id="references">References</h1>
 <ul>
-<li>&#x770B;&#x603B;&#x7ED3;&#x3002;&#x5E03;&#x7F6E;&#x4EFB;&#x52A1;&#x65F6;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x7EA6;&#x5B9A;&#x8DDF;&#x8FDB;&#x7684;&#x65B9;&#x5F0F;&#x53CA;&#x9891;&#x7387;&#xFF0C;&#x5EFA;&#x8BAE;&#x5F92;&#x5F1F;&#x4EE5;&#x65E5;&#x5FD7;&#x603B;&#x7ED3;&#x7684;&#x65B9;&#x5F0F;&#x6BCF;&#x65E5;&#x4E0B;&#x73ED;&#x524D;&#x53D1;&#x9001;&#x5BFC;&#x5E08;</li>
-<li>&#x770B;&#x53CD;&#x9988;&#x3002;&#x6BCF;&#x5929;&#x53EF;&#x4EE5;&#x65E0;&#x610F;&#x4E2D;&#x8BE2;&#x95EE;&#x4E00;&#x4E0B;&#x5F92;&#x5F1F;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x662F;&#x5426;&#x6D41;&#x7545;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x542C;&#x542C;&#x5176;&#x5B83;&#x4EBA;&#x7684;&#x53CD;&#x9988;</li>
-<li>&#x770B;&#x884C;&#x4E3A;&#x3002;&#x60C5;&#x7EEA;&#x662F;&#x5426;&#x6B63;&#x5E38;&#x3001;&#x662F;&#x5426;&#x6709;&#x5F02;&#x5E38;&#x884C;&#x4E3A;&#x3001;&#x662F;&#x5426;&#x4F1A;&#x4E3B;&#x52A8;&#x534F;&#x4F5C;</li>
-</ul>
-<p>&#x8DDF;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x4E5F;&#x9700;&#x8981;&#x6709;&#x8BB2;&#x7A76;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x592A;&#x523B;&#x610F;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x4E00;&#x8D77;&#x5348;&#x996D;&#x3001;&#x6563;&#x6B65;&#x3001;&#x7B49;&#x7535;&#x68AF;&#x7B49;&#x76F8;&#x5BF9;&#x6BD4;&#x8F83;&#x8F7B;&#x677E;&#x7684;&#x6C1B;&#x56F4;&#x4E2D;&#x8DDF;&#x8FDB;</p>
-<h2 id="&#x8F85;&#x5BFC;&#x53CD;&#x9988;">&#x8F85;&#x5BFC;&#x53CD;&#x9988;</h2>
-<ul>
-<li><p>&#x5148;&#x7406;&#x89E3;&#x60C5;&#x7EEA;&#xFF0C;&#x518D;&#x5904;&#x7406;&#x4E8B;&#x60C5;&#x3002;&#x6C9F;&#x901A;&#x7684;&#x6548;&#x679C;70%&#x90FD;&#x53D6;&#x51B3;&#x4E8E;&#x53CC;&#x65B9;&#x7684;&#x60C5;&#x7EEA;&#x662F;&#x5426;&#x540C;&#x9891;&#xFF0C;&#x53EA;&#x6709;30%&#x53D6;&#x51B3;&#x4E8E;&#x6C9F;&#x901A;&#x5185;&#x5BB9;&#x3002;&#x5982;&#x679C;&#x53CC;&#x65B9;&#x7684;&#x60C5;&#x7EEA;&#x4E0D;&#x5BF9;&#xFF0C;&#x53CD;&#x9988;&#x7684;&#x5185;&#x5BB9;&#x5C31;&#x4F1A;&#x88AB;&#x626D;&#x66F2;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x8BB8;&#x591A;&#x8F85;&#x5BFC;&#x53CD;&#x9988;&#x4E4B;&#x6240;&#x4EE5;&#x6CA1;&#x6709;&#x6548;&#x679C;&#x7684;&#x91CD;&#x8981;&#x539F;&#x56E0;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x8F85;&#x5BFC;&#x53CD;&#x9988;&#x65F6;&#xFF0C;&#x8981;&#x5148;&#x7406;&#x89E3;&#x60C5;&#x7EEA;&#xFF0C;&#x4E0E;&#x5BF9;&#x65B9;&#x5171;&#x60C5;&#xFF0C;&#x518D;&#x5904;&#x7406;&#x4E8B;&#x60C5;&#x3002;&#x4EC0;&#x4E48;&#x662F;&#x5171;&#x60C5;&#x5462;&#xFF1F;&#x5171;&#x60C5;&#x5C31;&#x662F;&#x6307;&#x4F60;&#x80FD;&#x7AD9;&#x5728;&#x5BF9;&#x65B9;&#x7684;&#x7ACB;&#x573A;&#x4E0A;&#x5BF9;&#x4ED6;&#x5F53;&#x4E0B;&#x7684;&#x60C5;&#x7EEA;&#x611F;&#x540C;&#x8EAB;&#x53D7;&#xFF0C;&#x4ECE;&#x800C;&#x4E0E;&#x5BF9;&#x65B9;&#x5EFA;&#x7ACB;&#x60C5;&#x7EEA;&#x7684;&#x8FDE;&#x7ED3;&#x3002;</p>
-</li>
-<li><p>&#x5148;&#x5BF9;&#x6BD4;&#x7ED3;&#x679C;&#xFF0C;&#x518D;&#x5171;&#x8BC6;&#x95EE;&#x9898;&#x3002;&#x5BF9;&#x6BD4;&#x5F92;&#x5F1F;&#x5B9E;&#x9645;&#x7684;&#x5DE5;&#x4F5C;&#x7ED3;&#x679C;&#x4E0E;&#x671F;&#x671B;&#x7684;&#x5DE5;&#x4F5C;&#x7ED3;&#x679C;&#xFF0C;&#x8BA9;&#x5F92;&#x5F1F;&#x8BA4;&#x8BC6;&#x81EA;&#x5DF1;&#x5728;&#x54EA;&#x65B9;&#x9762;&#x505A;&#x597D;&#xFF0C;&#x5728;&#x54EA;&#x65B9;&#x9762;&#x5B58;&#x5728;&#x95EE;&#x9898;&#x3002;&#x8BB0;&#x5F97;&#x8981;&#x7ED9;&#x4E88;&#x5F92;&#x5F1F;&#x6F84;&#x6E05;&#x7684;&#x673A;&#x4F1A;&#x3002;&#x8FD9;&#x6837;&#x53CC;&#x65B9;&#x624D;&#x80FD;&#x5C31;&#x95EE;&#x9898;&#x7684;&#x5B58;&#x5728;&#x8FBE;&#x6210;&#x5171;&#x8BC6;&#x3002;</p>
-</li>
-<li><p>&#x5148;&#x8BE2;&#x95EE;&#x65B9;&#x6848;&#xFF0C;&#x518D;&#x603B;&#x7ED3;&#x8981;&#x70B9;&#x3002;&#x901A;&#x8FC7;&#x4E0A;&#x4E00;&#x6B65;&#xFF0C;&#x5F92;&#x5F1F;&#x548C;&#x5BFC;&#x5E08;&#x5DF2;&#x7ECF;&#x5C31;&#x5F92;&#x5F1F;&#x54EA;&#x91CC;&#x505A;&#x7684;&#x597D;&#xFF0C;&#x54EA;&#x91CC;&#x5B58;&#x5728;&#x95EE;&#x9898;&#x5DF2;&#x7ECF;&#x8FBE;&#x6210;&#x5171;&#x8BC6;&#xFF0C;&#x8FD9;&#x4E00;&#x76EE;&#x6807;&#x5C31;&#x662F;&#x53CC;&#x65B9;&#x9700;&#x8981;&#x63A2;&#x8BA8;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x65B9;&#x6848;&#xFF0C;&#x6216;&#x8005;&#x603B;&#x7ED3;&#x597D;&#x7684;&#x7ECF;&#x9A8C;&#xFF0C;&#x4F7F;&#x5F97;&#x5F92;&#x5F1F;&#x4ECE;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6539;&#x53D8;&#x8FC7;&#x6E21;&#x5230;&#x8981;&#x5982;&#x4F55;&#x6539;&#x53D8;&#x3002;&#x8BE2;&#x95EE;&#x5F92;&#x5F1F;&#x6539;&#x8FDB;&#x7684;&#x65B9;&#x6848;&#x3002;&#x5BFC;&#x5E08;&#x9700;&#x8981;&#x5728;&#x542C;&#x5B8C;&#x5F92;&#x5F1F;&#x7684;&#x65B9;&#x6848;&#x540E;&#x7ED9;&#x4E88;&#x5FC5;&#x8981;&#x7684;&#x6307;&#x5BFC;&#x3002;</p>
-</li>
-<li><p>&#x5148;&#x660E;&#x786E;&#x8BA1;&#x5212;&#xFF0C;&#x518D;&#x83B7;&#x5F97;&#x627F;&#x8BFA;&#x3002;&#x5F53;&#x5F92;&#x5F1F;&#x5DF2;&#x7ECF;&#x6E05;&#x695A;&#x5730;&#x77E5;&#x9053;&#x81EA;&#x5DF1;&#x8981;&#x505A;&#x51FA;&#x54EA;&#x4E9B;&#x6539;&#x53D8;&#xFF0C;&#x8FD9;&#x4E00;&#x6B65;&#x8981;&#x8D81;&#x70ED;&#x6253;&#x94C1;&#xFF0C;&#x5728;&#x5F92;&#x5F1F;&#x5145;&#x6EE1;&#x70ED;&#x8840;&#x7684;&#x65F6;&#x5019;&#x4E0E;&#x81EA;&#x5DF1;&#x8BA2;&#x7ACB;&#x4E00;&#x4EFD;&#x5408;&#x7EA6;&#xFF0C;&#x83B7;&#x5F97;&#x5F92;&#x5F1F;&#x7684;&#x627F;&#x8BFA;&#xFF0C;&#x5F3A;&#x5316;&#x5F92;&#x5F1F;&#x6539;&#x53D8;&#x7684;&#x52A8;&#x673A;&#xFF0C;&#x4FC3;&#x4F7F;&#x5F92;&#x5F1F;&#x5F00;&#x59CB;&#x884C;&#x52A8;&#x8D77;&#x6765;&#x3002;</p>
-</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/ext/basics/spi.html" target="_blank">Creating Extensible Applications</a></li>
+<li><a href="https://www.baeldung.com/java-spi" target="_blank">Java Service Provider Interface</a></li>
+<li><a href="https://segmentfault.com/a/1190000022101812" target="_blank">Java SPI&#x6E90;&#x7801;&#x89E3;&#x6790;&#x53CA;demo&#x8BB2;&#x89E3;</a></li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"><span></span>
-08:22
+15:12
 </span></footer>
                                 
                                 </section>
@@ -1592,12 +1822,12 @@
 
             
                 
-                <a href="software-quality.html" class="navigation navigation-prev " aria-label="Previous page: 工程质量建设">
+                <a href="../basic/JDK代理及CGLib代理.html" class="navigation navigation-prev " aria-label="Previous page: 代理模式之JDK代理和CGLib代理">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../algorithm/algorithm-summary.html" class="navigation navigation-next " aria-label="Next page: 常见算法套路">
+                <a href="../tools/comparator-sort.html" class="navigation navigation-next " aria-label="Next page: Comparator 与排序">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1608,7 +1838,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"怎样做 Mentor？","level":"8.2","depth":1,"next":{"title":"常见算法套路","level":"9.1","depth":1,"path":"algorithm/algorithm-summary.md","ref":"algorithm/algorithm-summary.md","articles":[]},"previous":{"title":"工程质量建设","level":"8.1","depth":1,"path":"methodology/software-quality.md","ref":"methodology/software-quality.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"methodology/mentor.md","mtime":"2021-06-16T00:22:38.792Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-18T07:13:13.770Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java SPI","level":"10.5","depth":1,"next":{"title":"Comparator 与排序","level":"11.1","depth":1,"path":"tools/comparator-sort.md","ref":"tools/comparator-sort.md","articles":[]},"previous":{"title":"代理模式之JDK代理和CGLib代理","level":"10.4","depth":1,"path":"basic/JDK代理及CGLib代理.md","ref":"basic/JDK代理及CGLib代理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"design/java-spi.md","mtime":"2021-07-18T07:12:21.777Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-18T07:13:13.770Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

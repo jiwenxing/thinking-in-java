@@ -104,6 +104,7 @@
 - [Singleton 单例模式](design/1-singleton.md)
 - [Builder 建造者模式](design/2-builder.md)
 - [代理模式之JDK代理和CGLib代理](basic/JDK代理及CGLib代理.md)
+- [Java SPI](design/java-spi.md)
 
 ## 待归档
 

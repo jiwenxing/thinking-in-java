@@ -26,6 +26,7 @@
   "homepage": "https://github.com/jiwenxing/thinking-in-java#readme",
   "dependencies": {
     "gh-pages": "^1.2.0",
+    "gitbook-plugin-expandable-chapters": "^0.2.0",
     "gitbook-plugin-todo": "^0.1.3"
   }
 }

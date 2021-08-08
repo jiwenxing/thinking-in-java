@@ -31,7 +31,8 @@
        "splitter",
        "tbfed-pagefooter",
        "page-toc-button",
-       "-sharing"
+       "-sharing",
+       "expandable-chapters"
     ],
     "title": "Thinking in Java",
     "variables": {},

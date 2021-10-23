@@ -107,6 +107,10 @@
   - [工程质量建设](methodology/software-quality.md)
   - [怎样做 Mentor？](methodology/mentor.md)
 
+- Machine Learning
+
+  - [机器学习知识体系](ai/knownadge-system.md)
+
 - 基础知识
   - Java 基本概念
     - [继承与初始化过程](basic/初始化和类的加载.md)

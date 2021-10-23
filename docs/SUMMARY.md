@@ -110,6 +110,8 @@
 - Machine Learning
 
   - [机器学习知识体系](ai/knownadge-system.md)
+  - [Embedding & 预训练](ai/embedding.md)
+  - [CTR 预估模型](ai/ctr-predict.md)
 
 - 基础知识
   - Java 基本概念

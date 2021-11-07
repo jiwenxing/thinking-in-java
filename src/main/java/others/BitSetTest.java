@@ -1,12 +1,9 @@
 package others;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.BitSet;
 
 public class BitSetTest {
 
-@Test
 public void test1() {
     BitSet bitSet = new BitSet(); // 初始化了一个长度为 1 的 long 数组，即 long[1], 值为 [0]
     bitSet.set(4); // 将 long[] 第一个 long 64bit 的第四位置为 1，这时候 long[1] 十进制就是 [16]

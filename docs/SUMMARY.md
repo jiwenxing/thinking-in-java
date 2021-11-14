@@ -39,6 +39,7 @@
   - [线程池的使用](juc/juc-4-threadpool.md)
   - [ForkJoinPool](juc/juc-forkjoinpool.md)
   - [CompleteFuture](juc/completefuture.md)
+  - [异步分片请求](juc/juc-8-shardasync.md)
   - [线程协作 - wait/notify/notifyAll](juc/juc-5-thread-collaboration.md)
   - [线程协作 - sleep/yield/join](juc/juc-sleep-yield-join.md)
   - [JMM Java 内存模型_](juc/juc-6-jmm.md)

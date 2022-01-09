@@ -280,10 +280,18 @@ public interface Predicate<T> {
 
 这里其实和示例中的写法一样，只是不用自己定义 `AppleFilter` 函数式接口，而直接使用了 JDK 提供的 Predicate 函数式接口，不难发现两个接口的抽象方法定义一致，因此没必要重复造轮子，而且 Predicate 接口提供了更多的默认方法。
 
+## JDK8 自带常用函数式表达式
+
+JDK8 自带了几种常见的函数式接口如下，基本涵盖了 99% 的使用场景，因此大部分情况都不需要自己定义函数式接口，根据场景从下表选择一个即可，当然如果一定要自定义，可以参考上一篇[Lambda 表达式 & 函数式接口](https://jverson.com/thinking-in-java/jdk8_lambda_expression.html)。
+
+![](https://jverson.oss-cn-beijing.aliyuncs.com/9328bb15521b95a16dc91d207131c9b8.jpg)
 
 
+除了以上 JDK8 自带了大概有几十种函数式接口，详细可参考：https://www.runoob.com/java/java8-functional-interfaces.html
 
-## 参考
+## References
 
 - [深入浅析JDK8新特性之Lambda表达式](https://www.jb51.net/article/95933.htm)
 - [Java8 lambda表达式10个示例](http://www.importnew.com/16436.html)
+- [Functional Interfaces in Java 8
+  ](https://www.baeldung.com/java-8-functional-interfaces)

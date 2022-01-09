@@ -94,6 +94,18 @@ Stream.iterate(0, n -> n + 2).limit(51).forEach(System.out::println);
 // 2. generate  接受Supplier参数，() -> "Hello Man!" 为 Supplier接口的抽象方法 T get()的实现; 重复打印10个"Hello Man!"
 Stream.generate(() -> "Hello Man!").limit(10).forEach(System.out::println);
 
+// ☆☆☆ 为了简化基本类型流使用，以及消除频繁自动装箱、拆箱的性能损耗，JDK 提供了三种基本类型的流 IntStream、LongStream、DoubleStream 等
+// 注意 IntStream 中区别于 Stream<Integer> 是有区别的，一个是基本类型流，一个是封装类型流，可以通过以下方式转换
+Stream<Integer> boxed = IntStream.rangeClosed(1, 3).boxed();
+// 基本流相互转换
+DoubleStream ds = IntStream.rangeClosed(1, 3).asDoubleStream();
+// summaryStatistics 求 count、sum、average、min、max
+IntStream.rangeClosed(1, 4).summaryStatistics(); // 输出 IntSummaryStatistics{count=4, sum=10, min=1, average=2.500000, max=4}
+
+// 注意 map 的区别，Stream.map()：Stream<T> ==> Stream<R>，而 IntStream.map()：IntStream ==> IntStream，IntStream 如果想 map 到其它类型，需要使用 IntStream.mapToObj()：IntStream ==> Stream<U>
+
+// IntStream 有序串行流操作，range：[startInclusive, endExclusive), rangeClosed：[startInclusive, endExclusive]
+
 ```
 
 

@@ -60,7 +60,7 @@ Integer last = (Integer) p.getLast();
 
 **局限一**：<T>不能是基本类型，例如int，因为实际类型是Object，Object类型无法持有基本类型
 
-**局限二**：无法取得带泛型的Class。观察以下代码，所有泛型实例，无论T的类型是什么，getClass()返回同一个Class实例，因为编译后它们全部都是Pair<Object>
+**局限二**：无法取得带泛型的 Class。观察以下代码，所有泛型实例，无论T的类型是什么，getClass() 返回同一个 Class 实例，因为编译后它们全部都是 `Pair<Object>`
 
 ```Java
 public class Main {
@@ -76,7 +76,7 @@ public class Main {
 }
 ```
 
-**局限三**：无法判断带泛型的类型，如下所示，并不存在Pair<String>.class，而是只有唯一的Pair.class。
+**局限三**：无法判断带泛型的类型，如下所示，并不存在 `Pair<String>.class`，而是只有唯一的 `Pair.class`。
 
 ```Java
 Pair<Integer> p = new Pair<>(123, 456);
@@ -218,11 +218,11 @@ public static void getData(Box<Number> data) {
 	System.out.println("data :" + data.getData());
 }
 ```
-由于 Number 是 Integer 的父类，理所当然认为`getData(Box<Number> data)`方法可以应用于`Box<Integer>`，然而会看到编译报错，这说明了 Box<Number> 在逻辑上不能视为 Box<Integer>的父类。但是我们需要一个在逻辑上可以用来表示同时是 Box<Integer> 和 Box<Number>的父类的一个引用类型，由此，类型通配符应运而生。
+由于 Number 是 Integer 的父类，理所当然认为`getData(Box<Number> data)`方法可以应用于`Box<Integer>`，然而会看到编译报错，这说明了 `Box<Number>` 在逻辑上不能视为 `Box<Integer>` 的父类。但是我们需要一个在逻辑上可以用来表示同时是 `Box<Integer>` 和 `Box<Number>` 的父类的一个引用类型，由此，类型通配符应运而生。
 
-**类型通配符一般是使用`?`代替具体的类型实参。且 Box<?> 在逻辑上是`Box<Integer>`、`Box<Number>`...等所有`Box<具体类型实参>`的父类。由此，我们依然可以定义泛型方法，来完成此类需求。** 所以将`getData()`方法改为以下这样即可：
+**类型通配符一般是使用`?`代替具体的类型实参。且 `Box<?>` 在逻辑上是`Box<Integer>`、`Box<Number>`...等所有`Box<具体类型实参>`的父类。由此，我们依然可以定义泛型方法，来完成此类需求。** 所以将`getData()`方法改为以下这样即可：
 
-另外注意无限定通配符 <?> 很少使用，一般可以用 <T> 替换，同时它是所有 <T> 类型的超类。
+另外注意无限定通配符 `<?>` 很少使用，一般可以用 `<T>` 替换，同时它是所有 `<T>` 类型的超类。
 
 ```java
 //无界通配符：类型实参的类型不限
@@ -240,7 +240,7 @@ public static void getData(Box<T extends Number & Comparable> data) {
 }
 ```
 
-然后再来看一个 JDK 的例子，Collections 的 copy() 方法，可以发现第一个参数用了 <? super T>，而第二个参数用了 <? extends T>，这有啥区别呢？
+然后再来看一个 JDK 的例子，Collections 的 copy() 方法，可以发现第一个参数用了 <? super T>，而第二个参数用了 `<? extends T>`，这有啥区别呢？
 
 PECS 原则：Producer Extends Consumer Super。即：如果需要返回T，它是生产者（Producer），要使用extends通配符；如果需要写入T，它是消费者（Consumer），要使用super通配符。详细解释可以参考 [super通配符](https://www.liaoxuefeng.com/wiki/1252599548343744/1265105920586976)
 

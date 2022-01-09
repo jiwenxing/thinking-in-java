@@ -1,7 +1,7 @@
 {
   "name": "thinking-in-java",
   "version": "1.0.0",
-  "description": "重读《thinking in java》时对一些基础知识的整理和提炼，用做笔记，加深理解思考。",
+  "description": "notebook",
   "main": "index.js",
   "directories": {
     "doc": "docs"

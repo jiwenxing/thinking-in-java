@@ -316,6 +316,68 @@ Java provides many SPIs. Here are some samples of the service provider interface
 - Extension: provides extensions for the CDI container.
 - ConfigSourceProvider: provides a source for retrieving configuration properties.
 
+# SPI 公共方法
+
+下面是封装的一个 SPI 的工具方法，可以通过该方法直接获取扩展类实例，也可以获取扩展的实例 列表。
+
+值得注意的是 JDK 的 SPI 加载的顺序是按照 classpath 的顺序，而 classpath 的顺序我们并不方便显式的控制（也没必要），这就导致如果一个接口有多个实现的话，加载出来的顺序可能是随机的，在使用的时候需要特别注意一下。
+
+另外 Springboot 也有一个扩展机制，通过在 spring.factories 文件里配置实现，平时使用的自动装载就是通过这种机制实现。可以参考这篇文章：https://segmentfault.com/a/1190000039812642
+
+```Java
+// 使用方式示例，这样可以直接获取到默认实现，如果用户又自己实现了一个的话，这个方法默认会获取到用户定义的实例
+private static CacheFactory cacheFactory = ExtensionLoader.getExtension(CacheFactory.class);
+
+// 工具方法类
+public final class ExtensionLoader {
+
+    private static Map<Class<?>, Object> extensionMap = new ConcurrentHashMap<Class<?>, Object>();
+
+    private static Map<Class<?>, List<?>> extensionListMap = new ConcurrentHashMap<Class<?>, List<?>>();
+
+    private ExtensionLoader() {
+    }
+
+    public static <T> T getExtension(Class<T> clazz) {
+        T extension = (T) extensionMap.get(clazz);
+        if (extension == null) {
+            extension = newExtension(clazz);
+            if (extension != null) {
+                extensionMap.put(clazz, extension);
+            }
+        }
+        return extension;
+    }
+
+    public static <T> List<T> getExtensionList(Class<T> clazz) {
+        List<T> extensions = (List<T>) extensionListMap.get(clazz);
+        if (extensions == null) {
+            extensions = newExtensionList(clazz);
+            if (!extensions.isEmpty()) {
+                extensionListMap.put(clazz, extensions);
+            }
+        }
+        return extensions;
+    }
+
+    public static <T> T newExtension(Class<T> clazz) {
+        ServiceLoader<T> serviceLoader = ServiceLoader.load(clazz);
+        for (T service : serviceLoader) {
+            return service;
+        }
+        return null;
+    }
+
+    public static <T> List<T> newExtensionList(Class<T> clazz) {
+        ServiceLoader<T> serviceLoader = ServiceLoader.load(clazz);
+        List<T> extensions = new ArrayList<T>();
+        for (T service : serviceLoader) {
+            extensions.add(service);
+        }
+        return extensions;
+    }
+}
+```
 
 # Summary
 
@@ -326,3 +388,4 @@ The easiest way to create an extensible application is to use the ServiceLoader,
 - [Creating Extensible Applications](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html)
 - [Java Service Provider Interface](https://www.baeldung.com/java-spi)
 - [Java SPI源码解析及demo讲解](https://segmentfault.com/a/1190000022101812)
+

@@ -2094,6 +2094,63 @@ com.jverson.springboot.impl.ExtendedDictionary
 <li>Extension: provides extensions for the CDI container.</li>
 <li>ConfigSourceProvider: provides a source for retrieving configuration properties.</li>
 </ul>
+<h1 id="spi-&#x516C;&#x5171;&#x65B9;&#x6CD5;">SPI &#x516C;&#x5171;&#x65B9;&#x6CD5;</h1>
+<p>&#x4E0B;&#x9762;&#x662F;&#x5C01;&#x88C5;&#x7684;&#x4E00;&#x4E2A; SPI &#x7684;&#x5DE5;&#x5177;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BE5;&#x65B9;&#x6CD5;&#x76F4;&#x63A5;&#x83B7;&#x53D6;&#x6269;&#x5C55;&#x7C7B;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x6269;&#x5C55;&#x7684;&#x5B9E;&#x4F8B; &#x5217;&#x8868;&#x3002;</p>
+<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F; JDK &#x7684; SPI &#x52A0;&#x8F7D;&#x7684;&#x987A;&#x5E8F;&#x662F;&#x6309;&#x7167; classpath &#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x800C; classpath &#x7684;&#x987A;&#x5E8F;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x65B9;&#x4FBF;&#x663E;&#x5F0F;&#x7684;&#x63A7;&#x5236;&#xFF08;&#x4E5F;&#x6CA1;&#x5FC5;&#x8981;&#xFF09;&#xFF0C;&#x8FD9;&#x5C31;&#x5BFC;&#x81F4;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x6709;&#x591A;&#x4E2A;&#x5B9E;&#x73B0;&#x7684;&#x8BDD;&#xFF0C;&#x52A0;&#x8F7D;&#x51FA;&#x6765;&#x7684;&#x987A;&#x5E8F;&#x53EF;&#x80FD;&#x662F;&#x968F;&#x673A;&#x7684;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x4E00;&#x4E0B;&#x3002;</p>
+<p>&#x53E6;&#x5916; Springboot &#x4E5F;&#x6709;&#x4E00;&#x4E2A;&#x6269;&#x5C55;&#x673A;&#x5236;&#xFF0C;&#x901A;&#x8FC7;&#x5728; spring.factories &#x6587;&#x4EF6;&#x91CC;&#x914D;&#x7F6E;&#x5B9E;&#x73B0;&#xFF0C;&#x5E73;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x81EA;&#x52A8;&#x88C5;&#x8F7D;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x673A;&#x5236;&#x5B9E;&#x73B0;&#x3002;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#xFF1A;<a href="https://segmentfault.com/a/1190000039812642" target="_blank">https://segmentfault.com/a/1190000039812642</a></p>
+<pre><code class="lang-Java"><span class="hljs-comment">// &#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x793A;&#x4F8B;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x83B7;&#x53D6;&#x5230;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#xFF0C;&#x5982;&#x679C;&#x7528;&#x6237;&#x53C8;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x7684;&#x8BDD;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x4F1A;&#x83B7;&#x53D6;&#x5230;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x5B9E;&#x4F8B;</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> CacheFactory cacheFactory = ExtensionLoader.getExtension(CacheFactory.class);
+
+<span class="hljs-comment">// &#x5DE5;&#x5177;&#x65B9;&#x6CD5;&#x7C7B;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExtensionLoader</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Map&lt;Class&lt;?&gt;, Object&gt; extensionMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;Class&lt;?&gt;, Object&gt;();
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Map&lt;Class&lt;?&gt;, List&lt;?&gt;&gt; extensionListMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;Class&lt;?&gt;, List&lt;?&gt;&gt;();
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">ExtensionLoader</span><span class="hljs-params">()</span> </span>{
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">getExtension</span><span class="hljs-params">(Class&lt;T&gt; clazz)</span> </span>{
+        T extension = (T) extensionMap.get(clazz);
+        <span class="hljs-keyword">if</span> (extension == <span class="hljs-keyword">null</span>) {
+            extension = newExtension(clazz);
+            <span class="hljs-keyword">if</span> (extension != <span class="hljs-keyword">null</span>) {
+                extensionMap.put(clazz, extension);
+            }
+        }
+        <span class="hljs-keyword">return</span> extension;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">List&lt;T&gt; <span class="hljs-title">getExtensionList</span><span class="hljs-params">(Class&lt;T&gt; clazz)</span> </span>{
+        List&lt;T&gt; extensions = (List&lt;T&gt;) extensionListMap.get(clazz);
+        <span class="hljs-keyword">if</span> (extensions == <span class="hljs-keyword">null</span>) {
+            extensions = newExtensionList(clazz);
+            <span class="hljs-keyword">if</span> (!extensions.isEmpty()) {
+                extensionListMap.put(clazz, extensions);
+            }
+        }
+        <span class="hljs-keyword">return</span> extensions;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">newExtension</span><span class="hljs-params">(Class&lt;T&gt; clazz)</span> </span>{
+        ServiceLoader&lt;T&gt; serviceLoader = ServiceLoader.load(clazz);
+        <span class="hljs-keyword">for</span> (T service : serviceLoader) {
+            <span class="hljs-keyword">return</span> service;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">List&lt;T&gt; <span class="hljs-title">newExtensionList</span><span class="hljs-params">(Class&lt;T&gt; clazz)</span> </span>{
+        ServiceLoader&lt;T&gt; serviceLoader = ServiceLoader.load(clazz);
+        List&lt;T&gt; extensions = <span class="hljs-keyword">new</span> ArrayList&lt;T&gt;();
+        <span class="hljs-keyword">for</span> (T service : serviceLoader) {
+            extensions.add(service);
+        }
+        <span class="hljs-keyword">return</span> extensions;
+    }
+}
+</code></pre>
 <h1 id="summary">Summary</h1>
 <p>The easiest way to create an extensible application is to use the ServiceLoader, which is available for Java SE 6 and later. Using this class, you can add provider implementations to the application class path to make new functionality available. The ServiceLoader class is final, so you cannot modify its abilities.</p>
 <h1 id="references">References</h1>
@@ -2103,7 +2160,7 @@ com.jverson.springboot.impl.ExtendedDictionary
 <li><a href="https://segmentfault.com/a/1190000022101812" target="_blank">Java SPI&#x6E90;&#x7801;&#x89E3;&#x6790;&#x53CA;demo&#x8BB2;&#x89E3;</a></li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"><span></span>
-15:12
+20:59
 </span></footer>
                                 
                                 </section>
@@ -2143,7 +2200,7 @@ com.jverson.springboot.impl.ExtendedDictionary
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java SPI","level":"1.6.5","depth":2,"next":{"title":"故障诊断","level":"1.7","depth":1,"ref":"","articles":[{"title":"Jstack 工具使用","level":"1.7.1","depth":2,"path":"debug/jstack.md","ref":"debug/jstack.md","articles":[]},{"title":"show-busy-java-threads","level":"1.7.2","depth":2,"path":"debug/show-busy-java-threads.md","ref":"debug/show-busy-java-threads.md","articles":[]},{"title":"Arthas","level":"1.7.3","depth":2,"path":"debug/arthas.md","ref":"debug/arthas.md","articles":[]}]},"previous":{"title":"代理模式之JDK代理和CGLib代理","level":"1.6.4","depth":2,"path":"basic/JDK代理及CGLib代理.md","ref":"basic/JDK代理及CGLib代理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"design/java-spi.md","mtime":"2021-07-18T07:12:21.777Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-09T02:11:01.409Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java SPI","level":"1.6.5","depth":2,"next":{"title":"故障诊断","level":"1.7","depth":1,"ref":"","articles":[{"title":"Jstack 工具使用","level":"1.7.1","depth":2,"path":"debug/jstack.md","ref":"debug/jstack.md","articles":[]},{"title":"show-busy-java-threads","level":"1.7.2","depth":2,"path":"debug/show-busy-java-threads.md","ref":"debug/show-busy-java-threads.md","articles":[]},{"title":"Arthas","level":"1.7.3","depth":2,"path":"debug/arthas.md","ref":"debug/arthas.md","articles":[]}]},"previous":{"title":"代理模式之JDK代理和CGLib代理","level":"1.6.4","depth":2,"path":"basic/JDK代理及CGLib代理.md","ref":"basic/JDK代理及CGLib代理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2019","modify_label":"<span></span>","modify_format":"HH:mm"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/thinking-in-java"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"thinking-in-java","type":"star","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Thinking in Java","links":{"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Thinking in Java","extension":null},"file":{"path":"design/java-spi.md","mtime":"2022-01-09T12:59:33.376Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-09T13:10:35.276Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

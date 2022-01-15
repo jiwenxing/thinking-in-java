@@ -57,9 +57,14 @@
   - [show-busy-java-threads](debug/show-busy-java-threads.md)
   - [Arthas](debug/arthas.md)
 
-- 待归档
-  <!-- - [fastjson 泛型的反序列化](tools/fastjson-deserilize.md) -->
+- 工具箱
+  - [Shell 脚本编程](tools/shell.md)
+    - [Shell 工具安装脚本示例](tools/example1-installer-script.md)
+    <!-- - [fastjson 泛型的反序列化](tools/fastjson-deserilize.md) -->
+  - [Vim 使用技巧](tools/vim-editor.md)
   - [重试工具：Guava Retryer](tools/guava-retryer.md)
+
+- IO & File
   - [Java IO & NIO 介绍](basic/java-bio-nio-aio.md)
 
 - 方法论
